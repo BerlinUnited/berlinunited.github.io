@@ -1,0 +1,5 @@
+# ignore python and IDE stuff
+.idea/*
+
+# ignore build dir
+site/
