@@ -1,4 +1,14 @@
 site_name: Berlin United - Teamreport
-
+nav:
+    - 'index.md'
+    - 'introduction.md'
+    - 'architecture.md'
+    - 'debugging.md'
+    - 'vision.md'
+    - 'modeling.md'
+    - 'motion.md'
+    - 'behavior.md'
 theme:
   name: gitbook
+
+plugins: []
