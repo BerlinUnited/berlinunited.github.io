@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-<title>Architecture {#s:architecture} - Berlin United - Teamreport</title>
+<title>Architecture - Berlin United - Teamreport</title>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
 <meta name="generator" content="mkdocs-1.1.2, mkdocs-gitbook-1.0.7">
@@ -32,12 +32,20 @@
 <li class="divider"></li>
 <li class="chapter" data-path="">
 <a href="..">Teamreport - Berlin United</a>
-<li class="chapter active" data-path="architecture/">
-<a href="./">Architecture {#s:architecture}</a>
 <li class="chapter" data-path="introduction/">
 <a href="../introduction/">Introduction</a>
-<li class="chapter" data-path="other/">
-<a href="../other/">Debugging and Tools {#s:debug}</a>
+<li class="chapter active" data-path="architecture/">
+<a href="./">Architecture</a>
+<li class="chapter" data-path="debugging/">
+<a href="../debugging/">Debugging and Tools</a>
+<li class="chapter" data-path="vision/">
+<a href="../vision/">Visual Perception</a>
+<li class="chapter" data-path="modeling/">
+<a href="../modeling/">Modeling</a>
+<li class="chapter" data-path="motion/">
+<a href="../motion/">Motion Control</a>
+<li class="chapter" data-path="behavior/">
+<a href="../behavior/">Behavior</a>
 <li class="divider"></li>
 
 
@@ -76,7 +84,7 @@ Theme by GitBook
 
 
 
-<h1 id="architecture-sarchitecture">Architecture {#s:architecture}</h1>
+<h1 id="architecture">Architecture</h1>
 <p>An appropriate architecture is the base of each successful software
 project. It enables a group of developers to work at the same project
 and to organize the solutions for their particular research questions.
@@ -119,7 +127,7 @@ reference="fig:platform-interface"}).</p>
 the Cognition and Motion
 processes." src="../figs/platform_interface" />{#fig:platform-interface
 width="\textwidth"}</p>
-<h2 id="module-framework-smodule_framework">Module framework {#s:module_framework}</h2>
+<h2 id="module-framework">Module framework</h2>
 <p>Our module framework is based on a <em>blackboard architecture</em>. The
 framework consists of the following basic components:</p>
 <p>Representation</p>
@@ -222,7 +230,7 @@ the file <code>NaoTHSoccer/Source/Core/Cognition/Cognition.cpp</code>.</p>
 <pre><code class="language-c++">REGISTER_MODULE(MyModule);
 </code></pre>
 <p>The order of registration defines the order of execution of the modules.</p>
-<h2 id="serialization-sserialization">Serialization {#s:serialization}</h2>
+<h2 id="serialization">Serialization</h2>
 <p>As described in the
 Section <a href="#s:module_framework">2.3</a>{reference-type="ref"
 reference="s:module_framework"} the core of the program is structured in

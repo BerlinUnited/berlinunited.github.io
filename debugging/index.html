@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>Debugging and Tools - Berlin United - Teamreport</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<meta name="generator" content="mkdocs-1.1.2, mkdocs-gitbook-1.0.7">
+
+<link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
+<meta name="HandheldFriendly" content="true"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta rel="next" href="" />
+<link href="../css/style.min.css" rel="stylesheet"> 
+</head>
+
+<body>
+<div class="book">
+<div class="book-summary">
+<div id="book-search-input" role="search">
+<input type="text" placeholder="Type to search" />
+</div> <!-- end of book-search-input -->
+
+<nav role="navigation">
+<ul class="summary">
+<li>
+<a href=".." target="_blank" class="custom-link">Berlin United - Teamreport</a>
+</li>
+<li class="divider"></li>
+<li class="chapter" data-path="">
+<a href="..">Teamreport - Berlin United</a>
+<li class="chapter" data-path="introduction/">
+<a href="../introduction/">Introduction</a>
+<li class="chapter" data-path="architecture/">
+<a href="../architecture/">Architecture</a>
+<li class="chapter active" data-path="debugging/">
+<a href="./">Debugging and Tools</a>
+<li class="chapter" data-path="vision/">
+<a href="../vision/">Visual Perception</a>
+<li class="chapter" data-path="modeling/">
+<a href="../modeling/">Modeling</a>
+<li class="chapter" data-path="motion/">
+<a href="../motion/">Motion Control</a>
+<li class="chapter" data-path="behavior/">
+<a href="../behavior/">Behavior</a>
+<li class="divider"></li>
+
+
+
+<li><a href="http://www.mkdocs.org">
+Published with MkDocs
+</a></li>
+
+<li><a href="https://github.com/GitbookIO/theme-default">
+Theme by GitBook
+</a></li>
+</ul>
+
+</nav>
+
+</div> <!-- end of book-summary -->
+
+<div class="book-body">
+<div class="body-inner">
+<div class="book-header" role="navigation">
+
+<!-- Title -->
+<h1>
+<i class="fa fa-circle-o-notch fa-spin"></i>
+<a href="." ></a>
+</h1>
+
+</div> <!-- end of book-header -->
+
+<div class="page-wrapper" tabindex="-1" role="main">
+<div class="page-inner">
+<div id="book-search-results">
+<div class="search-noresults">
+
+<section class="normal markdown-section">
+
+
+
+<h1 id="debugging-and-tools">Debugging and Tools</h1>
+<p>In order to develop a complex software for a mobile robot, we require
+means for high-level debugging and monitoring (e. g., visualization of
+the robot's posture or its position on the field). Since we do not
+exactly know which kind of algorithms will be debugged, there are two
+aspects of high importance: accessibility at runtime and flexibility.
+The accessibility of the debug construct is realized based on our
+communication framework. Thus, they can be accessed at runtime by using
+visualization software like RobotControl, as shown in
+Figure <a href="#fig:robotcontrol">3.1</a>{reference-type="ref"
+reference="fig:robotcontrol"}.</p>
+<h2 id="concepts">Concepts</h2>
+<p>Some of the ideas were evolved from the
+GT-Architecture [@2007:RoboCup-TDP-GermanTeam]. The following list
+illustrates some of the debug concepts:</p>
+<p>debug request</p>
+<p>:   (activates/deactivates code parts),</p>
+<p>modify</p>
+<p>:   allows modification of a value (in particular local variables)</p>
+<p>stopwatch</p>
+<p>:   measures the execution time</p>
+<p>parameter list</p>
+<p>:   allows to monitor and modify lists of parameters</p>
+<p>drawings</p>
+<p>:   allows visualization in 2D/3D; thereby it can be drawn into the
+    image or on the field (2D/3D)</p>
+<p>plot</p>
+<p>:   allows visualization of values over time</p>
+<p>As already mentioned, these concepts can be placed at any position in
+the code and can be accessed at runtime. Similar to the module
+architecture, the debug concepts are hidden by macros to allow simple
+usage and to be able to deactivate the debug code at compilation time,
+if necessary.</p>
+<p>In order to use a debug request in the code you have to register it once
+with the <code>DEBUG_REQUEST_REGISTER</code> macro:</p>
+<pre><code class="language-c++">DEBUG_REQUEST_REGISTER(&quot;My:Debug:Request&quot;, &quot;Description of the debug request&quot;, true);
+</code></pre>
+<p>After that, you can use the <code>DEBUG_REQUEST</code> macro to wrap code that
+should be only executed when the debug request is active.</p>
+<pre><code class="language-c++">DEBUG_REQUEST(&quot;My:Debug:Request&quot;,
+    std::cout &lt;&lt; &quot;This code is not executed normally&quot; &lt;&lt; std::endl;
+    ++c;
+);
+</code></pre>
+<p><code>MODIFY</code> works in a similar way, but does not need any registration. By,
+for example, wrapping a variable and defining an identifier, this
+variable can be changed later from RobotControl.</p>
+<pre><code class="language-c++">double yaw  = 0;
+MODIFY(&quot;BasicTestBehavior:head:headYaw_deg&quot;,yaw);
+</code></pre>
+<p><img alt="The RobotControl program contains different dialogs. The 3DViewer (top
+left) is used to visualize the current state of the robot; the Value
+Plotter dialog (bottom left) plots some data; the Field Viewer dialog
+(top center) draws the field view; the Behavior dialog (bottom center)
+shows the behavior tree; the Debug Request Center dialog (right) is for
+enabling/disabling debug requests." src="RobotControl2018" />{#fig:robotcontrol
+width="100%"}</p>
+<p>In addition to these means for individual debugging, there are some more
+for general monitoring purposes: the whole content of the blackboard,
+the dependencies between the modules and representations, and execution
+times of each single module. The
+Figure <a href="#fig:robotcontrol">3.1</a>{reference-type="ref"
+reference="fig:robotcontrol"} illustrates visualizations of the debug
+concepts. In particular a field view, 3D view, behavior tree, plot and
+the table of debug requests are shown.</p>
+<h2 id="robotcontrol-srobotcontrol">RobotControl {#s:robotcontrol}</h2>
+<p>The various debugging possibilities are organized in different dialogs.
+In this year we started to update the UI by switching to JavaFX for some
+dialogs. The following list consists of our most used RobotControl
+Dialogs.</p>
+<h3 id="behavior-viewer-behavior-viewer-unnumbered">Behavior Viewer {#behavior-viewer .unnumbered}</h3>
+<p><img alt="image" src="rc-dialogs/BehaviorViewer" />{width="96%"}</p>
+<p>Shows the behavior tree for the current behavior. The compiled XABSL
+behavior needs to be sent to the robot first and then an agent can be
+selected to be executed. With 'Add Watch' you can track XABSL input and
+output symbols.</p>
+<h3 id="debug-requests-debug-requests-unnumbered">Debug Requests {#debug-requests .unnumbered}</h3>
+<p><img alt="image" src="rc-dialogs/DebugRequests" />{width="96%"}</p>
+<p>(De-)activates the debug request code. Usually a debug request draws
+something on the field viewer or on the camera images. For further
+information about individual debug requests, have a look at the source
+code.</p>
+<h3 id="field-viewer-rcfieldviewer-unnumbered">Field Viewer {#rc:fieldviewer .unnumbered}</h3>
+<p><img alt="image" src="rc-dialogs/FieldViewer" />{width="96%"}</p>
+<p>There are views for different field sizes and a local view. Certain
+debug requests draw on these views. For example, you could draw the
+robots' positions on the field by activating the corresponding debug
+request.</p>
+<h3 id="image-viewer-image-viewer-unnumbered">Image Viewer {#image-viewer .unnumbered}</h3>
+<p><img alt="image" src="rc-dialogs/ImageViewer" />{width="96%"}</p>
+<p>Can show the top and bottom images. There are debug requests that draw
+on the camera images, if they are active.</p>
+<h3 id="logfile-recorder-logfile-recorder-unnumbered">Logfile Recorder {#logfile-recorder .unnumbered}</h3>
+<p><img alt="image" src="rc-dialogs/LogfileRecorder" />{width="96%"}</p>
+<p>Records a log file on a robot with manually selected representations.</p>
+<h3 id="modify-modify-unnumbered">Modify {#modify .unnumbered}</h3>
+<p><img alt="image" src="rc-dialogs/Modify" />{width="96%"}</p>
+<p>The Modify macro allows changing values of variables declared within
+this macro at runtime.</p>
+<h3 id="module-configuration-viewer-module-configuration-viewer-unnumbered">Module Configuration Viewer {#module-configuration-viewer .unnumbered}</h3>
+<p><img alt="image" src="rc-dialogs/ModuleConfigurationViewer" />{width="96%"}</p>
+<p>Shows which modules are currently (de-)activated. Also indicates, which
+other modules are required (left) and provided (right) by each module.</p>
+<h3 id="parameter-panel-parameter-panel-unnumbered">Parameter Panel {#parameter-panel .unnumbered}</h3>
+<p><img alt="image" src="rc-dialogs/ParameterPanel" />{width="96%"}</p>
+<p>Shows parameters defined in our configuration files. It is possible to
+change the values at runtime. The variables must be registered as
+parameters in the code.</p>
+<h3 id="plot-2d-plot-2d-unnumbered">Plot 2D {#plot-2d .unnumbered}</h3>
+<p><img alt="image" src="rc-dialogs/Plot2D" />{width="96%"}</p>
+<p>Shows plots activated by plot debug requests.</p>
+<h3 id="representation-inspector-representation-inspector-unnumbered">Representation Inspector {#representation-inspector .unnumbered}</h3>
+<p><img alt="image" src="rc-dialogs/RepresentationInspector" />{width="96%"}</p>
+<p>Shows the data that is written to the blackboard by each representation.</p>
+<h3 id="stopwatch-viewer-stopwatch-viewer-unnumbered">Stopwatch Viewer {#stopwatch-viewer .unnumbered}</h3>
+<p><img alt="image" src="rc-dialogs/StopwatchViewer2018" />{width="96%"}</p>
+<p>Shows the execution time for each module.</p>
+<h3 id="team-communication-viewer-team-communication-viewer-unnumbered">Team Communication Viewer {#team-communication-viewer .unnumbered}</h3>
+<p>::: {.wrapfigure}
+l0.65 <img alt="image" src="rc-dialogs/TeamCommViewer2018" />{width="65%"}
+:::</p>
+<p>Shows all connected robots and possible all of their provided status
+information via TeamComm (e.g. ip address, battery charge, temperature,
+etc.). This dialog is mainly used during competitions to get a quick
+overview of the robots health status, their communicated data (e.g.
+ball, whistle detection, etc.) and their role decisions. Positions of
+the robots, role decision and seen ball for each robot are visualized in
+the
+FieldViewer <a href="#rc:fieldviewer">[rc:fieldviewer]</a>{reference-type="ref"
+reference="rc:fieldviewer"}. It's also useful for debugging the team
+communication to get a general overview of the role decision and its
+transitions. This year, the dialog was re-implemented using JavaFX.</p>
+<h3 id="team-communication-logviewer-team-communication-logviewer-unnumbered">Team Communication Logviewer {#team-communication-logviewer .unnumbered}</h3>
+<p><img alt="image" src="rc-dialogs/TeamCommLogViewer2018" />{width="96%"}</p>
+<p>The <em>Team Communication Logviewer</em> allows to re-play team communication
+logfiles previously recorded with the <em>Team Communication Viewer</em>. It's
+also able to re-play logs from the GameController and export them as
+JSON.</p>
+<h3 id="simspark-simspark-unnumbered">Simspark {#simspark .unnumbered}</h3>
+<p><img alt="image" src="rc-dialogs/Simspark" />{width="96%"}</p>
+<p>This dialog shows the state of the connected simspark instance. It also
+provides some predefined commands and a textfield for user-defined
+commands to send to simspark. Furthermore it also provides the
+teamcommunication of the simulated robots for other dialogs in
+RobotControl (e.g. <em>Team Communication Viewer</em>).</p>
+<h3 id="external-tools-external-tools-unnumbered">External Tools {#external-tools .unnumbered}</h3>
+<p>::: {.wrapfigure}
+l0.65 <img alt="image" src="rc-dialogs/ExternalTools" />{width="65%"}
+:::</p>
+<p>Some "external tools" where modified in order to load them into
+RobotControl via reflection. Its convenient to have all needed tools in
+the application we're using most. Currently we have the NaoSCP tool (see
+<a href="#sec:naoscp">3.3.2</a>{reference-type="ref" reference="sec:naoscp"}
+NaoSCP), for the setup &amp; deployment of a robot, and a modified version
+of RoboViz, for visualization of a SimSpark simulation, integrated in
+RobotControl.</p>
+<h2 id="robot-setup-and-deployment">Robot Setup and Deployment</h2>
+<p>In this section we give an overview over our deployment and robot setup
+procedure. Changing the configuration of the robot, e.g., deployment of
+the binary, network setup etc., is a critical point during both,
+development and competition. To minimize the chance of error we
+developed a set of procedures and tools.</p>
+<h3 id="deployment-procedure">Deployment Procedure</h3>
+<p>Currently we have two different deployment procedures:</p>
+<ul>
+<li>
+<p>deployment via usb flash drive</p>
+</li>
+<li>
+<p>deployment via network</p>
+</li>
+</ul>
+<p>The general procedure consists of two steps:</p>
+<ol>
+<li>
+<p>assemble deployment directory containing all files and
+    configurations to be deployed as well as a corresponding deployment
+    shell script;</p>
+</li>
+<li>
+<p>copy this directory to the robot and run the deployment script;</p>
+</li>
+</ol>
+<p>This division minimizes the chance of mistakes and allows for easier
+debugging, i.e., if something went wrong, the error is either in the
+locally assembled deployment directory or has occurred during the
+deployment on the robot - both can be inspected separately. At the same
+time this locally assembled deployment directory serves as a binary
+backup, which can be very useful during the competition, e.g., if
+something turned out to be wrong with the new version just before the
+game and one needs to switch back to the binary from the last game.</p>
+<p>The beginning and the end of the deployment procedure are indicated by
+different sounds. This way the state of the robot and the progress of
+the deployment can be easily monitored, this is especially helpful when
+setting up a whole team before a game.</p>
+<h3 id="naoscp-secnaoscp">NaoSCP {#sec:naoscp}</h3>
+<p><em>NaoSCP</em> is a setup and deployment tool. It primarily has three tasks:
+(1) initialize a new robot, e.g., copy libraries and scripts, (2) set
+the network configuration and (3) deploy naoth binary and configurations
+to the robot. All these tasks can be done on a command line as well, the
+main aims for designing <em>NaoSCP</em> were simplification of the deployment
+process, ensured backup of deployed binaries and reduction of the chance
+of mistakes during setup in critical situations, e.g., before a game at
+the world championship.</p>
+<p><img alt="NaoSCP user interface. The log panel on the right displays status of
+the deployment process. The left side contains the panels for the
+configuration of the deployment / setup process: *Network* configures
+the network setup; *NaoTH* is used to adjust the configuration relevant
+for the deployed binary, e.g., player numbers. The buttons in the left
+bottom tool bar trigger particular deployment and setup actions like
+writing the network configuration to the robot or copying a new binary
+to a deployment USB flash drive. " src="NaoSCP" />{#fig:naoscp width="100%"}</p>
+<h4 id="usage-remarks">Usage Remarks</h4>
+<p>The following describes the particular components of the NaoSCP user
+interface as illustrated in the
+Figure <a href="#fig:naoscp">3.2</a>{reference-type="ref" reference="fig:naoscp"}.</p>
+<p>Log Window</p>
+<p>:   (right) shows information regarding the progress of the deployment
+    process, e.g., copied files, connection errors and such.</p>
+<p><em>Network</em></p>
+<p>:   configuration (top left) is used to setup the LAN and WLAN;</p>
+<p><em>NaoTH</em></p>
+<p>:   dialog (left) configures the deployment of the game binary and
+    contains things like the path to the source where the binaries can
+    be found, used configuration scheme and player numbers for each
+    robot based on their IP address;</p>
+<p>Action toolbar</p>
+<p>:   (bottom left) contains the buttons for the four different deployment
+    / setup actions: <em>Send to Robot</em> deploys the complied code and
+    configuration to a particular robot via network. The text field left
+    of the button defines the last byte of the ip address of the target
+    robot. The network configuration from the dialog <em>Network</em> is used
+    to determine the complete address. In this particular example the
+    LAN target address would be 192.168.13.82. Thereby LAN is tried
+    first and in case of failure WLAN is tried; <em>Write to stick</em> writes
+    the deployment directory to a USB flash drive. If the flash drive
+    already contains a deployment directory, a backup version of it is
+    created. The text field left to the button holds an optional tag,
+    which is used to organize the backups on the flash drive; <em>Set
+    Network</em> configures the robots network according the the settings in
+    the dialog <em>Network</em>; <em>Initialize Robot</em> will initialize a new
+    robot, e.g., after a factory reset. This action will copy additional
+    libs, configure the NaoQi modules, necessary starting scripts for
+    binaries and for automatic mounting and running of USB flash drives.
+    Additionally the network is configured and the binary is deployed
+    like previously described;</p>
+<h3 id="usb-flash-drive-susb_stick">USB flash drive {#s:usb_stick}</h3>
+<p>A deployment flash drive can be created manually or (as described above)
+via the NaoSCP tool. As the minimum requirement there should be an
+executable shell script named \"'startBrainwashing.sh\"'. When the flash
+drive with a shell script (and a deployment directory) is connected to
+the robot, it is mounted automatically to a defined directory and the
+setup script is executed. The script is responsible for copying the
+particular binary and/or configuration files. The begin and end of the
+deployment procedure are indicated by different sounds. This way is
+preferred when deploying software on several robots, e.g., setting up a
+team before a game.</p>
+<h4 id="flash-drive-variants">Flash drive variants</h4>
+<p>Currently we have different kinds of USB flash drives to accomplish
+different kinds of deployment or collection tasks.</p>
+<h5 id="deploying">Deploying</h5>
+<p>As described above the deployment flash drive is used to copy new
+binaries and/or configuration files to the robot.</p>
+<h5 id="collecting-log-files">Collecting log files</h5>
+<p>The \"'collect log files\"' flash drive is used to copy the recorded log
+file from the robot. This is primarily used after games to be able to
+analyze possible misbehavior of the robot. Otherwise, if the robot is
+shut down, the log files would be lost since we record the logfiles in
+main memory. In addition some informations about the robot and the
+currently executed binary are collected and written to the
+\"'nao.info\"' file. With that information we're documenting the state
+of the robot/binary of the log file and giving a quick overview on later
+log file examination. Finally we're collecting all \"'heard\"' whistles
+for later fine-tuning of our whistledetector.</p>
+<h5 id="setting-network">Setting network</h5>
+<p>The network flash drive is used to set the network configuration of the
+robot (like IP address, etc.). Especially for the Wi-Fi configuration
+this method is useful to quickly set up all need robots before a game.</p>
+<h2 id="logging">Logging</h2>
+<p>Analysis and evaluation of the algorithms running on the robot is a big
+challenge.</p>
+<p>Our team has a long history in logging (our logs from 2010 are still
+readable and useful). Through the years we developed a comprehensive
+infrastructure for recording log files on individual robots during the
+games as well as tools for synchronizing these log files with videos of
+the game and analyzing them.</p>
+<p>A log file is recorded by a robot in its local file system, and is
+collected later through network or USB (cf.
+Section <a href="#s:usb_stick">3.3.3</a>{reference-type="ref"
+reference="s:usb_stick"}). Currently we use two different modes for
+recording such log files - automatic game log and log of manually
+selected representations.</p>
+<p>The game log is only recorded when the robot is in a <em>playing</em> state. It
+is recorded with the cognition pace, i.e., each time a new image arrives
+(each 33ms), and contains mainly the behavior state as well as
+additional information needed in a particular situation. For example
+during the RoboCup 2016 we recorded the best four ball candidate patches
+from each image in each frame to create a database of realistic samples
+for ball detection (cf.
+Section <a href="#s:ball:sample_generation">4.8.2.1</a>{reference-type="ref"
+reference="s:ball:sample_generation"}). The game logs recorded by
+individual robots can be synchronized with the video of the game, which
+can be very useful to analyze and find bugs in the behavior patterns of
+the robot and ultimately in the team behavior.</p>
+<p>Figure <a href="#f:synchronisation_interface">3.3</a>{reference-type="ref"
+reference="f:synchronisation_interface"} illustrates the manual
+synchronization interface. To simplify the synchronization procedure
+changes in the game state, e.g., from <em>ready</em> to <em>play</em>, are
+automatically extracted from the log file. The operator can select a
+suitable event from a drop-down list. To synchronize both, the operator
+then needs to find the corresponding time in the video. Good events for
+synchronization are often changes from <em>init</em> to <em>ready</em> - in the video
+one can clearly see when the robots receive the signal from the game
+controller and start to move.</p>
+<p>The manual logs can be configured and triggered through the according
+control dialog in the <em>RobotControl</em> as shown in the
+Section <a href="#s:robotcontrol">3.2</a>{reference-type="ref"
+reference="s:robotcontrol"}. This is used to record specific data for
+debugging or analysis in isolated experiments. A good example are log
+files containing full images of particular situations for general image
+processing, which can be only recorded for a short period of time due to
+the large size.</p>
+<p><img alt="Synchronization Interface for individual log files and videos of a
+game." src="synchronizationTool.png" />{#f:synchronisation_interface
+width="100%"}</p>
+<h3 id="logfile-format">Logfile Format</h3>
+<p>As described in the
+Section <a href="#s:module_framework">2.3</a>{reference-type="ref"
+reference="s:module_framework"} the state of the robot is stored in
+<em>representations</em> on the <em>blackboard</em>. Any of these representations can
+be recorded to a log file if it has a designated serializer as described
+in Section <a href="#s:serialization">2.4</a>{reference-type="ref"
+reference="s:serialization"}. The format by which the representations
+are stored in a logfile is pretty straight forward. Each representation
+is stored in a package of the following form:</p>
+<pre><code>&lt;frame number&gt;&lt;representation name&gt;&lt;size&gt;&lt;data&gt;
+</code></pre>
+<p>Where <code>&lt;frame number&gt;</code> is 4 byte long, <code>&lt;representation name&gt;</code> is a
+string terminated with a zero character <code>'\0'</code> and <code>&lt;size&gt;</code> is 4 bit
+long length of the following binary <code>&lt;data&gt;</code>. A logfile is simply a
+sequence of such packages. Important to note is that when several
+different representations are recorded in each frame they are written in
+the same way, so the final log looks something like this:</p>
+<pre><code>1 FrameInfo ...
+1 ImageTop ...
+1 CameraMatrix ...
+2 FrameInfo ...
+2 ImageTop ...
+2 CameraMatrix ...
+...
+</code></pre>
+<h5 id="annotate-and-evaluate-logs">Annotate and Evaluate Logs</h5>
+<p>Annotation interface was created and used to annotate different kick
+actions executed by our robots in the videos recorded during the games
+at the RoboCup in 2015. The kick events were automatically extracted
+from the log files recorded by the individual robots and aligned with
+the video. Thus the human annotator can simply click through the
+particular events and inspect them in a short time. The results were
+used to evaluate the performance of the kick decision algorithm and were
+published in [@RC-MellmannSchlotterBlum-16]. illustrates an example of a
+labeling session for the first half of the game with the team
+<em>NaoDevils</em> at the RoboCup 2015. The following two links lead to an
+online demo and to the public repository with the code of the labeling
+interface:\
+<a href="https://www2.informatik.hu-berlin.de/~naoth/videolabeling/index.php">https://www2.informatik.hu-berlin.de/~naoth/videolabeling/index.php</a>\
+<a href="https://github.com/BerlinUnited/VideoLogLabeling">https://github.com/BerlinUnited/VideoLogLabeling</a></p>
+<p><img alt="Labeling interface used to annotate kick events regarding their
+quality. At the bottom are time lines for each of the robots. Different
+actions are represented by buttons on the time line with different
+colors. On the right the robots estimated state is visualized, i.e.,
+estimation of its position, ball model and obstacles. On the left are
+three categories of binary labels describing the quality of the
+action." src="labeling_screenshot.png" />{#f:labeling_interface width="100%"}</p>
+<h2 id="simulation-ssimulation">Simulation {#s:simulation}</h2>
+<p>As a common experience, there are big gaps between simulation and
+reality in robotics, especially with regards to basic physics with
+consequences for low level skills in motion and perception. There are
+some researchers who have already tried to narrow this gap, but there
+are only few successful results so far. We investigate the relationships
+and possibilities for methods and code transferring. Consequences can
+lead to better simulation tools, especially in the 3D Simulation League.
+At the moment, we use the SimSpark simulator from the 3D Simulation
+League with the common core of our program, see
+Figure <a href="#fig:spl-and-sim">3.6</a>{reference-type="ref"
+reference="fig:spl-and-sim"}. As already stated, therewith, we want to
+foster the cooperation between the two leagues and to improve both of
+them.</p>
+<p><img alt="NAO robots run in Standard Platform League (left) and 3D Simulation
+League (right)." src="figs/spl.jpg" title="fig:" />{#fig:spl-and-sim width="48%"}
+<img alt="NAO robots run in Standard Platform League (left) and 3D Simulation
+League (right)." src="figs/SimSparkTeam.png" title="fig:" />{#fig:spl-and-sim
+width="48%"}</p>
+<p>When compared to real Nao robots, some devices are missing in the
+SimSpark, such as LEDs and sound speakers. On one hand, we extended the
+standard version of SimSpark by adding missing devices like camera,
+accelerometer, to simulate the real robot. On the other hand, we can use
+a virtual vision sensor which is used in 3D simulation league instead of
+our image processing module. This allows us to perform isolated
+experiments on low level (e. g., image processing) and also on high
+level (e. g., team behavior). Also we developed a common architecture
+[@Mellmann2010b], and published a simple framework allowing for an easy
+start in the Simulation 3D league.</p>
+<p>Our plan is to analyze data from sensors/actuators in simulation and
+from real robots at first and then to apply machine learning methods to
+improve the available model or build a good implicit model from the data
+of real robot. Particularly, we plan to:</p>
+<ul>
+<li>
+<p>improve the simulated model of the robot in SimSpark,</p>
+</li>
+<li>
+<p>publish the architecture and a version of SimSpark which can be used
+    for simulation in SPL,</p>
+</li>
+<li>
+<p>transfer results from simulation to the real robot (e. g., team
+    behavior, navigation with potential field).</p>
+</li>
+</ul>
+<p>So far, we have developed walking gaits through evolutionary techniques
+in a simulated environment [@rc-07-hein_et_al; @diplom-hein].
+Reinforcement Learning was used for the development of dribbling skills
+in the 2D simulation [@Uc-Cetina09thesis], while Case Based Reasoning
+was used for strategic behavior
+[@BurkhardBerger07Cases; @berger-laemmel-wall-pass]. BDI-techniques have
+been investigated for behavior control, e. g., in
+[@diplom-berger; @hdb-bound-rat].</p>
+
+
+</section>
+</div> <!-- end of search-noresults -->
+<div class="search-results">
+<div class="has-results">
+
+<h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+<ul class="search-results-list"></ul>
+
+</div> <!-- end of has-results -->
+<div class="no-results">
+
+<h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+
+</div> <!-- end of no-results -->
+</div> <!-- end of search-results -->
+</div> <!-- end of book-search-results -->
+
+</div> <!-- end of page-inner -->
+</div> <!-- end of page-wrapper -->
+
+</div> <!-- end of body-inner -->
+
+</div> <!-- end of book-body -->
+<script src="../js/main.js"></script>
+<script src="../search/main.js"></script>
+<script src="../js/gitbook.min.js"></script>
+<script src="../js/theme.min.js"></script>
+</body>
+</html>
