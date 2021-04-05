@@ -72,7 +72,7 @@ Module Manager
 :   (manage the execution of the modules).
 
 ![Overview about the different components of the module
-framework.](../figs/modules){#fig:modules width="\\textwidth"}
+framework.](img/modules.png)  
 
 Figure [2.2](#fig:modules){reference-type="ref" reference="fig:modules"}
 describes the interaction between these components. A module may
