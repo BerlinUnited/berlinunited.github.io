@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>Architecture {#s:architecture} - Berlin United - Teamreport</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<meta name="generator" content="mkdocs-1.1.2, mkdocs-gitbook-1.0.7">
+
+<link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
+<meta name="HandheldFriendly" content="true"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta rel="next" href="" />
+<link href="../css/style.min.css" rel="stylesheet"> 
+</head>
+
+<body>
+<div class="book">
+<div class="book-summary">
+<div id="book-search-input" role="search">
+<input type="text" placeholder="Type to search" />
+</div> <!-- end of book-search-input -->
+
+<nav role="navigation">
+<ul class="summary">
+<li>
+<a href=".." target="_blank" class="custom-link">Berlin United - Teamreport</a>
+</li>
+<li class="divider"></li>
+<li class="chapter" data-path="">
+<a href="..">Teamreport - Berlin United</a>
+<li class="chapter active" data-path="architecture/">
+<a href="./">Architecture {#s:architecture}</a>
+<li class="chapter" data-path="introduction/">
+<a href="../introduction/">Introduction</a>
+<li class="chapter" data-path="other/">
+<a href="../other/">Debugging and Tools {#s:debug}</a>
+<li class="divider"></li>
+
+
+
+<li><a href="http://www.mkdocs.org">
+Published with MkDocs
+</a></li>
+
+<li><a href="https://github.com/GitbookIO/theme-default">
+Theme by GitBook
+</a></li>
+</ul>
+
+</nav>
+
+</div> <!-- end of book-summary -->
+
+<div class="book-body">
+<div class="body-inner">
+<div class="book-header" role="navigation">
+
+<!-- Title -->
+<h1>
+<i class="fa fa-circle-o-notch fa-spin"></i>
+<a href="." ></a>
+</h1>
+
+</div> <!-- end of book-header -->
+
+<div class="page-wrapper" tabindex="-1" role="main">
+<div class="page-inner">
+<div id="book-search-results">
+<div class="search-noresults">
+
+<section class="normal markdown-section">
+
+
+
+<h1 id="architecture-sarchitecture">Architecture {#s:architecture}</h1>
+<p>An appropriate architecture is the base of each successful software
+project. It enables a group of developers to work at the same project
+and to organize the solutions for their particular research questions.
+From this point of view, the artificial intelligence and/or robotics
+related research projects are usually more complicated than commercial
+product development, since the actual result of the project is often not
+clear. Since we use this project also in education, a clear organization
+of the software is necessary to achieve a fast familiarization with the
+software. Our software architecture is organized with the main focus on
+modularity, easy usage, transparency and convenient testing
+capabilities.</p>
+<p>In the following subsections we describe the design and the
+implementation of different parts of the architecture. A detailed
+description of the principles we used can also be found in
+[@Mellmann2010b].</p>
+<h2 id="naosmal">NaoSMAL</h2>
+<p>In our architecture we don't use the NAOqi API directly but use our own
+so-called NaoSMAL ([Nao]{.ul} [S]{.ul}hared [M]{.ul}emory
+[A]{.ul}bstraction [L]{.ul}ayer) NAOqi-module. This calls the DCM API of
+NAOqi[^1] and makes it accessible for other processes via a shared
+memory interface. Thus we can implement our own code as a completely
+separated executable that has no dependencies to the NAOqi framework.
+The benefits are a safer operation of the Nao on code crashes (NaoSMAL
+will continue to run and ensures the robot will go in a stable
+position), faster redeploy of our binary without restarting NAOqi and a
+faster compilation since we have fewer dependencies.</p>
+<h2 id="platform-interface">Platform Interface</h2>
+<p>In order to integrate different platforms, our project is divided into
+two parts: a platform independent one and platform specific one. The
+platform specific part contains code which is applied to the particular
+robot platform. We support the Nao hardware platform, the SimSpark
+simulator[^2] and a logfile based simulator. While the platform specific
+part is a technical abstraction layer the platform independent part is
+responsible for implementing the actual algorithms. Both parts are
+connected by the <em>platform interface</em>, which transfers data between the
+platform independent and specific part (see Fig.
+<a href="#fig:platform-interface">2.1</a>{reference-type="ref"
+reference="fig:platform-interface"}).</p>
+<p><img alt="Platform Interface is responsible for data transfer and execution of
+the Cognition and Motion
+processes." src="../figs/platform_interface" />{#fig:platform-interface
+width="\textwidth"}</p>
+<h2 id="module-framework-smodule_framework">Module framework {#s:module_framework}</h2>
+<p>Our module framework is based on a <em>blackboard architecture</em>. The
+framework consists of the following basic components:</p>
+<p>Representation</p>
+<p>:   (objects carrying data and simple manipulation functions),</p>
+<p>Blackboard</p>
+<p>:   (container storing representations as information units),</p>
+<p>Module</p>
+<p>:   (executable unit, has access to the blackboard and can read and
+    write representations),</p>
+<p>Module Manager</p>
+<p>:   (manage the execution of the modules).</p>
+<p><img alt="Overview about the different components of the module
+framework." src="../figs/modules" />{#fig:modules width="\textwidth"}</p>
+<p>Figure <a href="#fig:modules">2.2</a>{reference-type="ref" reference="fig:modules"}
+describes the interaction between these components. A module may
+<em>require</em> a representation, in this case it has read-only access to it.
+A module <em>provides</em> a representation, if it has write access. In our
+design we consider only sequential execution of the modules, thus there
+is there is no necessity for handling concurrent access to the
+blackboard. We decide which representation is required or provided
+during compilation time. Different modules can implement similar
+functionality and provide the same representations. You can configure
+which of the modules should be executed at runtime and it is also
+possible to dynamically change this for debugging purposes.</p>
+<h3 id="example-module">Example module</h3>
+<p>A module is a C++ class which inherits a base class which is created
+with the help of some macros defining the interface of the the module.</p>
+<pre><code class="language-c++">#ifndef _MyModule_H
+#define _MyModule_H
+
+#include &lt;ModuleFramework/Module.h&gt;
+#include &lt;Representations/DataA.h&gt;
+#include &lt;Representations/DataB.h&gt;
+
+BEGIN_DECLARE_MODULE(MyModule)
+ REQUIRE(DataA)
+ PROVIDE(DataB)
+END_DECLARE_MODULE(MyModule)
+
+class MyModule: public MyModuleBase
+{
+public:
+ MyModule();
+ ~MyModule();
+
+ virtual void execute();
+};
+
+#endif  /* _MyModule_H */
+</code></pre>
+<p>The <code>MyModule</code> class inherits the <code>MyModuleBase</code> class which was defined
+with the <code>BEGIN_DECLARE_MODULE</code> macro. Each representation which is
+needed by the module is either declared as provided or required with the
+corresponding macro. After declaring a representation it is accessible
+with a getter function, which has the name of the representation
+prefixed with "get', e.g. <code>getDataA()</code> for the representation <code>DataA</code>.
+The actual implementation of the functionality of a module must be in
+the <code>execute()</code> function.</p>
+<pre><code class="language-c++">#include &quot;MyModule.h&quot;
+
+MyModule::MyModule()
+{
+  // initialize some stuff here
+}
+
+MyModule::~MyModule()
+{
+  // clean some stuff here
+}
+
+void MyModule::execute()
+{
+  // do some stuff here
+  getDataB().x = getDataA().y + 1;
+}
+</code></pre>
+<p>A representation can be any C++ class, it does not need to inherit any
+special parent class.</p>
+<pre><code class="language-c++">class DataA
+{
+public: 
+  DataA(){}
+
+  int y;
+};
+
+class DataB
+{
+public: 
+  DataB(){}
+
+  int x;
+};
+</code></pre>
+<p>A module must be registered in the cognition process by including it in
+the file <code>NaoTHSoccer/Source/Core/Cognition/Cognition.cpp</code>.</p>
+<pre><code class="language-c++">#include &quot;Modules/Experiment/MyModule/MyModule.h&quot;
+</code></pre>
+<p>In the <code>init</code> method add the line:</p>
+<pre><code class="language-c++">REGISTER_MODULE(MyModule);
+</code></pre>
+<p>The order of registration defines the order of execution of the modules.</p>
+<h2 id="serialization-sserialization">Serialization {#s:serialization}</h2>
+<p>As described in the
+Section <a href="#s:module_framework">2.3</a>{reference-type="ref"
+reference="s:module_framework"} the core of the program is structured in
+modules which are responsible for different tasks like image processing,
+world modeling etc.. The modules communicate with each other through the
+<em>blackboard</em> by writing their results to <em>representations</em>. The
+<em>representations</em> are mainly pieces of data and have no significant
+functionality. These representation can be made <em>serializable</em>, which is
+mainly used in two cases: logging to a file and sending over the network
+for debug or monitoring reasons.</p>
+<p>The backbone of the serialization framework is formed by the Google
+<em>Protocol Buffers</em>[^3] (protobuf) library. For a representation to be
+serialized (which is described by a C++ class) an according protobuf
+message is defined. Please refer to the documentation page of protobuf
+for more details on this part. The serialization procedure is then
+performed in two steps: first the data is copied from the object which
+is to be serialized to the according message object; in the second step
+the message object is serialized by a protobuf serializer to a byte
+stream. The deserialization process works in reverse order. The second
+step is entirely done by the protobuf library. The copy procedure in the
+first step, however, has to be defined explicitly. This procedure is
+described in the <code>serialize()</code> and <code>deserialize()</code> functions of the
+template class <code>Serializer</code> which has to be specified for each
+representation to be serialized.</p>
+<p>The following listings illustrate the whole code necessary for
+serialization of a representation.
+Listing <a href="#lst:rep_h">[lst:rep_h]</a>{reference-type="ref"
+reference="lst:rep_h"} shows the header file <em>MyRepresentation.h</em>
+containing the declaration of the representation class <code>DataA</code> and the
+according specialization of the serializer <code>Serializer&lt;DataA&gt;</code>.
+Listing <a href="#lst:proto">[lst:proto]</a>{reference-type="ref"
+reference="lst:proto"} contains the probobuf message for <code>DataA</code>.
+Listing <a href="#lst:rep_cpp">[lst:rep_cpp]</a>{reference-type="ref"
+reference="lst:rep_cpp"} illustrates the implementation of the
+serialization functions in the file <em>MyRepresentation.cpp</em>.</p>
+<pre id="lst:rep_h"><code class="language-c++">#include &lt;Tools/DataStructures/Serializer.h&gt;
+
+class DataA
+{
+public: 
+  DataA()
+    : 
+    y(0),
+    time(0.0)
+  {}
+
+  int y;
+  double time;
+};
+
+namespace naoth {
+template&lt;&gt;
+class Serializer&lt;DataA&gt;
+{
+public:
+  static void serialize(const DataA&amp; representation, std::ostream&amp; stream);
+  static void deserialize(std::istream&amp; stream, DataA&amp; representation);
+};
+}
+</code></pre>
+<pre id="lst:proto"><code class="language-c++">package mymessages;
+
+message DataA {
+  required double time = 1;
+  required int32 y = 2;
+}
+</code></pre>
+<pre id="lst:rep_cpp"><code class="language-c++">#include &quot;MyRepresentation.h&quot;
+#include &quot;Messages/mymessages.pb.h&quot;
+#include &lt;google/protobuf/io/zero_copy_stream_impl.h&gt;
+
+using namespace naoth;
+
+void Serializer&lt;DataA&gt;::serialize(const DataA&amp; data, std::ostream&amp; stream)
+{
+  // create a new message
+  messages::DataA msg;
+
+  // copy data from the representation to the message
+  msg.set_y(data.y);
+  msg.set_time(data.time);
+
+  // serialize the message to stream
+  google::protobuf::io::OstreamOutputStream buf(&amp;stream);
+  msg.SerializeToZeroCopyStream(&amp;buf);
+}
+
+
+void Serializer&lt;DataA&gt;::deserialize(std::istream&amp; stream, DataA&amp; data)
+{
+  // create a new message
+  messages::DataA msg;
+
+  // decerialize the message from stream
+  google::protobuf::io::IstreamInputStream buf(&amp;stream);
+  msg.ParseFromZeroCopyStream(&amp;buf);
+
+  // copy data from the message to the data
+  data.y = msg.y();
+  data.time = msg.time();
+}
+</code></pre>
+
+
+</section>
+</div> <!-- end of search-noresults -->
+<div class="search-results">
+<div class="has-results">
+
+<h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+<ul class="search-results-list"></ul>
+
+</div> <!-- end of has-results -->
+<div class="no-results">
+
+<h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+
+</div> <!-- end of no-results -->
+</div> <!-- end of search-results -->
+</div> <!-- end of book-search-results -->
+
+</div> <!-- end of page-inner -->
+</div> <!-- end of page-wrapper -->
+
+</div> <!-- end of body-inner -->
+
+</div> <!-- end of book-body -->
+<script src="../js/main.js"></script>
+<script src="../search/main.js"></script>
+<script src="../js/gitbook.min.js"></script>
+<script src="../js/theme.min.js"></script>
+</body>
+</html>
