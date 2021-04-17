@@ -6,7 +6,7 @@ berlinunited.github.io
 
 for installing the theme: (this theme looks good, but is really buggy)
 `pip install mkdocs-gitbook`  
-
+pip install mkdocs-material
 pip install mkdocs-bibtex
 
 ## Deployment

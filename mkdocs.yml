@@ -1,5 +1,6 @@
-site_name: Berlin United - Teamreport
+site_name: Berlin United - Documentation
 nav:
+  - Teamreport:
     - 'index.md'
     - 'introduction.md'
     - 'architecture_intro.md'
@@ -9,13 +10,31 @@ nav:
     - 'motion.md'
     - 'behavior.md'
     - 'bibliography.md'
+  - RobotControl In Depth:
+    - 'rc/index.md'
+  - RobotCup Project:
+    - 'robocup_project/index.md'
 theme:
-  name: readthedocs
-  highlightjs: true
-  hljs_languages:
-      - proto
+  name: material
+  favicon: img/favicon.ico
+  logo: img/favicon.ico
+  features:
+    - navigation.sections
 
 plugins:
   - bibtex:
       bib_file: "papers.bib"
       cite_style: "pandoc"
+
+extra:
+  social:
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/squidfunk
+    - icon: fontawesome/brands/github
+      link: https://twitter.com/squidfunk
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/squidfunk
+    - icon: fontawesome/brands/github
+      link: https://twitter.com/squidfunk
+    - icon: fontawesome/brands/youtube
+      link: https://twitter.com/squidfunk
