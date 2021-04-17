@@ -135,7 +135,7 @@ framework consists of the following basic components:</p>
 <p>Module Manager</p>
 <p>:   (manage the execution of the modules).</p>
 <p><img alt="Overview about the different components of the module
-framework." src="../figs/modules" />{#fig:modules width="\textwidth"}</p>
+framework." src="../img/modules.png" />  </p>
 <p>Figure <a href="#fig:modules">2.2</a>{reference-type="ref" reference="fig:modules"}
 describes the interaction between these components. A module may
 <em>require</em> a representation, in this case it has read-only access to it.
@@ -227,8 +227,7 @@ the file <code>NaoTHSoccer/Source/Core/Cognition/Cognition.cpp</code>.</p>
 <p>The order of registration defines the order of execution of the modules.</p>
 <h2 id="serialization">Serialization</h2>
 <p>As described in the
-Section <a href="#s:module_framework">2.3</a>{reference-type="ref"
-reference="s:module_framework"} the core of the program is structured in
+Section <a href="#s:module_framework">2.3</a> the core of the program is structured in
 modules which are responsible for different tasks like image processing,
 world modeling etc.. The modules communicate with each other through the
 <em>blackboard</em> by writing their results to <em>representations</em>. The
