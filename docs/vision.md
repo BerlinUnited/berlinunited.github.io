@@ -160,7 +160,7 @@ shifts might be the way for a fully automatic green color classifier
 which would be able to cover the variety of the shades to enable a robot
 to play outside.
 
-## ScanLineEdgelDetector {#s:ScanLineEdgelDetector}
+## ScanLineEdgelDetector
 
 ![ With top to down scanlines \[green lines\] the edges of possible
 field lines \[black lines\] including their orientation are detected
@@ -182,7 +182,7 @@ at the maximum of the response of that filter. We estimate with two
 With the result of the field color classification we detect along every
 scanline a point, which marks the border of the field.
 
-## FieldDetector {#s:FieldDetector}
+## FieldDetector
 
 With the field border points, estimated with the
 *ScanLineEdgelDetector*, we calculate for each image a polygon, which is
@@ -195,7 +195,7 @@ endpoints provided by the *ScanLineEdgelDetector* (left) are used to
 calculate the field border (right).
 ](vision/fieldBorder "fig:"){width="0.5\\columnwidth"}
 
-## LineGraphProvider {#ss:LineGraphProider}
+## LineGraphProvider
 
 This module clusters neighbouring line border points, detected by
 *ScanLineEdgelDetector*.
@@ -228,7 +228,7 @@ implementation can be summarized by the following 4 steps.
 In order to detect the remaining field lines we repeat this procedure on
 the remaining outliers until no lines are found.
 
-## GoalFeatureDetector {#s:GoalFeatureDetector}
+## GoalFeatureDetector
 
 This module is the first step of the goal post detection procedure. To
 detect the goal posts we scan along the horizontal scan lines parallel
@@ -303,7 +303,7 @@ evaluation of the candidate clusters. Although there seem to be a
 considerable amount of false features, both posts of the goal are
 detected correctly.
 
-## Black&White Ball Detection {#s:ball_detection}
+## Black&White Ball Detection
 
 In 2015 the standard ball used in competitions changed to a black&white
 foam ball as illustrated in
@@ -467,7 +467,7 @@ collection of the sample data and give some brief remarks about our
 experience with the OpenCV Cascade Classifier which we used during the
 RoboCup competition in 2016.
 
-#### Sample Data Generation {#s:ball:sample_generation}
+#### Sample Data Generation
 
 Collecting sample data basically involves two steps: collecting images
 from game situations and labeling the ones containing the ball. This can

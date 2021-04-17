@@ -20,9 +20,9 @@ description of the principles we used can also be found in
 ## NaoSMAL
 
 In our architecture we don't use the NAOqi API directly but use our own
-so-called NaoSMAL ([Nao]{.ul} [S]{.ul}hared [M]{.ul}emory
-[A]{.ul}bstraction [L]{.ul}ayer) NAOqi-module. This calls the DCM API of
-NAOqi[^1] and makes it accessible for other processes via a shared
+so-called NaoSMAL (**N**ao **S**hared **M**emory **A**bstraction **L**ayer)
+NAOqi-module. This calls the DCM API of [NAOqi](http://doc.aldebaran.com/1-14/naoqi/sensors/dcm-api.html)
+and makes it accessible for other processes via a shared
 memory interface. Thus we can implement our own code as a completely
 separated executable that has no dependencies to the NAOqi framework.
 The benefits are a safer operation of the Nao on code crashes (NaoSMAL
@@ -40,42 +40,27 @@ simulator[^2] and a logfile based simulator. While the platform specific
 part is a technical abstraction layer the platform independent part is
 responsible for implementing the actual algorithms. Both parts are
 connected by the *platform interface*, which transfers data between the
-platform independent and specific part (see Fig.
-[2.1](#fig:platform-interface){reference-type="ref"
-reference="fig:platform-interface"}).
-
+platform independent and specific part
 ![Platform Interface is responsible for data transfer and execution of
 the Cognition and Motion
-processes.](../figs/platform_interface){#fig:platform-interface
-width="\\textwidth"}
+processes.](img/platform_interface.png)
 
 ## Module framework
 
 Our module framework is based on a *blackboard architecture*. The
 framework consists of the following basic components:
 
-Representation
+**Representation:** objects carrying data and simple manipulation functions
 
-:   (objects carrying data and simple manipulation functions),
+**Blackboard:** container storing representations as information units
 
-Blackboard
+**Module:** executable unit, has access to the blackboard and can read and write representations
 
-:   (container storing representations as information units),
+**Module Manager:** manage the execution of the modules
 
-Module
+![Overview about the different components of the module framework.](img/modules.png)  
 
-:   (executable unit, has access to the blackboard and can read and
-    write representations),
-
-Module Manager
-
-:   (manage the execution of the modules).
-
-![Overview about the different components of the module
-framework.](img/modules.png)  
-
-Figure [2.2](#fig:modules){reference-type="ref" reference="fig:modules"}
-describes the interaction between these components. A module may
+The above figure describes the interaction between these components. A module may
 *require* a representation, in this case it has read-only access to it.
 A module *provides* a representation, if it has write access. In our
 design we consider only sequential execution of the modules, thus there
@@ -91,7 +76,7 @@ possible to dynamically change this for debugging purposes.
 A module is a C++ class which inherits a base class which is created
 with the help of some macros defining the interface of the the module.
 
-``` {.c++ language="C++" captionpos="b" caption="MyModule.h"}
+```cpp
 #ifndef _MyModule_H
 #define _MyModule_H
 
@@ -125,7 +110,7 @@ prefixed with "get', e.g. `getDataA()` for the representation `DataA`.
 The actual implementation of the functionality of a module must be in
 the `execute()` function.
 
-``` {.c++ language="C++" captionpos="b" caption="MyModule.cpp"}
+```cpp
 #include "MyModule.h"
 
 MyModule::MyModule()
@@ -148,7 +133,7 @@ void MyModule::execute()
 A representation can be any C++ class, it does not need to inherit any
 special parent class.
 
-``` {.c++ language="C++" captionpos="b" caption="DataA.h/DataB.h"}
+```cpp
 class DataA
 {
 public: 
@@ -169,13 +154,13 @@ public:
 A module must be registered in the cognition process by including it in
 the file `NaoTHSoccer/Source/Core/Cognition/Cognition.cpp`.
 
-``` {.c++ language="C++"}
+```cpp
 #include "Modules/Experiment/MyModule/MyModule.h"
 ```
 
 In the `init` method add the line:
 
-``` {.c++ language="C++"}
+```cpp
 REGISTER_MODULE(MyModule);
 ```
 
@@ -183,7 +168,7 @@ The order of registration defines the order of execution of the modules.
 
 ## Serialization
 
-As described in the
+As described in the 
 Section [2.3](#s:module_framework) the core of the program is structured in
 modules which are responsible for different tasks like image processing,
 world modeling etc.. The modules communicate with each other through the
@@ -220,7 +205,7 @@ Listing [\[lst:rep_cpp\]](#lst:rep_cpp){reference-type="ref"
 reference="lst:rep_cpp"} illustrates the implementation of the
 serialization functions in the file *MyRepresentation.cpp*.
 
-``` {#lst:rep_h .c++ language="C++" captionpos="b" label="lst:rep_h" caption="MyRepresentation.h"}
+```cpp
 #include <Tools/DataStructures/Serializer.h>
 
 class DataA
@@ -247,7 +232,7 @@ public:
 }
 ```
 
-``` {#lst:proto .c++ language="C++" captionpos="b" label="lst:proto" caption="messages.proto"}
+```proto
 package mymessages;
 
 message DataA {
@@ -256,7 +241,7 @@ message DataA {
 }
 ```
 
-``` {#lst:rep_cpp .c++ language="C++" captionpos="b" label="lst:rep_cpp" caption="MyRepresentation.cpp"}
+```cpp
 #include "MyRepresentation.h"
 #include "Messages/mymessages.pb.h"
 #include <google/protobuf/io/zero_copy_stream_impl.h>

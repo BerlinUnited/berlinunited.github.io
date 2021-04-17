@@ -2,13 +2,20 @@ site_name: Berlin United - Teamreport
 nav:
     - 'index.md'
     - 'introduction.md'
-    - 'architecture.md'
+    - 'architecture_intro.md'
     - 'debugging.md'
     - 'vision.md'
     - 'modeling.md'
     - 'motion.md'
     - 'behavior.md'
+    - 'bibliography.md'
 theme:
-  name: gitbook
+  name: readthedocs
+  highlightjs: true
+  hljs_languages:
+      - proto
 
-plugins: []
+plugins:
+  - bibtex:
+      bib_file: "papers.bib"
+      cite_style: "pandoc"

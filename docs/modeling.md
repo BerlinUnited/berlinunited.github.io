@@ -173,7 +173,7 @@ results can be found in [@HSR-ScheunemannMellmann-14].
 ![image](modeling/stand_center_search_three_posts/model_field.pdf){width="30.5%"}
 :::
 
-## Simulation Based Selection of Actions {#s:action_selection}
+## Simulation Based Selection of Actions
 
 The robot is capable of different kicks and should given a particular
 situation, e.g., the robot's position, the position of the ball and
@@ -203,7 +203,7 @@ a sidekick and the long kick forward with the right foot. Blue dots
 illustrate experimental data. ](./figs/kickdist.pdf){#fig:kickSimulation
 width="75%"}
 
-### Determine the parameters {#sec:parameters}
+### Determine the parameters
 
 To calculate the initial velocity of a kick the distance the ball rolled
 after a kick was measured in an experiment. By using the stopping
@@ -247,7 +247,7 @@ reference="eq:distance"}. For detail, refer to section
 [5.5.3](#sec:thealgorithm){reference-type="ref"
 reference="sec:thealgorithm"}.
 
-### The algorithm {#sec:thealgorithm}
+### The algorithm
 
 The whole simulation is divided into three steps: simulate the
 consequences, evaluate the consequences and decide the best action.

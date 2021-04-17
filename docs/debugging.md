@@ -8,39 +8,26 @@ aspects of high importance: accessibility at runtime and flexibility.
 The accessibility of the debug construct is realized based on our
 communication framework. Thus, they can be accessed at runtime by using
 visualization software like RobotControl, as shown in
-Figure [3.1](#fig:robotcontrol){reference-type="ref"
+Figure [3.1](#fig:robotcontrol){reference-type="ref"
 reference="fig:robotcontrol"}.
 
 ## Concepts
 
 Some of the ideas were evolved from the
-GT-Architecture [@2007:RoboCup-TDP-GermanTeam]. The following list
+GT-Architecture [@2007:RoboCup-TDP-GermanTeam]. The following list
 illustrates some of the debug concepts:
 
-debug request
+debug request: (activates/deactivates code parts),
 
-:   (activates/deactivates code parts),
+modify: allows modification of a value (in particular local variables)
 
-modify
+stopwatch: measures the execution time
 
-:   allows modification of a value (in particular local variables)
+parameter list: allows to monitor and modify lists of parameters
 
-stopwatch
+drawings: allows visualization in 2D/3D; thereby it can be drawn into the image or on the field (2D/3D)
 
-:   measures the execution time
-
-parameter list
-
-:   allows to monitor and modify lists of parameters
-
-drawings
-
-:   allows visualization in 2D/3D; thereby it can be drawn into the
-    image or on the field (2D/3D)
-
-plot
-
-:   allows visualization of values over time
+plot: allows visualization of values over time
 
 As already mentioned, these concepts can be placed at any position in
 the code and can be accessed at runtime. Similar to the module
@@ -51,14 +38,14 @@ if necessary.
 In order to use a debug request in the code you have to register it once
 with the `DEBUG_REQUEST_REGISTER` macro:
 
-``` {.c++ language="C++"}
+```cpp
 DEBUG_REQUEST_REGISTER("My:Debug:Request", "Description of the debug request", true);
 ```
 
 After that, you can use the `DEBUG_REQUEST` macro to wrap code that
 should be only executed when the debug request is active.
 
-``` {.c++ language="C++"}
+```cpp
 DEBUG_REQUEST("My:Debug:Request",
     std::cout << "This code is not executed normally" << std::endl;
     ++c;
@@ -69,7 +56,7 @@ DEBUG_REQUEST("My:Debug:Request",
 for example, wrapping a variable and defining an identifier, this
 variable can be changed later from RobotControl.
 
-``` {.c++ language="C++"}
+```cpp
 double yaw  = 0;
 MODIFY("BasicTestBehavior:head:headYaw_deg",yaw);
 ```
@@ -91,14 +78,14 @@ reference="fig:robotcontrol"} illustrates visualizations of the debug
 concepts. In particular a field view, 3D view, behavior tree, plot and
 the table of debug requests are shown.
 
-## RobotControl {#s:robotcontrol}
+## RobotControl
 
 The various debugging possibilities are organized in different dialogs.
 In this year we started to update the UI by switching to JavaFX for some
 dialogs. The following list consists of our most used RobotControl
 Dialogs.
 
-### Behavior Viewer {#behavior-viewer .unnumbered}
+### Behavior Viewer
 
 ![image](rc-dialogs/BehaviorViewer){width="96%"}
 
@@ -116,7 +103,7 @@ something on the field viewer or on the camera images. For further
 information about individual debug requests, have a look at the source
 code.
 
-### Field Viewer {#rc:fieldviewer .unnumbered}
+### Field Viewer
 
 ![image](rc-dialogs/FieldViewer){width="96%"}
 
@@ -125,34 +112,34 @@ debug requests draw on these views. For example, you could draw the
 robots' positions on the field by activating the corresponding debug
 request.
 
-### Image Viewer {#image-viewer .unnumbered}
+### Image Viewer
 
 ![image](rc-dialogs/ImageViewer){width="96%"}
 
 Can show the top and bottom images. There are debug requests that draw
 on the camera images, if they are active.
 
-### Logfile Recorder {#logfile-recorder .unnumbered}
+### Logfile Recorder
 
 ![image](rc-dialogs/LogfileRecorder){width="96%"}
 
 Records a log file on a robot with manually selected representations.
 
-### Modify {#modify .unnumbered}
+### Modify
 
 ![image](rc-dialogs/Modify){width="96%"}
 
 The Modify macro allows changing values of variables declared within
 this macro at runtime.
 
-### Module Configuration Viewer {#module-configuration-viewer .unnumbered}
+### Module Configuration Viewer
 
 ![image](rc-dialogs/ModuleConfigurationViewer){width="96%"}
 
 Shows which modules are currently (de-)activated. Also indicates, which
 other modules are required (left) and provided (right) by each module.
 
-### Parameter Panel {#parameter-panel .unnumbered}
+### Parameter Panel
 
 ![image](rc-dialogs/ParameterPanel){width="96%"}
 
@@ -160,25 +147,25 @@ Shows parameters defined in our configuration files. It is possible to
 change the values at runtime. The variables must be registered as
 parameters in the code.
 
-### Plot 2D {#plot-2d .unnumbered}
+### Plot 2D
 
 ![image](rc-dialogs/Plot2D){width="96%"}
 
 Shows plots activated by plot debug requests.
 
-### Representation Inspector {#representation-inspector .unnumbered}
+### Representation Inspector
 
 ![image](rc-dialogs/RepresentationInspector){width="96%"}
 
 Shows the data that is written to the blackboard by each representation.
 
-### Stopwatch Viewer {#stopwatch-viewer .unnumbered}
+### Stopwatch Viewer
 
 ![image](rc-dialogs/StopwatchViewer2018){width="96%"}
 
 Shows the execution time for each module.
 
-### Team Communication Viewer {#team-communication-viewer .unnumbered}
+### Team Communication Viewer
 
 ::: {.wrapfigure}
 l0.65 ![image](rc-dialogs/TeamCommViewer2018){width="65%"}
@@ -196,18 +183,18 @@ reference="rc:fieldviewer"}. It's also useful for debugging the team
 communication to get a general overview of the role decision and its
 transitions. This year, the dialog was re-implemented using JavaFX.
 
-### Team Communication Logviewer {#team-communication-logviewer .unnumbered}
+### Team Communication Logviewer
 
-![image](rc-dialogs/TeamCommLogViewer2018){width="96%"}
+![image](rc-dialogs/TeamCommLogViewer2018)
 
 The *Team Communication Logviewer* allows to re-play team communication
 logfiles previously recorded with the *Team Communication Viewer*. It's
 also able to re-play logs from the GameController and export them as
 JSON.
 
-### Simspark {#simspark .unnumbered}
+### Simspark
 
-![image](rc-dialogs/Simspark){width="96%"}
+![image](rc-dialogs/Simspark)
 
 This dialog shows the state of the connected simspark instance. It also
 provides some predefined commands and a textfield for user-defined
@@ -215,11 +202,8 @@ commands to send to simspark. Furthermore it also provides the
 teamcommunication of the simulated robots for other dialogs in
 RobotControl (e.g. *Team Communication Viewer*).
 
-### External Tools {#external-tools .unnumbered}
-
-::: {.wrapfigure}
-l0.65 ![image](rc-dialogs/ExternalTools){width="65%"}
-:::
+### External Tools
+![image](rc-dialogs/ExternalTools)
 
 Some "external tools" where modified in order to load them into
 RobotControl via reflection. Its convenient to have all needed tools in
@@ -267,7 +251,7 @@ different sounds. This way the state of the robot and the progress of
 the deployment can be easily monitored, this is especially helpful when
 setting up a whole team before a game.
 
-### NaoSCP {#sec:naoscp}
+### NaoSCP
 
 *NaoSCP* is a setup and deployment tool. It primarily has three tasks:
 (1) initialize a new robot, e.g., copy libraries and scripts, (2) set
@@ -482,7 +466,7 @@ estimation of its position, ball model and obstacles. On the left are
 three categories of binary labels describing the quality of the
 action.](labeling_screenshot.png){#f:labeling_interface width="100%"}
 
-## Simulation {#s:simulation}
+## Simulation
 
 As a common experience, there are big gaps between simulation and
 reality in robotics, especially with regards to basic physics with
