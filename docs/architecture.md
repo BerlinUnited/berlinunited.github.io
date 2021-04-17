@@ -184,8 +184,7 @@ The order of registration defines the order of execution of the modules.
 ## Serialization
 
 As described in the
-Section [2.3](#s:module_framework){reference-type="ref"
-reference="s:module_framework"} the core of the program is structured in
+Section [2.3](#s:module_framework) the core of the program is structured in
 modules which are responsible for different tasks like image processing,
 world modeling etc.. The modules communicate with each other through the
 *blackboard* by writing their results to *representations*. The
