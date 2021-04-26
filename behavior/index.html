@@ -499,7 +499,7 @@ shown as a tree; at the bottom, some monitored symbols can be seen, the
 developer can decide which symbols should be monitored; On the left
 side, there is a list of buffered frames, which is very useful to see
 how the decisions changed in the
-past." src="xabsleditor_rc1.png" title="fig:" />{#fig:xabsleditor width="48%"}
+past." id="fig:xabsleditor" src="xabsleditor_rc1.png" title="fig:" width="48%" />
 <img alt="(left) XabslEditor: On the left side, you see the source code of a
 behavior option. On the right side the state machine of this option is
 visualized as a graph (right). In the main frame the execution path is
@@ -507,7 +507,7 @@ shown as a tree; at the bottom, some monitored symbols can be seen, the
 developer can decide which symbols should be monitored; On the left
 side, there is a list of buffered frames, which is very useful to see
 how the decisions changed in the
-past." src="xabsl_execution_tree.png" title="fig:" />{#fig:xabsleditor width="50%"}</p>
+past." id="fig:xabsleditor" src="xabsl_execution_tree.png" title="fig:" width="50%" /></p>
 <p>In order to be platform independent, we develop our tools in Java. In
 particular we are working on a Java based development environment for
 XABSL, named <em>XabslEditor</em>. This tool consists of a full featured editor
@@ -603,7 +603,7 @@ cycle and is based on four data points.</p>
 <p>player number</p>
 </li>
 </ol>
-<p>Therefore we communicate every $\sim$<code>&lt;!-- --&gt;</code>{=html}500ms the SPL
+<p>Therefore we communicate every <span class="arithmatex">\(\sim\)</span><code>&lt;!-- --&gt;</code>500ms the SPL
 standard message and the following informations:</p>
 <ul>
 <li>
@@ -752,7 +752,7 @@ the line between ball and opponent goal should be avoided and therefore
 are modeled as maxima of the scalar field. In a different way from the
 target position, the objects should have a limited range of influence.
 For each Voronoi cell we define the weight as a sum of the scalar fields
-at the Voronoi site $p$ defining the cell.</p>
+at the Voronoi site <span class="arithmatex">\(p\)</span> defining the cell.</p>
 <p>The whole <em>situation map</em> is defined by this Voronoi tessellation and
 positive weights assigned to each cell. Thus, the map consists of the
 spatial separation of the field in regions and a graph structure over
@@ -769,7 +769,7 @@ on the position of the player. The path calculated in one frame gives
 only a rough direction for the movement. The resulting path which
 emerges through the robot following the given directions will be much
 smoother as the higher resolution around the robot moves with it. The
-Figure <a href="#fig:example">7.5</a>{reference-type="ref" reference="fig:example"}
+Figure <a href="#fig:example" reference="fig:example" reference-type="ref">7.5</a>
 (right) illustrates the resulting tessellation.
 <a href="http://simspark.sourceforge.net/">^2</a></p>
 <p><img alt="An example situation: (left) initial positions of the supporter
@@ -779,7 +779,7 @@ the supporter; the scalar field encoding the strategy is depicted by the
 intensity of the yellow glow (the global minimum is at the diamond);
 (right) the Voronoi tessellation with the weights of the regions
 depicted by the intensity of the yellow color; path calculated by the
-A* algorithm." src="beispiel1.pdf" title="fig:" />{#fig:example width="49%"} <img alt="An
+A* algorithm." id="fig:example" src="beispiel1.pdf" title="fig:" width="49%" /> <img alt="An
 example situation: (left) initial positions of the supporter (center)
 and the attacker (closer to the ball); the center (black diamond) of the
 red dashed rectangle illustrates the target position for the supporter;
@@ -787,7 +787,7 @@ the scalar field encoding the strategy is depicted by the intensity of
 the yellow glow (the global minimum is at the diamond); (right) the
 Voronoi tessellation with the weights of the regions depicted by the
 intensity of the yellow color; path calculated by the A*
-algorithm." src="beispiel2.pdf" title="fig:" />{#fig:example width="49%"}</p>
+algorithm." id="fig:example" src="beispiel2.pdf" title="fig:" width="49%" /></p>
 <p>[^4]: For definition of Modules and Representations see
     Section <a href="#s:architecture">2</a>{reference-type="ref"
     reference="s:architecture"}.</p>
@@ -807,43 +807,17 @@ algorithm." src="beispiel2.pdf" title="fig:" />{#fig:example width="49%"}</p>
       </main>
       
         
+
+<!-- Footer -->
 <footer class="md-footer">
-  
-    <nav class="md-footer__inner md-grid" aria-label="Footer">
-      
-        <a href="../motion/" class="md-footer__link md-footer__link--prev" rel="prev">
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-          </div>
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              Motion Control
-            </div>
-          </div>
-        </a>
-      
-      
-        <a href="../bibliography/" class="md-footer__link md-footer__link--next" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              Bibliography
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-          </div>
-        </a>
-      
-    </nav>
-  
+
+  <!-- The base theme links to previous and/or next page, we omit that here. -->
+
+  <!-- Further information -->
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
+
+      <!-- Copyright and theme information -->
       <div class="md-footer-copyright">
         
         Made with
@@ -852,6 +826,8 @@ algorithm." src="beispiel2.pdf" title="fig:" />{#fig:example width="49%"}</p>
         </a>
         
       </div>
+
+      <!-- Social links -->
       
   <div class="md-footer-social">
     
@@ -914,6 +890,12 @@ algorithm." src="beispiel2.pdf" title="fig:" />{#fig:example width="49%"}</p>
     
     
       <script src="../assets/javascripts/bundle.7353b375.min.js"></script>
+      
+        <script src="../javascripts/config.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

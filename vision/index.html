@@ -298,11 +298,11 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#candidate-search-perspective-key-points-detection-sballcandidate" class="md-nav__link">
-    Candidate Search -- Perspective Key Points Detection {#s:ball:candidate}
+  <a href="#s:ball:candidate" class="md-nav__link">
+    Candidate Search -- Perspective Key Points Detection
   </a>
   
-    <nav class="md-nav" aria-label="Candidate Search -- Perspective Key Points Detection {#s:ball:candidate}">
+    <nav class="md-nav" aria-label="Candidate Search -- Perspective Key Points Detection">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -602,11 +602,11 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#candidate-search-perspective-key-points-detection-sballcandidate" class="md-nav__link">
-    Candidate Search -- Perspective Key Points Detection {#s:ball:candidate}
+  <a href="#s:ball:candidate" class="md-nav__link">
+    Candidate Search -- Perspective Key Points Detection
   </a>
   
-    <nav class="md-nav" aria-label="Candidate Search -- Perspective Key Points Detection {#s:ball:candidate}">
+    <nav class="md-nav" aria-label="Candidate Search -- Perspective Key Points Detection">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -700,29 +700,40 @@ points (ball candidates) are detected using <em>integral image</em> and
 <em>difference of gaussians</em>, which are then classified by a trained
 cascade classifier. Goal post detection uses scan lines along the
 horizon.</p>
-<p>Figure <a href="#fig:bw-ball">4.13</a>{reference-type="ref"
-reference="fig:bw-ball"} shows the dependency graph for the vision
-modules[^4] and the representations they provide, which were used at the
+<p>The image below shows the dependency graph for the vision
+modules [^4] and the representations they provide, which were used at the
 RoboCup 2016 competition. In the following we describe some of the
 important modules in more detail.</p>
-<p><img alt="Overview over the vision system. Green boxes illustrate modules and
+<figure>
+  <img src="../img/vision-modules.png" />
+  <figcaption>
+Overview over the vision system. Green boxes illustrate modules and
 round nodes visualize the representations with arrows indicating the
-provide-require relationships between them. An outgoing arrow from a
-module $A$ to a representation $R$ means $A$ provides $R$; an incoming
-arrow from $R$ to $A$ means $R$ is required by
-$A$." src="vision/vision-modules.pdf" />{#fig:bw-ball width="1\columnwidth"}</p>
+provide-require relationships between them. 
+An outgoing arrow from a module $A$ to a representation $R$ means $A$ provides $R$; an incoming
+arrow from $R$ to $A$ means $R$ is required by $A$.</figcaption>
+</figure>
+
 <h2 id="green-detection">Green Detection</h2>
 <p>This section describes a new approach to classify the field color which
-has not been used at the RoboCup 2015.[^5] This constitutes the first
+has not been used since late 2015. This constitutes the first
 step in the attempt for a automatic field color detection. Thereby we
 analyze the structure of the color space perceived by the robot NAO and
 propose a simple yet powerful model for separation of the color regions,
 whereby green color is of a particular interest.</p>
+<figure>
+  <img src="../img/green_detection.png"/>
+  <figcaption>
+(left) Example image from the Iran Open 2015. (right) Pixels
+classified as green are marked green; pixels with too low chroma marked
+red;
+</figcaption>
+</figure>
+
 <p>To illustrate our findings we utilize a sequence of images from recorded
-by a robot during the Iran Open 2015.
-Figure <a href="#fig:green-image">4.3</a>{reference-type="ref"
-reference="fig:green-image"} (left) shows a representative image from
-this sequence. To analyze the coverage of the color space we calculate
+by a robot during the Iran Open 2015. The left image above is a representative image from
+this sequence. </p>
+<p>To analyze the coverage of the color space we calculate
 two color histograms over the whole image sequence. In the
 Figure <a href="#fig:green-hist">4.6</a>{reference-type="ref"
 reference="fig:green-hist"} (left) you can see the uv-histogram, which
@@ -741,21 +752,28 @@ center and the green cluster.
 Figure <a href="#fig:green-hist">4.6</a>{reference-type="ref"
 reference="fig:green-hist"} (middle) illustrates the resulting
 histogram. Here we clearly see the gray and the green cluster.</p>
-<p><img alt="(left) Example image from the Iran Open 2015. (right) Pixels
-classified as green are marked green; pixels with too low chroma marked
-red;" src="vision/green-src" title="fig:" />{#fig:green-image
-width="0.5\columnwidth"} <img alt="(left) Example image from the Iran Open
-2015. (right) Pixels classified as green are marked green; pixels with
-too low chroma marked
-red;" src="vision/green-classified" title="fig:" />{#fig:green-image
-width="0.5\columnwidth"}</p>
+<figure>
+  <img src="../img/green_histogram.png"/>
+  <figcaption>
+(left) UV-histogram for a log file taken
+at the Iran Open 2015. Red line illustrates the projection plane along
+the green region for the Y-Chroma histogram (middle); (middle)
+Y-Chroma-histogram along the projection plane illustrated in (left)
+figure. Red lines illustrate the gray-cone, i.e., area with not enough
+color information to be classified as a particular color; (right)
+UV-Histogram without pixel falling into the gray-cone as illustrated in
+the (middle) figure. Red lines illustrate the segment to be classified
+as green.
+</figcaption>
+</figure>
+
 <p>From these two histograms we can make following observations: all colors
 seem to be concentrically organized around the central brightness axis ,
-i.e., gray axis $(128,128,y)$, which corresponds to the general
+i.e., gray axis <span class="arithmatex">\((128,128,y)\)</span>, which corresponds to the general
 definition of the yuv-space; the colors seem to be pressed closer to the
 gray axis the darker they are. In particular all colors below a certain
 y-threshold seem to be collapsed to the gray axis. So we can safely
-claim that for a pixel $(y,u,v)$ always holds $y=0 \Rightarrow u,v=128$.
+claim that for a pixel <span class="arithmatex">\((y,u,v)\)</span> always holds <span class="arithmatex">\(y=0 \Rightarrow u,v=128\)</span>.
 On the contrary the spectrum of colors gets wider with the rising
 brightness. Speculatively one could think that the actual space of
 available colors is a hsi-cone fitted into the yuv-cube. The collapse of
@@ -774,44 +792,18 @@ gray pixels. Red lines illustrate the separated uv-segment which is
 classified as green. This way we ensure independence from brightness.
 The equation <a href="#eq:green">[eq:green]</a>{reference-type="ref"
 reference="eq:green"} illustrates the three conditions necessary for a
-pixel $(y,u,v)$ to be classified as green. The five parameter are
-$b_o\in[0,255]$ the back cut off threshold, $b_m, b_M\in [0,128]$ with
-$b_m&lt;b_M$ the minimal and the maximal radius of the gray cone, and
-finally $a_m,a_M\in[-\pi, \pi]$ defining the green segment in the
+pixel <span class="arithmatex">\((y,u,v)\)</span> to be classified as green. The five parameter are
+<span class="arithmatex">\(b_o\in[0,255]\)</span> the back cut off threshold, <span class="arithmatex">\(b_m, b_M\in [0,128]\)</span> with
+<span class="arithmatex">\(b_m&lt;b_M\)</span> the minimal and the maximal radius of the gray cone, and
+finally <span class="arithmatex">\(a_m,a_M\in[-\pi, \pi]\)</span> defining the green segment in the
 uv-plane.</p>
-<p>$$\begin{aligned}
-(u-128)^2 + (v-128)^2 &amp;&gt; \max\left(b_m, b_m + (b_M - b_m)\cdot\frac{y - b_o}{255 - b_o} \right) \
-\text{atan2}(u-128, v-128) &amp;&gt; a_m \
+<div class="arithmatex">\[
+\begin{aligned}
+(u-128)^2 + (v-128)^2 &amp;&gt; \max\left(b_m, b_m + (b_M - b_m)\cdot\frac{y - b_o}{255 - b_o} \right) \\
+\text{atan2}(u-128, v-128) &amp;&gt; a_m \\
 \text{atan2}(u-128, v-128) &amp;&lt; a_M
-\label{eq:green}\end{aligned}$$</p>
-<p><img alt=" (left) UV-histogram for a log file taken at the Iran Open 2015. Red
-line illustrates the projection plane along the green region for the
-Y-Chroma histogram (middle); (middle) Y-Chroma-histogram along the
-projection plane illustrated in (left) figure. Red lines illustrate the
-gray-cone, i.e., area with not enough color information to be classified
-as a particular color; (right) UV-Histogram without pixel falling into
-the gray-cone as illustrated in the (middle) figure. Red lines
-illustrate the segment to be classified as
-green." src="vision/green-hist.pdf" title="fig:" />{#fig:green-hist
-width="0.32\columnwidth"} <img alt=" (left) UV-histogram for a log file taken
-at the Iran Open 2015. Red line illustrates the projection plane along
-the green region for the Y-Chroma histogram (middle); (middle)
-Y-Chroma-histogram along the projection plane illustrated in (left)
-figure. Red lines illustrate the gray-cone, i.e., area with not enough
-color information to be classified as a particular color; (right)
-UV-Histogram without pixel falling into the gray-cone as illustrated in
-the (middle) figure. Red lines illustrate the segment to be classified
-as green." src="vision/green-hist.pdf" title="fig:" />{#fig:green-hist
-width="0.32\columnwidth"} <img alt=" (left) UV-histogram for a log file taken
-at the Iran Open 2015. Red line illustrates the projection plane along
-the green region for the Y-Chroma histogram (middle); (middle)
-Y-Chroma-histogram along the projection plane illustrated in (left)
-figure. Red lines illustrate the gray-cone, i.e., area with not enough
-color information to be classified as a particular color; (right)
-UV-Histogram without pixel falling into the gray-cone as illustrated in
-the (middle) figure. Red lines illustrate the segment to be classified
-as green." src="vision/green-hist.pdf" title="fig:" />{#fig:green-hist
-width="0.32\columnwidth"}</p>
+\label{eq:green}\end{aligned}
+\]</div>
 <p>The classification itself doesn't require an explicit calculation of
 histograms. At the current state it's a static classification depending
 on five parameters to define the separation regions for the gray and
@@ -840,12 +832,12 @@ to play outside.</p>
 field lines [black lines] including their orientation are detected
 (left) and the last field colored points are assumed as endpoints of the
 field [green circles] (right).
-" src="vision/scanlineEdgels" title="fig:" />{width="0.5\columnwidth"} <img alt=" With top to
+" src="vision/scanlineEdgels" title="fig:" width="0.5\columnwidth" /> <img alt=" With top to
 down scanlines [green lines] the edges of possible field lines [black
 lines] including their orientation are detected (left) and the last
 field colored points are assumed as endpoints of the field [green
 circles] (right).
-" src="vision/scanLineEndpoints" title="fig:" />{width="0.5\columnwidth"}</p>
+" src="vision/scanLineEndpoints" title="fig:" width="0.5\columnwidth" /></p>
 <p>With this module we detect field line border points and estimate some
 points of the field border. To do this, we use scanlines, but only
 vertical ones. Along every scanline jumps are detected in the Y channel,
@@ -860,15 +852,15 @@ scanline a point, which marks the border of the field.</p>
 representing the border of the field in the image.</p>
 <p><img alt=" The endpoints provided by the *ScanLineEdgelDetector* (left) are used
 to calculate the field border (right).
-" src="vision/fieldEndpoints" title="fig:" />{width="0.5\columnwidth"} <img alt=" The
+" src="vision/fieldEndpoints" title="fig:" width="0.5\columnwidth" /> <img alt=" The
 endpoints provided by the *ScanLineEdgelDetector* (left) are used to
 calculate the field border (right).
-" src="vision/fieldBorder" title="fig:" />{width="0.5\columnwidth"}</p>
+" src="vision/fieldBorder" title="fig:" width="0.5\columnwidth" /></p>
 <h2 id="linegraphprovider">LineGraphProvider</h2>
 <p>This module clusters neighbouring line border points, detected by
 <em>ScanLineEdgelDetector</em>.</p>
-<p><img alt="image" src="vision/edgels" />{width="0.5\columnwidth"}
-<img alt="image" src="vision/edgelgraph" />{width="0.5\columnwidth"}</p>
+<p><img alt="image" src="vision/edgels" width="0.5\columnwidth" />
+<img alt="image" src="vision/edgelgraph" width="0.5\columnwidth" /></p>
 <h2 id="ransaclinedetector">RansacLineDetector</h2>
 <p>This module detects lines on the directed points generated by the
 LineGraphProvider using the Random sample consensus (RANSAC) method. Our
@@ -984,7 +976,7 @@ robot." src="vision/ball-bw-2.png" title="fig:" />{#fig:bw-ball
 width="0.32\columnwidth"} <img alt="Examples of the black&amp;white as seen by the
 robot." src="vision/ball-bw-3.png" title="fig:" />{#fig:bw-ball
 width="0.32\columnwidth"}</p>
-<h3 id="candidate-search-perspective-key-points-detection-sballcandidate">Candidate Search -- Perspective Key Points Detection {#s:ball:candidate}</h3>
+<h3 id="s:ball:candidate">Candidate Search -- Perspective Key Points Detection</h3>
 <p>Properties of the ball as an object that can be assumed as known include</p>
 <ul>
 <li>
@@ -1035,22 +1027,22 @@ for following three things:</p>
 <h5 id="representation">Representation:</h5>
 <p>In our case we define a <em>ball candidate</em> (more general a <em>key point</em>) as
 a square region in the image which is likely to contain a ball. Such a
-key point $c = (x,y,r)$ can be described by its position in the image
-$(x,y)$ and its side radius (half side length) $r$. Basically we
+key point <span class="arithmatex">\(c = (x,y,r)\)</span> can be described by its position in the image
+<span class="arithmatex">\((x,y)\)</span> and its side radius (half side length) <span class="arithmatex">\(r\)</span>. Basically we
 represent a circular object by the outer square (bounding box) enclosing
 the circle. This leads to a vast number of possible candidates in a
 single image and a necessity for an efficient heuristic algorithm to
 find the most likely ones.</p>
 <h5 id="measure">Measure:</h5>
 <p>Intuitively described, a <em>good</em> key point is much brighter inside than
-on its outer border. For a key point $c = (x,y,r)$ we define its
-<em>intensity value</em> $I(c)$ by
-$$I(c): = \frac{1}{4r^2}\sum_{i,j = x-r}^{x+r} Y(i,j)$$ where $Y(j,i)$
-is the $Y$-channel value of the image at the pixel $(i,j)$. For the
-intensity of the outer border around $c$ with the width $\delta &gt; 0$
-holds $I(c_\delta) - I(c)$, with $c_\delta:= (x,y,r\cdot(1+\delta))$.
-Now we can formulate the measure for $c$ by
-$$V(c): = I(c) - (I(c_\delta) - I(c)) = 2\cdot I(c) - I(c_\delta)$$ This
+on its outer border. For a key point <span class="arithmatex">\(c = (x,y,r)\)</span> we define its
+<em>intensity value</em> <span class="arithmatex">\(I(c)\)</span> by
+<span class="arithmatex">\(<span class="arithmatex">\(I(c): = \frac{1}{4r^2}\sum_{i,j = x-r}^{x+r} Y(i,j)\)</span>\)</span> where <span class="arithmatex">\(Y(j,i)\)</span>
+is the <span class="arithmatex">\(Y\)</span>-channel value of the image at the pixel <span class="arithmatex">\((i,j)\)</span>. For the
+intensity of the outer border around <span class="arithmatex">\(c\)</span> with the width <span class="arithmatex">\(\delta &gt; 0\)</span>
+holds <span class="arithmatex">\(I(c_\delta) - I(c)\)</span>, with <span class="arithmatex">\(c_\delta:= (x,y,r\cdot(1+\delta))\)</span>.
+Now we can formulate the measure for <span class="arithmatex">\(c\)</span> by
+<span class="arithmatex">\(<span class="arithmatex">\(V(c): = I(c) - (I(c_\delta) - I(c)) = 2\cdot I(c) - I(c_\delta)\)</span>\)</span> This
 measure function can be calculated very effectively using integral
 images. Figure <a href="#fig:bw-patch-function">4.17</a>{reference-type="ref"
 reference="fig:bw-patch-function"} (left) illustrates the measure
@@ -1058,16 +1050,16 @@ function for the valid pixels of the image.</p>
 <h5 id="finding-the-local-maxima">Finding the local maxima:</h5>
 <p>To save resources the search is performed only within the estimated
 field region (cf. Section <a href="#s:FieldDetector">4.3</a>{reference-type="ref"
-reference="s:FieldDetector"}). For a given point $p = (i,j)$ in image we
-estimate the radius $r_b(i,j)$ that the ball would have at this point in
+reference="s:FieldDetector"}). For a given point <span class="arithmatex">\(p = (i,j)\)</span> in image we
+estimate the radius <span class="arithmatex">\(r_b(i,j)\)</span> that the ball would have at this point in
 the image using the camera matrix. This estimated radius is used to
 calculate the measure function at this point:
-$V(p):= V((i,j,r_b(i,j)))$. Currently we only consider points at which
+<span class="arithmatex">\(V(p):= V((i,j,r_b(i,j)))\)</span>. Currently we only consider points at which
 the ball would be completely inside the image. The following algorithm
 illustrates how the local maxima of this function are estimated:</p>
 <p>::: {.algorithm}
-$K\gets \emptyset$</p>
-<p>${\tt insert}\gets true$
+<span class="arithmatex">\(K\gets \emptyset\)</span></p>
+<p><span class="arithmatex">\({\tt insert}\gets true\)</span>
 :::</p>
 <p>The basic idea is to keep only the key points with higher value than any
 other overlapping key points, i.e., the one with the highest value in
@@ -1133,20 +1125,20 @@ algorithm in Section <a href="#s:ball:candidate">4.8.1</a>{reference-type="ref"
 reference="s:ball:candidate"}. This allows to collect the data during a
 competition game at full frame rate. This however produces a vast amount
 of data to be labeled. Because the patches are quite small (we
-experimented with sizes between $12px\times 12px$ and
-$24px\times 24px$), a large number of patches can be presented and
+experimented with sizes between <span class="arithmatex">\(12px\times 12px\)</span> and
+<span class="arithmatex">\(24px\times 24px\)</span>), a large number of patches can be presented and
 reviewed at once.
 Figure <a href="#fig:bw-ball-labeling">4.23</a>{reference-type="ref"
 reference="fig:bw-ball-labeling"} illustrates two examples of the
 labeling interface. Patches are presented in pages consisting of a
-$10\times10$ matrix. Labels can be applied or removed simply by clicking
+<span class="arithmatex">\(10\times10\)</span> matrix. Labels can be applied or removed simply by clicking
 with the mouse at a particular patch.</p>
 <p><img alt="Examples of the labeling interface. Patches are presented in pages
-consisting of a $10\times10$ matrix. Labels are applied or removed by a
+consisting of a \(10\times10\) matrix. Labels are applied or removed by a
 mouse click at a particular
 patch." src="vision/labeling1.png" title="fig:" />{#fig:bw-ball-labeling
 width="0.49\columnwidth"} <img alt="Examples of the labeling interface. Patches
-are presented in pages consisting of a $10\times10$ matrix. Labels are
+are presented in pages consisting of a \(10\times10\) matrix. Labels are
 applied or removed by a mouse click at a particular
 patch." src="vision/labeling3.png" title="fig:" />{#fig:bw-ball-labeling
 width="0.49\columnwidth"}</p>
@@ -1188,43 +1180,17 @@ used for comparison purposes. It can be found in\
       </main>
       
         
+
+<!-- Footer -->
 <footer class="md-footer">
-  
-    <nav class="md-footer__inner md-grid" aria-label="Footer">
-      
-        <a href="../debugging/" class="md-footer__link md-footer__link--prev" rel="prev">
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-          </div>
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              Debugging and Tools
-            </div>
-          </div>
-        </a>
-      
-      
-        <a href="../modeling/" class="md-footer__link md-footer__link--next" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              Modeling
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-          </div>
-        </a>
-      
-    </nav>
-  
+
+  <!-- The base theme links to previous and/or next page, we omit that here. -->
+
+  <!-- Further information -->
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
+
+      <!-- Copyright and theme information -->
       <div class="md-footer-copyright">
         
         Made with
@@ -1233,6 +1199,8 @@ used for comparison purposes. It can be found in\
         </a>
         
       </div>
+
+      <!-- Social links -->
       
   <div class="md-footer-social">
     
@@ -1295,6 +1263,12 @@ used for comparison purposes. It can be found in\
     
     
       <script src="../assets/javascripts/bundle.7353b375.min.js"></script>
+      
+        <script src="../javascripts/config.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

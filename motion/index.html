@@ -265,11 +265,11 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#walk-swalk" class="md-nav__link">
-    Walk {#s:walk}
+  <a href="#s:walk" class="md-nav__link">
+    Walk
   </a>
   
-    <nav class="md-nav" aria-label="Walk {#s:walk}">
+    <nav class="md-nav" aria-label="Walk">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -463,11 +463,11 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#walk-swalk" class="md-nav__link">
-    Walk {#s:walk}
+  <a href="#s:walk" class="md-nav__link">
+    Walk
   </a>
   
-    <nav class="md-nav" aria-label="Walk {#s:walk}">
+    <nav class="md-nav" aria-label="Walk">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -551,14 +551,14 @@ to the visual data, e.g. the seen ball or optical flow, is investigated.
 Problems arise from sensor noise and delays within the feedback loop. As
 a correlated project we also investigate the paradigm of local control
 loops, e.g. we extended the Nao with additional sensors.</p>
-<h2 id="walk-swalk">Walk {#s:walk}</h2>
+<h2 id="s:walk">Walk</h2>
 <p>The algorithm we use to accomplish a walking motion can be subdivided
 into four components: the path planner, the step planner, the preview
 controller and stabilization.</p>
 <p>The path planner is currently of very primitive nature, acting solely as
 a bridge for certain movement routines between behavior and motion
 control. The behavior part is presented in chapter
-<a href="#s:behavior">7</a>{reference-type="ref" reference="s:behavior"}.</p>
+<a href="#s:behavior" reference="s:behavior" reference-type="ref">7</a>.</p>
 <p>At first, the step planner determines the target position for the next
 step considering the walk request and various stability criteria. After
 that, a sequence of desired ZMPs (zero moment points) is planned for
@@ -576,21 +576,21 @@ walking engine.</p>
 <p>The path planner is intended to calculate a collision free and optimal
 path from the robot towards a goal. Currently that intention is not
 fulfilled. Instead it is used as a bridge between behavior described in
-chapter <a href="#s:behavior">7</a>{reference-type="ref" reference="s:behavior"}
+chapter <a href="#s:behavior" reference="s:behavior" reference-type="ref">7</a>
 and motion control. The behavior requests a certain routine, e.g. that
 the robot walks to the ball, and the path planner executes that routine
 by requesting steps from motion control. The types of routines that are
 implemented inside the path planner are walking or kicking routines.</p>
 <p>Currently, there are two different interfaces to walk requests, i.e.
 standard and step control. A standard walk request consists of a target
-pose $(x, y, \theta)$, a frame of reference for the target pose in form
+pose <span class="arithmatex">\((x, y, \theta)\)</span>, a frame of reference for the target pose in form
 of a local coordinate with its origin in the left foot, the right foot
 or the hip and a flag signaling fast, normal or slow step execution.
 Step control extends the standard interface by adding the following
-parameters: the target foot, the execution time in $ms$, an angle $d$
-that impacts the final trajectory and $s\in[0,\,1]$ which can scale the
+parameters: the target foot, the execution time in <span class="arithmatex">\(ms\)</span>, an angle <span class="arithmatex">\(d\)</span>
+that impacts the final trajectory and <span class="arithmatex">\(s\in[0,\,1]\)</span> which can scale the
 final trajectory resulting in faster execution. The flag in the standard
-interface maps itself to $s$.</p>
+interface maps itself to <span class="arithmatex">\(s\)</span>.</p>
 <p>Step control allows for more fine-grained control over the actual steps,
 e.g. allowing retraction of the kicking foot after kick execution, and
 is thus preferred, but the standard interface is kept for backwards
@@ -632,13 +632,13 @@ cycle of a step a target ZMP is added to the ZMP-buffer. The ZMP-buffer
 is used by the preview controller to calculate the target position,
 velocity and acceleration of the COM during a step. The following
 equation is used to determine the control vector [@Xu14Dissertation]:
-$$u = -\underbrace{K_x x_k}<em>{state feedback} - K_I \underbrace{\sum</em>{i=0}^k (p_k - p_k^{ref})}<em>{accumulated ZMP error} - \underbrace{\begin{bmatrix} f_1, f_2, \ldots, f_N\end{bmatrix}}</em>{preview\, gain} \underbrace{\begin{bmatrix} p_{k+1}^{ref}\ p_{k+2}^{ref}\ \vdots \ p_{k+N}^{ref}\end{bmatrix}}<em>{future ZMP}$$
-Where $x_k$ is a vector describing the location, velocity and
-acceleration of the COM at time $k$. $p_k$ is the ZMP and $p_k^{ref}$
-the target ZMP at time $k$. $K_x$, $K_I$ and $f_1, \cdots, f_N$ are the
+<span class="arithmatex">\(<span class="arithmatex">\(u = -\underbrace{K_x x_k}_{state feedback} - K_I \underbrace{\sum_{i=0}^k (p_k - p_k^{ref})}_{accumulated ZMP error} - \underbrace{\begin{bmatrix} f_1, f_2, \ldots, f_N\end{bmatrix}}_{preview\, gain} \underbrace{\begin{bmatrix} p_{k+1}^{ref}\\ p_{k+2}^{ref}\\ \vdots \\ p_{k+N}^{ref}\end{bmatrix}}_{future ZMP}\)</span>\)</span>
+Where <span class="arithmatex">\(x_k\)</span> is a vector describing the location, velocity and
+acceleration of the COM at time <span class="arithmatex">\(k\)</span>. <span class="arithmatex">\(p_k\)</span> is the ZMP and <span class="arithmatex">\(p_k^{ref}\)</span>
+the target ZMP at time <span class="arithmatex">\(k\)</span>. <span class="arithmatex">\(K_x\)</span>, <span class="arithmatex">\(K_I\)</span> and <span class="arithmatex">\(f_1, \cdots, f_N\)</span> are the
 parameters of the preview controller and are pre-calculated. The next
-target COM $x</em>{k+1}$ can be calculated using a linear motion model:
-$$x_{k+1} = Ax_k + ub$$</p>
+target COM <span class="arithmatex">\(x_{k+1}\)</span> can be calculated using a linear motion model:
+<span class="arithmatex">\(<span class="arithmatex">\(x_{k+1} = Ax_k + ub\)</span>\)</span></p>
 <h3 id="stabilization">Stabilization</h3>
 <p>The simplified model can easily be affected by disturbances in the
 environment. Therefore a closed loop stabilization is required.</p>
@@ -705,43 +705,17 @@ standing posture is corrected again with full stiffness.</p>
       </main>
       
         
+
+<!-- Footer -->
 <footer class="md-footer">
-  
-    <nav class="md-footer__inner md-grid" aria-label="Footer">
-      
-        <a href="../modeling/" class="md-footer__link md-footer__link--prev" rel="prev">
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-          </div>
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              Modeling
-            </div>
-          </div>
-        </a>
-      
-      
-        <a href="../behavior/" class="md-footer__link md-footer__link--next" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              Behavior
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-          </div>
-        </a>
-      
-    </nav>
-  
+
+  <!-- The base theme links to previous and/or next page, we omit that here. -->
+
+  <!-- Further information -->
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
+
+      <!-- Copyright and theme information -->
       <div class="md-footer-copyright">
         
         Made with
@@ -750,6 +724,8 @@ standing posture is corrected again with full stiffness.</p>
         </a>
         
       </div>
+
+      <!-- Social links -->
       
   <div class="md-footer-social">
     
@@ -812,6 +788,12 @@ standing posture is corrected again with full stiffness.</p>
     
     
       <script src="../assets/javascripts/bundle.7353b375.min.js"></script>
+      
+        <script src="../javascripts/config.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>
