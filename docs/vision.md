@@ -13,33 +13,46 @@ points (ball candidates) are detected using *integral image* and
 cascade classifier. Goal post detection uses scan lines along the
 horizon.
 
-Figure [4.13](#fig:bw-ball){reference-type="ref"
-reference="fig:bw-ball"} shows the dependency graph for the vision
-modules[^4] and the representations they provide, which were used at the
+The image below shows the dependency graph for the vision
+modules [^4] and the representations they provide, which were used at the
 RoboCup 2016 competition. In the following we describe some of the
 important modules in more detail.
 
-![Overview over the vision system. Green boxes illustrate modules and
+<figure>
+  <img src="../img/vision-modules.png" />
+  <figcaption>
+Overview over the vision system. Green boxes illustrate modules and
 round nodes visualize the representations with arrows indicating the
-provide-require relationships between them. An outgoing arrow from a
-module $A$ to a representation $R$ means $A$ provides $R$; an incoming
-arrow from $R$ to $A$ means $R$ is required by
-$A$.](vision/vision-modules.pdf){#fig:bw-ball width="1\\columnwidth"}
+provide-require relationships between them. 
+An outgoing arrow from a module $A$ to a representation $R$ means $A$ provides $R$; an incoming
+arrow from $R$ to $A$ means $R$ is required by $A$.</figcaption>
+</figure>
+
+
 
 ## Green Detection
 
 This section describes a new approach to classify the field color which
-has not been used at the RoboCup 2015.[^5] This constitutes the first
+has not been used since late 2015. This constitutes the first
 step in the attempt for a automatic field color detection. Thereby we
 analyze the structure of the color space perceived by the robot NAO and
 propose a simple yet powerful model for separation of the color regions,
 whereby green color is of a particular interest.
 
+<figure>
+  <img src="../img/green_detection.png"/>
+  <figcaption>
+(left) Example image from the Iran Open 2015. (right) Pixels
+classified as green are marked green; pixels with too low chroma marked
+red;
+</figcaption>
+</figure>
+
 To illustrate our findings we utilize a sequence of images from recorded
-by a robot during the Iran Open 2015.
-Figure [4.3](#fig:green-image){reference-type="ref"
-reference="fig:green-image"} (left) shows a representative image from
-this sequence. To analyze the coverage of the color space we calculate
+by a robot during the Iran Open 2015. The left image above is a representative image from
+this sequence. 
+
+To analyze the coverage of the color space we calculate
 two color histograms over the whole image sequence. In the
 Figure [4.6](#fig:green-hist){reference-type="ref"
 reference="fig:green-hist"} (left) you can see the uv-histogram, which
@@ -59,14 +72,20 @@ Figure [4.6](#fig:green-hist){reference-type="ref"
 reference="fig:green-hist"} (middle) illustrates the resulting
 histogram. Here we clearly see the gray and the green cluster.
 
-![(left) Example image from the Iran Open 2015. (right) Pixels
-classified as green are marked green; pixels with too low chroma marked
-red;](vision/green-src "fig:"){#fig:green-image
-width="0.5\\columnwidth"} ![(left) Example image from the Iran Open
-2015. (right) Pixels classified as green are marked green; pixels with
-too low chroma marked
-red;](vision/green-classified "fig:"){#fig:green-image
-width="0.5\\columnwidth"}
+<figure>
+  <img src="../img/green_histogram.png"/>
+  <figcaption>
+(left) UV-histogram for a log file taken
+at the Iran Open 2015. Red line illustrates the projection plane along
+the green region for the Y-Chroma histogram (middle); (middle)
+Y-Chroma-histogram along the projection plane illustrated in (left)
+figure. Red lines illustrate the gray-cone, i.e., area with not enough
+color information to be classified as a particular color; (right)
+UV-Histogram without pixel falling into the gray-cone as illustrated in
+the (middle) figure. Red lines illustrate the segment to be classified
+as green.
+</figcaption>
+</figure>
 
 From these two histograms we can make following observations: all colors
 seem to be concentrically organized around the central brightness axis ,
@@ -100,40 +119,15 @@ $b_m<b_M$ the minimal and the maximal radius of the gray cone, and
 finally $a_m,a_M\in[-\pi, \pi]$ defining the green segment in the
 uv-plane.
 
-$$\begin{aligned}
+$$
+\begin{aligned}
 (u-128)^2 + (v-128)^2 &> \max\left(b_m, b_m + (b_M - b_m)\cdot\frac{y - b_o}{255 - b_o} \right) \\
 \text{atan2}(u-128, v-128) &> a_m \\
 \text{atan2}(u-128, v-128) &< a_M
-\label{eq:green}\end{aligned}$$
+\label{eq:green}\end{aligned}
+$$
 
-![ (left) UV-histogram for a log file taken at the Iran Open 2015. Red
-line illustrates the projection plane along the green region for the
-Y-Chroma histogram (middle); (middle) Y-Chroma-histogram along the
-projection plane illustrated in (left) figure. Red lines illustrate the
-gray-cone, i.e., area with not enough color information to be classified
-as a particular color; (right) UV-Histogram without pixel falling into
-the gray-cone as illustrated in the (middle) figure. Red lines
-illustrate the segment to be classified as
-green.](vision/green-hist.pdf "fig:"){#fig:green-hist
-width="0.32\\columnwidth"} ![ (left) UV-histogram for a log file taken
-at the Iran Open 2015. Red line illustrates the projection plane along
-the green region for the Y-Chroma histogram (middle); (middle)
-Y-Chroma-histogram along the projection plane illustrated in (left)
-figure. Red lines illustrate the gray-cone, i.e., area with not enough
-color information to be classified as a particular color; (right)
-UV-Histogram without pixel falling into the gray-cone as illustrated in
-the (middle) figure. Red lines illustrate the segment to be classified
-as green.](vision/green-hist.pdf "fig:"){#fig:green-hist
-width="0.32\\columnwidth"} ![ (left) UV-histogram for a log file taken
-at the Iran Open 2015. Red line illustrates the projection plane along
-the green region for the Y-Chroma histogram (middle); (middle)
-Y-Chroma-histogram along the projection plane illustrated in (left)
-figure. Red lines illustrate the gray-cone, i.e., area with not enough
-color information to be classified as a particular color; (right)
-UV-Histogram without pixel falling into the gray-cone as illustrated in
-the (middle) figure. Red lines illustrate the segment to be classified
-as green.](vision/green-hist.pdf "fig:"){#fig:green-hist
-width="0.32\\columnwidth"}
+
 
 The classification itself doesn't require an explicit calculation of
 histograms. At the current state it's a static classification depending
