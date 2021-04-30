@@ -1,21 +1,12 @@
 berlinunited.github.io
 ======================
+First install the pip dependencies
+`pip install -r requirements.txt`
 
-## Installtion for local development
-`pip install mkdocs`
+To run the website locally run:
+`mkdocs serve`
 
-for installing the theme: (this theme looks good, but is really buggy)
-`pip install mkdocs-gitbook`  
-pip install mkdocs-material
-pip install mkdocs-bibtex
+To deploy the website to github pages run:
+`mkdocs gh-deploy`
 
-## Deployment
-deploy to github: `mkdocs gh-deploy`
-
-## Notes for development
-**gitbook theme**  
-- favicons dont work  
-- search does not work  
-
-**read the docs theme**  
-- footnotes are note supported
+This will modify the branch `gh-pages` and push it, which in turn we trigger gitlab to show the new website.
