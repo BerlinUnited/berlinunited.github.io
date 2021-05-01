@@ -26,16 +26,15 @@ markdown_extensions:
   - attr_list
   - pymdownx.arithmatex:
       generic: true
+  - stella.tilde2
+  - stella.wikilinks
 
 extra_javascript:
   - javascripts/config.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
-plugins:
-  - bibtex:
-      bib_file: "papers.bib"
-      cite_style: "pandoc"
+
 
 extra:
   social:

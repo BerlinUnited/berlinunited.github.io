@@ -1,3 +1,2 @@
-mkdocs-bibtex
 mkdocs
 mkdocs-material

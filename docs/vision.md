@@ -124,7 +124,8 @@ $$
 (u-128)^2 + (v-128)^2 &> \max\left(b_m, b_m + (b_M - b_m)\cdot\frac{y - b_o}{255 - b_o} \right) \\
 \text{atan2}(u-128, v-128) &> a_m \\
 \text{atan2}(u-128, v-128) &< a_M
-\label{eq:green}\end{aligned}
+\label{eq:green}
+\end{aligned}
 $$
 
 

@@ -41,23 +41,20 @@ resulting error can be minimized by adjusting the aforementioned
 offsets. It can be choosen between a simple Gauss-Newton and two
 Levenberg-Marquardt implementations as minimization algorithm. The
 current implementation supports a manual and automatic mode for the
-calibration procedure.
-Figure [5.2](#fig:cameraCalib){reference-type="ref"
-reference="fig:cameraCalib"} illustrates the projection of the collected
-line perceptions before (left) and after (right) the minimization
+calibration procedure. The figure below illustrates the projection of the collected
+line perceptions before and after the minimization
 procedure.
 
-![Projection of the line point perceptions before (left) and
+<figure>
+  <img src="../img/camera_matrix_calibration.png"/>
+  <figcaption>
+Projection of the line point perceptions before (left) and
 after(right) camera calibration. The assignments of the perceived line
 points to the field lines, which are used to calculate the error, are
 illustrated as black thin
-lines.](cameramatrix/calibration_before_lines.pdf "fig:"){#fig:cameraCalib
-width="0.49\\columnwidth"} ![Projection of the line point perceptions
-before (left) and after(right) camera calibration. The assignments of
-the perceived line points to the field lines, which are used to
-calculate the error, are illustrated as black thin
-lines.](cameramatrix/calibration_after_lines.pdf "fig:"){#fig:cameraCalib
-width="0.49\\columnwidth"}
+lines.
+</figcaption>
+</figure>
 
 ## Probabilistic Compass
 
@@ -73,8 +70,12 @@ of edgel orientations. We calculate the likelihood $S(x)$ for the robot
 rotation $x\in[-\pi,\pi)$ as shown in the
 equation [\[eq:compass\]](#eq:compass){reference-type="ref"
 reference="eq:compass"}.
-$$S(x) = \sum_{i=1}^n\exp\left\{ -\frac{\sin^2(2\cdot(x-x_i))}{\sigma^2} \right\}
-\label{eq:compass}$$
+
+$$
+\begin{aligned}
+S(x) = \sum_{i=1}^n\exp\left\{ -\frac{\sin^2(2\cdot(x-x_i))}{\sigma^2} \right\}
+\end{aligned}
+$$
 
 This compass is calculated in each frame where enough edgels have been
 detected. It has shown to be robust regarding outliers, e. g., when some
@@ -323,7 +324,13 @@ used to compare possible ball positions in terms of their strategic
 value. For instance, the position a meter away in front of the opponent
 goal is obviously much better than the one in front of the own goal. In
 our experiments we use the following potential field:
-$$P(x) = \underbrace{x^T\cdot\nu_\text{opp}}_{\text{linear slope}} - \underbrace{N(x | \mu_\text{opp}, \Sigma_{\text{opp}})}_{\text{opponent goal attractor}} + \underbrace{N(x | \mu_\text{own}, \Sigma_{\text{own}})}_{\text{own goal repulsor}},$$
+
+$$
+\begin{aligned}
+P(x) = \underbrace{x^T\cdot\nu_\text{opp}}_{\text{linear slope}} - \underbrace{N(x | \mu_\text{opp}, \Sigma_{\text{opp}})}_{\text{opponent goal attractor}} + \underbrace{N(x | \mu_\text{own}, \Sigma_{\text{own}})}_{\text{own goal repulsor}},
+\end{aligned}
+$$
+
 where $N(\cdot | \mu, \Sigma)$ is the normal distribution with mean
 $\mu$ and covariance $\Sigma$. It consists of three different parts: the
 linear slope points from the own goal towards the opponent goal and is
@@ -334,21 +341,30 @@ $N(x | \mu_\text{opp}, \Sigma_{\text{opp}})$ creates an exponential
 attractor towards the opponent goal. The configuration used in our
 experiments is $$\nu_\text{opp} = \left(-1/x_{\text{opp}}, 0\right)^T$$
 with $x_{\text{opp}} = 4.5$ being the $x$-position of the opponent goal
-and $$\begin{aligned}
+and
+
+$$\begin{aligned}
 \mu_{\text{own}} &= (-4.5, 0) & \mu_{\text{opp}} &= (4.5, 0) \\
 \Sigma_{\text{own}} &= \left(\begin{array}{cc}3.375^2 & 0 \\ 0 & 1.2^2\end{array}\right) &
-\Sigma_{\text{opp}} &= \left(\begin{array}{cc}2.25^2 & 0 \\ 0 & 1.2^2\end{array}\right)\end{aligned}$$
-for the repulsor and attractor respectively. All parameters are of unit
-m. illustrates the resulting potential field.
+\Sigma_{\text{opp}} &= \left(\begin{array}{cc}2.25^2 & 0 \\ 0 & 1.2^2\end{array}\right)
+\end{aligned}
+$$
 
-![Strategic potential field evaluating ball positions. Own goal is on
-the left (blue).](./figs/potential-field.pdf){#fig:potentialfunction
-width="100%"}
+for the repulsor and attractor respectively. All parameters are of unit
+m. The resulting potential field is visualized below.
+
+<figure>
+  <img src="../img/potential-field.png"/>
+  <figcaption>
+Strategic potential field evaluating ball positions. Own goal is on
+the left (blue).
+</figcaption>
+</figure>
 
 A more detailed description of this simulation can be found in
-[@RC-MellmannSchlotterBlum-16]. A continuation of this work was
+@RCMellmannSchlotterBlum16. A continuation of this work was
 presented at the HUMANOIDS 2017 RoboCup Workshop
-[@HSR-MellmannSchlotter-17].
+@HSR-MellmannSchlotter-17.
 
 ## Arm Collision Detection
 
