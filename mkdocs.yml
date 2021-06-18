@@ -12,8 +12,9 @@ nav:
     - 'bibliography.md'
   - RobotControl In Depth:
     - 'rc/index.md'
-  - RobotCup Project:
-    - 'robocup_project/index.md'
+  - RoboCup Tools:
+    - 'robocup_tools/index.md'
+    - 'robocup_tools/game_recording.md'
 theme:
   name: material
   favicon: img/favicon.ico

@@ -45,6 +45,8 @@ platform independent and specific part
 the Cognition and Motion
 processes.](img/platform_interface.png)
 
+[[img/platform_interface.png]]
+
 ## Module framework
 
 Our module framework is based on a *blackboard architecture*. The

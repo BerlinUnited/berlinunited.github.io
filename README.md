@@ -10,3 +10,6 @@ To deploy the website to github pages run:
 `mkdocs gh-deploy`
 
 This will modify the branch `gh-pages` and push it, which in turn we trigger gitlab to show the new website.
+
+---
+https://docs.abinit.org/theory/noncollinear/
