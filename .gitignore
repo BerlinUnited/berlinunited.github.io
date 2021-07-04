@@ -1,6 +1,7 @@
 # ignore python and IDE stuff
 .idea/*
 venv/*
+.vscode/*
 
 # ignore build dir
 site/
