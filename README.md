@@ -1,15 +1,17 @@
 berlinunited.github.io
 ======================
-First install the pip dependencies
-`pip install -r requirements.txt`
+First install the pip dependencies  
+`python -m pip install -r requirements.txt`
 
 ## Local Development
 To run the website locally run:
 `mkdocs serve`
+
 ---
 
-Example for building own plugins
+Example for building own plugins:  
 https://docs.abinit.org/theory/noncollinear/
+
 ---
 
 ## Deployment
