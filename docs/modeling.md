@@ -1,49 +1,33 @@
 # Modeling
-
-In order to realize a complex and successful cooperative behavior it is
-necessary to have a appropriate model of the surrounding world. In our
-approach we focus on local models of particular aspects of the
-environment. In this section we present two local models: a compass and
-a goal model.
+In order to realize a complex and successful cooperative behavior it is necessary to have 
+a appropriate model of the surrounding world. In our approach we focus on local models of particular aspect
 
 ## Camera Matrix Calibration
+Camera matrix is the coordinate transformation of a camera in relation to the local coordinate 
+system of the robot. The camera matrix is used to establish the relation between objects detected 
+in the image and their position relative to the robot. For instance, the center of the detected 
+ball in the image can be projected on the ground plane and so  the distance to the actual ball 
+can be estimated. In a certain way, the camera matrix stands between the basic perception and 
+the model of the situation affecting directly the quality of self localization, ball model and 
+such. Thus, an accurate estimation of the camera matrix is crucial for the robot's perception 
+of its environment. 
 
-Camera matrix is the coordinate transformation of a camera in relation
-to the local coordinate system of the robot. The camera matrix is used
-to establish the relation between objects detected in the image and
-their position relative to the robot. For instance, the center of the
-detected ball in the image can be projected on the ground plane and so
-the distance to the actual ball can be estimated. In a certain way, the
-camera matrix stands between the basic perception and the model of the
-situation affecting directly the quality of self localization, ball
-model and such. Thus, an accurate estimation of the camera matrix is
-crucial for the robot's perception of its environment.
+One way to estimate the camera matrix is the usage of the kinematic chain in combination with 
+the accelerometer and gyrometer to estimate the rotation. This approach, however, can yield 
+substantial errors, as the parameters of the kinematic chain differ between the robots due 
+to differences in manufacturing and the effect of wearing out over time. In particular the 
+following 11 joints have been observed developing major offsets: (body rotation pitch/roll, 
+head rotation pitch/roll/yaw, top/bottom camera rotation pitch/roll/yaw). 
 
-One way to estimate the camera matrix is the usage of the kinematic
-chain in combination with the accelerometer and gyrometer to estimate
-the rotation. This approach, however, can yield substantial errors, as
-the parameters of the kinematic chain differ between the robots due to
-differences in manufacturing and the effect of wearing out over time. In
-particular the following 11 joints have been observed developing major
-offsets: (body rotation pitch/roll, head rotation pitch/roll/yaw,
-top/bottom camera rotation pitch/roll/yaw).
-
-In order to compensate for these errors we apply calibration offsets to
-these joints. To calculate the offsets we utilize the line percepts,
-which are provided by the LineGraphProvider described in section
-[4.4](#ss:LineGraphProider){reference-type="ref"
-reference="ss:LineGraphProider"}. The basic approach is to place the
-robot at a known position on the field and allow it to collect a set of
-line perceptions by looking around. Detected line perceptions in the
-image are projected on the ground plane using the camera matrix. The
-projected results are compared with the actual lines on the field. The
-resulting error can be minimized by adjusting the aforementioned
-offsets. It can be choosen between a simple Gauss-Newton and two
-Levenberg-Marquardt implementations as minimization algorithm. The
-current implementation supports a manual and automatic mode for the
-calibration procedure. The figure below illustrates the projection of the collected
-line perceptions before and after the minimization
-procedure.
+In order to compensate for these errors we apply calibration offsets to these joints.
+To calculate the offsets we utilize the line percepts, which are provided by the LineGraphProvider described in section LineGraphProider.
+The basic approach is to place the robot at a known position on the field and allow it to collect a set of line perceptions by looking around.
+Detected line perceptions in the image are projected on the ground plane using the camera matrix.
+The projected results are compared with the actual lines on the field.
+The resulting error can be minimized by adjusting the aforementioned offsets.
+It can be choosen between a simple Gauss-Newton and two Levenberg-Marquardt implementations as minimization algorithm.
+The current implementation supports a manual and automatic mode for the calibration procedure.
+The figure below illustrates the projection of the collected line perceptions before (left) and after (right) the minimization procedure.
 
 <figure>
   <img src="../img/camera_matrix_calibration.png"/>
@@ -57,19 +41,16 @@ lines.
 </figure>
 
 ## Probabilistic Compass
+We estimate the orientation of the robot on the field based on the detected line edgels utilizing the fact, that 
+all field lines are either orthogonal or parallel to the field. Based on the orientations of the particular 
+projected edgels it is possible to estimate the rotation of the robot up to the $\pi$ symmetry.
 
-We estimate the orientation of the robot on the field based on the
-detected line edgels utilizing the fact, that all field lines are either
-orthogonal or parallel to the field. Based on the orientations of the
-particular projected edgels it is possible to estimate the rotation of
-the robot up to the $\pi$ symmetry. We calculate the kernel histogram
+We calculate the kernel histogram
 over the orientations of the particular projected edgels, i.e., edgels
 in the local coordinates of the robot. To utilize the symmetry of the
 lines we use $\sin$ as distance measure. Let $(x_i)_{i=1}^n$ be the set
 of edgel orientations. We calculate the likelihood $S(x)$ for the robot
-rotation $x\in[-\pi,\pi)$ as shown in the
-equation [\[eq:compass\]](#eq:compass){reference-type="ref"
-reference="eq:compass"}.
+rotation $x\in[-\pi,\pi)$ as shown in the equation below.
 
 $$
 \begin{aligned}
@@ -80,61 +61,41 @@ $$
 This compass is calculated in each frame where enough edgels have been
 detected. It has shown to be robust regarding outliers, e. g., when some
 edgels are detected in a robot. It can be directly used to update the
-likelihood of particles in the self locator.
+likelihood of particles in the selflocator.
 Figure [5.4](#fig:compass){reference-type="ref" reference="fig:compass"}
 shows a set of edgels detected in a particular frame on the left side.
 On the right side the according histogram is plotted.
 
-![Left figure visualizes the edgel graph in local coordinates of the
+![image](img/prob_compass.png)
+Left figure visualizes the edgel graph in local coordinates of the
 robot in a particular frame. Right illustrates the kernel histogram over
-the orientations of edgels shown left, calculated with
-formula [\[eq:compass\]](#eq:compass){reference-type="ref"
-reference="eq:compass"}.](modeling/edgelgraph_projected "fig:"){#fig:compass
-width="0.58\\columnwidth"} ![Left figure visualizes the edgel graph in
-local coordinates of the robot in a particular frame. Right illustrates
-the kernel histogram over the orientations of edgels shown left,
-calculated with
-formula [\[eq:compass\]](#eq:compass){reference-type="ref"
-reference="eq:compass"}.](modeling/compass "fig:"){#fig:compass
-width="0.42\\columnwidth"}
+the orientations of edgels shown left, calculated with above
+formula.
 
 ## Multi-Hypothesis-Extended-Kalman-Filter Ball Model
+Although there is usually only one ball involved in a RoboCup game, there are several good reasons 
+for being able to represent and track several ball hypotheses at the same time. The main reason however 
+are the false-positives. Due to the change to the new black and white ball as described in the 
+Section~\ref{s:ball_detection}, the chance of a false positive became much higher. The most of the 
+false detections appear only sporadically and do not persist over long time. Tracking several possible 
+balls at the same time allows  to effectively separate the true (persistent) detections from the false (sporadic) ones.
 
-Although there is usually only one ball involved in a RoboCup game,
-there are several good reasons for being able to represent and track
-several ball hypotheses at the same time. The main reason however are
-the false-positives. Due to the change to the new black and white ball
-as described in the
-Section [4.8](#s:ball_detection){reference-type="ref"
-reference="s:ball_detection"}, the chance of a false positive became
-much higher. The most of the false detections appear only sporadically
-and do not persist over long time. Tracking several possible balls at
-the same time allows to effectively separate the true (persistent)
-detections from the false (sporadic) ones.
+Each candidate (hypothesis) is tracked by an Extended Kalman filter. The Extended Kalman filter is used with 
+linear state transition model and a nonlinear observation model. The state is defined as the location and 
+velocity of the ball in the robot's local Cartesian coordinates while the measurement is taken as the 
+vertical and horizontal angle in the camera image.
 
-Each candidate (hypothesis) is tracked by an Extended Kalman filter. The
-Extended Kalman filter is used with linear state transition model and a
-nonlinear observation model. The state is defined as the location and
-velocity of the ball in the robot's local Cartesian coordinates while
-the measurement is taken as the vertical and horizontal angle in the
-camera image.
-
-At first all hypotheses (ball candidates) are removed and not considered
-in the following steps which weren't updated for an amount of time and
-theirs variance in location became too high. Then the odometry of the
-robot since the last update is applied transparently to the states and
-covariances of the Extended Kalman filters so they stay in the robot's
-local coordinate system. Next, the current position and velocity of the
-ball candidates are calculated according to the linear state transition
-model. The friction between ball and carpet is modeled as negative
-acceleration in opposite direction to the current velocity and
-incorporated into the linear state transition model as a control vector.
-After that the ball candidates in the image are assigned to the
-hypotheses and the update is performed. Each measurement is assigned at
-most to one hypothesis and vice versa. If no matching hypothesis is
-found a new Kalman filter is created which will represent a new
-hypothesis. The final ball model for the behavior is the hypothesis
-which is the closest to the robot and is updated frequently.
+At first all hypotheses (ball candidates) are removed and not considered in the following steps which 
+weren't updated for an amount of time and theirs variance in location became too high. Then the 
+odometry of the robot since the last update is applied transparently to the states and covariances of
+the Extended Kalman filters so they stay in the robot's local coordinate system. Next, the current 
+position and velocity of the ball candidates are calculated according to the linear state transition 
+model. The friction between ball and carpet is modeled as negative acceleration in opposite direction 
+to the current velocity and incorporated into the linear state transition model as a control vector. 
+After that the ball candidates in the image are assigned to the hypotheses and the update is performed.
+Each measurement is assigned at most to one hypothesis and vice versa. If no matching hypothesis is 
+found a new Kalman filter is created which will represent a new hypothesis. The final ball model for 
+the behavior is the hypothesis which is the closest to the robot and is updated frequently.
 
 ## Multi-Hypothesis Goal Model (MHGM)
 
