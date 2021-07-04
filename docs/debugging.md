@@ -17,17 +17,17 @@ Some of the ideas were evolved from the
 GT-Architecture [@2007:RoboCup-TDP-GermanTeam]. The following list
 illustrates some of the debug concepts:
 
-debug request: (activates/deactivates code parts),
+**debug request:** (activates/deactivates code parts),
 
-modify: allows modification of a value (in particular local variables)
+**modify:** allows modification of a value (in particular local variables)
 
-stopwatch: measures the execution time
+**stopwatch:** measures the execution time
 
-parameter list: allows to monitor and modify lists of parameters
+**parameter list:** allows to monitor and modify lists of parameters
 
-drawings: allows visualization in 2D/3D; thereby it can be drawn into the image or on the field (2D/3D)
+**drawings:** allows visualization in 2D/3D; thereby it can be drawn into the image or on the field (2D/3D)
 
-plot: allows visualization of values over time
+**plot:** allows visualization of values over time
 
 As already mentioned, these concepts can be placed at any position in
 the code and can be accessed at runtime. Similar to the module
@@ -61,14 +61,6 @@ double yaw  = 0;
 MODIFY("BasicTestBehavior:head:headYaw_deg",yaw);
 ```
 
-![The RobotControl program contains different dialogs. The 3DViewer (top
-left) is used to visualize the current state of the robot; the Value
-Plotter dialog (bottom left) plots some data; the Field Viewer dialog
-(top center) draws the field view; the Behavior dialog (bottom center)
-shows the behavior tree; the Debug Request Center dialog (right) is for
-enabling/disabling debug requests.](RobotControl2018){#fig:robotcontrol
-width="100%"}
-
 In addition to these means for individual debugging, there are some more
 for general monitoring purposes: the whole content of the blackboard,
 the dependencies between the modules and representations, and execution
@@ -85,9 +77,18 @@ In this year we started to update the UI by switching to JavaFX for some
 dialogs. The following list consists of our most used RobotControl
 Dialogs.
 
+![image](img/robotcontrol2018.png)
+
+The RobotControl program contains different dialogs. The 3DViewer (top
+left) is used to visualize the current state of the robot; the Value
+Plotter dialog (bottom left) plots some data; the Field Viewer dialog
+(top center) draws the field view; the Behavior dialog (bottom center)
+shows the behavior tree; the Debug Request Center dialog (right) is for
+enabling/disabling debug requests.
+
 ### Behavior Viewer
 
-![image](rc-dialogs/BehaviorViewer){width="96%"}
+![image](img/rc-dialogs/BehaviorViewer.png)
 
 Shows the behavior tree for the current behavior. The compiled XABSL
 behavior needs to be sent to the robot first and then an agent can be
@@ -96,7 +97,7 @@ output symbols.
 
 ### Debug Requests {#debug-requests .unnumbered}
 
-![image](rc-dialogs/DebugRequests){width="96%"}
+![image](img/rc-dialogs/DebugRequests.png)
 
 (De-)activates the debug request code. Usually a debug request draws
 something on the field viewer or on the camera images. For further
@@ -105,7 +106,7 @@ code.
 
 ### Field Viewer
 
-![image](rc-dialogs/FieldViewer){width="96%"}
+![image](img/rc-dialogs/FieldViewer.png)
 
 There are views for different field sizes and a local view. Certain
 debug requests draw on these views. For example, you could draw the
@@ -114,34 +115,34 @@ request.
 
 ### Image Viewer
 
-![image](rc-dialogs/ImageViewer){width="96%"}
+![image](img/rc-dialogs/ImageViewer.png)
 
 Can show the top and bottom images. There are debug requests that draw
 on the camera images, if they are active.
 
 ### Logfile Recorder
 
-![image](rc-dialogs/LogfileRecorder){width="96%"}
+![image](img/rc-dialogs/LogfileRecorder.png)
 
 Records a log file on a robot with manually selected representations.
 
 ### Modify
 
-![image](rc-dialogs/Modify){width="96%"}
+![image](img/rc-dialogs/Modify.png)
 
 The Modify macro allows changing values of variables declared within
 this macro at runtime.
 
 ### Module Configuration Viewer
 
-![image](rc-dialogs/ModuleConfigurationViewer){width="96%"}
+![image](img/rc-dialogs/ModuleConfigurationViewer.png)
 
 Shows which modules are currently (de-)activated. Also indicates, which
 other modules are required (left) and provided (right) by each module.
 
 ### Parameter Panel
 
-![image](rc-dialogs/ParameterPanel){width="96%"}
+![image](img/rc-dialogs/ParameterPanel.png)
 
 Shows parameters defined in our configuration files. It is possible to
 change the values at runtime. The variables must be registered as
@@ -149,27 +150,26 @@ parameters in the code.
 
 ### Plot 2D
 
-![image](rc-dialogs/Plot2D){width="96%"}
+![image](img/rc-dialogs/Plot2D.png)
 
 Shows plots activated by plot debug requests.
 
 ### Representation Inspector
 
-![image](rc-dialogs/RepresentationInspector){width="96%"}
+![image](img/rc-dialogs/RepresentationInspector.png)
 
 Shows the data that is written to the blackboard by each representation.
 
 ### Stopwatch Viewer
 
-![image](rc-dialogs/StopwatchViewer2018){width="96%"}
+![image](img/rc-dialogs/StopwatchViewer2018.png)
 
 Shows the execution time for each module.
 
 ### Team Communication Viewer
 
-::: {.wrapfigure}
-l0.65 ![image](rc-dialogs/TeamCommViewer2018){width="65%"}
-:::
+![image](img/rc-dialogs/TeamCommViewer2018.png)
+
 
 Shows all connected robots and possible all of their provided status
 information via TeamComm (e.g. ip address, battery charge, temperature,
@@ -185,7 +185,7 @@ transitions. This year, the dialog was re-implemented using JavaFX.
 
 ### Team Communication Logviewer
 
-![image](rc-dialogs/TeamCommLogViewer2018)
+![image](img/rc-dialogs/TeamCommLogViewer2018.png)
 
 The *Team Communication Logviewer* allows to re-play team communication
 logfiles previously recorded with the *Team Communication Viewer*. It's
@@ -194,7 +194,7 @@ JSON.
 
 ### Simspark
 
-![image](rc-dialogs/Simspark)
+![image](img/rc-dialogs/Simspark.png)
 
 This dialog shows the state of the connected simspark instance. It also
 provides some predefined commands and a textfield for user-defined
@@ -203,7 +203,7 @@ teamcommunication of the simulated robots for other dialogs in
 RobotControl (e.g. *Team Communication Viewer*).
 
 ### External Tools
-![image](rc-dialogs/ExternalTools)
+![image](img/rc-dialogs/ExternalTools.png)
 
 Some "external tools" where modified in order to load them into
 RobotControl via reflection. Its convenient to have all needed tools in
@@ -262,14 +262,15 @@ process, ensured backup of deployed binaries and reduction of the chance
 of mistakes during setup in critical situations, e.g., before a game at
 the world championship.
 
-![NaoSCP user interface. The log panel on the right displays status of
+![image](img/NaoSCP.png)
+NaoSCP user interface. The log panel on the right displays status of
 the deployment process. The left side contains the panels for the
 configuration of the deployment / setup process: *Network* configures
 the network setup; *NaoTH* is used to adjust the configuration relevant
 for the deployed binary, e.g., player numbers. The buttons in the left
 bottom tool bar trigger particular deployment and setup actions like
 writing the network configuration to the robot or copying a new binary
-to a deployment USB flash drive. ](NaoSCP){#fig:naoscp width="100%"}
+to a deployment USB flash drive. 
 
 #### Usage Remarks
 
@@ -277,45 +278,45 @@ The following describes the particular components of the NaoSCP user
 interface as illustrated in the
 Figure [3.2](#fig:naoscp){reference-type="ref" reference="fig:naoscp"}.
 
-Log Window
+**Log Window**
 
-:   (right) shows information regarding the progress of the deployment
-    process, e.g., copied files, connection errors and such.
+(right) shows information regarding the progress of the deployment
+process, e.g., copied files, connection errors and such.
 
-*Network*
+**Network**
 
-:   configuration (top left) is used to setup the LAN and WLAN;
+configuration (top left) is used to setup the LAN and WLAN;
 
-*NaoTH*
+**NaoTH**
 
-:   dialog (left) configures the deployment of the game binary and
-    contains things like the path to the source where the binaries can
-    be found, used configuration scheme and player numbers for each
-    robot based on their IP address;
+dialog (left) configures the deployment of the game binary and
+contains things like the path to the source where the binaries can
+be found, used configuration scheme and player numbers for each
+robot based on their IP address;
 
-Action toolbar
+**Action toolbar**
 
-:   (bottom left) contains the buttons for the four different deployment
-    / setup actions: *Send to Robot* deploys the complied code and
-    configuration to a particular robot via network. The text field left
-    of the button defines the last byte of the ip address of the target
-    robot. The network configuration from the dialog *Network* is used
-    to determine the complete address. In this particular example the
-    LAN target address would be 192.168.13.82. Thereby LAN is tried
-    first and in case of failure WLAN is tried; *Write to stick* writes
-    the deployment directory to a USB flash drive. If the flash drive
-    already contains a deployment directory, a backup version of it is
-    created. The text field left to the button holds an optional tag,
-    which is used to organize the backups on the flash drive; *Set
-    Network* configures the robots network according the the settings in
-    the dialog *Network*; *Initialize Robot* will initialize a new
-    robot, e.g., after a factory reset. This action will copy additional
-    libs, configure the NaoQi modules, necessary starting scripts for
-    binaries and for automatic mounting and running of USB flash drives.
-    Additionally the network is configured and the binary is deployed
-    like previously described;
+(bottom left) contains the buttons for the four different deployment
+/ setup actions: *Send to Robot* deploys the complied code and
+configuration to a particular robot via network. The text field left
+of the button defines the last byte of the ip address of the target
+robot. The network configuration from the dialog *Network* is used
+to determine the complete address. In this particular example the
+LAN target address would be 192.168.13.82. Thereby LAN is tried
+first and in case of failure WLAN is tried; *Write to stick* writes
+the deployment directory to a USB flash drive. If the flash drive
+already contains a deployment directory, a backup version of it is
+created. The text field left to the button holds an optional tag,
+which is used to organize the backups on the flash drive; *Set
+Network* configures the robots network according the the settings in
+the dialog *Network*; *Initialize Robot* will initialize a new
+robot, e.g., after a factory reset. This action will copy additional
+libs, configure the NaoQi modules, necessary starting scripts for
+binaries and for automatic mounting and running of USB flash drives.
+Additionally the network is configured and the binary is deployed
+like previously described;
 
-### USB flash drive {#s:usb_stick}
+### USB flash drive
 
 A deployment flash drive can be created manually or (as described above)
 via the NaoSCP tool. As the minimum requirement there should be an
@@ -408,9 +409,9 @@ files containing full images of particular situations for general image
 processing, which can be only recorded for a short period of time due to
 the large size.
 
-![Synchronization Interface for individual log files and videos of a
-game.](synchronizationTool.png){#f:synchronisation_interface
-width="100%"}
+![iamge](img/synchronization_tool.png)
+Synchronization Interface for individual log files and videos of a
+game.
 
 ### Logfile Format
 
@@ -454,17 +455,18 @@ published in [@RC-MellmannSchlotterBlum-16]. illustrates an example of a
 labeling session for the first half of the game with the team
 *NaoDevils* at the RoboCup 2015. The following two links lead to an
 online demo and to the public repository with the code of the labeling
-interface:\
-<https://www2.informatik.hu-berlin.de/~naoth/videolabeling/index.php>\
+interface:  
+<https://www2.informatik.hu-berlin.de/~naoth/videolabeling/index.php>
 <https://github.com/BerlinUnited/VideoLogLabeling>
 
-![Labeling interface used to annotate kick events regarding their
+![image](img/labeling_screenshot.png)
+Labeling interface used to annotate kick events regarding their
 quality. At the bottom are time lines for each of the robots. Different
 actions are represented by buttons on the time line with different
 colors. On the right the robots estimated state is visualized, i.e.,
 estimation of its position, ball model and obstacles. On the left are
 three categories of binary labels describing the quality of the
-action.](labeling_screenshot.png){#f:labeling_interface width="100%"}
+action.
 
 ## Simulation
 
@@ -482,11 +484,9 @@ reference="fig:spl-and-sim"}. As already stated, therewith, we want to
 foster the cooperation between the two leagues and to improve both of
 them.
 
-![NAO robots run in Standard Platform League (left) and 3D Simulation
-League (right).](figs/spl.jpg "fig:"){#fig:spl-and-sim width="48%"}
-![NAO robots run in Standard Platform League (left) and 3D Simulation
-League (right).](figs/SimSparkTeam.png "fig:"){#fig:spl-and-sim
-width="48%"}
+![image](img/simulation.png "fig:")
+NAO robots run in Standard Platform League (left) and 3D Simulation
+League (right).
 
 When compared to real Nao robots, some devices are missing in the
 SimSpark, such as LEDs and sound speakers. On one hand, we extended the

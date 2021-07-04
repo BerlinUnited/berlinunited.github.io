@@ -27,8 +27,8 @@ markdown_extensions:
   - attr_list
   - pymdownx.arithmatex:
       generic: true
-  - stella.tilde2
-  - stella.wikilinks
+  #- stella.tilde2
+  #- stella.wikilinks
 
 extra_javascript:
   - javascripts/config.js
