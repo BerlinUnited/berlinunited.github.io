@@ -98,57 +98,33 @@ found a new Kalman filter is created which will represent a new hypothesis. The 
 the behavior is the hypothesis which is the closest to the robot and is updated frequently.
 
 ## Multi-Hypothesis Goal Model (MHGM)
+In this section we describe a multi-hypothesis approach for modeling a soccer goal within the RoboCup context.
 
-In this section we describe a multi-hypothesis approach for modeling a
-soccer goal within the RoboCup context. The whole goal is rarely
-observed and we assume the image processing to detect separate goal
-posts. So we represent the goal by its corresponding posts. To reduce
-complexity of the shape of uncertainty we model the separate goal posts
-in local robot coordinates. The ambiguous goal posts are tracked by a
-multi-hypothesis particle filter. The actual goal model is extracted
-from the set of post hypotheses.
+The whole goal is rarely observed and we assume the image processing to detect separate goal posts. So we represent the goal by its corresponding posts. To reduce complexity of the shape of uncertainty we model the separate goal posts in local robot coordinates. The ambiguous goal posts are tracked by a multi-hypothesis particle filter. The actual goal model is extracted from the set of post hypotheses. 
 
-The joint uncertainty can be subdivided into *noise*, *false detections*
-and *ambiguity*. Each of these components is treated separately in our
-approach. The multi-hypothesis filter has to take care of noise and
-false detections, but it does not resolve the ambiguity of the goal
-posts. Instead, all occurring goal posts are represented by
-corresponding hypotheses and the ambiguity is solved on the next level
-when the goal model is extracted. Particle filters are great in
-filtering noise and are shown to be very effective for object tracking.
-To deal with sparse false positives we introduce a delayed
-initialization procedure. We assume a false positive to result in an
-inconsistency, i. e., it cannot be confirmed by any existing goal post
-hypothesis. In this case the percept is stored in a short time buffer
-for later consideration. This buffer is checked for clusters, in case a
-significant cluster of goal post percepts accumulated during a short
-period of time, a new hypothesis is initialized based on this cluster.
-The dense false detections result in post hypotheses, which is later
-ignored while extracting the goal.
+The joint uncertainty can be subdivided into *noise*, *false detections* and *ambiguity*. Each of these components is treated separately in our approach.
+
+The multi-hypothesis filter has to take care of noise and false detections, but it does not resolve the ambiguity of the goal posts. Instead, all occurring goal posts are represented by corresponding hypotheses and the ambiguity is solved on the next level when the goal model is extracted.
+
+Particle filters are great in filtering noise and are shown to be very effective for object tracking. 
+
+To deal with sparse false positives we introduce a delayed initialization procedure. We assume a false positive to result in an inconsistency, i.e., it cannot be confirmed by any existing goal post hypothesis. In this case the percept is stored in a short time buffer for later consideration. This buffer is checked for clusters, in case a significant cluster of goal post percepts accumulated during a short period of time, a new hypothesis is initialized based on this cluster.
+
+The dense false detections result in post hypotheses, which is later ignored while extracting the goal.
 
 More detailed description of the algorithm as well as the experimental
 results can be found in [@HSR-ScheunemannMellmann-14].
 
-::: {.figure*}
-![image](modeling/stand_center_search_three_posts/setup.jpg){width="37%"}
-![image](modeling/stand_center_search_three_posts/percept_field.pdf){width="30.5%"}
-![image](modeling/stand_center_search_three_posts/model_field.pdf){width="30.5%"}
-:::
+![image](img/goal_modeling.png)
 
 ## Simulation Based Selection of Actions
 
-The robot is capable of different kicks and should given a particular
-situation, e.g., the robot's position, the position of the ball and
-obstacles, determine which kick is the optimal kick to perform in this
-situation. A naive geometric solution which selects a kick based on the
-robot's direction towards the opponent goal does not account for
-uncertainty of the actual execution of the kick. Furthermore the
-distance of the kick is not considered in this approach. An improved
-kick selection algorithm was developed which is based on a forward
-simulation of the actions. Thereby each possible kick is simulated and
-the best kick is chosen based on the outcome, i.e., the position of the
-ball after the kick. Uncertainty and additional constraints can be
-integrated in a straight forward way.
+The robot is capable of different kicks and should given a particular situation, e.g., the robot's position, the position 
+of the ball and obstacles, determine which kick is the optimal kick to perform in this situation. A naive geometric 
+solution which selects a kick based on the robot's direction towards the opponent goal does not account for uncertainty of the actual execution of the kick. Furthermore the distance of the kick is not considered in this approach. An improved kick selection algorithm was 
+developed which is based on a forward simulation of the actions. Thereby each possible kick is simulated and the 
+best kick is chosen based on the outcome, i.e., the position of the ball after the kick. Uncertainty and additional 
+constraints can be integrated in a straight forward way.
 
 ### Definition of an Action
 
@@ -160,18 +136,20 @@ distribution is modeled as a Gaussian distribution. The parameters which
 describe the distribution for one action are velocity, angle and their
 standard deviations.
 
-![Kick action model: distributions of the possible ball positions after
+![image](img/kickdist.png)
+Kick action model: distributions of the possible ball positions after
 a sidekick and the long kick forward with the right foot. Blue dots
-illustrate experimental data. ](./figs/kickdist.pdf){#fig:kickSimulation
-width="75%"}
+illustrate experimental data.
 
 ### Determine the parameters
 
 To calculate the initial velocity of a kick the distance the ball rolled
 after a kick was measured in an experiment. By using the stopping
 distance formula the initial velocity of one kick can be calculated by
-$$\upsilon_0=\sqrt{d\cdot 2c_R\cdot g}\label{eq:velocity}$$ where
-$\upsilon$ is the initial velocity of the ball. $c_R$ the rolling
+
+$$\upsilon_0=\sqrt{d\cdot 2c_R\cdot g}\label{eq:velocity}$$ 
+
+where $\upsilon$ is the initial velocity of the ball. $c_R$ the rolling
 resistance coefficient and $g$ the gravitational constant. The mean of
 $\upsilon_0$ of multiple repetitions defines the initial velocity of
 this action. The standard deviation of the repetitions defines the
@@ -190,27 +168,27 @@ inclined plane), the initial velocity of the ball could thus be
 determined. We then measured the distance in multiple experiments. By
 transposing the rolling distance formula the rolling resistance
 coefficient can be calculated.
-$$c_R=\frac{1}{2}\cdot\frac{\upsilon_0^2}{g\cdot d}$$ where $\upsilon_0$
-is the starting velocity, $g$ the gravitational constant, and $d$ the
+
+$$c_R=\frac{1}{2}\cdot\frac{\upsilon_0^2}{g\cdot d}$$ 
+
+where $\upsilon_0$ is the starting velocity, $g$ the gravitational constant, and $d$ the
 total distance the ball traveled. The mean of the calculated
 coefficients is used as the rolling resistance coefficient for the other
 calculations. In the algorithm the position of the ball after the
 execution of an action is needed. To calculate this, the formula is
 transposed to calculate the distance the ball rolls after the execution
-of an action: $$d=\frac{\upsilon_0^2}{2c_R\cdot g}\label{eq:distance}$$
+of an action: 
+
+$$d=\frac{\upsilon_0^2}{2c_R\cdot g}\label{eq:distance}$$
+
 where $\upsilon$ is the initial velocity of the ball. $c_R$ the rolling
 resistance coefficient and $g$ the gravitational constant.
-Figure [5.5](#fig:kickSimulation){reference-type="ref"
-reference="fig:kickSimulation"} shows a resulting end position cloud of
+The above figure shows a resulting end position cloud of
 a hypothetical kick. The end points are calculated by drawing a sample
 from both the angle and kick speed distribution and plugging these
-values in equation [\[eq:distance\]](#eq:distance){reference-type="ref"
-reference="eq:distance"}. For detail, refer to section
-[5.5.3](#sec:thealgorithm){reference-type="ref"
-reference="sec:thealgorithm"}.
+values in the last equation. For details, refer to the next section.
 
 ### The algorithm
-
 The whole simulation is divided into three steps: simulate the
 consequences, evaluate the consequences and decide the best action.
 
@@ -219,10 +197,9 @@ consequences, evaluate the consequences and decide the best action.
 Each action is simulated a fixed number of times. The resulting ball
 position of one simulation for an action is referred to as particle. The
 positions of the particles are calculated according to the parameters of
-the action with applied standard deviations as shown in figure 6.3. The
-algorithm checks for possible collisions with the goal box and in case
-there are any the kick distance gets shortened appropriately. Collisions
-with the obstacle model are handled the same way.
+the action with applied standard deviations. The algorithm checks for possible 
+collisions with the goal box and in case there are any the kick distance 
+gets shortened appropriately. Collisions with the obstacle model are handled the same way.
 
 #### Evaluation
 
@@ -251,31 +228,15 @@ action with the highest mean is selected and executed. If no action has
 enough good particles, the best action is to turn towards the opponent
 goal.
 
-![Three examples of kick simulations. Each possible kick direction is
+![image](img/action_selection.png)
+Three examples of kick simulations. Each possible kick direction is
 simulated with 30 samples (different colors correspond to different
 kicks). Left: the short and long kicks are shortened due to collision
 with an obstacle. Middle: long kick is selected as the best action since
 it has the most samples result in a goal. Right: the best action is
 sidekick to the right -- the other kicks are more likely to end up in a
 dangerous position for the own goal according to the potential
-field.](./figs/actionTarget1.png "fig:"){#f:action_simulation
-height="32%"} ![Three examples of kick simulations. Each possible kick
-direction is simulated with 30 samples (different colors correspond to
-different kicks). Left: the short and long kicks are shortened due to
-collision with an obstacle. Middle: long kick is selected as the best
-action since it has the most samples result in a goal. Right: the best
-action is sidekick to the right -- the other kicks are more likely to
-end up in a dangerous position for the own goal according to the
-potential field.](./figs/actionTarget2.png "fig:"){#f:action_simulation
-height="32%"} ![Three examples of kick simulations. Each possible kick
-direction is simulated with 30 samples (different colors correspond to
-different kicks). Left: the short and long kicks are shortened due to
-collision with an obstacle. Middle: long kick is selected as the best
-action since it has the most samples result in a goal. Right: the best
-action is sidekick to the right -- the other kicks are more likely to
-end up in a dangerous position for the own goal according to the
-potential field.](./figs/actionTarget3.png "fig:"){#f:action_simulation
-height="32%"}
+field.
 
 ### Potential field
 
