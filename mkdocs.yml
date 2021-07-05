@@ -10,7 +10,7 @@ nav:
     - 'motion.md'
     - 'behavior.md'
     - 'bibliography.md'
-  - RobotControl In Depth:
+  - NaoTH Tools:
     - 'rc/index.md'
   - RoboCup Tools:
     - 'robocup_tools/index.md'
