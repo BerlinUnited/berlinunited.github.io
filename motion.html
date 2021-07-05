@@ -299,7 +299,7 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#s:walk" class="md-nav__link">
+  <a href="#walk" class="md-nav__link">
     Walk
   </a>
   
@@ -510,7 +510,7 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#s:walk" class="md-nav__link">
+  <a href="#walk" class="md-nav__link">
     Walk
   </a>
   
@@ -598,14 +598,13 @@ to the visual data, e.g. the seen ball or optical flow, is investigated.
 Problems arise from sensor noise and delays within the feedback loop. As
 a correlated project we also investigate the paradigm of local control
 loops, e.g. we extended the Nao with additional sensors.</p>
-<h2 id="s:walk">Walk</h2>
+<h2 id="walk">Walk</h2>
 <p>The algorithm we use to accomplish a walking motion can be subdivided
 into four components: the path planner, the step planner, the preview
 controller and stabilization.</p>
 <p>The path planner is currently of very primitive nature, acting solely as
 a bridge for certain movement routines between behavior and motion
-control. The behavior part is presented in chapter
-<a href="#s:behavior" reference="s:behavior" reference-type="ref">7</a>.</p>
+control. The behavior part is presented in behavior chapter.</p>
 <p>At first, the step planner determines the target position for the next
 step considering the walk request and various stability criteria. After
 that, a sequence of desired ZMPs (zero moment points) is planned for
@@ -614,16 +613,18 @@ preview controller to compute the trajectory of the COM (center of mass)
 during the execution of the step assuming a linear inverted pendulum
 model. While the step is executed the foot's 3D trajectory is calculated
 on demand and combined with the corresponding COM pose to finally
-determine the target joint configuration using inverse kinematics.
-Figure
-<a href="#fig:naoth_walking_engine_overview">[fig:naoth_walking_engine_overview]</a>{reference-type="ref"
-reference="fig:naoth_walking_engine_overview"} shows a overview of the
-walking engine.</p>
+determine the target joint configuration using inverse kinematics.</p>
+<figure>
+  <img src="../img/walking_engine.png"/>
+  <figcaption>
+  Overview of the walking engine
+</figcaption>
+</figure>
+
 <h3 id="path-planner">Path Planner</h3>
 <p>The path planner is intended to calculate a collision free and optimal
 path from the robot towards a goal. Currently that intention is not
-fulfilled. Instead it is used as a bridge between behavior described in
-chapter <a href="#s:behavior" reference="s:behavior" reference-type="ref">7</a>
+fulfilled. Instead it is used as a bridge between the behavior
 and motion control. The behavior requests a certain routine, e.g. that
 the robot walks to the ball, and the path planner executes that routine
 by requesting steps from motion control. The types of routines that are
@@ -678,9 +679,9 @@ linear inverted pendulum model with constant height. In each planning
 cycle of a step a target ZMP is added to the ZMP-buffer. The ZMP-buffer
 is used by the preview controller to calculate the target position,
 velocity and acceleration of the COM during a step. The following
-equation is used to determine the control vector [@Xu14Dissertation]:
-<span class="arithmatex">\(<span class="arithmatex">\(u = -\underbrace{K_x x_k}_{state feedback} - K_I \underbrace{\sum_{i=0}^k (p_k - p_k^{ref})}_{accumulated ZMP error} - \underbrace{\begin{bmatrix} f_1, f_2, \ldots, f_N\end{bmatrix}}_{preview\, gain} \underbrace{\begin{bmatrix} p_{k+1}^{ref}\\ p_{k+2}^{ref}\\ \vdots \\ p_{k+N}^{ref}\end{bmatrix}}_{future ZMP}\)</span>\)</span>
-Where <span class="arithmatex">\(x_k\)</span> is a vector describing the location, velocity and
+equation is used to determine the control vector [@Xu14Dissertation]:</p>
+<div class="arithmatex">\[u = -\underbrace{K_x x_k}_{state feedback} - K_I \underbrace{\sum_{i=0}^k (p_k - p_k^{ref})}_{accumulated ZMP error} - \underbrace{\begin{bmatrix} f_1, f_2, \ldots, f_N\end{bmatrix}}_{preview\, gain} \underbrace{\begin{bmatrix} p_{k+1}^{ref}\\ p_{k+2}^{ref}\\ \vdots \\ p_{k+N}^{ref}\end{bmatrix}}_{future ZMP}\]</div>
+<p>Where <span class="arithmatex">\(x_k\)</span> is a vector describing the location, velocity and
 acceleration of the COM at time <span class="arithmatex">\(k\)</span>. <span class="arithmatex">\(p_k\)</span> is the ZMP and <span class="arithmatex">\(p_k^{ref}\)</span>
 the target ZMP at time <span class="arithmatex">\(k\)</span>. <span class="arithmatex">\(K_x\)</span>, <span class="arithmatex">\(K_I\)</span> and <span class="arithmatex">\(f_1, \cdots, f_N\)</span> are the
 parameters of the preview controller and are pre-calculated. The next
