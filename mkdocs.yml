@@ -15,6 +15,7 @@ nav:
     - 'naoth_tools/naoscp.md'
     - 'naoth_tools/xabsleditor.md'
     - 'naoth_tools/simspark.md'
+    - 'naoth_tools/webots.md'
   - RoboCup Tools:
     - 'robocup_tools/index.md'
     - 'robocup_tools/game_recording.md'
