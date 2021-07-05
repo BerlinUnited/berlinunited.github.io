@@ -12,7 +12,7 @@ the **GermanTeam** until 2008. GermanTeam won the world championship three times
 **NaoTH** participated yearly at the RoboCup competitions since the first SPL competition in 2008 in Suzhou.
 The most recent achievements include 3rd place in the Outdoor Competition at the RoboCup world championship in 2016 
 and 2nd place in the Mixed Team Competition as part of the team **DoBerMan** at the RoboCup 2017. 
-%For the full list of achievements please refer to the web page http://naoth.de.
+%For the full list of achievements please refer to the web page <http://naoth.de>.
 
 In 2010 and 2011 we also competed in the 3D Simulation league with the same code as used for the SPL. In the 3D 
 Simulation, we won the German Open and the AutCup competitions and achieved the 2nd place at the  RoboCup World 
