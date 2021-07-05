@@ -300,68 +300,52 @@ presented at the HUMANOIDS 2017 RoboCup Workshop
 @HSR-MellmannSchlotter-17.
 
 ## Arm Collision Detection
+In the current implementation of the stand and walk motions the arms are used for stability and energy efficiency.
+During the stand motion the arms are kept down along the sides to minimize energy consumption, and are moved back and 
+forth during the walk to balance the rotational forces and stabilize the walk. On the downside, these arm 
+poses effectively enlarge the frontal silhouette significantly increasing the chance of collision with other 
+players or goal posts, which may destabilize the robot and lead to a fall or a penalty for illegal pushing. 
 
-In the current implementation of the stand and walk motions the arms are
-used for stability and energy efficiency. During the stand motion the
-arms are kept down along the sides to minimize energy consumption, and
-are moved back and forth during the walk to balance the rotational
-forces and stabilize the walk. On the downside, these arm poses
-effectively enlarge the frontal silhouette significantly increasing the
-chance of collision with other players or goal posts, which may
-destabilize the robot and lead to a fall or a penalty for illegal
-pushing.
+The goal of collision detection is to recognize when robots arms collide with an external object. When 
+a collision is detected, the robot reacts with an evasive movement by taking the arms back and so 
+effectively minimizing its silhouette. This allows the robot to ``sneak'' through narrow spaces 
+without falling or pushing others. The earlier a collision is recognized, the more effective will be 
+the avoidance. However, a false detection will force the robot to take the arms back unnecessarily destabilizing it.
 
-The goal of collision detection is to recognize when robots arms collide
-with an external object. When a collision is detected, the robot reacts
-with an evasive movement by taking the arms back and so effectively
-minimizing its silhouette. This allows the robot to "sneak" through
-narrow spaces without falling or pushing others. The earlier a collision
-is recognized, the more effective will be the avoidance. However, a
-false detection will force the robot to take the arms back unnecessarily
-destabilizing it.
+A collision with an arm can be identified by observing the difference in the planned joint position 
+(MotorJointdata) and the measured joint position (SensorJointData) of the LShoulderPitch and 
+RShoulderPitch joints. These joints have the largest leverage and are affected the most when a collision on an arm occurs.
 
-A collision with an arm can be identified by observing the difference in
-the planned joint position (MotorJointdata) and the measured joint
-position (SensorJointData) of the LShoulderPitch and RShoulderPitch
-joints. These joints have the largest leverage and are affected the most
-when a collision on an arm occurs.
-
-![Moving average of the absolute joint error during a collision on the
+<figure>
+  <img src="../img/collision.png"/>
+  <figcaption>
+Moving average of the absolute joint error during a collision on the
 left arm. The error of the left shoulder pitch (LShoulderPitch) is shown
 on the left, and the error of right shoulder pitch (RShoulderPitch) on
 the right. Red line illustrates the threshold for the detection of a
-collision.](./figs/collision/fig1.pdf){#fig:error-function
-width="\\textwidth"}
+collision.
+</figcaption>
+</figure>
 
-In the current implementation we use a straight forward approach. A
-collision is detected when the moving average of the absolute error in
-the joint position rises above a fixed threshold. The moving average is
-calculated over a fixed window of 100 frames, i.e., 1 second. Note that
-there is a delay of 4 frames, i.e., 40 ms, between the joint position
-command and the corresponding measurement. This delay needs to be taken
-into account when calculating the error in the joint position. To
-determine the threshold a number of experiments with collisions was
-recorded. The threshold was calculated as a maximum of the moving
-average error over all experiments, with a bit of tolerance. Together
-with the delay induced by the moving average filter, this results in a
-conservative detector.
+In the current implementation we use a straight forward approach. A collision is detected when the moving 
+average of the absolute error in the joint position rises above a fixed threshold.
+The moving average is calculated over a fixed window of 100 frames, i.e., 1 second. Note that 
+there is a delay of 4 frames, i.e., 40 ms, between the joint position command and the corresponding 
+measurement. This delay needs to be taken into account when calculating the error in the joint position. To
+determine the threshold a number of experiments with collisions was recorded. The threshold was calculated as
+a maximum of the moving average error over all experiments, with a bit of tolerance. Together with the 
+delay induced by the moving average filter, this results in a conservative detector. The figure above 
+shows the accumulated absolute error for both arms. During the experiment the robot goes from stand 
+to walk and a collision occurs at the left arm. It can be clearly seen that the error for the left 
+arm rises above the threshold (red line) when the collision occurs, while the error for the right 
+arm (the arm without collision) stays well below the threshold during the entire time.
 
-shows the accumulated absolute error for both arms. During the
-experiment the robot goes from stand to walk and a collision occurs at
-the left arm. It can be clearly seen that the error for the left arm
-rises above the threshold (red line) when the collision occurs, while
-the error for the right arm (the arm without collision) stays well below
-the threshold during the entire time.
-
-Despite its simplicity, this approach has shown good results during the
-RoboCup competition in 2017 and was able to recognize most of the
-collisions. In the current work we focus on a more sensitive and
-accurate detector. To avoid false detections, the static threshold has
-to be chosen larger than the largest expected error which might occur
-with out a collision. The accuracy can be improved with a dynamic
-threshold. We observed a correlation between the position of the joint
-the average absolute error which. Thus, a threshold depending on the
-position of the joint might improve the results significantly.
+Despite its simplicity, this approach has shown good results during the RoboCup competition in 2017 and was 
+able to recognize most of the collisions. In the current work we focus on a more sensitive and accurate 
+detector. To avoid false detections, the static threshold has to be chosen larger than the largest 
+expected error which might occur with out a collision. The accuracy can be improved with a dynamic 
+threshold. We observed a correlation between the position of the joint the average absolute error which.
+Thus, a threshold depending on the position of the joint might improve the results significantly.
 
 ## Time synchronization
 
