@@ -1014,13 +1014,14 @@ learned.</p>
 divided into two steps: finding a small set of suitable candidates for a
 ball by a fast heuristic algorithm, and classifying the candidates
 afterwards with a more precise method.</p>
-<p><img alt="Examples of the black&amp;white as seen by the
-robot." src="vision/ball-bw-1.png" title="fig:" />{#fig:bw-ball
-width="0.32\columnwidth"} <img alt="Examples of the black&amp;white as seen by the
-robot." src="vision/ball-bw-2.png" title="fig:" />{#fig:bw-ball
-width="0.32\columnwidth"} <img alt="Examples of the black&amp;white as seen by the
-robot." src="vision/ball-bw-3.png" title="fig:" />{#fig:bw-ball
-width="0.32\columnwidth"}</p>
+<figure>
+  <img src="../img/ball_examples.png"/>
+  <figcaption>
+Examples of the black&white as seen by the
+robot.
+</figcaption>
+</figure>
+
 <h3 id="s:ball:candidate">Candidate Search -- Perspective Key Points Detection</h3>
 <p>Properties of the ball as an object that can be assumed as known include</p>
 <ul>
@@ -1081,14 +1082,15 @@ find the most likely ones.</p>
 <h5 id="measure">Measure:</h5>
 <p>Intuitively described, a <em>good</em> key point is much brighter inside than
 on its outer border. For a key point <span class="arithmatex">\(c = (x,y,r)\)</span> we define its
-<em>intensity value</em> <span class="arithmatex">\(I(c)\)</span> by
-<span class="arithmatex">\(<span class="arithmatex">\(I(c): = \frac{1}{4r^2}\sum_{i,j = x-r}^{x+r} Y(i,j)\)</span>\)</span> where <span class="arithmatex">\(Y(j,i)\)</span>
+<em>intensity value</em> <span class="arithmatex">\(I(c)\)</span> by</p>
+<div class="arithmatex">\[I(c): = \frac{1}{4r^2}\sum_{i,j = x-r}^{x+r} Y(i,j)\]</div>
+<p>where <span class="arithmatex">\(Y(j,i)\)</span>
 is the <span class="arithmatex">\(Y\)</span>-channel value of the image at the pixel <span class="arithmatex">\((i,j)\)</span>. For the
 intensity of the outer border around <span class="arithmatex">\(c\)</span> with the width <span class="arithmatex">\(\delta &gt; 0\)</span>
 holds <span class="arithmatex">\(I(c_\delta) - I(c)\)</span>, with <span class="arithmatex">\(c_\delta:= (x,y,r\cdot(1+\delta))\)</span>.
-Now we can formulate the measure for <span class="arithmatex">\(c\)</span> by
-<span class="arithmatex">\(<span class="arithmatex">\(V(c): = I(c) - (I(c_\delta) - I(c)) = 2\cdot I(c) - I(c_\delta)\)</span>\)</span> This
-measure function can be calculated very effectively using integral
+Now we can formulate the measure for <span class="arithmatex">\(c\)</span> by</p>
+<div class="arithmatex">\[V(c): = I(c) - (I(c_\delta) - I(c)) = 2\cdot I(c) - I(c_\delta)\]</div>
+<p>This measure function can be calculated very effectively using integral
 images. Figure <a href="#fig:bw-patch-function">4.17</a>{reference-type="ref"
 reference="fig:bw-patch-function"} (left) illustrates the measure
 function for the valid pixels of the image.</p>
@@ -1102,10 +1104,12 @@ calculate the measure function at this point:
 <span class="arithmatex">\(V(p):= V((i,j,r_b(i,j)))\)</span>. Currently we only consider points at which
 the ball would be completely inside the image. The following algorithm
 illustrates how the local maxima of this function are estimated:</p>
-<p>::: {.algorithm}
-<span class="arithmatex">\(K\gets \emptyset\)</span></p>
-<p><span class="arithmatex">\({\tt insert}\gets true\)</span>
-:::</p>
+<figure>
+  <img src="../img/local_maxima_algorithm.png"/>
+  <figcaption>
+</figcaption>
+</figure>
+
 <p>The basic idea is to keep only the key points with higher value than any
 other overlapping key points, i.e., the one with the highest value in
 it's neighborhood. To generate the list of <em>possible key points</em> we
@@ -1114,42 +1118,30 @@ a number of heuristics is used to make the process tractable. In
 particular we only consider every 4th pixel and only if it is within the
 estimated field region. The list of local maxima is also limited to 5
 elements - the list is kept sorted and any additional key points with
-lower value are discarded.
-Figure <a href="#fig:bw-patch-function">4.17</a>{reference-type="ref"
+lower value are discarded.</p>
+<p>Figure <a href="#fig:bw-patch-function">4.17</a>{reference-type="ref"
 reference="fig:bw-patch-function"} (right) and
 Figure <a href="#fig:bw-patches">4.21</a>{reference-type="ref"
 reference="fig:bw-patches"} illustrate the detected best 5 local maxima
 of the measure function.</p>
-<p><img alt="Illustration of the value function for finding the ball key points.
+<figure>
+  <img src="../img/key_points.png"/>
+  <figcaption>
+  Illustration of the value function for finding the ball key points.
 Semitransparent overlay illustrates the searched area. Intensity of the
 red color shows the value
-function." src="vision/search_function1.png" title="fig:" />{#fig:bw-patch-function
-width="0.49\columnwidth"} <img alt="Illustration of the value function for
-finding the ball key points. Semitransparent overlay illustrates the
-searched area. Intensity of the red color shows the value
-function." src="vision/patches1.png" title="fig:" />{#fig:bw-patch-function
-width="0.49\columnwidth"} <img alt="Illustration of the value function for
-finding the ball key points. Semitransparent overlay illustrates the
-searched area. Intensity of the red color shows the value
-function." src="vision/search_function2.png" title="fig:" />{#fig:bw-patch-function
-width="0.49\columnwidth"} <img alt="Illustration of the value function for
-finding the ball key points. Semitransparent overlay illustrates the
-searched area. Intensity of the red color shows the value
-function." src="vision/patches2.png" title="fig:" />{#fig:bw-patch-function
-width="0.49\columnwidth"}</p>
-<p><img alt="Illustration of detected key points in the situations where the ball
-is close to the robot or overlapping with the
-line." src="vision/patches4.png" title="fig:" />{#fig:bw-patches
-width="0.49\columnwidth"} <img alt="Illustration of detected key points in the
-situations where the ball is close to the robot or overlapping with the
-line." src="vision/patches5.png" title="fig:" />{#fig:bw-patches
-width="0.49\columnwidth"} <img alt="Illustration of detected key points in the
-situations where the ball is close to the robot or overlapping with the
-line." src="vision/patches3.png" title="fig:" />{#fig:bw-patches
-width="0.49\columnwidth"} <img alt="Illustration of detected key points in the
-situations where the ball is close to the robot or overlapping with the
-line." src="vision/patches6.png" title="fig:" />{#fig:bw-patches
-width="0.49\columnwidth"}</p>
+function.
+</figcaption>
+</figure>
+
+<figure>
+  <img src="../img/patches.png"/>
+  <figcaption>
+  Illustration of detected key points in the situations where the ball
+is close to the robot or overlapping with the line.
+</figcaption>
+</figure>
+
 <h3 id="classification">Classification</h3>
 <p>In the previous section we discussed how the number of possible ball
 candidates can be efficiently reduced. At the current state we consider
@@ -1178,15 +1170,16 @@ reference="fig:bw-ball-labeling"} illustrates two examples of the
 labeling interface. Patches are presented in pages consisting of a
 <span class="arithmatex">\(10\times10\)</span> matrix. Labels can be applied or removed simply by clicking
 with the mouse at a particular patch.</p>
-<p><img alt="Examples of the labeling interface. Patches are presented in pages
-consisting of a \(10\times10\) matrix. Labels are applied or removed by a
+<figure>
+  <img src="../img/old_label_tool.png"/>
+  <figcaption>
+  Examples of the labeling interface. Patches are presented in pages
+consisting of a $10\times10$ matrix. Labels are applied or removed by a
 mouse click at a particular
-patch." src="vision/labeling1.png" title="fig:" />{#fig:bw-ball-labeling
-width="0.49\columnwidth"} <img alt="Examples of the labeling interface. Patches
-are presented in pages consisting of a \(10\times10\) matrix. Labels are
-applied or removed by a mouse click at a particular
-patch." src="vision/labeling3.png" title="fig:" />{#fig:bw-ball-labeling
-width="0.49\columnwidth"}</p>
+patch.
+</figcaption>
+</figure>
+
 <h4 id="classification-with-convolutional-neural-networks">Classification with Convolutional Neural Networks</h4>
 <p>In the last step the generated ball candidates (patches) are classified.
 At the current point we distinguish two classes: <code>ball</code> and <code>noball</code>. As
@@ -1198,11 +1191,14 @@ network in C++. The generated files are included in the project and
 directly used by the ball detector. All corresponding functions can be
 found in the directory <code>Utils\MatlabDeepLearning</code>. Example of the
 resulting classification can be found in .</p>
-<p><img alt="Examples of the detected
-ball." src="vision/ball-detected1.png" title="fig:" />{#fig:bw-ball-detected
-width="0.49\columnwidth"} <img alt="Examples of the detected
-ball." src="vision/ball-detected2.png" title="fig:" />{#fig:bw-ball-detected
-width="0.49\columnwidth"}</p>
+<figure>
+  <img src="../img/detected_ball.png"/>
+  <figcaption>
+Examples of the detected
+ball.
+</figcaption>
+</figure>
+
 <h3 id="acknowledgment">Acknowledgment</h3>
 <p>Some of the most important parts of this ball detection procedure were
 inspired by very fruitful discussions with the RoboCup community. At
