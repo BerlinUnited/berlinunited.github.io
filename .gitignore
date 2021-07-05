@@ -5,3 +5,9 @@ venv/*
 
 # ignore build dir
 site/
+
+# ignore latex intermediate stuff
+docs/img-src/*.aux
+docs/img-src/*.log
+docs/img-src/*.pdf
+docs/img-src/*.gz

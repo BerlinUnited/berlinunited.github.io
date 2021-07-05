@@ -31,7 +31,7 @@ Problems arise from sensor noise and delays within the feedback loop. As
 a correlated project we also investigate the paradigm of local control
 loops, e.g. we extended the Nao with additional sensors.
 
-## Walk {#s:walk}
+## Walk
 
 The algorithm we use to accomplish a walking motion can be subdivided
 into four components: the path planner, the step planner, the preview
@@ -39,8 +39,7 @@ controller and stabilization.
 
 The path planner is currently of very primitive nature, acting solely as
 a bridge for certain movement routines between behavior and motion
-control. The behavior part is presented in chapter
-[7](#s:behavior){reference-type="ref" reference="s:behavior"}.
+control. The behavior part is presented in behavior chapter.
 
 At first, the step planner determines the target position for the next
 step considering the walk request and various stability criteria. After
@@ -51,17 +50,19 @@ during the execution of the step assuming a linear inverted pendulum
 model. While the step is executed the foot's 3D trajectory is calculated
 on demand and combined with the corresponding COM pose to finally
 determine the target joint configuration using inverse kinematics.
-Figure
-[\[fig:naoth_walking_engine_overview\]](#fig:naoth_walking_engine_overview){reference-type="ref"
-reference="fig:naoth_walking_engine_overview"} shows a overview of the
-walking engine.
+
+<figure>
+  <img src="../img/walking_engine.png"/>
+  <figcaption>
+  Overview of the walking engine
+</figcaption>
+</figure>
+
 
 ### Path Planner
-
 The path planner is intended to calculate a collision free and optimal
 path from the robot towards a goal. Currently that intention is not
-fulfilled. Instead it is used as a bridge between behavior described in
-chapter [7](#s:behavior){reference-type="ref" reference="s:behavior"}
+fulfilled. Instead it is used as a bridge between the behavior
 and motion control. The behavior requests a certain routine, e.g. that
 the robot walks to the ball, and the path planner executes that routine
 by requesting steps from motion control. The types of routines that are
@@ -127,7 +128,9 @@ cycle of a step a target ZMP is added to the ZMP-buffer. The ZMP-buffer
 is used by the preview controller to calculate the target position,
 velocity and acceleration of the COM during a step. The following
 equation is used to determine the control vector [@Xu14Dissertation]:
+
 $$u = -\underbrace{K_x x_k}_{state feedback} - K_I \underbrace{\sum_{i=0}^k (p_k - p_k^{ref})}_{accumulated ZMP error} - \underbrace{\begin{bmatrix} f_1, f_2, \ldots, f_N\end{bmatrix}}_{preview\, gain} \underbrace{\begin{bmatrix} p_{k+1}^{ref}\\ p_{k+2}^{ref}\\ \vdots \\ p_{k+N}^{ref}\end{bmatrix}}_{future ZMP}$$
+
 Where $x_k$ is a vector describing the location, velocity and
 acceleration of the COM at time $k$. $p_k$ is the ZMP and $p_k^{ref}$
 the target ZMP at time $k$. $K_x$, $K_I$ and $f_1, \cdots, f_N$ are the
