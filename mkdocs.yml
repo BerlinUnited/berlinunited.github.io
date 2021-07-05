@@ -40,12 +40,8 @@ extra_javascript:
 extra:
   social:
     - icon: fontawesome/brands/twitter
-      link: https://twitter.com/squidfunk
+      link: https://twitter.com/naoteamhumboldt
     - icon: fontawesome/brands/github
-      link: https://twitter.com/squidfunk
-    - icon: fontawesome/brands/twitter
-      link: https://twitter.com/squidfunk
-    - icon: fontawesome/brands/github
-      link: https://twitter.com/squidfunk
+      link: https://github.com/BerlinUnited
     - icon: fontawesome/brands/youtube
-      link: https://twitter.com/squidfunk
+      link: https://www.youtube.com/user/teamhumboldt
