@@ -1,20 +1,14 @@
 # Visual Perception
-
-Visual perception is the primary way for the NAO robot of perceiving its
-environment. To reduce computational complexity our vision is based on a
-reliable field color detection. This color information is used to
-estimate the boundaries of the visible field region in the image. Which
-is done while scanning for line edgels - oriented jumps in the
-brightness channel. Detection of other objects - lines, ball, goals - is
-performed within this field region. Lines are modeled as a graph of the
-aforementioned edgels. Ball detection consists mainly of two steps - key
-points (ball candidates) are detected using *integral image* and
-*difference of gaussians*, which are then classified by a trained
-cascade classifier. Goal post detection uses scan lines along the
-horizon.
+Visual perception is the primary way for the NAO robot of perceiving its environment. To reduce computational 
+complexity our vision is based on a reliable field color detection. This color information is used to estimate 
+the boundaries of the visible field region in the image. Which is done while scanning for 
+line edgels - oriented jumps in the brightness channel. Detection of other objects - lines, ball, 
+goals - is performed within this field region. Lines are modeled as a graph of the aforementioned edgels. 
+Ball detection consists mainly of two steps - key points (ball candidates) are detected using *integral image* 
+and *difference of gaussians*, which are then  classified by a trained cascade classifier. Goal post detection uses scan lines along the horizon.
 
 The image below shows the dependency graph for the vision
-modules [^4] and the representations they provide, which were used at the
+modules and the representations they provide, which were used at the
 RoboCup 2016 competition. In the following we describe some of the
 important modules in more detail.
 
@@ -28,16 +22,12 @@ An outgoing arrow from a module $A$ to a representation $R$ means $A$ provides $
 arrow from $R$ to $A$ means $R$ is required by $A$.</figcaption>
 </figure>
 
-
-
 ## Green Detection
-
-This section describes a new approach to classify the field color which
-has not been used since late 2015. This constitutes the first
-step in the attempt for a automatic field color detection. Thereby we
-analyze the structure of the color space perceived by the robot NAO and
-propose a simple yet powerful model for separation of the color regions,
-whereby green color is of a particular interest.
+This section describes a new approach to classify the field color which has been used since late 2015. 
+For the first time this approach has been presented in November 2015 at the RoHOW workshop in Hamburg, Germany.
+This constitutes the first step in the attempt for a automatic field color detection. Thereby we analyze 
+the structure of the color space perceived by the robot NAO and propose a simple yet powerful model for 
+separation of the color regions, whereby green color is of a particular interest.
 
 <figure>
   <img src="../img/green_detection.png"/>
@@ -157,16 +147,16 @@ to play outside.
 
 ## ScanLineEdgelDetector
 
-![ With top to down scanlines \[green lines\] the edges of possible
-field lines \[black lines\] including their orientation are detected
+
+<figure>
+  <img src="../img/ScanLineEdgelDetector.png"/>
+  <figcaption>
+With top to down scanlines [green lines] the edges of possible
+field lines [black lines] including their orientation are detected
 (left) and the last field colored points are assumed as endpoints of the
-field \[green circles\] (right).
-](vision/scanlineEdgels "fig:"){width="0.5\\columnwidth"} ![ With top to
-down scanlines \[green lines\] the edges of possible field lines \[black
-lines\] including their orientation are detected (left) and the last
-field colored points are assumed as endpoints of the field \[green
-circles\] (right).
-](vision/scanLineEndpoints "fig:"){width="0.5\\columnwidth"}
+field [green circles] (right).
+</figcaption>
+</figure>
 
 With this module we detect field line border points and estimate some
 points of the field border. To do this, we use scanlines, but only
@@ -183,20 +173,27 @@ With the field border points, estimated with the
 *ScanLineEdgelDetector*, we calculate for each image a polygon, which is
 representing the border of the field in the image.
 
-![ The endpoints provided by the *ScanLineEdgelDetector* (left) are used
+<figure>
+  <img src="../img/field_detector.png"/>
+  <figcaption>
+The endpoints provided by the ScanLineEdgelDetector (left) are used
 to calculate the field border (right).
-](vision/fieldEndpoints "fig:"){width="0.5\\columnwidth"} ![ The
-endpoints provided by the *ScanLineEdgelDetector* (left) are used to
-calculate the field border (right).
-](vision/fieldBorder "fig:"){width="0.5\\columnwidth"}
+</figcaption>
+</figure>
 
 ## LineGraphProvider
 
 This module clusters neighbouring line border points, detected by
 *ScanLineEdgelDetector*.
 
-![image](vision/edgels){width="0.5\\columnwidth"}
-![image](vision/edgelgraph){width="0.5\\columnwidth"}
+
+<figure>
+  <img src="../img/line_graph_provider.png"/>
+  <figcaption>
+TODO: write a caption here
+</figcaption>
+</figure>
+
 
 ## RansacLineDetector
 
@@ -238,19 +235,17 @@ Figure [4.8](#fig:GoalFeatureDetector){reference-type="ref"
 reference="fig:GoalFeatureDetector"} illustrates the scan lines as well
 as detected edgels (left) and resulting goal post features (right).
 
-![ The scan lines \[grey lines\] above and below the estimated horizon
+<figure>
+  <img src="../img/goal_feature_detector.png"/>
+  <figcaption>
+The scan lines [grey lines] above and below the estimated horizon
 are used to detect the goal post border points and the orientation of
-the corresponding edges \[colored and black segments\] (left). The
-results are features of possible goal posts \[blue line segments with
-red dots\]
-(right).](vision/whiteGoalGradients "fig:"){#fig:GoalFeatureDetector
-width="0.5\\columnwidth"} ![ The scan lines \[grey lines\] above and
-below the estimated horizon are used to detect the goal post border
-points and the orientation of the corresponding edges \[colored and
-black segments\] (left). The results are features of possible goal posts
-\[blue line segments with red dots\]
-(right).](vision/whiteGoalFeatures "fig:"){#fig:GoalFeatureDetector
-width="0.5\\columnwidth"}
+the corresponding edges [colored and black segments] (left). The
+results are features of possible goal posts [blue line segments with
+red dots]
+(right).
+</figcaption>
+</figure>
 
 ## GoalDetector
 
@@ -263,22 +258,19 @@ y coordinate) are checked against these features. Features of all scan
 lines, which are located underneath of each other, are collected into
 one cluster. Each of these clusters represents a possible goal post.
 
-![ Goal features detected as described in
+
+<figure>
+  <img src="../img/goal_detector.png"/>
+  <figcaption>
+Goal features detected as described in
 [4.6](#s:GoalFeatureDetector){reference-type="ref"
 reference="s:GoalFeatureDetector"} are clustered to form candidates for
 the goal posts (left). These candidates are evaluated regarding expected
 dimensions as well as their relation to the field. The candidates
 fulfilling all necessary criteria are selected as goal post percepts
-(right green
-boxes).](vision/whiteGoalPostScans "fig:"){#fig:GoalDetector
-width="0.5\\columnwidth"} ![ Goal features detected as described in
-[4.6](#s:GoalFeatureDetector){reference-type="ref"
-reference="s:GoalFeatureDetector"} are clustered to form candidates for
-the goal posts (left). These candidates are evaluated regarding expected
-dimensions as well as their relation to the field. The candidates
-fulfilling all necessary criteria are selected as goal post percepts
-(right green boxes).](vision/whiteGoalPosts "fig:"){#fig:GoalDetector
-width="0.5\\columnwidth"}
+(right green boxes).
+</figcaption>
+</figure>
 
 From the features of a cluster, the orientation of the possible goal
 post is estimated and used to scan up and down along the estimated goal
