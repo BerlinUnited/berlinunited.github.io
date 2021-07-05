@@ -66,11 +66,15 @@ Figure [5.4](#fig:compass){reference-type="ref" reference="fig:compass"}
 shows a set of edgels detected in a particular frame on the left side.
 On the right side the according histogram is plotted.
 
-![image](img/prob_compass.png)
+<figure>
+  <img src="../img/prob_compass.png"/>
+  <figcaption>
 Left figure visualizes the edgel graph in local coordinates of the
 robot in a particular frame. Right illustrates the kernel histogram over
 the orientations of edgels shown left, calculated with above
 formula.
+</figcaption>
+</figure>
 
 ## Multi-Hypothesis-Extended-Kalman-Filter Ball Model
 Although there is usually only one ball involved in a RoboCup game, there are several good reasons 
@@ -136,10 +140,14 @@ distribution is modeled as a Gaussian distribution. The parameters which
 describe the distribution for one action are velocity, angle and their
 standard deviations.
 
-![image](img/kickdist.png)
+<figure>
+  <img src="../img/kickdist.png"/>
+  <figcaption>
 Kick action model: distributions of the possible ball positions after
 a sidekick and the long kick forward with the right foot. Blue dots
 illustrate experimental data.
+</figcaption>
+</figure>
 
 ### Determine the parameters
 
@@ -228,7 +236,9 @@ action with the highest mean is selected and executed. If no action has
 enough good particles, the best action is to turn towards the opponent
 goal.
 
-![image](img/action_selection.png)
+<figure>
+  <img src="../img/action_selection.png"/>
+  <figcaption>
 Three examples of kick simulations. Each possible kick direction is
 simulated with 30 samples (different colors correspond to different
 kicks). Left: the short and long kicks are shortened due to collision
@@ -237,9 +247,10 @@ it has the most samples result in a goal. Right: the best action is
 sidekick to the right -- the other kicks are more likely to end up in a
 dangerous position for the own goal according to the potential
 field.
+</figcaption>
+</figure>
 
 ### Potential field
-
 A potential field assigns a value to each position of the ball inside
 the field. The values reflect the static strategy of the game and are
 used to compare possible ball positions in terms of their strategic
