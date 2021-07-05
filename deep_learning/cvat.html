@@ -455,9 +455,67 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          CVAT Labeltool
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="cvat.html" class="md-nav__link md-nav__link--active">
         CVAT Labeltool
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#rules" class="md-nav__link">
+    Rules
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#own-changes-to-the-cvat-code" class="md-nav__link">
+    Own changes to the CVAT Code
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#label-guidelines" class="md-nav__link">
+    Label Guidelines
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#auto-annotation-for-users" class="md-nav__link">
+    Auto Annotation for users
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#auto-annotation-for-developers" class="md-nav__link">
+    Auto Annotation for developers
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -488,6 +546,49 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#rules" class="md-nav__link">
+    Rules
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#own-changes-to-the-cvat-code" class="md-nav__link">
+    Own changes to the CVAT Code
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#label-guidelines" class="md-nav__link">
+    Label Guidelines
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#auto-annotation-for-users" class="md-nav__link">
+    Auto Annotation for users
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#auto-annotation-for-developers" class="md-nav__link">
+    Auto Annotation for developers
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -501,6 +602,33 @@
                 
                 <h1 id="cvat-labeltool">CVAT Labeltool</h1>
 <p>Our CVAT instance can be accessed via <a href="https://ball.informatik.hu-berlin.de">https://ball.informatik.hu-berlin.de</a></p>
+<p>Everyone can register, but to see the tasks you have to be manually added to a group with the appropriate permissons.
+Contact the team via slack or email to get the permissons set.</p>
+<h2 id="rules">Rules</h2>
+<ul>
+<li>You should not modify tasks that are assigned to someone else</li>
+<li>You should not modify tasks that are marked <em>completed</em></li>
+<li>Do not change labels of existing projects</li>
+<li>Every task should belong to a project</li>
+<li>Notify the team via slack if your are adding tasks or projects</li>
+<li>Notify the team via slack before adding more automatic annotation models</li>
+<li>Before you start assign the task to yourself so that others don't interfere</li>
+<li>After you are done select <em>Request a review</em> from the menu and select another active user</li>
+<li>Before you start working please read the official documentation at <a href="https://openvinotoolkit.github.io/cvat/docs">https://openvinotoolkit.github.io/cvat/docs</a></li>
+</ul>
+<h2 id="own-changes-to-the-cvat-code">Own changes to the CVAT Code</h2>
+<ul>
+<li>in our instance it is possible to create bounding boxes that are outside the image</li>
+</ul>
+<h2 id="label-guidelines">Label Guidelines</h2>
+<ul>
+<li>only label balls that you can clearly detect as balls when zoomed in a bit (TODO create some examples)</li>
+<li>the bounding box of a ball should include the whole ball even if part of it is outside the image or occluded</li>
+</ul>
+<h2 id="auto-annotation-for-users">Auto Annotation for users</h2>
+<p>TODO</p>
+<h2 id="auto-annotation-for-developers">Auto Annotation for developers</h2>
+<p>TODO</p>
                 
               
               
