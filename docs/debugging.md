@@ -77,32 +77,39 @@ In this year we started to update the UI by switching to JavaFX for some
 dialogs. The following list consists of our most used RobotControl
 Dialogs.
 
-![image](img/robotcontrol2018.png)
-
+<figure>
+  <img src="../img/robotcontrol2018.png"/>
+  <figcaption>
 The RobotControl program contains different dialogs. The 3DViewer (top
 left) is used to visualize the current state of the robot; the Value
 Plotter dialog (bottom left) plots some data; the Field Viewer dialog
 (top center) draws the field view; the Behavior dialog (bottom center)
 shows the behavior tree; the Debug Request Center dialog (right) is for
 enabling/disabling debug requests.
+</figcaption>
+</figure>
 
 ### Behavior Viewer
-
-![image](img/rc-dialogs/BehaviorViewer.png)
-
+<figure>
+  <img src="../img/rc-dialogs/BehaviorViewer.png"/>
+  <figcaption>
 Shows the behavior tree for the current behavior. The compiled XABSL
 behavior needs to be sent to the robot first and then an agent can be
 selected to be executed. With 'Add Watch' you can track XABSL input and
 output symbols.
+</figcaption>
+</figure>
 
 ### Debug Requests {#debug-requests .unnumbered}
-
-![image](img/rc-dialogs/DebugRequests.png)
-
+<figure>
+  <img src="../img/rc-dialogs/DebugRequests.png"/>
+  <figcaption>
 (De-)activates the debug request code. Usually a debug request draws
 something on the field viewer or on the camera images. For further
 information about individual debug requests, have a look at the source
 code.
+</figcaption>
+</figure>
 
 ### Field Viewer
 
