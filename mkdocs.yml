@@ -11,7 +11,10 @@ nav:
     - 'behavior.md'
     - 'bibliography.md'
   - NaoTH Tools:
-    - 'rc/index.md'
+    - 'naoth_tools/rc.md'
+    - 'naoth_tools/naoscp.md'
+    - 'naoth_tools/xabsleditor.md'
+    - 'naoth_tools/simspark.md'
   - RoboCup Tools:
     - 'robocup_tools/index.md'
     - 'robocup_tools/game_recording.md'
