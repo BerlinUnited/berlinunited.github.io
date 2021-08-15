@@ -16,12 +16,16 @@ nav:
     - 'naoth_tools/xabsleditor.md'
     - 'naoth_tools/simspark.md'
     - 'naoth_tools/webots.md'
+    - 'naoth_tools/gitlab-ci.md'
   - RoboCup Tools:
     - 'robocup_tools/index.md'
     - 'robocup_tools/game_recording.md'
   - Deep Learning Pipeline:
     - 'deep_learning/index.md'
     - 'deep_learning/cvat.md'
+  - Guides:
+    - 'guides/git-hooks.md'
+    - 'guides/lab-trackingsystem.md'
 
 theme:
   name: material
