@@ -7,6 +7,9 @@ First install the pip dependencies
 To run the website locally run:
 `mkdocs serve`
 
+## Add pages
+TODO
+
 ---
 
 Example for building own plugins:  

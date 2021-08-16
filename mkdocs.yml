@@ -24,6 +24,7 @@ nav:
     - 'deep_learning/index.md'
     - 'deep_learning/cvat.md'
   - Guides:
+    - 'guides/coding_guidelines.md'
     - 'guides/git-hooks.md'
     - 'guides/lab-trackingsystem.md'
 
