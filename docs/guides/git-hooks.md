@@ -1,4 +1,6 @@
 # Git-Hooks
+!!! note
+    TODO: explain how to set them up on windows with cygwin.
 
 If you want to execute a script (sh, python, ...) after a certain git
 action (see https://git-scm.com/docs/githooks), you can put an
