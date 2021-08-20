@@ -29,4 +29,35 @@ For example - (re-)generate the protobuf files:
         cd - 1> /dev/null
     fi
 
-
+**~/project/.git/hooks/pre-commit**
+    
+    #!/bin/sh
+    
+    # Reject any commit that would add a line with tabs.
+    #
+    # You can enable this as a repo policy with
+    #
+    #   git config hooks.allowtabs true
+    
+    allowtabs=$(git config hooks.allowtabs)
+    
+    if [ "$allowtabs" != "true" ] &&
+       # we check only tabs that would be added by this commit
+       git diff --cached '*.c' '*.h' '*.cpp' '*.hpp' | grep -E '^\+.*	'>/dev/null
+    then
+       cat<<END;
+    [ERROR]: This commit adds TABS! Replace all tabs with spaces.
+    If you know what you are doing you can force this commit with:
+      git commit --no-verify
+    Or change the repo policy like so:
+      git config hooks.allowtabs true
+    Tabs in :
+    END
+    
+      # show all tabs
+      #git grep -n --cached '	'
+      
+      # show only tabs that would be added in the commit
+      git diff --cached '*.c' '*.h' '*.cpp' '*.hpp' | grep -E '^\+.*'
+      exit 1
+    fi
