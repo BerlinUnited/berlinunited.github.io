@@ -13,7 +13,7 @@ TODO
 ---
 
 Example for building own plugins:  
-https://docs.abinit.org/theory/noncollinear/
+https://docs.abinit.org/theory/noncollinear/ 
 
 ---
 
