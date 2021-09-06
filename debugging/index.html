@@ -1,0 +1,1700 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.4">
+    
+    
+      
+        <title>Debugging and Tools - Berlin United - Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.f7f47774.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#debugging-and-tools" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Berlin United - Documentation" class="md-header__button md-logo" aria-label="Berlin United - Documentation" data-md-component="logo">
+      
+  <img src="../img/favicon.ico" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Berlin United - Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Debugging and Tools
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Berlin United - Documentation" class="md-nav__button md-logo" aria-label="Berlin United - Documentation" data-md-component="logo">
+      
+  <img src="../img/favicon.ico" alt="logo">
+
+    </a>
+    Berlin United - Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" checked>
+      
+      <label class="md-nav__link" for="__nav_1">
+        Teamreport
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Teamreport" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Teamreport
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Welcome
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../introduction/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture_intro/" class="md-nav__link">
+        Architecture
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Debugging and Tools
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Debugging and Tools
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#concepts" class="md-nav__link">
+    Concepts
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#robotcontrol" class="md-nav__link">
+    RobotControl
+  </a>
+  
+    <nav class="md-nav" aria-label="RobotControl">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#behavior-viewer" class="md-nav__link">
+    Behavior Viewer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#debug-requests" class="md-nav__link">
+    Debug Requests
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#field-viewer" class="md-nav__link">
+    Field Viewer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#image-viewer" class="md-nav__link">
+    Image Viewer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logfile-recorder" class="md-nav__link">
+    Logfile Recorder
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modify" class="md-nav__link">
+    Modify
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#module-configuration-viewer" class="md-nav__link">
+    Module Configuration Viewer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameter-panel" class="md-nav__link">
+    Parameter Panel
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#plot-2d" class="md-nav__link">
+    Plot 2D
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#representation-inspector" class="md-nav__link">
+    Representation Inspector
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stopwatch-viewer" class="md-nav__link">
+    Stopwatch Viewer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#team-communication-viewer" class="md-nav__link">
+    Team Communication Viewer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#team-communication-logviewer" class="md-nav__link">
+    Team Communication Logviewer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#simspark" class="md-nav__link">
+    Simspark
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#external-tools" class="md-nav__link">
+    External Tools
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#robot-setup-and-deployment" class="md-nav__link">
+    Robot Setup and Deployment
+  </a>
+  
+    <nav class="md-nav" aria-label="Robot Setup and Deployment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deployment-procedure" class="md-nav__link">
+    Deployment Procedure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#naoscp" class="md-nav__link">
+    NaoSCP
+  </a>
+  
+    <nav class="md-nav" aria-label="NaoSCP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#usage-remarks" class="md-nav__link">
+    Usage Remarks
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usb-flash-drive" class="md-nav__link">
+    USB flash drive
+  </a>
+  
+    <nav class="md-nav" aria-label="USB flash drive">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#flash-drive-variants" class="md-nav__link">
+    Flash drive variants
+  </a>
+  
+    <nav class="md-nav" aria-label="Flash drive variants">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deploying" class="md-nav__link">
+    Deploying
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#collecting-log-files" class="md-nav__link">
+    Collecting log files
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setting-network" class="md-nav__link">
+    Setting network
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#logging" class="md-nav__link">
+    Logging
+  </a>
+  
+    <nav class="md-nav" aria-label="Logging">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#logfile-format" class="md-nav__link">
+    Logfile Format
+  </a>
+  
+    <nav class="md-nav" aria-label="Logfile Format">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#annotate-and-evaluate-logs" class="md-nav__link">
+    Annotate and Evaluate Logs
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#simulation" class="md-nav__link">
+    Simulation
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vision/" class="md-nav__link">
+        Visual Perception
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modeling/" class="md-nav__link">
+        Modeling
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../motion/" class="md-nav__link">
+        Motion Control
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../behavior/" class="md-nav__link">
+        Behavior
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bibliography/" class="md-nav__link">
+        Bibliography
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      <label class="md-nav__link" for="__nav_2">
+        NaoTH Tools
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="NaoTH Tools" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          NaoTH Tools
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../naoth_tools/rc/" class="md-nav__link">
+        RoboControl
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../naoth_tools/naoscp/" class="md-nav__link">
+        NaoSCP
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../naoth_tools/xabsleditor/" class="md-nav__link">
+        Xabsleditor
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../naoth_tools/simspark/" class="md-nav__link">
+        Simspark
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../naoth_tools/webots/" class="md-nav__link">
+        Webots
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../naoth_tools/gitlab-ci/" class="md-nav__link">
+        Gitlab CI
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      <label class="md-nav__link" for="__nav_3">
+        RoboCup Tools
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="RoboCup Tools" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          RoboCup Tools
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../robocup_tools/" class="md-nav__link">
+        RoboCup Project
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../robocup_tools/game_recording/" class="md-nav__link">
+        Game Recording
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      <label class="md-nav__link" for="__nav_4">
+        Deep Learning Pipeline
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Deep Learning Pipeline" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Deep Learning Pipeline
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deep_learning/" class="md-nav__link">
+        Deep Learning Pipeline Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deep_learning/cvat/" class="md-nav__link">
+        CVAT Labeltool
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      <label class="md-nav__link" for="__nav_5">
+        Guides
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Guides" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Guides
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../guides/coding_guidelines/" class="md-nav__link">
+        Coding Guidelines
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../guides/git-hooks/" class="md-nav__link">
+        Git-Hooks
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../guides/lab-trackingsystem/" class="md-nav__link">
+        NaoTH Tracking System
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../guides/logging/" class="md-nav__link">
+        Logging
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#concepts" class="md-nav__link">
+    Concepts
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#robotcontrol" class="md-nav__link">
+    RobotControl
+  </a>
+  
+    <nav class="md-nav" aria-label="RobotControl">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#behavior-viewer" class="md-nav__link">
+    Behavior Viewer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#debug-requests" class="md-nav__link">
+    Debug Requests
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#field-viewer" class="md-nav__link">
+    Field Viewer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#image-viewer" class="md-nav__link">
+    Image Viewer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logfile-recorder" class="md-nav__link">
+    Logfile Recorder
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modify" class="md-nav__link">
+    Modify
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#module-configuration-viewer" class="md-nav__link">
+    Module Configuration Viewer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameter-panel" class="md-nav__link">
+    Parameter Panel
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#plot-2d" class="md-nav__link">
+    Plot 2D
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#representation-inspector" class="md-nav__link">
+    Representation Inspector
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stopwatch-viewer" class="md-nav__link">
+    Stopwatch Viewer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#team-communication-viewer" class="md-nav__link">
+    Team Communication Viewer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#team-communication-logviewer" class="md-nav__link">
+    Team Communication Logviewer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#simspark" class="md-nav__link">
+    Simspark
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#external-tools" class="md-nav__link">
+    External Tools
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#robot-setup-and-deployment" class="md-nav__link">
+    Robot Setup and Deployment
+  </a>
+  
+    <nav class="md-nav" aria-label="Robot Setup and Deployment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deployment-procedure" class="md-nav__link">
+    Deployment Procedure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#naoscp" class="md-nav__link">
+    NaoSCP
+  </a>
+  
+    <nav class="md-nav" aria-label="NaoSCP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#usage-remarks" class="md-nav__link">
+    Usage Remarks
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usb-flash-drive" class="md-nav__link">
+    USB flash drive
+  </a>
+  
+    <nav class="md-nav" aria-label="USB flash drive">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#flash-drive-variants" class="md-nav__link">
+    Flash drive variants
+  </a>
+  
+    <nav class="md-nav" aria-label="Flash drive variants">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deploying" class="md-nav__link">
+    Deploying
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#collecting-log-files" class="md-nav__link">
+    Collecting log files
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setting-network" class="md-nav__link">
+    Setting network
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#logging" class="md-nav__link">
+    Logging
+  </a>
+  
+    <nav class="md-nav" aria-label="Logging">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#logfile-format" class="md-nav__link">
+    Logfile Format
+  </a>
+  
+    <nav class="md-nav" aria-label="Logfile Format">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#annotate-and-evaluate-logs" class="md-nav__link">
+    Annotate and Evaluate Logs
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#simulation" class="md-nav__link">
+    Simulation
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="debugging-and-tools">Debugging and Tools</h1>
+<p>In order to develop a complex software for a mobile robot, we require
+means for high-level debugging and monitoring (e. g., visualization of
+the robot's posture or its position on the field). Since we do not
+exactly know which kind of algorithms will be debugged, there are two
+aspects of high importance: accessibility at runtime and flexibility.
+The accessibility of the debug construct is realized based on our
+communication framework. Thus, they can be accessed at runtime by using
+visualization software like RobotControl, as shown in
+Figure <a href="#fig:robotcontrol">3.1</a>{reference-type="ref"
+reference="fig:robotcontrol"}.</p>
+<h2 id="concepts">Concepts</h2>
+<p>Some of the ideas were evolved from the
+GT-Architecture [@2007:RoboCup-TDP-GermanTeam]. The following list
+illustrates some of the debug concepts:</p>
+<p><strong>debug request:</strong> (activates/deactivates code parts),</p>
+<p><strong>modify:</strong> allows modification of a value (in particular local variables)</p>
+<p><strong>stopwatch:</strong> measures the execution time</p>
+<p><strong>parameter list:</strong> allows to monitor and modify lists of parameters</p>
+<p><strong>drawings:</strong> allows visualization in 2D/3D; thereby it can be drawn into the image or on the field (2D/3D)</p>
+<p><strong>plot:</strong> allows visualization of values over time</p>
+<p>As already mentioned, these concepts can be placed at any position in
+the code and can be accessed at runtime. Similar to the module
+architecture, the debug concepts are hidden by macros to allow simple
+usage and to be able to deactivate the debug code at compilation time,
+if necessary.</p>
+<p>In order to use a debug request in the code you have to register it once
+with the <code>DEBUG_REQUEST_REGISTER</code> macro:</p>
+<pre><code class="language-cpp">DEBUG_REQUEST_REGISTER(&quot;My:Debug:Request&quot;, &quot;Description of the debug request&quot;, true);
+</code></pre>
+<p>After that, you can use the <code>DEBUG_REQUEST</code> macro to wrap code that
+should be only executed when the debug request is active.</p>
+<pre><code class="language-cpp">DEBUG_REQUEST(&quot;My:Debug:Request&quot;,
+    std::cout &lt;&lt; &quot;This code is not executed normally&quot; &lt;&lt; std::endl;
+    ++c;
+);
+</code></pre>
+<p><code>MODIFY</code> works in a similar way, but does not need any registration. By,
+for example, wrapping a variable and defining an identifier, this
+variable can be changed later from RobotControl.</p>
+<pre><code class="language-cpp">double yaw  = 0;
+MODIFY(&quot;BasicTestBehavior:head:headYaw_deg&quot;,yaw);
+</code></pre>
+<p>In addition to these means for individual debugging, there are some more
+for general monitoring purposes: the whole content of the blackboard,
+the dependencies between the modules and representations, and execution
+times of each single module. The
+Figure <a href="#fig:robotcontrol">3.1</a>{reference-type="ref"
+reference="fig:robotcontrol"} illustrates visualizations of the debug
+concepts. In particular a field view, 3D view, behavior tree, plot and
+the table of debug requests are shown.</p>
+<h2 id="robotcontrol">RobotControl</h2>
+<p>The various debugging possibilities are organized in different dialogs.
+In this year we started to update the UI by switching to JavaFX for some
+dialogs. The following list consists of our most used RobotControl
+Dialogs.</p>
+<figure>
+  <img src="../img/robotcontrol2018.png"/>
+  <figcaption>
+The RobotControl program contains different dialogs. The 3DViewer (top
+left) is used to visualize the current state of the robot; the Value
+Plotter dialog (bottom left) plots some data; the Field Viewer dialog
+(top center) draws the field view; the Behavior dialog (bottom center)
+shows the behavior tree; the Debug Request Center dialog (right) is for
+enabling/disabling debug requests.
+</figcaption>
+</figure>
+
+<h3 id="behavior-viewer">Behavior Viewer</h3>
+<figure>
+  <img src="../img/rc-dialogs/BehaviorViewer.png"/>
+  <figcaption>
+Shows the behavior tree for the current behavior. The compiled XABSL
+behavior needs to be sent to the robot first and then an agent can be
+selected to be executed. With 'Add Watch' you can track XABSL input and
+output symbols.
+</figcaption>
+</figure>
+
+<h3 class="unnumbered" id="debug-requests">Debug Requests</h3>
+<figure>
+  <img src="../img/rc-dialogs/DebugRequests.png"/>
+  <figcaption>
+(De-)activates the debug request code. Usually a debug request draws
+something on the field viewer or on the camera images. For further
+information about individual debug requests, have a look at the source
+code.
+</figcaption>
+</figure>
+
+<h3 id="field-viewer">Field Viewer</h3>
+<p><img alt="image" src="../img/rc-dialogs/FieldViewer.png" /></p>
+<p>There are views for different field sizes and a local view. Certain
+debug requests draw on these views. For example, you could draw the
+robots' positions on the field by activating the corresponding debug
+request.</p>
+<h3 id="image-viewer">Image Viewer</h3>
+<p><img alt="image" src="../img/rc-dialogs/ImageViewer.png" /></p>
+<p>Can show the top and bottom images. There are debug requests that draw
+on the camera images, if they are active.</p>
+<h3 id="logfile-recorder">Logfile Recorder</h3>
+<p><img alt="image" src="../img/rc-dialogs/LogfileRecorder.png" /></p>
+<p>Records a log file on a robot with manually selected representations.</p>
+<h3 id="modify">Modify</h3>
+<p><img alt="image" src="../img/rc-dialogs/Modify.png" /></p>
+<p>The Modify macro allows changing values of variables declared within
+this macro at runtime.</p>
+<h3 id="module-configuration-viewer">Module Configuration Viewer</h3>
+<p><img alt="image" src="../img/rc-dialogs/ModuleConfigurationViewer.png" /></p>
+<p>Shows which modules are currently (de-)activated. Also indicates, which
+other modules are required (left) and provided (right) by each module.</p>
+<h3 id="parameter-panel">Parameter Panel</h3>
+<p><img alt="image" src="../img/rc-dialogs/ParameterPanel.png" /></p>
+<p>Shows parameters defined in our configuration files. It is possible to
+change the values at runtime. The variables must be registered as
+parameters in the code.</p>
+<h3 id="plot-2d">Plot 2D</h3>
+<p><img alt="image" src="../img/rc-dialogs/Plot2D.png" /></p>
+<p>Shows plots activated by plot debug requests.</p>
+<h3 id="representation-inspector">Representation Inspector</h3>
+<p><img alt="image" src="../img/rc-dialogs/RepresentationInspector.png" /></p>
+<p>Shows the data that is written to the blackboard by each representation.</p>
+<h3 id="stopwatch-viewer">Stopwatch Viewer</h3>
+<p><img alt="image" src="../img/rc-dialogs/StopwatchViewer2018.png" /></p>
+<p>Shows the execution time for each module.</p>
+<h3 id="team-communication-viewer">Team Communication Viewer</h3>
+<p><img alt="image" src="../img/rc-dialogs/TeamCommViewer2018.png" /></p>
+<p>Shows all connected robots and possible all of their provided status
+information via TeamComm (e.g. ip address, battery charge, temperature,
+etc.). This dialog is mainly used during competitions to get a quick
+overview of the robots health status, their communicated data (e.g.
+ball, whistle detection, etc.) and their role decisions. Positions of
+the robots, role decision and seen ball for each robot are visualized in
+the
+FieldViewer <a href="#rc:fieldviewer">[rc:fieldviewer]</a>{reference-type="ref"
+reference="rc:fieldviewer"}. It's also useful for debugging the team
+communication to get a general overview of the role decision and its
+transitions. This year, the dialog was re-implemented using JavaFX.</p>
+<h3 id="team-communication-logviewer">Team Communication Logviewer</h3>
+<p><img alt="image" src="../img/rc-dialogs/TeamCommLogViewer2018.png" /></p>
+<p>The <em>Team Communication Logviewer</em> allows to re-play team communication
+logfiles previously recorded with the <em>Team Communication Viewer</em>. It's
+also able to re-play logs from the GameController and export them as
+JSON.</p>
+<h3 id="simspark">Simspark</h3>
+<p><img alt="image" src="../img/rc-dialogs/Simspark.png" /></p>
+<p>This dialog shows the state of the connected simspark instance. It also
+provides some predefined commands and a textfield for user-defined
+commands to send to simspark. Furthermore it also provides the
+teamcommunication of the simulated robots for other dialogs in
+RobotControl (e.g. <em>Team Communication Viewer</em>).</p>
+<h3 id="external-tools">External Tools</h3>
+<p><img alt="image" src="../img/rc-dialogs/ExternalTools.png" /></p>
+<p>Some "external tools" where modified in order to load them into
+RobotControl via reflection. Its convenient to have all needed tools in
+the application we're using most. Currently we have the NaoSCP tool (see
+<a href="#sec:naoscp" reference="sec:naoscp" reference-type="ref">3.3.2</a>
+NaoSCP), for the setup &amp; deployment of a robot, and a modified version
+of RoboViz, for visualization of a SimSpark simulation, integrated in
+RobotControl.</p>
+<h2 id="robot-setup-and-deployment">Robot Setup and Deployment</h2>
+<p>In this section we give an overview over our deployment and robot setup
+procedure. Changing the configuration of the robot, e.g., deployment of
+the binary, network setup etc., is a critical point during both,
+development and competition. To minimize the chance of error we
+developed a set of procedures and tools.</p>
+<h3 id="deployment-procedure">Deployment Procedure</h3>
+<p>Currently we have two different deployment procedures:</p>
+<ul>
+<li>
+<p>deployment via usb flash drive</p>
+</li>
+<li>
+<p>deployment via network</p>
+</li>
+</ul>
+<p>The general procedure consists of two steps:</p>
+<ol>
+<li>
+<p>assemble deployment directory containing all files and
+    configurations to be deployed as well as a corresponding deployment
+    shell script;</p>
+</li>
+<li>
+<p>copy this directory to the robot and run the deployment script;</p>
+</li>
+</ol>
+<p>This division minimizes the chance of mistakes and allows for easier
+debugging, i.e., if something went wrong, the error is either in the
+locally assembled deployment directory or has occurred during the
+deployment on the robot - both can be inspected separately. At the same
+time this locally assembled deployment directory serves as a binary
+backup, which can be very useful during the competition, e.g., if
+something turned out to be wrong with the new version just before the
+game and one needs to switch back to the binary from the last game.</p>
+<p>The beginning and the end of the deployment procedure are indicated by
+different sounds. This way the state of the robot and the progress of
+the deployment can be easily monitored, this is especially helpful when
+setting up a whole team before a game.</p>
+<h3 id="naoscp">NaoSCP</h3>
+<p><em>NaoSCP</em> is a setup and deployment tool. It primarily has three tasks:
+(1) initialize a new robot, e.g., copy libraries and scripts, (2) set
+the network configuration and (3) deploy naoth binary and configurations
+to the robot. All these tasks can be done on a command line as well, the
+main aims for designing <em>NaoSCP</em> were simplification of the deployment
+process, ensured backup of deployed binaries and reduction of the chance
+of mistakes during setup in critical situations, e.g., before a game at
+the world championship.</p>
+<p><img alt="image" src="../img/NaoSCP.png" />
+NaoSCP user interface. The log panel on the right displays status of
+the deployment process. The left side contains the panels for the
+configuration of the deployment / setup process: <em>Network</em> configures
+the network setup; <em>NaoTH</em> is used to adjust the configuration relevant
+for the deployed binary, e.g., player numbers. The buttons in the left
+bottom tool bar trigger particular deployment and setup actions like
+writing the network configuration to the robot or copying a new binary
+to a deployment USB flash drive. </p>
+<h4 id="usage-remarks">Usage Remarks</h4>
+<p>The following describes the particular components of the NaoSCP user
+interface as illustrated in the
+Figure <a href="#fig:naoscp" reference="fig:naoscp" reference-type="ref">3.2</a>.</p>
+<p><strong>Log Window</strong></p>
+<p>(right) shows information regarding the progress of the deployment
+process, e.g., copied files, connection errors and such.</p>
+<p><strong>Network</strong></p>
+<p>configuration (top left) is used to setup the LAN and WLAN;</p>
+<p><strong>NaoTH</strong></p>
+<p>dialog (left) configures the deployment of the game binary and
+contains things like the path to the source where the binaries can
+be found, used configuration scheme and player numbers for each
+robot based on their IP address;</p>
+<p><strong>Action toolbar</strong></p>
+<p>(bottom left) contains the buttons for the four different deployment
+/ setup actions: <em>Send to Robot</em> deploys the complied code and
+configuration to a particular robot via network. The text field left
+of the button defines the last byte of the ip address of the target
+robot. The network configuration from the dialog <em>Network</em> is used
+to determine the complete address. In this particular example the
+LAN target address would be 192.168.13.82. Thereby LAN is tried
+first and in case of failure WLAN is tried; <em>Write to stick</em> writes
+the deployment directory to a USB flash drive. If the flash drive
+already contains a deployment directory, a backup version of it is
+created. The text field left to the button holds an optional tag,
+which is used to organize the backups on the flash drive; <em>Set
+Network</em> configures the robots network according the the settings in
+the dialog <em>Network</em>; <em>Initialize Robot</em> will initialize a new
+robot, e.g., after a factory reset. This action will copy additional
+libs, configure the NaoQi modules, necessary starting scripts for
+binaries and for automatic mounting and running of USB flash drives.
+Additionally the network is configured and the binary is deployed
+like previously described;</p>
+<h3 id="usb-flash-drive">USB flash drive</h3>
+<p>A deployment flash drive can be created manually or (as described above)
+via the NaoSCP tool. As the minimum requirement there should be an
+executable shell script named \"'startBrainwashing.sh\"'. When the flash
+drive with a shell script (and a deployment directory) is connected to
+the robot, it is mounted automatically to a defined directory and the
+setup script is executed. The script is responsible for copying the
+particular binary and/or configuration files. The begin and end of the
+deployment procedure are indicated by different sounds. This way is
+preferred when deploying software on several robots, e.g., setting up a
+team before a game.</p>
+<h4 id="flash-drive-variants">Flash drive variants</h4>
+<p>Currently we have different kinds of USB flash drives to accomplish
+different kinds of deployment or collection tasks.</p>
+<h5 id="deploying">Deploying</h5>
+<p>As described above the deployment flash drive is used to copy new
+binaries and/or configuration files to the robot.</p>
+<h5 id="collecting-log-files">Collecting log files</h5>
+<p>The \"'collect log files\"' flash drive is used to copy the recorded log
+file from the robot. This is primarily used after games to be able to
+analyze possible misbehavior of the robot. Otherwise, if the robot is
+shut down, the log files would be lost since we record the logfiles in
+main memory. In addition some informations about the robot and the
+currently executed binary are collected and written to the
+\"'nao.info\"' file. With that information we're documenting the state
+of the robot/binary of the log file and giving a quick overview on later
+log file examination. Finally we're collecting all \"'heard\"' whistles
+for later fine-tuning of our whistledetector.</p>
+<h5 id="setting-network">Setting network</h5>
+<p>The network flash drive is used to set the network configuration of the
+robot (like IP address, etc.). Especially for the Wi-Fi configuration
+this method is useful to quickly set up all need robots before a game.</p>
+<h2 id="logging">Logging</h2>
+<p>Analysis and evaluation of the algorithms running on the robot is a big
+challenge.</p>
+<p>Our team has a long history in logging (our logs from 2010 are still
+readable and useful). Through the years we developed a comprehensive
+infrastructure for recording log files on individual robots during the
+games as well as tools for synchronizing these log files with videos of
+the game and analyzing them.</p>
+<p>A log file is recorded by a robot in its local file system, and is
+collected later through network or USB (cf.
+Section <a href="#s:usb_stick">3.3.3</a>{reference-type="ref"
+reference="s:usb_stick"}). Currently we use two different modes for
+recording such log files - automatic game log and log of manually
+selected representations.</p>
+<p>The game log is only recorded when the robot is in a <em>playing</em> state. It
+is recorded with the cognition pace, i.e., each time a new image arrives
+(each 33ms), and contains mainly the behavior state as well as
+additional information needed in a particular situation. For example
+during the RoboCup 2016 we recorded the best four ball candidate patches
+from each image in each frame to create a database of realistic samples
+for ball detection (cf.
+Section <a href="#s:ball:sample_generation">4.8.2.1</a>{reference-type="ref"
+reference="s:ball:sample_generation"}). The game logs recorded by
+individual robots can be synchronized with the video of the game, which
+can be very useful to analyze and find bugs in the behavior patterns of
+the robot and ultimately in the team behavior.</p>
+<p>Figure <a href="#f:synchronisation_interface">3.3</a>{reference-type="ref"
+reference="f:synchronisation_interface"} illustrates the manual
+synchronization interface. To simplify the synchronization procedure
+changes in the game state, e.g., from <em>ready</em> to <em>play</em>, are
+automatically extracted from the log file. The operator can select a
+suitable event from a drop-down list. To synchronize both, the operator
+then needs to find the corresponding time in the video. Good events for
+synchronization are often changes from <em>init</em> to <em>ready</em> - in the video
+one can clearly see when the robots receive the signal from the game
+controller and start to move.</p>
+<p>The manual logs can be configured and triggered through the according
+control dialog in the <em>RobotControl</em> as shown in the
+Section <a href="#s:robotcontrol">3.2</a>{reference-type="ref"
+reference="s:robotcontrol"}. This is used to record specific data for
+debugging or analysis in isolated experiments. A good example are log
+files containing full images of particular situations for general image
+processing, which can be only recorded for a short period of time due to
+the large size.</p>
+<p><img alt="iamge" src="../img/synchronization_tool.png" />
+Synchronization Interface for individual log files and videos of a
+game.</p>
+<h3 id="logfile-format">Logfile Format</h3>
+<p>As described in the
+Section <a href="#s:module_framework">2.3</a>{reference-type="ref"
+reference="s:module_framework"} the state of the robot is stored in
+<em>representations</em> on the <em>blackboard</em>. Any of these representations can
+be recorded to a log file if it has a designated serializer as described
+in Section <a href="#s:serialization">2.4</a>{reference-type="ref"
+reference="s:serialization"}. The format by which the representations
+are stored in a logfile is pretty straight forward. Each representation
+is stored in a package of the following form:</p>
+<pre><code>&lt;frame number&gt;&lt;representation name&gt;&lt;size&gt;&lt;data&gt;
+</code></pre>
+<p>Where <code>&lt;frame number&gt;</code> is 4 byte long, <code>&lt;representation name&gt;</code> is a
+string terminated with a zero character <code>'\0'</code> and <code>&lt;size&gt;</code> is 4 bit
+long length of the following binary <code>&lt;data&gt;</code>. A logfile is simply a
+sequence of such packages. Important to note is that when several
+different representations are recorded in each frame they are written in
+the same way, so the final log looks something like this:</p>
+<pre><code>1 FrameInfo ...
+1 ImageTop ...
+1 CameraMatrix ...
+2 FrameInfo ...
+2 ImageTop ...
+2 CameraMatrix ...
+...
+</code></pre>
+<h5 id="annotate-and-evaluate-logs">Annotate and Evaluate Logs</h5>
+<p>Annotation interface was created and used to annotate different kick
+actions executed by our robots in the videos recorded during the games
+at the RoboCup in 2015. The kick events were automatically extracted
+from the log files recorded by the individual robots and aligned with
+the video. Thus the human annotator can simply click through the
+particular events and inspect them in a short time. The results were
+used to evaluate the performance of the kick decision algorithm and were
+published in [@RC-MellmannSchlotterBlum-16]. illustrates an example of a
+labeling session for the first half of the game with the team
+<em>NaoDevils</em> at the RoboCup 2015. The following two links lead to an
+online demo and to the public repository with the code of the labeling
+interface:<br />
+<a href="https://www2.informatik.hu-berlin.de/~naoth/videolabeling/index.php">https://www2.informatik.hu-berlin.de/~naoth/videolabeling/index.php</a>
+<a href="https://github.com/BerlinUnited/VideoLogLabeling">https://github.com/BerlinUnited/VideoLogLabeling</a></p>
+<p><img alt="image" src="../img/labeling_screenshot.png" />
+Labeling interface used to annotate kick events regarding their
+quality. At the bottom are time lines for each of the robots. Different
+actions are represented by buttons on the time line with different
+colors. On the right the robots estimated state is visualized, i.e.,
+estimation of its position, ball model and obstacles. On the left are
+three categories of binary labels describing the quality of the
+action.</p>
+<h2 id="simulation">Simulation</h2>
+<p>As a common experience, there are big gaps between simulation and
+reality in robotics, especially with regards to basic physics with
+consequences for low level skills in motion and perception. There are
+some researchers who have already tried to narrow this gap, but there
+are only few successful results so far. We investigate the relationships
+and possibilities for methods and code transferring. Consequences can
+lead to better simulation tools, especially in the 3D Simulation League.
+At the moment, we use the SimSpark simulator from the 3D Simulation
+League with the common core of our program, see
+Figure <a href="#fig:spl-and-sim">3.6</a>{reference-type="ref"
+reference="fig:spl-and-sim"}. As already stated, therewith, we want to
+foster the cooperation between the two leagues and to improve both of
+them.</p>
+<p><img alt="image" src="../img/simulation.png" title="fig:" />
+NAO robots run in Standard Platform League (left) and 3D Simulation
+League (right).</p>
+<p>When compared to real Nao robots, some devices are missing in the
+SimSpark, such as LEDs and sound speakers. On one hand, we extended the
+standard version of SimSpark by adding missing devices like camera,
+accelerometer, to simulate the real robot. On the other hand, we can use
+a virtual vision sensor which is used in 3D simulation league instead of
+our image processing module. This allows us to perform isolated
+experiments on low level (e. g., image processing) and also on high
+level (e. g., team behavior). Also we developed a common architecture
+[@Mellmann2010b], and published a simple framework allowing for an easy
+start in the Simulation 3D league.</p>
+<p>Our plan is to analyze data from sensors/actuators in simulation and
+from real robots at first and then to apply machine learning methods to
+improve the available model or build a good implicit model from the data
+of real robot. Particularly, we plan to:</p>
+<ul>
+<li>
+<p>improve the simulated model of the robot in SimSpark,</p>
+</li>
+<li>
+<p>publish the architecture and a version of SimSpark which can be used
+    for simulation in SPL,</p>
+</li>
+<li>
+<p>transfer results from simulation to the real robot (e. g., team
+    behavior, navigation with potential field).</p>
+</li>
+</ul>
+<p>So far, we have developed walking gaits through evolutionary techniques
+in a simulated environment [@rc-07-hein_et_al; @diplom-hein].
+Reinforcement Learning was used for the development of dribbling skills
+in the 2D simulation [@Uc-Cetina09thesis], while Case Based Reasoning
+was used for strategic behavior
+[@BurkhardBerger07Cases; @berger-laemmel-wall-pass]. BDI-techniques have
+been investigated for behavior control, e. g., in
+[@diplom-berger; @hdb-bound-rat].</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+
+<!-- Footer -->
+<footer class="md-footer">
+
+  <!-- The base theme links to previous and/or next page, we omit that here. -->
+
+  <!-- Further information -->
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+
+      <!-- Copyright and theme information -->
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+
+      <!-- Social links -->
+      
+  <div class="md-footer-social">
+    
+      
+      
+        
+        
+      
+      <a href="https://twitter.com/naoteamhumboldt" target="_blank" rel="noopener" title="twitter.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://github.com/BerlinUnited" target="_blank" rel="noopener" title="github.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://www.youtube.com/user/teamhumboldt" target="_blank" rel="noopener" title="www.youtube.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg>
+      </a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.sections"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.709b4209.min.js", "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.febc23d1.min.js"></script>
+      
+        <script src="../javascripts/config.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

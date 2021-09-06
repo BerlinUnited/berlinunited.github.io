@@ -1,0 +1,31 @@
+\documentclass{standalone}% For the example only, any class will do
+
+\usepackage[ruled,vlined]{algorithm2e}
+
+
+\begin{document}
+\begin{algorithm}[H]
+	\caption{Find local maxima.}
+	\SetAlgoLined
+	\KwData{Set of possible key points $A$}
+	\KwResult{List of locally maximal key points $K$}
+	
+	$K\gets \emptyset$\;
+	\For{$p \in A$} {
+		${\tt insert}\gets true$\;
+		\For{$q \in K$} {
+			\If{ overlaps(p,q) }{
+				\eIf{$V(p) > V(q)$}{
+					$K\gets K\setminus\{q\}$\;
+				}{
+					${\tt insert}\gets false$\;
+				}
+			}
+		}
+		
+		\If{{\tt insert}}{
+			$K\gets K\cup\{p\}$\;
+		}
+	}
+\end{algorithm}
+\end{document}
