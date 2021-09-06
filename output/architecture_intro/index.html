@@ -1,0 +1,1085 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.4">
+    
+    
+      
+        <title>Architecture - Berlin United - Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.f7f47774.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#architecture" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Berlin United - Documentation" class="md-header__button md-logo" aria-label="Berlin United - Documentation" data-md-component="logo">
+      
+  <img src="../img/favicon.ico" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Berlin United - Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Architecture
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Berlin United - Documentation" class="md-nav__button md-logo" aria-label="Berlin United - Documentation" data-md-component="logo">
+      
+  <img src="../img/favicon.ico" alt="logo">
+
+    </a>
+    Berlin United - Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" checked>
+      
+      <label class="md-nav__link" for="__nav_1">
+        Teamreport
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Teamreport" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Teamreport
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Welcome
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../introduction/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Architecture
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Architecture
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#naosmal" class="md-nav__link">
+    NaoSMAL
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#platform-interface" class="md-nav__link">
+    Platform Interface
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#module-framework" class="md-nav__link">
+    Module framework
+  </a>
+  
+    <nav class="md-nav" aria-label="Module framework">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-module" class="md-nav__link">
+    Example module
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#serialization" class="md-nav__link">
+    Serialization
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../debugging/" class="md-nav__link">
+        Debugging and Tools
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vision/" class="md-nav__link">
+        Visual Perception
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modeling/" class="md-nav__link">
+        Modeling
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../motion/" class="md-nav__link">
+        Motion Control
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../behavior/" class="md-nav__link">
+        Behavior
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bibliography/" class="md-nav__link">
+        Bibliography
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      <label class="md-nav__link" for="__nav_2">
+        NaoTH Tools
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="NaoTH Tools" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          NaoTH Tools
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../naoth_tools/rc/" class="md-nav__link">
+        RoboControl
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../naoth_tools/naoscp/" class="md-nav__link">
+        NaoSCP
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../naoth_tools/xabsleditor/" class="md-nav__link">
+        Xabsleditor
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../naoth_tools/simspark/" class="md-nav__link">
+        Simspark
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../naoth_tools/webots/" class="md-nav__link">
+        Webots
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../naoth_tools/gitlab-ci/" class="md-nav__link">
+        Gitlab CI
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      <label class="md-nav__link" for="__nav_3">
+        RoboCup Tools
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="RoboCup Tools" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          RoboCup Tools
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../robocup_tools/" class="md-nav__link">
+        RoboCup Project
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../robocup_tools/game_recording/" class="md-nav__link">
+        Game Recording
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      <label class="md-nav__link" for="__nav_4">
+        Deep Learning Pipeline
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Deep Learning Pipeline" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Deep Learning Pipeline
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deep_learning/" class="md-nav__link">
+        Deep Learning Pipeline Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deep_learning/cvat/" class="md-nav__link">
+        CVAT Labeltool
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      <label class="md-nav__link" for="__nav_5">
+        Guides
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Guides" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Guides
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../guides/coding_guidelines/" class="md-nav__link">
+        Coding Guidelines
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../guides/git-hooks/" class="md-nav__link">
+        Git-Hooks
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../guides/lab-trackingsystem/" class="md-nav__link">
+        NaoTH Tracking System
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../guides/logging/" class="md-nav__link">
+        Logging
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#naosmal" class="md-nav__link">
+    NaoSMAL
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#platform-interface" class="md-nav__link">
+    Platform Interface
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#module-framework" class="md-nav__link">
+    Module framework
+  </a>
+  
+    <nav class="md-nav" aria-label="Module framework">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-module" class="md-nav__link">
+    Example module
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#serialization" class="md-nav__link">
+    Serialization
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="architecture">Architecture</h1>
+<p>An ~~appropriate~~ architecture is the base of each successful software
+project. It enables a group of developers to work at the same project
+and to organize the solutions for their particular research questions.
+From this point of view, the artificial intelligence and/or robotics
+related research projects are usually more complicated than commercial
+product development, since the actual result of the project is often not
+clear. Since we use this project also in education, a clear organization
+of the software is necessary to achieve a fast familiarization with the
+software. Our software architecture is organized with the main focus on
+modularity, easy usage, transparency and convenient testing
+capabilities.</p>
+<p>In the following subsections we describe the design and the
+implementation of different parts of the architecture. A detailed
+description of the principles we used can also be found in
+[@Mellmann2010b].</p>
+<h2 id="naosmal">NaoSMAL</h2>
+<p>In our architecture we don't use the NAOqi API directly but use our own
+so-called NaoSMAL (<strong>N</strong>ao <strong>S</strong>hared <strong>M</strong>emory <strong>A</strong>bstraction <strong>L</strong>ayer)
+NAOqi-module. This calls the DCM API of <a href="http://doc.aldebaran.com/1-14/naoqi/sensors/dcm-api.html">NAOqi</a>
+and makes it accessible for other processes via a shared
+memory interface. Thus we can implement our own code as a completely
+separated executable that has no dependencies to the NAOqi framework.
+The benefits are a safer operation of the Nao on code crashes (NaoSMAL
+will continue to run and ensures the robot will go in a stable
+position), faster redeploy of our binary without restarting NAOqi and a
+faster compilation since we have fewer dependencies.</p>
+<h2 id="platform-interface">Platform Interface</h2>
+<p>In order to integrate different platforms, our project is divided into
+two parts: a platform independent one and platform specific one. The
+platform specific part contains code which is applied to the particular
+robot platform. We support the Nao hardware platform, the SimSpark
+simulator[^2] and a logfile based simulator. While the platform specific
+part is a technical abstraction layer the platform independent part is
+responsible for implementing the actual algorithms. Both parts are
+connected by the <em>platform interface</em>, which transfers data between the
+platform independent and specific part
+<img alt="Platform Interface is responsible for data transfer and execution of
+the Cognition and Motion
+processes." src="../img/platform_interface.png" /></p>
+<h2 id="module-framework">Module framework</h2>
+<p>Our module framework is based on a <em>blackboard architecture</em>. The
+framework consists of the following basic components:</p>
+<p><strong>Representation:</strong> objects carrying data and simple manipulation functions</p>
+<p><strong>Blackboard:</strong> container storing representations as information units</p>
+<p><strong>Module:</strong> executable unit, has access to the blackboard and can read and write representations</p>
+<p><strong>Module Manager:</strong> manage the execution of the modules</p>
+<p><img alt="Overview about the different components of the module framework." src="../img/modules.png" />  </p>
+<p>The above figure describes the interaction between these components. A module may
+<em>require</em> a representation, in this case it has read-only access to it.
+A module <em>provides</em> a representation, if it has write access. In our
+design we consider only sequential execution of the modules, thus there
+is there is no necessity for handling concurrent access to the
+blackboard. We decide which representation is required or provided
+during compilation time. Different modules can implement similar
+functionality and provide the same representations. You can configure
+which of the modules should be executed at runtime and it is also
+possible to dynamically change this for debugging purposes.</p>
+<h3 id="example-module">Example module</h3>
+<p>A module is a C++ class which inherits a base class which is created
+with the help of some macros defining the interface of the the module.</p>
+<pre><code class="language-cpp">#ifndef _MyModule_H
+#define _MyModule_H
+
+#include &lt;ModuleFramework/Module.h&gt;
+#include &lt;Representations/DataA.h&gt;
+#include &lt;Representations/DataB.h&gt;
+
+BEGIN_DECLARE_MODULE(MyModule)
+ REQUIRE(DataA)
+ PROVIDE(DataB)
+END_DECLARE_MODULE(MyModule)
+
+class MyModule: public MyModuleBase
+{
+public:
+ MyModule();
+ ~MyModule();
+
+ virtual void execute();
+};
+
+#endif  /* _MyModule_H */
+</code></pre>
+<p>The <code>MyModule</code> class inherits the <code>MyModuleBase</code> class which was defined
+with the <code>BEGIN_DECLARE_MODULE</code> macro. Each representation which is
+needed by the module is either declared as provided or required with the
+corresponding macro. After declaring a representation it is accessible
+with a getter function, which has the name of the representation
+prefixed with "get', e.g. <code>getDataA()</code> for the representation <code>DataA</code>.
+The actual implementation of the functionality of a module must be in
+the <code>execute()</code> function.</p>
+<pre><code class="language-cpp">#include &quot;MyModule.h&quot;
+
+MyModule::MyModule()
+{
+  // initialize some stuff here
+}
+
+MyModule::~MyModule()
+{
+  // clean some stuff here
+}
+
+void MyModule::execute()
+{
+  // do some stuff here
+  getDataB().x = getDataA().y + 1;
+}
+</code></pre>
+<p>A representation can be any C++ class, it does not need to inherit any
+special parent class.</p>
+<pre><code class="language-cpp">class DataA
+{
+public: 
+  DataA(){}
+
+  int y;
+};
+
+class DataB
+{
+public: 
+  DataB(){}
+
+  int x;
+};
+</code></pre>
+<p>A module must be registered in the cognition process by including it in
+the file <code>NaoTHSoccer/Source/Core/Cognition/Cognition.cpp</code>.</p>
+<pre><code class="language-cpp">#include &quot;Modules/Experiment/MyModule/MyModule.h&quot;
+</code></pre>
+<p>In the <code>init</code> method add the line:</p>
+<pre><code class="language-cpp">REGISTER_MODULE(MyModule);
+</code></pre>
+<p>The order of registration defines the order of execution of the modules.</p>
+<h2 id="serialization">Serialization</h2>
+<p>As described in the 
+Section <a href="#s:module_framework">2.3</a> the core of the program is structured in
+modules which are responsible for different tasks like image processing,
+world modeling etc.. The modules communicate with each other through the
+<em>blackboard</em> by writing their results to <em>representations</em>. The
+<em>representations</em> are mainly pieces of data and have no significant
+functionality. These representation can be made <em>serializable</em>, which is
+mainly used in two cases: logging to a file and sending over the network
+for debug or monitoring reasons.</p>
+<p>The backbone of the serialization framework is formed by the Google
+<em>Protocol Buffers</em>[^3] (protobuf) library. For a representation to be
+serialized (which is described by a C++ class) an according protobuf
+message is defined. Please refer to the documentation page of protobuf
+for more details on this part. The serialization procedure is then
+performed in two steps: first the data is copied from the object which
+is to be serialized to the according message object; in the second step
+the message object is serialized by a protobuf serializer to a byte
+stream. The deserialization process works in reverse order. The second
+step is entirely done by the protobuf library. The copy procedure in the
+first step, however, has to be defined explicitly. This procedure is
+described in the <code>serialize()</code> and <code>deserialize()</code> functions of the
+template class <code>Serializer</code> which has to be specified for each
+representation to be serialized.</p>
+<p>The following listings illustrate the whole code necessary for
+serialization of a representation.
+Listing <a href="#lst:rep_h">[lst:rep_h]</a>{reference-type="ref"
+reference="lst:rep_h"} shows the header file <em>MyRepresentation.h</em>
+containing the declaration of the representation class <code>DataA</code> and the
+according specialization of the serializer <code>Serializer&lt;DataA&gt;</code>.
+Listing <a href="#lst:proto">[lst:proto]</a>{reference-type="ref"
+reference="lst:proto"} contains the probobuf message for <code>DataA</code>.
+Listing <a href="#lst:rep_cpp">[lst:rep_cpp]</a>{reference-type="ref"
+reference="lst:rep_cpp"} illustrates the implementation of the
+serialization functions in the file <em>MyRepresentation.cpp</em>.</p>
+<pre><code class="language-cpp">#include &lt;Tools/DataStructures/Serializer.h&gt;
+
+class DataA
+{
+public: 
+  DataA()
+    : 
+    y(0),
+    time(0.0)
+  {}
+
+  int y;
+  double time;
+};
+
+namespace naoth {
+template&lt;&gt;
+class Serializer&lt;DataA&gt;
+{
+public:
+  static void serialize(const DataA&amp; representation, std::ostream&amp; stream);
+  static void deserialize(std::istream&amp; stream, DataA&amp; representation);
+};
+}
+</code></pre>
+<pre><code class="language-proto">package mymessages;
+
+message DataA {
+  required double time = 1;
+  required int32 y = 2;
+}
+</code></pre>
+<pre><code class="language-cpp">#include &quot;MyRepresentation.h&quot;
+#include &quot;Messages/mymessages.pb.h&quot;
+#include &lt;google/protobuf/io/zero_copy_stream_impl.h&gt;
+
+using namespace naoth;
+
+void Serializer&lt;DataA&gt;::serialize(const DataA&amp; data, std::ostream&amp; stream)
+{
+  // create a new message
+  messages::DataA msg;
+
+  // copy data from the representation to the message
+  msg.set_y(data.y);
+  msg.set_time(data.time);
+
+  // serialize the message to stream
+  google::protobuf::io::OstreamOutputStream buf(&amp;stream);
+  msg.SerializeToZeroCopyStream(&amp;buf);
+}
+
+
+void Serializer&lt;DataA&gt;::deserialize(std::istream&amp; stream, DataA&amp; data)
+{
+  // create a new message
+  messages::DataA msg;
+
+  // decerialize the message from stream
+  google::protobuf::io::IstreamInputStream buf(&amp;stream);
+  msg.ParseFromZeroCopyStream(&amp;buf);
+
+  // copy data from the message to the data
+  data.y = msg.y();
+  data.time = msg.time();
+}
+</code></pre>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+
+<!-- Footer -->
+<footer class="md-footer">
+
+  <!-- The base theme links to previous and/or next page, we omit that here. -->
+
+  <!-- Further information -->
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+
+      <!-- Copyright and theme information -->
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+
+      <!-- Social links -->
+      
+  <div class="md-footer-social">
+    
+      
+      
+        
+        
+      
+      <a href="https://twitter.com/naoteamhumboldt" target="_blank" rel="noopener" title="twitter.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://github.com/BerlinUnited" target="_blank" rel="noopener" title="github.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://www.youtube.com/user/teamhumboldt" target="_blank" rel="noopener" title="www.youtube.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg>
+      </a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.sections"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.709b4209.min.js", "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.febc23d1.min.js"></script>
+      
+        <script src="../javascripts/config.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
