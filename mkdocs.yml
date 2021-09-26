@@ -10,6 +10,10 @@ nav:
     - 'motion.md'
     - 'behavior.md'
     - 'bibliography.md'
+  - Deep Dives:
+    - 'deep_dives/index.md'
+    - 'deep_dives/deep_learning.md'
+    - 'deep_dives/obstacle_detection.md'
   - Tooling:
     - 'naoth_tools/rc.md'
     - 'naoth_tools/naoscp.md'
@@ -19,9 +23,6 @@ nav:
     - 'naoth_tools/gitlab-ci.md'
     - 'robocup_tools/index.md'
     - 'robocup_tools/game_recording.md'
-  - Deep Learning:
-    - 'deep_learning/index.md'
-    - 'deep_learning/cvat.md'
   - Guides:
     - 'guides/coding_guidelines.md'
     - 'guides/git-hooks.md'
