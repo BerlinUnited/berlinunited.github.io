@@ -17,4 +17,5 @@ this can take a couple of minutes.
 ---
 ## Notes
 - Example for building own plugins: https://docs.abinit.org/theory/noncollinear/ This could be used to add bibtex support
-
+- Used theme: https://squidfunk.github.io/mkdocs-material/
+- Docs for mkdocs: https://www.mkdocs.org/
