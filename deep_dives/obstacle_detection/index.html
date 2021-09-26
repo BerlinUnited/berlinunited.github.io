@@ -72,7 +72,9 @@
     
       
 
-<header class="md-header" data-md-component="header">
+  
+
+<header class="md-header md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../.." title="Berlin United - Documentation" class="md-header__button md-logo" aria-label="Berlin United - Documentation" data-md-component="logo">
       
@@ -138,14 +140,8 @@
     
   </nav>
   
-</header>
     
-    <div class="md-container" data-md-component="container">
       
-      
-        
-          
-            
 <nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
   <div class="md-tabs__inner md-grid">
     <ul class="md-tabs__list">
@@ -219,7 +215,13 @@
     </ul>
   </div>
 </nav>
-          
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
         
       
       <main class="md-main" data-md-component="main">
@@ -480,9 +482,60 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Obstacle Detection and Pathplanning
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Obstacle Detection and Pathplanning
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#collision-detection" class="md-nav__link">
+    Collision Detection
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#obstacle-detection" class="md-nav__link">
+    Obstacle Detection
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modeling-the-obstacles" class="md-nav__link">
+    Modeling the obstacles
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pathplanning" class="md-nav__link">
+    Pathplanning
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -750,6 +803,42 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#collision-detection" class="md-nav__link">
+    Collision Detection
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#obstacle-detection" class="md-nav__link">
+    Obstacle Detection
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modeling-the-obstacles" class="md-nav__link">
+    Modeling the obstacles
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pathplanning" class="md-nav__link">
+    Pathplanning
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -762,6 +851,28 @@
                 
                 
                 <h1 id="obstacle-detection-and-pathplanning">Obstacle Detection and Pathplanning</h1>
+<p>Pathplanning for a single robot is easy as long as there are no obstacles to move around. In our case pathplanning can
+be challenging due to the dynamic nature of the robots on the field. There are multiple ways to detect obstacles. First
+we can detect if we are pushed or not able to move as expected. Then we can detect obstacles from further away with the 
+ultrasound sensors or by detecting robots and other obstacles elements in the image. We can also take the broadcasted 
+positions of our teammates into account.</p>
+<h2 id="collision-detection">Collision Detection</h2>
+<p>We have three different methods to detect collisions. The <code>ArmCollisionDetector</code> module detects wether the arm movements
+are blocked. In this case we try to move our arms back to reduce the width of the robot.</p>
+<p>The <code>BumperCollisionDetector</code> module detects if the bumper on the feet are pressed for a period of time. This happens 
+when the robots walks into a fallen robot or agains a goalpost.</p>
+<p>The <code>BodyCollisionDetector</code> module detects wether the robot was pushed. </p>
+<p><img alt="Collision Detection" src="../../img/obstacle_detection/collision_detection.png" /></p>
+<h2 id="obstacle-detection">Obstacle Detection</h2>
+<ul>
+<li>Ultrasound</li>
+<li>NoGreenDetection</li>
+<li>Robot Detection via Deep Learning</li>
+</ul>
+<p><img alt="Obstacle Detection" src="../../img/obstacle_detection/obstacle_detection.png" /></p>
+<h2 id="modeling-the-obstacles">Modeling the obstacles</h2>
+<h2 id="pathplanning">Pathplanning</h2>
+<p>TODO: steffen</p>
                 
               
               
@@ -837,7 +948,7 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.f8263e09.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.f8263e09.min.js", "version": null}</script>
     
     
       <script src="../../assets/javascripts/bundle.4fc53ad4.min.js"></script>
