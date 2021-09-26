@@ -1,6 +1,6 @@
 # Architecture
 
-An ~~appropriate~~ architecture is the base of each successful software
+An appropriate architecture is the base of each successful software
 project. It enables a group of developers to work at the same project
 and to organize the solutions for their particular research questions.
 From this point of view, the artificial intelligence and/or robotics

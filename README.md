@@ -18,8 +18,6 @@ https://docs.abinit.org/theory/noncollinear/
 ---
 
 ## Deployment
-TODO: explain CI here. This makes gh-deploy unnecessary
-
 To deploy the website to github pages run:
 `mkdocs gh-deploy`
 

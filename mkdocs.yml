@@ -10,17 +10,16 @@ nav:
     - 'motion.md'
     - 'behavior.md'
     - 'bibliography.md'
-  - NaoTH Tools:
+  - Tooling:
     - 'naoth_tools/rc.md'
     - 'naoth_tools/naoscp.md'
     - 'naoth_tools/xabsleditor.md'
     - 'naoth_tools/simspark.md'
     - 'naoth_tools/webots.md'
     - 'naoth_tools/gitlab-ci.md'
-  - RoboCup Tools:
     - 'robocup_tools/index.md'
     - 'robocup_tools/game_recording.md'
-  - Deep Learning Pipeline:
+  - Deep Learning:
     - 'deep_learning/index.md'
     - 'deep_learning/cvat.md'
   - Guides:
@@ -35,7 +34,8 @@ theme:
   logo: img/favicon.ico
   custom_dir: overrides
   features:
-    - navigation.sections
+    - navigation.tabs
+
 
 markdown_extensions:
   - attr_list
