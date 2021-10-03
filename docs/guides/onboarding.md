@@ -15,5 +15,5 @@ The day and time changes every semester. Please have a look at the website for t
 The development happens on the universities gitlab Server ([https://scm.cms.hu-berlin.de/](https://scm.cms.hu-berlin.de/)) You can login with your CMS
 credentials or register as an external user. To join our gitlab group send us your gitlab user name.
 
-A lot of our code is also publicly available at [https://github.com/BerlinUnited](https://github.com/BerlinUnited.
+A lot of our code is also publicly available at [https://github.com/BerlinUnited](https://github.com/BerlinUnited).
 This is mostly read only except forked projects.
