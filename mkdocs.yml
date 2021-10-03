@@ -24,6 +24,7 @@ nav:
     - 'robocup_tools/index.md'
     - 'robocup_tools/game_recording.md'
   - Guides:
+    - 'guides/onboarding.md'
     - 'guides/coding_guidelines.md'
     - 'guides/git-hooks.md'
     - 'guides/lab-trackingsystem.md'
