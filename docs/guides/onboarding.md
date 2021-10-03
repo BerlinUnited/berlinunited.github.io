@@ -12,7 +12,7 @@ We have weekly zoom meetings. If you want to participate ask us for the link via
 The day and time changes every semester. Please have a look at the website for the current dates.
 
 ## Onboarding
-The development happens on the universities gitlab Server (https://scm.cms.hu-berlin.de/) You can login with your CMS
+The development happens on the universities gitlab Server ([https://scm.cms.hu-berlin.de/](https://scm.cms.hu-berlin.de/)) You can login with your CMS
 credentials or register as an external user. To join our gitlab group send us your gitlab user name.
 
 A lot of our code is also publicly available at [https://github.com/BerlinUnited](https://github.com/BerlinUnited.
