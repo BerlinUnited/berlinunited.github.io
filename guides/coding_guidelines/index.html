@@ -205,7 +205,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="./" class="md-tabs__link md-tabs__link--active">
+      <a href="../onboarding/" class="md-tabs__link md-tabs__link--active">
         Guides
       </a>
     </li>
@@ -665,6 +665,20 @@
               
   
   
+  
+    <li class="md-nav__item">
+      <a href="../onboarding/" class="md-nav__link">
+        Joining the team
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
     
   
   
@@ -700,15 +714,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#python" class="md-nav__link">
-    Python
+  <a href="#git" class="md-nav__link">
+    Git
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#git" class="md-nav__link">
-    Git
+  <a href="#python" class="md-nav__link">
+    Python
   </a>
   
 </li>
@@ -824,15 +838,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#python" class="md-nav__link">
-    Python
+  <a href="#git" class="md-nav__link">
+    Git
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#git" class="md-nav__link">
-    Git
+  <a href="#python" class="md-nav__link">
+    Python
   </a>
   
 </li>
@@ -879,6 +893,15 @@
                 
                 
                 <h1 id="coding-guidelines">Coding Guidelines</h1>
+<h2 id="git">Git</h2>
+<ul>
+<li>Don't use capital letters in branch names, see https://stackoverflow.com/a/38494084/3866740</li>
+<li>We use a four-eye principle for merging. Create a merge request in gitlab and ask another developer to approve the changes.</li>
+<li>The pipeline for your merge request must run wthout any error</li>
+<li>Try to keep the lifetime of your branch as short as possible. We don't want branches to exists for years.</li>
+<li>Ideally a branch addresses on feature or bug. This makes it easier to test and review.</li>
+<li>The merge request should explain the changes and link to an issue where applicable.</li>
+</ul>
 <h2 id="python">Python</h2>
 <ul>
 <li>In general use python version 3.6.9</li>
@@ -887,11 +910,6 @@
 <li>Bonus: add a help message, which can be shown via <code>-h</code> or <code>--help</code> argument</li>
 <li>add a <code>README.md</code> to each python project, which describes what the purpose of the project is and how to use the project</li>
 <li>recommended: some examples how to use it</li>
-</ul>
-<h2 id="git">Git</h2>
-<ul>
-<li>don't use capital letters in branch names, see https://stackoverflow.com/a/38494084/3866740</li>
-<li>four-eye principle for merging</li>
 </ul>
 <hr />
 <p>Some code guidelines can be automatically enforced with an .editorconfig file (https://editorconfig.org/) if the used editor or IDE supports this.</p>
