@@ -1,5 +1,13 @@
 # Coding Guidelines
 
+## Git
+- Don't use capital letters in branch names, see https://stackoverflow.com/a/38494084/3866740
+- We use a four-eye principle for merging. Create a merge request in gitlab and ask another developer to approve the changes.
+- The pipeline for your merge request must run wthout any error
+- Try to keep the lifetime of your branch as short as possible. We don't want branches to exists for years.
+- Ideally a branch addresses on feature or bug. This makes it easier to test and review.
+- The merge request should explain the changes and link to an issue where applicable.
+
 ## Python
 - In general use python version 3.6.9
 - comply with the [PEP8 standard](https://www.python.org/dev/peps/pep-0008/)
@@ -7,10 +15,6 @@
   - Bonus: add a help message, which can be shown via `-h` or `--help` argument
 - add a `README.md` to each python project, which describes what the purpose of the project is and how to use the project
   - recommended: some examples how to use it
-
-## Git
-- don't use capital letters in branch names, see https://stackoverflow.com/a/38494084/3866740
-- four-eye principle for merging
 
 ---
 Some code guidelines can be automatically enforced with an .editorconfig file (https://editorconfig.org/) if the used editor or IDE supports this.
