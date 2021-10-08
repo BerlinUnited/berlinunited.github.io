@@ -65,6 +65,11 @@ You need to install a bunch of software before being able to develop code for th
 
 
 ## Clone and build
+To work with the project, checkout the git repo:
+```sh
+git clone <url of this repo> <NaoTH-Projekt/Naoth-2020>
+```
+where `<NaoTH-Projekt/Naoth-2020>` is the desired path to the repository on your machine.
 
 === "Linux"
 
@@ -72,4 +77,47 @@ You need to install a bunch of software before being able to develop code for th
 
 === "Windows"
 
-    1. TODO
+    - Go to the `<NaoTH-Projekt/Naoth-2020>/NaoTHSoccer/Make` directory and execute the following commands:  
+        - run `generate-vs2019.bat` to create Visual Studio 2019 project files
+        - `premake5 --protoc` to create protobuf files
+        - with cygwin run `./compileGame.sh` to compile the naoth project for the robot
+
+    - TODO explain vpaths
+    - TODO explain loladaptor, naosmal compilation
+
+## Additional tools for development
+We use different tools with our project:
+
+**XabslEditor**  
+We have a dedicated editor for editing and compiling the robots behavior written in xabsl.
+  - clone: `git clone https://github.com/BerlinUnited/xabsleditor.git`  
+  - load the Netbeans project from `xabsleditor` and run the application  
+  - manual (after the project was loaded once with netbeans):  
+    - change dir `cd xabsleditor`  
+    - compile: `./gradlew.bat clean build`  
+    - run: `./gradlew.bat run` or `./dist/xabsleditor.bat` or `java -jar dist/lib/xabsleditor-1.2.jar`  
+ 
+**RobotControl**  
+  - For controlling, modify and analyze the nao robot
+  - load the Netbeans project `RobotControl` and run the application
+    - File->Import Project `<ProjectDir>`/RobotControl
+  - manual:
+    - compile: `./gradlew.bat clean build`
+    - run: `./gradlew.bat run` or `./dist/robotcontrol.bat` or `java -jar dist/lib/RobotControl.jar`
+ 
+**NaoSCP**  
+  - For deploying and setup of the nao robot  
+  - load the Netbeans project from `NaoSCP` and run the application  
+    - File->Import Project `<ProjectDir>`/NaoSCP  
+  - manual:  
+    - compile: `./gradlew.bat clean build`  
+    - run: `./gradlew.bat run` or `./dist/naoscp.bat` or `java -jar dist/lib/NaoSCP-1.1.jar`  
+ 
+**Simspark**  
+  - to run a simulated version of our naoth project  
+  - check the [Simspark Setup Guide ](Simspark-Windows-Setup) for installation instructions  
+ 
+**Python**   
+For working with logfiles we have a set of python scripts in the `utils/py` folder. The basic functionality is inside a the naoth python package which you can install with pip:    
+   - run `pip install -e naoth` in the `<repository>/Utils/py` this will install protobuf as well 
+ 

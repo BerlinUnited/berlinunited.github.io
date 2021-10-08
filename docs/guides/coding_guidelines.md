@@ -41,4 +41,9 @@ int myFunction(const Vector2d& v) {
 - parameter Class should be named `Parameter`
 - the object of the parameter class should be called params
 - The config file with the parameters should have the same name as the Module
-- no leading and trailing underscores in header include guards. use `MY_MODULE_NAME` instead of `_MY_MODULE_NAME_`
+- We use include guards for all header files:
+  - no leading and trailing underscores in header include guards. use `MY_MODULE_NAME_H` instead of `_MY_MODULE_NAME_H_`
+  - We don't use pragma once. We had a lot of discussions about it and decided to stick with the include guards. 
+    Links from the last discussion:
+    - [https://luckyresistor.me/2019/07/13/why-its-time-to-use-pragma-once/](https://luckyresistor.me/2019/07/13/why-its-time-to-use-pragma-once/)
+    - [https://stackoverflow.com/questions/1143936/pragma-once-vs-include-guards/34884735#34884735](https://stackoverflow.com/questions/1143936/pragma-once-vs-include-guards/34884735#34884735)

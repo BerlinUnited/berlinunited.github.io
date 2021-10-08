@@ -12,7 +12,7 @@ To deploy the website to github pages run:
 `mkdocs gh-deploy`
 
 This will modify the branch `gh-pages` and push it, which in turn we trigger github to show the new website. Sometimes
-this can take a couple of minutes.
+this can take a couple of minutes. Do not change the gh-pages branch manually!
 
 ---
 ## Notes
