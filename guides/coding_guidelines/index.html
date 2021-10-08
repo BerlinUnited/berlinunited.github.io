@@ -971,7 +971,14 @@
 <li>parameter Class should be named <code>Parameter</code></li>
 <li>the object of the parameter class should be called params</li>
 <li>The config file with the parameters should have the same name as the Module</li>
+<li>We use include guards for all header files:</li>
 <li>no leading and trailing underscores in header include guards. use <code>MY_MODULE_NAME_H</code> instead of <code>_MY_MODULE_NAME_H_</code></li>
+<li>We don't use pragma once. We had a lot of discussions about it and decided to stick with the include guards. 
+    Links from the last discussion:<ul>
+<li><a href="https://luckyresistor.me/2019/07/13/why-its-time-to-use-pragma-once/">https://luckyresistor.me/2019/07/13/why-its-time-to-use-pragma-once/</a></li>
+<li><a href="https://stackoverflow.com/questions/1143936/pragma-once-vs-include-guards/34884735#34884735">https://stackoverflow.com/questions/1143936/pragma-once-vs-include-guards/34884735#34884735</a></li>
+</ul>
+</li>
 </ul>
                 
               

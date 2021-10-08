@@ -753,6 +753,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#additional-tools-for-development" class="md-nav__link">
+    Additional tools for development
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -863,6 +870,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#additional-tools-for-development" class="md-nav__link">
+    Additional tools for development
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -953,17 +967,62 @@ You need at least Java JDK 8. Normally you need a oracle account for downloading
 </div>
 </div>
 <h2 id="clone-and-build">Clone and build</h2>
+<p>To work with the project, checkout the git repo:</p>
+<pre><code class="language-sh">git clone &lt;url of this repo&gt; &lt;NaoTH-Projekt/Naoth-2020&gt;
+</code></pre>
+<p>where <code>&lt;NaoTH-Projekt/Naoth-2020&gt;</code> is the desired path to the repository on your machine.</p>
 <div class="tabbed-set" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">Linux</label><div class="tabbed-content">
 <ol>
 <li>TODO</li>
 </ol>
 </div>
 <input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><label for="__tabbed_2_2">Windows</label><div class="tabbed-content">
-<ol>
-<li>TODO</li>
-</ol>
+<ul>
+<li>
+<p>Go to the <code>&lt;NaoTH-Projekt/Naoth-2020&gt;/NaoTHSoccer/Make</code> directory and execute the following commands:  </p>
+<ul>
+<li>run <code>generate-vs2019.bat</code> to create Visual Studio 2019 project files</li>
+<li><code>premake5 --protoc</code> to create protobuf files</li>
+<li>with cygwin run <code>./compileGame.sh</code> to compile the naoth project for the robot</li>
+</ul>
+</li>
+<li>
+<p>TODO explain vpaths</p>
+</li>
+<li>TODO explain loladaptor, naosmal compilation</li>
+</ul>
 </div>
 </div>
+<h2 id="additional-tools-for-development">Additional tools for development</h2>
+<p>We use different tools with our project:</p>
+<p><strong>XabslEditor</strong><br />
+We have a dedicated editor for editing and compiling the robots behavior written in xabsl.
+  - clone: <code>git clone https://github.com/BerlinUnited/xabsleditor.git</code><br />
+  - load the Netbeans project from <code>xabsleditor</code> and run the application<br />
+  - manual (after the project was loaded once with netbeans):<br />
+    - change dir <code>cd xabsleditor</code><br />
+    - compile: <code>./gradlew.bat clean build</code><br />
+    - run: <code>./gradlew.bat run</code> or <code>./dist/xabsleditor.bat</code> or <code>java -jar dist/lib/xabsleditor-1.2.jar</code>  </p>
+<p><strong>RobotControl</strong><br />
+  - For controlling, modify and analyze the nao robot
+  - load the Netbeans project <code>RobotControl</code> and run the application
+    - File-&gt;Import Project <code>&lt;ProjectDir&gt;</code>/RobotControl
+  - manual:
+    - compile: <code>./gradlew.bat clean build</code>
+    - run: <code>./gradlew.bat run</code> or <code>./dist/robotcontrol.bat</code> or <code>java -jar dist/lib/RobotControl.jar</code></p>
+<p><strong>NaoSCP</strong><br />
+  - For deploying and setup of the nao robot<br />
+  - load the Netbeans project from <code>NaoSCP</code> and run the application<br />
+    - File-&gt;Import Project <code>&lt;ProjectDir&gt;</code>/NaoSCP<br />
+  - manual:<br />
+    - compile: <code>./gradlew.bat clean build</code><br />
+    - run: <code>./gradlew.bat run</code> or <code>./dist/naoscp.bat</code> or <code>java -jar dist/lib/NaoSCP-1.1.jar</code>  </p>
+<p><strong>Simspark</strong><br />
+  - to run a simulated version of our naoth project<br />
+  - check the <a href="Simspark-Windows-Setup">Simspark Setup Guide </a> for installation instructions  </p>
+<p><strong>Python</strong> <br />
+For working with logfiles we have a set of python scripts in the <code>utils/py</code> folder. The basic functionality is inside a the naoth python package which you can install with pip:  <br />
+   - run <code>pip install -e naoth</code> in the <code>&lt;repository&gt;/Utils/py</code> this will install protobuf as well </p>
                 
               
               
