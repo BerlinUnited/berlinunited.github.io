@@ -21,6 +21,7 @@ nav:
     - 'naoth_tools/simspark.md'
     - 'naoth_tools/webots.md'
     - 'naoth_tools/gitlab-ci.md'
+    - 'naoth_tools/cvat.md'
     - 'robocup_tools/index.md'
     - 'robocup_tools/game_recording.md'
   - Guides:
@@ -62,6 +63,7 @@ markdown_extensions:
   - attr_list
   - admonition
   - pymdownx.tabbed
+  - pymdownx.details
   - pymdownx.arithmatex:
       generic: true
   #- stella.tilde2

@@ -1,5 +1,9 @@
 # Welcome
 
+!!! Note
+    This teamreport is only a high level overview of the team and software architecture used for the Nao's during RoboCup.
+    More detailed information for some topics can be found in the other sections.
+
 The research group **Berlin United - NaoTH** is part of the research lab for Adaptive Systems at Humboldt-Universität zu 
 Berlin headed by Prof. Verena Hafner. At the current state the core team consists of about 12 students of Bachelor, 
 Master/Diploma, and PhD levels.  Besides the direct participation at the RoboCup competitions NaoTH is involved in 
