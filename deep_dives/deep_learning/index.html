@@ -14,7 +14,7 @@
     
     
       
-        <title>Deep Learning - Berlin United - Documentation</title>
+        <title>Deep Learning Overview - Berlin United - Documentation</title>
       
     
     
@@ -65,7 +65,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#deep-learning" class="md-skip">
+        <a href="#deep-learning-overview" class="md-skip">
           Skip to content
         </a>
       
@@ -98,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Deep Learning
+              Deep Learning Overview
             
           </span>
         </div>
@@ -494,9 +494,59 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Deep Learning Overview
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
-        Deep Learning
+        Deep Learning Overview
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#cvat-labeltool" class="md-nav__link">
+    CVAT Labeltool
+  </a>
+  
+    <nav class="md-nav" aria-label="CVAT Labeltool">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#label-rules" class="md-nav__link">
+    Label Rules
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#auto-annotation-for-users" class="md-nav__link">
+    Auto Annotation for users
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -629,6 +679,20 @@
     <li class="md-nav__item">
       <a href="../../naoth_tools/gitlab-ci/" class="md-nav__link">
         Gitlab CI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../naoth_tools/cvat/" class="md-nav__link">
+        CVAT Labeltool
       </a>
     </li>
   
@@ -806,6 +870,41 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#cvat-labeltool" class="md-nav__link">
+    CVAT Labeltool
+  </a>
+  
+    <nav class="md-nav" aria-label="CVAT Labeltool">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#label-rules" class="md-nav__link">
+    Label Rules
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#auto-annotation-for-users" class="md-nav__link">
+    Auto Annotation for users
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -817,7 +916,7 @@
               
                 
                 
-                <h1 id="deep-learning">Deep Learning</h1>
+                <h1 id="deep-learning-overview">Deep Learning Overview</h1>
 <p>Here we give an overview over the current approach to deep learning in our team.</p>
 <ul>
 <li>log collection and storage</li>
@@ -828,11 +927,12 @@
 <li>compile the model for use on the robot</li>
 </ul>
 <p>TODO: create a graphic which shows the workflow</p>
-<h1 id="cvat-labeltool">CVAT Labeltool</h1>
-<p>Our CVAT instance can be accessed via <a href="https://ball.informatik.hu-berlin.de">https://ball.informatik.hu-berlin.de</a></p>
+<h2 id="cvat-labeltool">CVAT Labeltool</h2>
+<p>Our CVAT instance can be accessed via <a href="https://ball.informatik.hu-berlin.de">https://ball.informatik.hu-berlin.de</a>. The setup of our instance is described in
+<a href="../../naoth_tools/cvat/">CVAT Setup</a>.</p>
 <p>Everyone can register, but to see the tasks you have to be manually added to a group with the appropriate permissons.
-Contact the team via slack or email to get the permissons set.</p>
-<h2 id="rules">Rules</h2>
+Contact the team via slack or email to get the permissions set. </p>
+<h3 id="label-rules">Label Rules</h3>
 <ul>
 <li>You should not modify tasks that are assigned to someone else</li>
 <li>You should not modify tasks that are marked <em>completed</em></li>
@@ -843,19 +943,10 @@ Contact the team via slack or email to get the permissons set.</p>
 <li>Before you start assign the task to yourself so that others don't interfere</li>
 <li>After you are done select <em>Request a review</em> from the menu and select another active user</li>
 <li>Before you start working please read the official documentation at <a href="https://openvinotoolkit.github.io/cvat/docs">https://openvinotoolkit.github.io/cvat/docs</a></li>
-</ul>
-<h2 id="own-changes-to-the-cvat-code">Own changes to the CVAT Code</h2>
-<ul>
-<li>in our instance it is possible to create bounding boxes that are outside the image</li>
-</ul>
-<h2 id="label-guidelines">Label Guidelines</h2>
-<ul>
 <li>only label balls that you can clearly detect as balls when zoomed in a bit (TODO create some examples)</li>
 <li>the bounding box of a ball should include the whole ball even if part of it is outside the image or occluded</li>
 </ul>
 <h2 id="auto-annotation-for-users">Auto Annotation for users</h2>
-<p>TODO</p>
-<h2 id="auto-annotation-for-developers">Auto Annotation for developers</h2>
 <p>TODO</p>
                 
               
