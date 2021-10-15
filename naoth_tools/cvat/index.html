@@ -678,6 +678,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#problems-with-hu-vpn" class="md-nav__link">
+    Problems with HU VPN
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#own-changes-to-the-cvat-code" class="md-nav__link">
     Own changes to the CVAT Code
   </a>
@@ -892,6 +899,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#problems-with-hu-vpn" class="md-nav__link">
+    Problems with HU VPN
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#own-changes-to-the-cvat-code" class="md-nav__link">
     Own changes to the CVAT Code
   </a>
@@ -948,23 +962,29 @@ docker-compose -f docker-compose.yml -f docker-compose.dev.yml -f docker-compose
 docker-compose -f docker-compose.yml -f docker-compose.dev.yml -f components/serverless/docker-compose.serverless.yml -f docker-compose.override.yml down --remove-orphans
 </code></pre>
 <h3 id="setup-docker-network">Setup Docker Network</h3>
-<details class="setup docker network"><summary>Setup</summary><p>The server where cvat is hosted is inside the HU network. From the outside it is only accessible via a VPN. However
+<p>The server where cvat is hosted is inside the HU network. From the outside it is only accessible via a VPN. However
 per default the docker bridge network for cvat can collide with the vpn. When this happens you can't use ssh to log
 into the server unless you are already inside the HU network.</p>
-<p>The relevant VPN settings are 172.16.0.0 255.240.0.0. So don't use any of those ip addresses for docker. You can
+<p>The relevant VPN settings are ip: 172.16.0.0 and subnet: 255.240.0.0. So don't use any of those ip addresses for docker. You can
 achieve this by adding the following code to <code>/etc/docker/daemon.json</code></p>
-<p>'''
-{
-    "default-address-pools" : [
+<pre><code>{
+    &quot;default-address-pools&quot; : [
     {
-      "base" : "172.240.0.0/16",
-      "size" : 24
+      &quot;base&quot; : &quot;172.240.0.0/16&quot;,
+      &quot;size&quot; : 24
     }
     ]
 }
-'''</p>
+</code></pre>
 <p>After this change run <code>systemctl restart docker</code></p>
-</details>
+<h3 id="problems-with-hu-vpn">Problems with HU VPN</h3>
+<p>With the OpenVPN provided by the university there might be some name resolution errors because of the nameservers used.
+In this case modify the vpn config you use. It worked with the following changes</p>
+<pre><code>#register-dns  # &lt;-- make sure this line is not active
+...
+dhcp-option DNS 8.8.8.8  # &lt;-- set the name server of your liking
+
+</code></pre>
 <h3 id="own-changes-to-the-cvat-code">Own changes to the CVAT Code</h3>
 <ul>
 <li>in our instance it is possible to create bounding boxes that are outside the image</li>
