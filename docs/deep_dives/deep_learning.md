@@ -31,5 +31,15 @@ Contact the team via slack or email to get the permissions set.
 - the bounding box of a ball should include the whole ball even if part of it is outside the image or occluded
 
 ## Auto Annotation for users
-TODO
+You can see a list of available models by clicking Models View on the top:
+![models_view](../img/cvat/models.png)
+
+By clicking on supported labels you can see a list of labels this model can annotate. To create new models see the documentation at
+[CVAT Setup](../naoth_tools/cvat.md).
+
+### Run a model on a Task
+Navigate to a task and click `Actions->Automatic annotation` and select the model you want to run.
+![models_view](../img/cvat/model_task.png)  
+Now you have to wait for a long time. After all images of the tasks are done you can see the created annotations.
+
 
