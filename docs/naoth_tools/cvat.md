@@ -69,7 +69,7 @@ dhcp-option DNS 8.8.8.8  # <-- set the name server of your liking
 
 
 ### Own changes to the CVAT Code
-- in our instance it is possible to create bounding boxes that are outside the image
+- in our instance it is possible to create bounding boxes that are (partially) outside the image
 
 ## Auto Annotation for developers
 For a general guide to auto annotation see the official [CVAT Docu](https://openvinotoolkit.github.io/cvat/docs/administration/advanced/installation_automatic_annotation/)

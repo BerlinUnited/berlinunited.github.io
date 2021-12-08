@@ -43,3 +43,35 @@ Navigate to a task and click `Actions->Automatic annotation` and select the mode
 Now you have to wait for a long time. After all images of the tasks are done you can see the created annotations.
 
 
+## Importing GoPro Recordings of Games
+Starting in 2018 we tried to record every SPL game with a camera outside of the field. The videos can be found at logs.naoth.de
+
+### Creating a project for the gopro videos
+TODO: what should the labels be???
+
+### Creating GoPro Tasks
+You should not import the Gopro videos directly. Instead export the frames with ffmpeg
+
+Windows:
+```bash
+ffmpeg.exe -i "2018-08-10_07-53-21_MiPal_vs_SPQR_Team_1stHalf_pi105_GOPR5602.MP4" frames/%%04d.jpg
+```
+Linux:
+```bash
+ffmpeg -i "2018-08-10_07-53-21_MiPal_vs_SPQR_Team_1stHalf_pi105_GOPR5602.MP4" frames/%04d.jpg
+```
+The exported frames folder should be zipped and uploaded inside the extracted folder that is next to the video folder where
+the video came from.
+
+Then in cvat when creating a task using the data:
+- create the task only inside the appropriate project
+- select the created zip file inside the "connected file share" tab.
+- inside "advanced configuration" select "copy data to cvat". This is done for speed. Also set the image quality to 100%
+- Maybe???? set segment size
+  - TODO: check export functions
+
+### Importing SPL style annotations
+things to think about:
+- merging must be somehow supported
+- probably only useful format for importing is cvat format because it supports annotations and tracks
+  - i havent used the tracks feature much. 
