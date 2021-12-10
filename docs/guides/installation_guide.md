@@ -121,3 +121,37 @@ We have a dedicated editor for editing and compiling the robots behavior written
 For working with logfiles we have a set of python scripts in the `utils/py` folder. The basic functionality is inside a the naoth python package which you can install with pip:    
    - run `pip install -e naoth` in the `<repository>/Utils/py` this will install protobuf as well 
  
+## Compiling Code for the robot via other means
+Sometimes you want/need to compile something for the robot and not incorporate that into our premake builds. Usually those things are libraries that come with the cmake build system.
+
+### Minimal cmake example
+TODO: what about sysroot?
+You can compile this helloworld.cpp
+```cpp
+#include<iostream>
+ 
+int main(int argc, char *argv[]){
+   std::cout << "Hello World!" << std::endl;
+   return 0;
+}
+
+```
+using the CMakeLists.txt file
+```CMakeLists.txt
+cmake_minimum_required(VERSION 2.8.9)
+
+set(CMAKE_SYSTEM_PROCESSOR i686)
+
+SET(CMAKE_C_COMPILER <path to linuxtoolchain repo>/toolchain_nao/compiler/bin/i686-berlinunited-linux-gnu-gcc)
+SET(CMAKE_CXX_COMPILER <path to linuxtoolchain repo>/toolchain_nao/compiler/bin/i686-berlinunited-linux-gnu-g++)
+
+project (hello)
+add_executable(hello helloworld.cpp)
+```
+to compile it run:
+```bash
+mkdir build && cd build
+cmake ../
+cmake --build .
+```
+
