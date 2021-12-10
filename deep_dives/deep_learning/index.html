@@ -557,6 +557,40 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#importing-gopro-recordings-of-games" class="md-nav__link">
+    Importing GoPro Recordings of Games
+  </a>
+  
+    <nav class="md-nav" aria-label="Importing GoPro Recordings of Games">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-a-project-for-the-gopro-videos" class="md-nav__link">
+    Creating a project for the gopro videos
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creating-gopro-tasks" class="md-nav__link">
+    Creating GoPro Tasks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#importing-spl-style-annotations" class="md-nav__link">
+    Importing SPL style annotations
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -943,6 +977,40 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#importing-gopro-recordings-of-games" class="md-nav__link">
+    Importing GoPro Recordings of Games
+  </a>
+  
+    <nav class="md-nav" aria-label="Importing GoPro Recordings of Games">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-a-project-for-the-gopro-videos" class="md-nav__link">
+    Creating a project for the gopro videos
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creating-gopro-tasks" class="md-nav__link">
+    Creating GoPro Tasks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#importing-spl-style-annotations" class="md-nav__link">
+    Importing SPL style annotations
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -995,6 +1063,31 @@ Contact the team via slack or email to get the permissions set. </p>
 <p>Navigate to a task and click <code>Actions-&gt;Automatic annotation</code> and select the model you want to run.
 <img alt="models_view" src="../../img/cvat/model_task.png" /><br />
 Now you have to wait for a long time. After all images of the tasks are done you can see the created annotations.</p>
+<h2 id="importing-gopro-recordings-of-games">Importing GoPro Recordings of Games</h2>
+<p>Starting in 2018 we tried to record every SPL game with a camera outside of the field. The videos can be found at logs.naoth.de</p>
+<h3 id="creating-a-project-for-the-gopro-videos">Creating a project for the gopro videos</h3>
+<p>TODO: what should the labels be???</p>
+<h3 id="creating-gopro-tasks">Creating GoPro Tasks</h3>
+<p>You should not import the Gopro videos directly. Instead export the frames with ffmpeg</p>
+<p>Windows:</p>
+<pre><code class="language-bash">ffmpeg.exe -i &quot;2018-08-10_07-53-21_MiPal_vs_SPQR_Team_1stHalf_pi105_GOPR5602.MP4&quot; frames/%%04d.jpg
+</code></pre>
+<p>Linux:</p>
+<pre><code class="language-bash">ffmpeg -i &quot;2018-08-10_07-53-21_MiPal_vs_SPQR_Team_1stHalf_pi105_GOPR5602.MP4&quot; frames/%04d.jpg
+</code></pre>
+<p>The exported frames folder should be zipped and uploaded inside the extracted folder that is next to the video folder where
+the video came from.</p>
+<p>Then in cvat when creating a task using the data:
+- create the task only inside the appropriate project
+- select the created zip file inside the "connected file share" tab.
+- inside "advanced configuration" select "copy data to cvat". This is done for speed. Also set the image quality to 100%
+- Maybe???? set segment size
+  - TODO: check export functions</p>
+<h3 id="importing-spl-style-annotations">Importing SPL style annotations</h3>
+<p>things to think about:
+- merging must be somehow supported
+- probably only useful format for importing is cvat format because it supports annotations and tracks
+  - i havent used the tracks feature much. </p>
                 
               
               
