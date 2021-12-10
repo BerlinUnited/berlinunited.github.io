@@ -32,6 +32,7 @@ nav:
     - 'guides/lab-trackingsystem.md'
     - 'guides/logging.md'
     - 'guides/robot_setup.md'
+    - 'guides/other_teams.md'
 
 theme:
   name: material
