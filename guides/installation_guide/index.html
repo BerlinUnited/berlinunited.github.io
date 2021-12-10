@@ -774,6 +774,26 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#compiling-code-for-the-robot-via-other-means" class="md-nav__link">
+    Compiling Code for the robot via other means
+  </a>
+  
+    <nav class="md-nav" aria-label="Compiling Code for the robot via other means">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#minimal-cmake-example" class="md-nav__link">
+    Minimal cmake example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -902,6 +922,26 @@
   <a href="#additional-tools-for-development" class="md-nav__link">
     Additional tools for development
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compiling-code-for-the-robot-via-other-means" class="md-nav__link">
+    Compiling Code for the robot via other means
+  </a>
+  
+    <nav class="md-nav" aria-label="Compiling Code for the robot via other means">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#minimal-cmake-example" class="md-nav__link">
+    Minimal cmake example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1051,6 +1091,35 @@ We have a dedicated editor for editing and compiling the robots behavior written
 <p><strong>Python</strong> <br />
 For working with logfiles we have a set of python scripts in the <code>utils/py</code> folder. The basic functionality is inside a the naoth python package which you can install with pip:  <br />
    - run <code>pip install -e naoth</code> in the <code>&lt;repository&gt;/Utils/py</code> this will install protobuf as well </p>
+<h2 id="compiling-code-for-the-robot-via-other-means">Compiling Code for the robot via other means</h2>
+<p>Sometimes you want/need to compile something for the robot and not incorporate that into our premake builds. Usually those things are libraries that come with the cmake build system.</p>
+<h3 id="minimal-cmake-example">Minimal cmake example</h3>
+<p>TODO: what about sysroot?
+You can compile this helloworld.cpp</p>
+<pre><code class="language-cpp">#include&lt;iostream&gt;
+
+int main(int argc, char *argv[]){
+   std::cout &lt;&lt; &quot;Hello World!&quot; &lt;&lt; std::endl;
+   return 0;
+}
+
+</code></pre>
+<p>using the CMakeLists.txt file</p>
+<pre><code class="language-CMakeLists.txt">cmake_minimum_required(VERSION 2.8.9)
+
+set(CMAKE_SYSTEM_PROCESSOR i686)
+
+SET(CMAKE_C_COMPILER &lt;path to linuxtoolchain repo&gt;/toolchain_nao/compiler/bin/i686-berlinunited-linux-gnu-gcc)
+SET(CMAKE_CXX_COMPILER &lt;path to linuxtoolchain repo&gt;/toolchain_nao/compiler/bin/i686-berlinunited-linux-gnu-g++)
+
+project (hello)
+add_executable(hello helloworld.cpp)
+</code></pre>
+<p>to compile it run:</p>
+<pre><code class="language-bash">mkdir build &amp;&amp; cd build
+cmake ../
+cmake --build .
+</code></pre>
                 
               
               
