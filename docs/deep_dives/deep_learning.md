@@ -8,7 +8,10 @@ Here we give an overview over the current approach to deep learning in our team.
 - training
 - compile the model for use on the robot
 
-TODO: create a graphic which shows the workflow
+# CVAT Labeltool
+!!! note
+    TODO: create a graphic which shows the workflow
+
 
 ## CVAT Labeltool
 Our CVAT instance can be accessed via <https://ball.informatik.hu-berlin.de>. The setup of our instance is described in
@@ -29,6 +32,10 @@ Contact the team via slack or email to get the permissions set.
 - Before you start working please read the official documentation at <https://openvinotoolkit.github.io/cvat/docs>
 - only label balls that you can clearly detect as balls when zoomed in a bit (TODO create some examples)
 - the bounding box of a ball should include the whole ball even if part of it is outside the image or occluded
+- Don't use ellipses for ball annotations yet
+
+!!! note
+    TODO: Update the rules when circle annotation is possible. Ellipses are not useful for us right now.
 
 ## Auto Annotation for users
 You can see a list of available models by clicking Models View on the top:
@@ -50,25 +57,8 @@ Starting in 2018 we tried to record every SPL game with a camera outside of the 
 TODO: what should the labels be???
 
 ### Creating GoPro Tasks
-You should not import the Gopro videos directly. Instead export the frames with ffmpeg
+You should not import the Gopro videos directly. Instead the functions inside the NaoTH-Deeplearning repo for everything.
 
-Windows:
-```bash
-ffmpeg.exe -i "2018-08-10_07-53-21_MiPal_vs_SPQR_Team_1stHalf_pi105_GOPR5602.MP4" frames/%%04d.jpg
-```
-Linux:
-```bash
-ffmpeg -i "2018-08-10_07-53-21_MiPal_vs_SPQR_Team_1stHalf_pi105_GOPR5602.MP4" frames/%04d.jpg
-```
-The exported frames folder should be zipped and uploaded inside the extracted folder that is next to the video folder where
-the video came from.
-
-Then in cvat when creating a task using the data:
-- create the task only inside the appropriate project
-- select the created zip file inside the "connected file share" tab.
-- inside "advanced configuration" select "copy data to cvat". This is done for speed. Also set the image quality to 100%
-- Maybe???? set segment size
-  - TODO: check export functions
 
 ### Importing SPL style annotations
 things to think about:

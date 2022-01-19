@@ -3,8 +3,11 @@
     This is only important for internal developers.
 
 ### Build CVAT
-The forekd repository with our changes is hosted at [github](https://github.com/BerlinUnited/cvat).
-The code is checked out at `/opt/cvat-repo`.
+The forked repository with our changes is hosted at [github](https://github.com/BerlinUnited/cvat) in the naoth-develop branch.
+This branch is always based on the upstream develop branch. Always use rebase instead of merge on the original develop branch to keep our changes
+cleanly separated from the cvat commits.
+
+On the internal ball.informatil.hu-berlin.de server, the code is checked out at `/opt/cvat-repo`.
 
 There are three helper scripts for starting/stopping and building cvat:  
 
@@ -70,6 +73,7 @@ dhcp-option DNS 8.8.8.8  # <-- set the name server of your liking
 
 ### Own changes to the CVAT Code
 - in our instance it is possible to create bounding boxes that are (partially) outside the image
+- fixed api address to the ball server so that swagger works correctly
 
 ## Auto Annotation for developers
 For a general guide to auto annotation see the official [CVAT Docu](https://openvinotoolkit.github.io/cvat/docs/administration/advanced/installation_automatic_annotation/)
