@@ -580,8 +580,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#todo" class="md-nav__link">
-    TODO
+  <a href="#view-teamcommlogs-in-robotcontrol" class="md-nav__link">
+    View Teamcommlogs in Robotcontrol
   </a>
   
 </li>
@@ -885,8 +885,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#todo" class="md-nav__link">
-    TODO
+  <a href="#view-teamcommlogs-in-robotcontrol" class="md-nav__link">
+    View Teamcommlogs in Robotcontrol
   </a>
   
 </li>
@@ -905,11 +905,24 @@
                 
                 
                 <h1 id="robocontrol">RoboControl</h1>
-<h2 id="todo">TODO</h2>
+<p>Some explanations of commons tasks we do with RobotControl.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <ul>
 <li>explain some implementation details (java fx, debug communication, netbeans specific stuff, gradle)</li>
 <li>move and expand rc module documentation from team report</li>
 </ul>
+</div>
+<h2 id="view-teamcommlogs-in-robotcontrol">View Teamcommlogs in Robotcontrol</h2>
+<p>In RobotControl open the <code>TeamCommLogViewer</code> Dialog and open a teamcomm logfile.
+<img alt="Open a teamcomm log file" src="../../img/screenshot_open_teamcommlog.png" /></p>
+<p>Open the FieldViewer and the TeamCommViewer FX Dialogs next to each other. In the FieldViewer click on the log button and then
+in the TeamCommViewer Click on the <code>Listen to TeamComm</code> button. The order here is important.
+<img alt="SetupFieldViewer" src="../../img/screenshot_teamcomm_fieldviewer.png" />
+Switch back to the <code>TeamCommLogViewer</code> and click on the play button. You then see the message content of the current 
+message on the left and on the right you can see the robots positions on the field. Note that those positions are as the robots
+report it. So they show localization errors.
+<img alt="Open a teamcomm log file" src="../../img/screenshot_play_teamcomm.png" /></p>
                 
               
               
