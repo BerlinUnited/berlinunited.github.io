@@ -69,14 +69,46 @@ In this case modify the vpn config you use. It worked with the following changes
 dhcp-option DNS 8.8.8.8  # <-- set the name server of your liking
 
 ```
+### Problems with Nuclio Dashboard
+When you use the auto annotation feature in cvat a request gets made to `http:nuclio:8070`. The nuclio dashboard acts
+as a proxy to the container that actually holds the annotation function. In a normal docker environment this would be
+`172.17.0.1:<port_number>`. Where port number is the port specified during deployment of the nuclio function. But because
+the nuclio developers are insanely stupid they hardcoded the default docker gateway. You have to rebuild the
+nuclio dasboard image and use that. 
+```bash
+# get the correct nuclio version as specified in the [serverless.yaml file](https://github.com/openvinotoolkit/cvat/blob/develop/components/serverless/docker-compose.serverless.yml)
+wget https://github.com/nuclio/nuclio/archive/refs/tags/1.5.16.zip
+unzip 1.5.16.zip
+cd nuclio-1.5.16
 
+# replace all occurrence of 172.17.0.1 with 172.240.0.1 in  pkg/platform/local/platform.go
+
+# NOTE: it will fail at some point but it should build the nuclio dashboard
+make build
+# save the newly build image to a tar file
+docker save quay.io/nuclio/dashboard > nuclio_dashboard.tar
+
+# after moving the container to the server where nuclio and cvat run extract the image from the tar file
+docker load < nuclio_dashboard.tar
+
+# TODO add note about tagging and modifying docker-compose.serverless.yml
+```
 
 ### Own changes to the CVAT Code
 - in our instance it is possible to create bounding boxes that are (partially) outside the image
 - fixed api address to the ball server so that swagger works correctly
 
 ## Auto Annotation for developers
+!!! note
+    Add note about sometimes getting errors in cvat ui about models that cant be loaded. I think cvat nuclio project must be recreated
+
+!!! note
+    Describe nuctl setup here and reference the official docs
 For a general guide to auto annotation see the official [CVAT Docu](https://openvinotoolkit.github.io/cvat/docs/administration/advanced/installation_automatic_annotation/)
+
+!!! note
+    Add more descriptions for cvat models and naoth deep learning
+    Move used models to models.naoth.de
 
 The code for our models we use for auto annotation can be found at the [CVAT Models](https://github.com/BerlinUnited/cvat_models) repo.
 Currently the models must be deployed on the same server as the CVAT label tool. All further details can be found inside the repository.
