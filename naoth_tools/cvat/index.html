@@ -1044,14 +1044,21 @@ cd nuclio-1.5.16
 
 # NOTE: it will fail at some point but it should build the nuclio dashboard
 make build
+
+# tag the image with a name that is later used in cvat
+docker tag quay.io/nuclio/dashboard modified_nuclio_dashboard
 # save the newly build image to a tar file
-docker save quay.io/nuclio/dashboard &gt; nuclio_dashboard.tar
+docker save modified_nuclio_dashboard &gt; nuclio_dashboard.tar
 
 # after moving the container to the server where nuclio and cvat run extract the image from the tar file
 docker load &lt; nuclio_dashboard.tar
 
-# TODO add note about tagging and modifying docker-compose.serverless.yml
+# you should now have image with the name modified_nuclio_dashboard
 </code></pre>
+<p>You now need to modify the docker-compose.serverless.yml inside the cvat repo. Set the image to</p>
+<pre><code class="language-bash">image: modified_nuclio_dashboard:latest
+</code></pre>
+<p>After this change run the build and start script again</p>
 <h3 id="own-changes-to-the-cvat-code">Own changes to the CVAT Code</h3>
 <ul>
 <li>in our instance it is possible to create bounding boxes that are (partially) outside the image</li>
