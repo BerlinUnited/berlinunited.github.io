@@ -1034,7 +1034,12 @@ dhcp-option DNS 8.8.8.8  # &lt;-- set the name server of your liking
 as a proxy to the container that actually holds the annotation function. In a normal docker environment this would be
 <code>172.17.0.1:&lt;port_number&gt;</code>. Where port number is the port specified during deployment of the nuclio function. But because
 the nuclio developers are insanely stupid they hardcoded the default docker gateway. You have to rebuild the
-nuclio dasboard image and use that. </p>
+nuclio dasboard image and use that.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can download the modified nuclio dashboard image from <a href="https://datasets.naoth.de/nuclio_dashboard.tar">https://datasets.naoth.de/nuclio_dashboard.tar</a>
+instead of building it as described below</p>
+</div>
 <pre><code class="language-bash"># get the correct nuclio version as specified in the [serverless.yaml file](https://github.com/openvinotoolkit/cvat/blob/develop/components/serverless/docker-compose.serverless.yml)
 wget https://github.com/nuclio/nuclio/archive/refs/tags/1.5.16.zip
 unzip 1.5.16.zip

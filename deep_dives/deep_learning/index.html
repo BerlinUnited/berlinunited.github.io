@@ -1098,20 +1098,6 @@ Those still have to be done manually.</p>
 <p>TODO</p>
 <h2 id="deploying-a-model">Deploying a model</h2>
 <p>TODO</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>some debug stuff that might be useful later. If you dont know what that is just ignore it.</p>
-</div>
-<pre><code class="language-bash">curl --header &quot;x-nuclio-function-name: openvino-dextr&quot; http://nuclio:8070/api/function_invocations  
-curl --header &quot;x-nuclio-function-name: openvino-omz-public-yolo-v3-tf&quot; http://nuclio:8070/api/function_invocations  
-curl --header &quot;x-nuclio-function-name: dummy-model&quot; http://nuclio:8070/api/function_invocations  
-</code></pre>
-<p>nuctl invoke dummy-model gives the correct response</p>
-<pre><code class="language-bash">curl --location --request POST 'localhost:8070/api/function_invocations' \  
---header 'x-nuclio-function-name: dummy-model' \  
---header 'x-nuclio-function-namespace: nuclio' \  
---header 'x-nuclio-log-level: debug'  
-</code></pre>
                 
               
               
