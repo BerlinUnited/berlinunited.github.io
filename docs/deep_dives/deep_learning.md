@@ -89,21 +89,3 @@ TODO
 
 ## Deploying a model
 TODO
-
-!!! note
-    some debug stuff that might be useful later. If you dont know what that is just ignore it.
-
-```bash
-curl --header "x-nuclio-function-name: openvino-dextr" http://nuclio:8070/api/function_invocations  
-curl --header "x-nuclio-function-name: openvino-omz-public-yolo-v3-tf" http://nuclio:8070/api/function_invocations  
-curl --header "x-nuclio-function-name: dummy-model" http://nuclio:8070/api/function_invocations  
-```
-
-nuctl invoke dummy-model gives the correct response
-
-```bash
-curl --location --request POST 'localhost:8070/api/function_invocations' \  
---header 'x-nuclio-function-name: dummy-model' \  
---header 'x-nuclio-function-namespace: nuclio' \  
---header 'x-nuclio-log-level: debug'  
-```
