@@ -77,11 +77,11 @@ the nuclio developers are insanely stupid they hardcoded the default docker gate
 nuclio dasboard image and use that.
 
 !!! Note
-    You can download the modified nuclio dashboard image from [https://datasets.naoth.de/nuclio_dashboard.tar](https://datasets.naoth.de/nuclio_dashboard.tar)
-    instead of building it as described below
+    You can download the modified nuclio dashboard image by running `docker pull stellacbc/nuclio_dashboard:hu_berlin`
+    or instead building it yourself as described below.
 
 ```bash
-# get the correct nuclio version as specified in the [serverless.yaml file](https://github.com/openvinotoolkit/cvat/blob/develop/components/serverless/docker-compose.serverless.yml)
+# get the correct nuclio version as specified in https://github.com/openvinotoolkit/cvat/blob/develop/components/serverless/docker-compose.serverless.yml
 wget https://github.com/nuclio/nuclio/archive/refs/tags/1.5.16.zip
 unzip 1.5.16.zip
 cd nuclio-1.5.16
@@ -101,9 +101,10 @@ docker load < nuclio_dashboard.tar
 
 # you should now have image with the name modified_nuclio_dashboard
 ```
-You now need to modify the docker-compose.serverless.yml inside the cvat repo. Set the image to
+You now need to modify the docker-compose.serverless.yml inside the cvat repo. Set the image to the name of the 
+downloaded or built image. For example:
 ```bash
-image: modified_nuclio_dashboard:latest
+image: stellacbc/nuclio_dashboard:hu_berlin
 ```
 After this change run the build and start script again
 
