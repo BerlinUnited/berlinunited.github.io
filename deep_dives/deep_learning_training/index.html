@@ -14,7 +14,7 @@
     
     
       
-        <title>Deep Learning Overview - Berlin United - Documentation</title>
+        <title>Deep Learning Training Overview - Berlin United - Documentation</title>
       
     
     
@@ -65,7 +65,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#deep-learning-overview" class="md-skip">
+        <a href="#deep-learning-training-overview" class="md-skip">
           Skip to content
         </a>
       
@@ -98,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Deep Learning Overview
+              Deep Learning Training Overview
             
           </span>
         </div>
@@ -483,6 +483,20 @@
               
   
   
+  
+    <li class="md-nav__item">
+      <a href="../deep_learning_annotation/" class="md-nav__link">
+        Deep Learning Annotation Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
     
   
   
@@ -494,95 +508,24 @@
         
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Deep Learning Overview
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="./" class="md-nav__link md-nav__link--active">
-        Deep Learning Overview
+        Deep Learning Training Overview
       </a>
       
-        
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+    </li>
+  
+
+            
+          
+            
+              
   
   
   
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#data-sources" class="md-nav__link">
-    Data sources
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#cvat-labeltool" class="md-nav__link">
-    CVAT Labeltool
-  </a>
-  
-    <nav class="md-nav" aria-label="CVAT Labeltool">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#label-rules" class="md-nav__link">
-    Label Rules
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#rules-for-gopro-tasks" class="md-nav__link">
-    Rules for GoPro Tasks
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#rules-for-log-tasks" class="md-nav__link">
-    Rules for Log Tasks
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#auto-annotation-for-users" class="md-nav__link">
-    Auto Annotation for users
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#training-a-model" class="md-nav__link">
-    Training a model
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#deploying-a-model" class="md-nav__link">
-    Deploying a model
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
+    <li class="md-nav__item">
+      <a href="../deep_learning_deployment/" class="md-nav__link">
+        Deep Learning Deployment Overview
+      </a>
     </li>
   
 
@@ -933,76 +876,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#data-sources" class="md-nav__link">
-    Data sources
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#cvat-labeltool" class="md-nav__link">
-    CVAT Labeltool
-  </a>
-  
-    <nav class="md-nav" aria-label="CVAT Labeltool">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#label-rules" class="md-nav__link">
-    Label Rules
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#rules-for-gopro-tasks" class="md-nav__link">
-    Rules for GoPro Tasks
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#rules-for-log-tasks" class="md-nav__link">
-    Rules for Log Tasks
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#auto-annotation-for-users" class="md-nav__link">
-    Auto Annotation for users
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#training-a-model" class="md-nav__link">
-    Training a model
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#deploying-a-model" class="md-nav__link">
-    Deploying a model
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -1014,90 +887,7 @@
               
                 
                 
-                <h1 id="deep-learning-overview">Deep Learning Overview</h1>
-<p>Here we give an overview over the current approach to deep learning in our team.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>TODO: create a graphic which shows the workflow</p>
-</div>
-<h2 id="data-sources">Data sources</h2>
-<p>Currently we have two main source where image data for deep learning can come from:
-- log files created on the nao robot
-- gopro footage from games</p>
-<p>In order to prepare this data for a cvat task we need to do some preprocessing. For the former we extract images and the
-corresponding cameramatrix from the logs. The cameramatrix information is saved  in the png header of the image. 
-Finally the images are zipped in bottom.zip and top.zip respectively. For the later  we extract and zip the frames from
-the gopro footage.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>TODO: explain the log folder structure somewhere</p>
-</div>
-<h2 id="cvat-labeltool">CVAT Labeltool</h2>
-<p>Our CVAT instance can be accessed via <a href="https://ball.informatik.hu-berlin.de">https://ball.informatik.hu-berlin.de</a>. The setup of our instance is described in
-<a href="../../naoth_tools/cvat/">CVAT Setup</a>.</p>
-<p>Everyone can register, but to see the tasks you have to be manually added to a group with the appropriate permissons.
-Contact the team via slack or email to get the permissions set.</p>
-<p>The api can be tested with swagger at <a href="https://ball.informatik.hu-berlin.de/api/swagger/">https://ball.informatik.hu-berlin.de/api/swagger/</a>. Alternatively you can use curl requests directly
-for example like this</p>
-<pre><code class="language-bash"># get an image
-curl --user &lt;username&gt;:&lt;password&gt; -X GET &quot;http://ball.informatik.hu-berlin.de/api/v1/tasks/&lt;task_id&gt;/data?type=frame&amp;quality=original&amp;number=0&quot; -H  &quot;accept: application/json&quot; -H  &quot;X-CSRFToken: 92BgjW2DL1Q8aOWKvEFbYJubcVhbIx8jTMdypKm0KpwfXfp4NE9QW9hJxHiaP0gW&quot; &gt; test.png
-
-# add an image to a task
-curl --user &lt;username&gt;:&lt;password&gt; -X POST &quot;http://ball.informatik.hu-berlin.de/api/v1/tasks/&lt;task_id&gt;/data&quot; -H  &quot;accept: application/json&quot; -H  &quot;Content-Type: application/json&quot; -H  &quot;X-CSRFToken: 92BgjW2DL1Q8aOWKvEFbYJubcVhbIx8jTMdypKm0KpwfXfp4NE9QW9hJxHiaP0gW&quot; -d &quot;{ \&quot;image_quality\&quot;: 95, \&quot;client_files\&quot;: [\&quot;bla.png\&quot;]}&quot;
-</code></pre>
-<p>To automate many commons tasks python scripts were created in the naoth-deeplearning repo. The most relevant is the 
-function for creating a task. For this you need the name of the task and the path on the server to the zip containing 
-the images. A more detailed documentation can be found in the naoth-deeplearning repo.</p>
-<h3 id="label-rules">Label Rules</h3>
-<ul>
-<li>You should not modify tasks that are assigned to someone else</li>
-<li>You should not modify tasks that are marked <em>completed</em></li>
-<li>Do not change labels of existing projects</li>
-<li>Every task should belong to a project</li>
-<li>Notify the team via slack if your are adding tasks or projects</li>
-<li>Notify the team via slack before adding more automatic annotation models</li>
-<li>Before you start assign the task to yourself so that others don't interfere</li>
-<li>After you are done select <em>Request a review</em> from the menu and select another active user</li>
-<li>Before you start working please read the official documentation at <a href="https://openvinotoolkit.github.io/cvat/docs">https://openvinotoolkit.github.io/cvat/docs</a></li>
-<li>only label balls that you can clearly detect as balls when zoomed in a bit (TODO create some examples)</li>
-<li>the bounding box of a ball should include the whole ball even if part of it is outside the image or occluded</li>
-<li>Don't use ellipses for ball annotations yet</li>
-</ul>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>TODO: Update the rules when circle annotation is possible. Ellipses are not useful for us right now.</p>
-</div>
-<h3 id="rules-for-gopro-tasks">Rules for GoPro Tasks</h3>
-<p>Starting in 2018 we tried to record every SPL game with a camera outside of the field. The videos can be found at logs.naoth.de</p>
-<p>You should not import the Gopro videos directly. Instead the functions inside the NaoTH-Deeplearning repo for everything.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>TODO: what should the labels be???
-TODO: mention that labels should be done in projects not tasks</p>
-</div>
-<h3 id="rules-for-log-tasks">Rules for Log Tasks</h3>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>TODO: write down the annotations that dortmund does. its important to know where the robot is blurred, fully in the
-picture etc.</p>
-</div>
-<h3 id="auto-annotation-for-users">Auto Annotation for users</h3>
-<p>You can see a list of available models by clicking Models View on the top:
-<img alt="models_view" src="../../img/cvat/models.png" /></p>
-<p>By clicking on supported labels you can see a list of labels this model can annotate. To create new models see the documentation at
-<a href="../../naoth_tools/cvat/">CVAT Setup</a>.</p>
-<p>Navigate to a task and click <code>Actions-&gt;Automatic annotation</code> and select the model you want to run.
-<img alt="models_view" src="../../img/cvat/model_task.png" /><br />
-Now you have to wait for a long time. After all images of the tasks are done you can see the created annotations.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Those models are not able to do proper annotations (e.g. blurrendness) for bounding boxes yet. 
-Those still have to be done manually.</p>
-</div>
-<h2 id="training-a-model">Training a model</h2>
-<p>TODO</p>
-<h2 id="deploying-a-model">Deploying a model</h2>
-<p>TODO</p>
+                <h1 id="deep-learning-training-overview">Deep Learning Training Overview</h1>
                 
               
               
