@@ -522,9 +522,66 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Deep Learning Deployment Overview
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Deep Learning Deployment Overview
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tflite-on-nao" class="md-nav__link">
+    tflite on Nao
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tflite-micro-on-nao" class="md-nav__link">
+    tflite micro on Nao
+  </a>
+  
+    <nav class="md-nav" aria-label="tflite micro on Nao">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-a-tflite-file" class="md-nav__link">
+    Create a tflite file
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#convert-a-model-for-inference-with-tflite-micro" class="md-nav__link">
+    Convert a model for inference with tflite-micro
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -876,6 +933,48 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tflite-on-nao" class="md-nav__link">
+    tflite on Nao
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tflite-micro-on-nao" class="md-nav__link">
+    tflite micro on Nao
+  </a>
+  
+    <nav class="md-nav" aria-label="tflite micro on Nao">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-a-tflite-file" class="md-nav__link">
+    Create a tflite file
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#convert-a-model-for-inference-with-tflite-micro" class="md-nav__link">
+    Convert a model for inference with tflite-micro
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -888,6 +987,102 @@
                 
                 
                 <h1 id="deep-learning-deployment-overview">Deep Learning Deployment Overview</h1>
+<p>For deployment there are multiple options. The easiest to just use python for inference. However this is probably not
+what you want in an embedded system.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>TODO: this is very much a WIP. For now just some notes so that we don't forget. We will fix this in the future</p>
+</div>
+<h2 id="tflite-on-nao">tflite on Nao</h2>
+<p>setup ubuntu on the nao as described elsewhere</p>
+<pre><code class="language-bash">git clone tensorflow
+checkout 2.6.3
+cd tensorflow_dir
+./tensorflow/lite/tools/make/download.sh
+./tensorflow/lite/tools/make/build_lib.sh
+</code></pre>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The only reason tensorflow 2.6.3 was choosen is that it can build with simple makefiles. We could not make the cmake stuff work.
+It was possible to build newer versions on the nao. However using the library always got compile and linker 
+problems as soon as we did not use cmake and the same folder structure as the examples.</p>
+</div>
+<h2 id="tflite-micro-on-nao">tflite micro on Nao</h2>
+<p>setup ubuntu on the nao as described elsewhere
+TODO: explain how i compiled it</p>
+<h3 id="create-a-tflite-file">Create a tflite file</h3>
+<p>TODO explain exporter options</p>
+<h3 id="convert-a-model-for-inference-with-tflite-micro">Convert a model for inference with tflite-micro</h3>
+<pre><code class="language-bash">xxd -i cool_model.tflite &gt; my_model.cc
+</code></pre>
+<p>this will produce something like this:</p>
+<pre><code class="language-bash">unsigned char cool_model_tflite[] = {
+  0x18, 0x00, 0x00, 0x00, 0x54, 0x46, 0x4c, 0x33, 0x00, 0x00, 0x0e, 0x00,
+  // &lt;Lines omitted&gt;
+};
+unsigned int cool_model_tflite_len = 18200;
+</code></pre>
+<p>The <code>-i</code> in the xxd command tells it to output the hexdump in c include file style.</p>
+<p>For creating cpp code for basic inference the hello world example from the tflite micro repo is good start.
+<a href="https://github.com/tensorflow/tflite-micro/blob/main/tensorflow/lite/micro/examples/hello_world/hello_world_test.cc">tflm</a></p>
+<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Example 1</label><div class="tabbed-content">
+<p>Example main.cpp without quantization</p>
+<pre><code>    #include &lt;math.h&gt;
+    #include &lt;iostream&gt;
+    #include "tensorflow/lite/micro/all_ops_resolver.h"
+    #include "my_model.cc"
+    #include "tensorflow/lite/micro/micro_error_reporter.h"
+    #include "tensorflow/lite/micro/micro_interpreter.h"
+    #include "tensorflow/lite/micro/testing/micro_test.h"
+    #include "tensorflow/lite/schema/schema_generated.h"
+
+    int main(){
+           // Set up logging
+           tflite::MicroErrorReporter micro_error_reporter;
+           const tflite::Model* model = ::tflite::GetModel(cool_model_tflite);
+
+           // This pulls in all the operation implementations we need
+           tflite::AllOpsResolver resolver;
+           constexpr int kTensorArenaSize = 7 * 1024;
+           uint8_t tensor_arena[kTensorArenaSize];
+
+           // Build an interpreter to run the model with
+           tflite::MicroInterpreter interpreter(model, resolver, tensor_arena,
+                                      kTensorArenaSize, &amp;micro_error_reporter);
+
+           // Allocate memory from the tensor_arena for the model's tensors
+           interpreter.AllocateTensors();
+           // Obtain a pointer to the model's input tensor
+           TfLiteTensor* input = interpreter.input(0);
+           input-&gt;data.f[0] = float(2);
+
+           // Run the model and check that it succeeds
+           TfLiteStatus invoke_status = interpreter.Invoke();
+
+           // Obtain a pointer to the output tensor and make sure it has the
+           // properties we expect. It should be the same as the input tensor.
+           TfLiteTensor* output = interpreter.output(0);
+
+           float output = output-&gt;data.f[0];
+           std::cout &lt;&lt; output &lt;&lt; std::endl;
+
+           return 0;
+    }
+</code></pre>
+</div>
+<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">Example 2</label><div class="tabbed-content">
+<p>TODO: create an example with quantization</p>
+</div>
+</div>
+<p>This hello world example can be compiled with:</p>
+<pre><code class="language-bash">g++ main.cpp -std=c++11 \
+-L&lt;path to folder where libtensorflow-microlite.lib is&gt; \
+-I&lt;path to tflm repo&gt; \
+-I&lt;path to flatbuffers include folder&gt; \
+-ltensorflow-microlite \
+-DTF_LITE_STATIC_MEMORY
+</code></pre>
+<p>The last line is especially important. Without it you will get unpredictable behavior using this code.</p>
                 
               
               
