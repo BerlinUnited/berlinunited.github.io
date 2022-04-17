@@ -1,4 +1,4 @@
-# Deep Learning Overview
+# Deep Learning Annotation Overview
 Here we give an overview over the current approach to deep learning in our team.
 
 !!! note

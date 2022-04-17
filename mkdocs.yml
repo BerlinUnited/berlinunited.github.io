@@ -12,7 +12,9 @@ nav:
     - 'bibliography.md'
   - Deep Dives:
     - 'deep_dives/index.md'
-    - 'deep_dives/deep_learning.md'
+    - 'deep_dives/deep_learning_annotation.md'
+    - 'deep_dives/deep_learning_training.md'
+    - 'deep_dives/deep_learning_deployment.md'
     - 'deep_dives/obstacle_detection.md'
   - Tooling:
     - 'naoth_tools/rc.md'
