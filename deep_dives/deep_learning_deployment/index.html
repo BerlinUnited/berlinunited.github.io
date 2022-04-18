@@ -546,18 +546,32 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#tflite-on-nao" class="md-nav__link">
-    tflite on Nao
+  <a href="#tensorflow-keras-with-python" class="md-nav__link">
+    Tensorflow Keras with python
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#tflite-micro-on-nao" class="md-nav__link">
-    tflite micro on Nao
+  <a href="#tflite-with-python" class="md-nav__link">
+    tflite with python
   </a>
   
-    <nav class="md-nav" aria-label="tflite micro on Nao">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tensorflow-lite-on-nao-with-c" class="md-nav__link">
+    tensorflow lite on Nao with C++
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tensorflow-lite-micro-tflm-on-nao-with-c" class="md-nav__link">
+    tensorflow lite micro (tflm) on Nao with C++
+  </a>
+  
+    <nav class="md-nav" aria-label="tensorflow lite micro (tflm) on Nao with C++">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -940,18 +954,32 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#tflite-on-nao" class="md-nav__link">
-    tflite on Nao
+  <a href="#tensorflow-keras-with-python" class="md-nav__link">
+    Tensorflow Keras with python
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#tflite-micro-on-nao" class="md-nav__link">
-    tflite micro on Nao
+  <a href="#tflite-with-python" class="md-nav__link">
+    tflite with python
   </a>
   
-    <nav class="md-nav" aria-label="tflite micro on Nao">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tensorflow-lite-on-nao-with-c" class="md-nav__link">
+    tensorflow lite on Nao with C++
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tensorflow-lite-micro-tflm-on-nao-with-c" class="md-nav__link">
+    tensorflow lite micro (tflm) on Nao with C++
+  </a>
+  
+    <nav class="md-nav" aria-label="tensorflow lite micro (tflm) on Nao with C++">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -987,17 +1015,24 @@
                 
                 
                 <h1 id="deep-learning-deployment-overview">Deep Learning Deployment Overview</h1>
-<p>For deployment there are multiple options. The easiest to just use python for inference. However this is probably not
-what you want in an embedded system.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>TODO: this is very much a WIP. For now just some notes so that we don't forget. We will fix this in the future</p>
 </div>
-<h2 id="tflite-on-nao">tflite on Nao</h2>
-<p>setup ubuntu on the nao as described elsewhere</p>
-<pre><code class="language-bash">git clone tensorflow
-checkout 2.6.3
-cd tensorflow_dir
+<p>For deployment there are multiple options. The easiest to just use python for inference. However this is probably not
+what you want in an embedded system.</p>
+<h2 id="tensorflow-keras-with-python">Tensorflow Keras with python</h2>
+<p>The easiest method is just to use python similar to the way we train models.</p>
+<h2 id="tflite-with-python">tflite with python</h2>
+<p>To improve the runtime of the model we use tflite with python</p>
+<h2 id="tensorflow-lite-on-nao-with-c">tensorflow lite on Nao with C++</h2>
+<ol>
+<li>Setup ubuntu on the nao as described elsewhere (TODO: insert link)</li>
+<li>build the tensorflow library directly on the nao robot:</li>
+</ol>
+<pre><code class="language-bash">git clone https://github.com/tensorflow/tensorflow.git tensorflow_src
+cd tensorflow_src
+git checkout 2.6.3
 ./tensorflow/lite/tools/make/download.sh
 ./tensorflow/lite/tools/make/build_lib.sh
 </code></pre>
@@ -1007,9 +1042,82 @@ cd tensorflow_dir
 It was possible to build newer versions on the nao. However using the library always got compile and linker 
 problems as soon as we did not use cmake and the same folder structure as the examples.</p>
 </div>
-<h2 id="tflite-micro-on-nao">tflite micro on Nao</h2>
-<p>setup ubuntu on the nao as described elsewhere
-TODO: explain how i compiled it</p>
+<ol>
+<li>Create a main.cpp which holds the code for the inference on the tflite model. The code is adapted 
+from <a href="https://github.com/tensorflow/tensorflow/blob/master/tensorflow/lite/examples/label_image/label_image.cc">label image example</a>
+from the official docs.</li>
+</ol>
+<details>
+<summary>Example 1</summary>
+<p>Example main.cpp without quantization</p>
+<pre><code>#include &lt;cstdio&gt;
+#include &lt;iostream&gt;
+
+#include "tensorflow/lite/interpreter.h"
+#include "tensorflow/lite/kernels/register.h"
+#include "tensorflow/lite/model.h"
+
+int main(int argc, char* argv[]) {
+
+  // Load model
+  std::unique_ptr&lt;tflite::FlatBufferModel&gt; model =
+      tflite::FlatBufferModel::BuildFromFile("dummy_model2.tflite");
+
+  tflite::ops::builtin::BuiltinOpResolver resolver;
+  tflite::InterpreterBuilder builder(*model, resolver);
+  std::unique_ptr&lt;tflite::Interpreter&gt; interpreter;
+  builder(&amp;interpreter);
+
+  // Allocate tensor buffers.
+  interpreter-&gt;AllocateTensors()
+
+  // get the input dimensions we need for the loaded model
+  TfLiteIntArray* dims = interpreter-&gt;tensor(interpreter-&gt;inputs()[0])-&gt;dims;
+  int image_height =  dims-&gt;data[1];
+  int image_width = dims-&gt;data[2];
+  int image_channels = dims-&gt;data[3];
+  std::cout &lt;&lt; "wanted_height: " &lt;&lt; image_height &lt;&lt; std::endl;
+  std::cout &lt;&lt; "wanted_width: " &lt;&lt; image_width &lt;&lt; std::endl;
+  std::cout &lt;&lt; "wanted_channels: " &lt;&lt; image_channels &lt;&lt; std::endl;
+
+  // set all the pixel values of the input tensor to 1.0
+  int number_of_pixels = image_height * image_width * image_channels;
+  // TODO maybe use typed_input_tensor instead of typed_tensor
+  float* input = interpreter-&gt;typed_tensor&lt;float&gt;(0);
+  for (int i = 0; i &lt; number_of_pixels; i++) {
+    input[i] = float(1.0);
+  }
+
+  // resize the input tensor to the required shape
+  std::vector&lt;int&gt; sizes = {1, 16, 16, 1};
+  interpreter-&gt;ResizeInputTensor(interpreter-&gt;inputs()[0], sizes);
+
+  // Run inference
+  interpreter-&gt;Invoke()
+
+  float* output = interpreter-&gt;typed_output_tensor&lt;float&gt;(0);
+  std::cout &lt;&lt; output[0] &lt;&lt; std::endl;
+  std::cout &lt;&lt; output[1] &lt;&lt; std::endl;
+  std::cout &lt;&lt; output[2] &lt;&lt; std::endl;
+  std::cout &lt;&lt; output[3] &lt;&lt; std::endl
+
+  return 0;
+}
+</code></pre>
+</details>
+<h2 id="tensorflow-lite-micro-tflm-on-nao-with-c">tensorflow lite micro (tflm) on Nao with C++</h2>
+<p>Setup ubuntu on the nao as described elsewhere (TODO: insert link)
+Make sure python3, pip and the pillow package is installed on the Nao</p>
+<pre><code class="language-bash"># this is needed during tflm compilation
+apt install python3, python3-pip python-is-python3
+python -m pip install pillow
+</code></pre>
+<p>Compile the tflm library:</p>
+<pre><code class="language-bash">git clone https://github.com/tensorflow/tflite-micro.git tflm_src
+cd tflm_src
+make -f tensorflow/lite/micro/tools/make/Makefile microlite
+</code></pre>
+<p>The compiled lib will be in tflm_src/tensorflow/lite/micro/tools/make/gen/linux_x86_64_default/lib/libtensorflow-microlite.a</p>
 <h3 id="create-a-tflite-file">Create a tflite file</h3>
 <p>TODO explain exporter options</p>
 <h3 id="convert-a-model-for-inference-with-tflite-micro">Convert a model for inference with tflite-micro</h3>
@@ -1025,7 +1133,8 @@ unsigned int cool_model_tflite_len = 18200;
 <p>The <code>-i</code> in the xxd command tells it to output the hexdump in c include file style.</p>
 <p>For creating cpp code for basic inference the hello world example from the tflite micro repo is good start.
 <a href="https://github.com/tensorflow/tflite-micro/blob/main/tensorflow/lite/micro/examples/hello_world/hello_world_test.cc">tflm</a></p>
-<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Example 1</label><div class="tabbed-content">
+<details>
+<summary>Example 1</summary>
 <p>Example main.cpp without quantization</p>
 <pre><code>    #include &lt;math.h&gt;
     #include &lt;iostream&gt;
@@ -1069,12 +1178,12 @@ unsigned int cool_model_tflite_len = 18200;
            return 0;
     }
 </code></pre>
-</div>
-<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">Example 2</label><div class="tabbed-content">
+</details>
+<details>
+<summary>Example 2</summary>
 <p>TODO: create an example with quantization</p>
-</div>
-</div>
-<p>This hello world example can be compiled with:</p>
+</details>
+<p>Those examples can be compiled with:</p>
 <pre><code class="language-bash">g++ main.cpp -std=c++11 \
 -L&lt;path to folder where libtensorflow-microlite.lib is&gt; \
 -I&lt;path to tflm repo&gt; \
