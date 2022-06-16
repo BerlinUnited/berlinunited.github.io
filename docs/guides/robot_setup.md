@@ -1,5 +1,6 @@
-# Handling the Robot
-Explain the handling of the robot in various scenarios.
+# NAO setup and deployment
+Before you can deploy the NaoTH Code to the robot needs to be set up in a special way. This is a one time setup which 
+replaces the operating system that comes with the robot and additionally sets up some libraries we need on the robot. 
 
 ## Old Setup Routine
 First we need to setup the operating system with the image provided by softbank robotics. You can download it from 
@@ -18,17 +19,12 @@ The first two steps will be done with a custom image.
 
 
 ---
-
+## Deploy Code to robot
 TODO: explain network stick  
 TODO: explain deploy stick  
 TODO: explain deploy routines?
-TODO: explain LED's and buttons  
-TODO: how to take care of the robot
-TODO: 
 
-## Robot Calibration Routines
-TODO: auto calibration
-TODO: manuall calibration
- - how to set start conditions
- - 
+
+
+
 

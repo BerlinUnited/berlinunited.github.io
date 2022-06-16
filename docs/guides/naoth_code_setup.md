@@ -1,4 +1,4 @@
-# NaoTH Setup
+# NaoTH Code Setup
 
 ## Prerequisites
 
