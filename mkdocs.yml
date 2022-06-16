@@ -67,6 +67,8 @@ markdown_extensions:
   - admonition
   - pymdownx.tabbed
   - pymdownx.details
+  - pymdownx.snippets
+  - pymdownx.superfences
   - pymdownx.arithmatex:
       generic: true
   #- stella.tilde2

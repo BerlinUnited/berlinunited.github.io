@@ -106,12 +106,7 @@ We have a dedicated editor for editing and compiling the robots behavior written
     - run: `./gradlew.bat run` or `./dist/robotcontrol.bat` or `java -jar dist/lib/RobotControl.jar`
  
 **NaoSCP**  
-  - For deploying and setup of the nao robot  
-  - load the Netbeans project from `NaoSCP` and run the application  
-    - File->Import Project `<ProjectDir>`/NaoSCP  
-  - manual:  
-    - compile: `./gradlew.bat clean build`  
-    - run: `./gradlew.bat run` or `./dist/naoscp.bat` or `java -jar dist/lib/NaoSCP-1.1.jar`  
+See NaoSCP Documentation
  
 **Simspark**  
   - to run a simulated version of our naoth project  
