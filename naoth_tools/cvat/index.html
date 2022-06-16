@@ -965,33 +965,33 @@ This branch is always based on the upstream develop branch. Always use rebase in
 cleanly separated from the cvat commits.</p>
 <p>On the internal ball.informatil.hu-berlin.de server, the code is checked out at <code>/opt/cvat-repo</code>.</p>
 <p>There are three helper scripts for starting/stopping and building cvat:  </p>
-<p><strong>build_cvat.sh</strong>  </p>
-<pre><code class="language-bash">cd  cvat-repo || exit
+<p><strong>build_cvat.sh</strong><br />
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span>  cvat-repo <span class="o">||</span> <span class="nb">exit</span>
 
-export CVAT_HOST=ball.informatik.hu-berlin.de
-export ACME_EMAIL=schlottb@informatik.hu-berlin.de
+<span class="nb">export</span> <span class="nv">CVAT_HOST</span><span class="o">=</span>ball.informatik.hu-berlin.de
+<span class="nb">export</span> <span class="nv">ACME_EMAIL</span><span class="o">=</span>schlottb@informatik.hu-berlin.de
 
 docker-compose -f docker-compose.yml -f docker-compose.dev.yml -f docker-compose.https.yml -f docker-compose.override.yml -f components/serverless/docker-compose.serverless.yml build
-</code></pre>
-<p><strong>start_cvat.sh</strong>  </p>
-<pre><code class="language-bash">cd cvat-repo || exit
+</code></pre></div></p>
+<p><strong>start_cvat.sh</strong><br />
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> cvat-repo <span class="o">||</span> <span class="nb">exit</span>
 
-export CVAT_HOST=ball.informatik.hu-berlin.de
-export ACME_EMAIL=schlottb@informatik.hu-berlin.de
+<span class="nb">export</span> <span class="nv">CVAT_HOST</span><span class="o">=</span>ball.informatik.hu-berlin.de
+<span class="nb">export</span> <span class="nv">ACME_EMAIL</span><span class="o">=</span>schlottb@informatik.hu-berlin.de
 
 docker-compose -f docker-compose.yml -f docker-compose.dev.yml -f docker-compose.https.yml -f components/serverless/docker-compose.serverless.yml -f docker-compose.override.yml up -d
-</code></pre>
-<p><strong>stop_cvat.sh</strong>  </p>
-<pre><code class="language-bash">cd cvat-repo || exit
+</code></pre></div></p>
+<p><strong>stop_cvat.sh</strong><br />
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> cvat-repo <span class="o">||</span> <span class="nb">exit</span>
 docker-compose -f docker-compose.yml -f docker-compose.dev.yml -f components/serverless/docker-compose.serverless.yml -f docker-compose.override.yml down --remove-orphans
-</code></pre>
+</code></pre></div></p>
 <h3 id="setup-docker-network">Setup Docker Network</h3>
 <p>The server where cvat is hosted is inside the HU network. From the outside it is only accessible via a VPN. However
 per default the docker bridge network for cvat can collide with the vpn. When this happens you can't use ssh to log
 into the server unless you are already inside the HU network.</p>
 <p>The relevant VPN settings are ip: 172.16.0.0 and subnet: 255.240.0.0. So don't use any of those ip addresses for docker. You can
 achieve this by adding the following code to <code>/etc/docker/daemon.json</code></p>
-<pre><code>{
+<div class="highlight"><pre><span></span><code>{
     &quot;default-address-pools&quot; : [
     {
       &quot;base&quot; : &quot;172.240.0.0/16&quot;,
@@ -999,16 +999,15 @@ achieve this by adding the following code to <code>/etc/docker/daemon.json</code
     }
     ]
 }
-</code></pre>
+</code></pre></div>
 <p>After this change run <code>systemctl restart docker</code></p>
 <h3 id="problems-with-hu-vpn">Problems with HU VPN</h3>
 <p>With the OpenVPN provided by the university there might be some name resolution errors because of the nameservers used.
-In this case modify the vpn config you use. It worked with the following changes</p>
-<pre><code>#register-dns  # &lt;-- make sure this line is not active
+In this case modify the vpn config you use. It worked with the following changes
+<div class="highlight"><pre><span></span><code>#register-dns  # &lt;-- make sure this line is not active
 ...
 dhcp-option DNS 8.8.8.8  # &lt;-- set the name server of your liking
-
-</code></pre>
+</code></pre></div></p>
 <h3 id="problems-with-nuclio-dashboard">Problems with Nuclio Dashboard</h3>
 <p>When you use the auto annotation feature in cvat a request gets made to <code>http:nuclio:8070</code>. The nuclio dashboard acts
 as a proxy to the container that actually holds the annotation function. In a normal docker environment this would be
@@ -1020,31 +1019,31 @@ nuclio dasboard image and use that.</p>
 <p>You can download the modified nuclio dashboard image by running <code>docker pull stellacbc/nuclio_dashboard:hu_berlin</code>
 or instead building it yourself as described below.</p>
 </div>
-<pre><code class="language-bash"># get the correct nuclio version as specified in https://github.com/openvinotoolkit/cvat/blob/develop/components/serverless/docker-compose.serverless.yml
+<p><div class="highlight"><pre><span></span><code><span class="c1"># get the correct nuclio version as specified in https://github.com/openvinotoolkit/cvat/blob/develop/components/serverless/docker-compose.serverless.yml</span>
 wget https://github.com/nuclio/nuclio/archive/refs/tags/1.5.16.zip
-unzip 1.5.16.zip
-cd nuclio-1.5.16
+unzip <span class="m">1</span>.5.16.zip
+<span class="nb">cd</span> nuclio-1.5.16
 
-# replace all occurrence of 172.17.0.1 with 172.240.0.1 in  pkg/platform/local/platform.go
+<span class="c1"># replace all occurrence of 172.17.0.1 with 172.240.0.1 in  pkg/platform/local/platform.go</span>
 
-# NOTE: it will fail at some point but it should build the nuclio dashboard
+<span class="c1"># NOTE: it will fail at some point but it should build the nuclio dashboard</span>
 make build
 
-# tag the image with a name that is later used in cvat
+<span class="c1"># tag the image with a name that is later used in cvat</span>
 docker tag quay.io/nuclio/dashboard modified_nuclio_dashboard
-# save the newly build image to a tar file
+<span class="c1"># save the newly build image to a tar file</span>
 docker save modified_nuclio_dashboard &gt; nuclio_dashboard.tar
 
-# after moving the container to the server where nuclio and cvat run extract the image from the tar file
+<span class="c1"># after moving the container to the server where nuclio and cvat run extract the image from the tar file</span>
 docker load &lt; nuclio_dashboard.tar
 
-# you should now have image with the name modified_nuclio_dashboard
-</code></pre>
-<p>You now need to modify the docker-compose.serverless.yml inside the cvat repo. Set the image to the name of the 
-downloaded or built image. For example:</p>
-<pre><code class="language-bash">image: stellacbc/nuclio_dashboard:hu_berlin
-</code></pre>
-<p>After this change run the build and start script again</p>
+<span class="c1"># you should now have image with the name modified_nuclio_dashboard</span>
+</code></pre></div>
+You now need to modify the docker-compose.serverless.yml inside the cvat repo. Set the image to the name of the 
+downloaded or built image. For example:
+<div class="highlight"><pre><span></span><code>image: stellacbc/nuclio_dashboard:hu_berlin
+</code></pre></div>
+After this change run the build and start script again</p>
 <h3 id="own-changes-to-the-cvat-code">Own changes to the CVAT Code</h3>
 <ul>
 <li>in our instance it is possible to create bounding boxes that are (partially) outside the image</li>

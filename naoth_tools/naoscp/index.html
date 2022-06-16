@@ -839,6 +839,19 @@
 
 
 <h1 id="naoscp">NaoSCP</h1>
+<p>NaoSCP is a tool created by us which helps to deploy our code to the NAO. We provide it as a netbeans project inside
+our NaoTH repository. The netbeans project is located at <code>&lt;NaoTH-Projekt/Naoth-2020&gt;/NaoSCP</code>. Inside netbeans you can
+open it with: File-&gt;Import Project <code>&lt;ProjectDir&gt;</code>/NaoSCP  </p>
+<p>If you don't like netbeans or can't use it you can also compile and run it directly with gradle:
+<div class="highlight"><pre><span></span><code>./gradlew.bat clean build
+</code></pre></div>
+To run it manually you can execute ONE of the following commands:</p>
+<p><div class="highlight"><span class="filename">Run NaoSCP</span><pre><span></span><code>./gradlew.bat run
+./dist/naoscp.bat
+java -jar dist/lib/NaoSCP-1.1.jar
+</code></pre></div>
+You should see something like this
+<img alt="NaoSCP startscreen" src="../../img/naoscp/naoscp_start.png" /></p>
 <ul>
 <li>TODO add nao scp docu in extra site here and remove it from teamreport</li>
 </ul>

@@ -979,18 +979,18 @@
 <h2 id="konfiguration">Konfiguration</h2>
 <p>Nachdem dem anschließen des Raspberry Pi's an den Strom bootet er. Sobald der Service der sich versucht mit der Kamera zu verbinden gestartet ist leuchten alle drei großen LED's mehrmals kurz auf.  </p>
 <p>Der WLAN der GoPro muss per Hand gestartet oder neu gestartet werden, damit der Pi sich damit verbinden kann. Siehe dazu den Abschnitt <strong>Vor dem Spiel - Bekanntes Problem</strong>.  </p>
-<p>Der Pi hat eine feste IP und Maske, die dem Standardformat von SPL entsprechen:  </p>
-<pre><code>  IP Adresse: 10.0.4.99
+<p>Der Pi hat eine feste IP und Maske, die dem Standardformat von SPL entsprechen:<br />
+<div class="highlight"><pre><span></span><code>  IP Adresse: 10.0.4.99
   Maske: 255.255.0.0
-</code></pre>
+</code></pre></div></p>
 <p>Damit sollte der Pi direkt im Netz des GameControllers sein. Sobald Nachrichten vom GameController empfangen werden, leuchtet die Grüne LED auf.  </p>
-<p>Muss die IP-Adresse des Pi geändert werden, dann kann es über ssh geschehen:  </p>
-<pre><code>  Benutzer: pi
+<p>Muss die IP-Adresse des Pi geändert werden, dann kann es über ssh geschehen:<br />
+<div class="highlight"><pre><span></span><code>  Benutzer: pi
   Passwort: raspberry
-</code></pre>
-<p>Und zu anpassen der Adresse:  </p>
-<pre><code>  sudo nano /etc/dhcpcd.conf
-</code></pre>
+</code></pre></div>
+Und zu anpassen der Adresse:<br />
+<div class="highlight"><pre><span></span><code>  sudo nano /etc/dhcpcd.conf
+</code></pre></div></p>
 <h2 id="bedeutung-der-leds">Bedeutung der LED's</h2>
 <p>Die <strong>blaue LED</strong> zeigt den Status der Verbindung zur GoPro an.<br />
 - <strong>schnelles Blinken</strong>: bedeutet das der Raspberry Pi sich nicht zu dem Wlan der GoPro verbinden kann.<br />

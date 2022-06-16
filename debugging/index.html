@@ -1402,21 +1402,21 @@ usage and to be able to deactivate the debug code at compilation time,
 if necessary.</p>
 <p>In order to use a debug request in the code you have to register it once
 with the <code>DEBUG_REQUEST_REGISTER</code> macro:</p>
-<pre><code class="language-cpp">DEBUG_REQUEST_REGISTER(&quot;My:Debug:Request&quot;, &quot;Description of the debug request&quot;, true);
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">DEBUG_REQUEST_REGISTER</span><span class="p">(</span><span class="s">&quot;My:Debug:Request&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Description of the debug request&quot;</span><span class="p">,</span><span class="w"> </span><span class="nb">true</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
 <p>After that, you can use the <code>DEBUG_REQUEST</code> macro to wrap code that
 should be only executed when the debug request is active.</p>
-<pre><code class="language-cpp">DEBUG_REQUEST(&quot;My:Debug:Request&quot;,
-    std::cout &lt;&lt; &quot;This code is not executed normally&quot; &lt;&lt; std::endl;
-    ++c;
-);
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">DEBUG_REQUEST</span><span class="p">(</span><span class="s">&quot;My:Debug:Request&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;This code is not executed normally&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="o">++</span><span class="n">c</span><span class="p">;</span><span class="w"></span>
+<span class="p">);</span><span class="w"></span>
+</code></pre></div>
 <p><code>MODIFY</code> works in a similar way, but does not need any registration. By,
 for example, wrapping a variable and defining an identifier, this
 variable can be changed later from RobotControl.</p>
-<pre><code class="language-cpp">double yaw  = 0;
-MODIFY(&quot;BasicTestBehavior:head:headYaw_deg&quot;,yaw);
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="kt">double</span><span class="w"> </span><span class="n">yaw</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="n">MODIFY</span><span class="p">(</span><span class="s">&quot;BasicTestBehavior:head:headYaw_deg&quot;</span><span class="p">,</span><span class="n">yaw</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
 <p>In addition to these means for individual debugging, there are some more
 for general monitoring purposes: the whole content of the blackboard,
 the dependencies between the modules and representations, and execution

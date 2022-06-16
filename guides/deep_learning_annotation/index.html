@@ -1018,13 +1018,13 @@ the gopro footage.</p>
 <p>Everyone can register, but to see the tasks you have to be manually added to a group with the appropriate permissons.
 Contact the team via slack or email to get the permissions set.</p>
 <p>The api can be tested with swagger at <a href="https://ball.informatik.hu-berlin.de/api/swagger/">https://ball.informatik.hu-berlin.de/api/swagger/</a>. Alternatively you can use curl requests directly
-for example like this</p>
-<pre><code class="language-bash"># get an image
-curl --user &lt;username&gt;:&lt;password&gt; -X GET &quot;http://ball.informatik.hu-berlin.de/api/v1/tasks/&lt;task_id&gt;/data?type=frame&amp;quality=original&amp;number=0&quot; -H  &quot;accept: application/json&quot; -H  &quot;X-CSRFToken: 92BgjW2DL1Q8aOWKvEFbYJubcVhbIx8jTMdypKm0KpwfXfp4NE9QW9hJxHiaP0gW&quot; &gt; test.png
+for example like this
+<div class="highlight"><pre><span></span><code><span class="c1"># get an image</span>
+curl --user &lt;username&gt;:&lt;password&gt; -X GET <span class="s2">&quot;http://ball.informatik.hu-berlin.de/api/v1/tasks/&lt;task_id&gt;/data?type=frame&amp;quality=original&amp;number=0&quot;</span> -H  <span class="s2">&quot;accept: application/json&quot;</span> -H  <span class="s2">&quot;X-CSRFToken: 92BgjW2DL1Q8aOWKvEFbYJubcVhbIx8jTMdypKm0KpwfXfp4NE9QW9hJxHiaP0gW&quot;</span> &gt; test.png
 
-# add an image to a task
-curl --user &lt;username&gt;:&lt;password&gt; -X POST &quot;http://ball.informatik.hu-berlin.de/api/v1/tasks/&lt;task_id&gt;/data&quot; -H  &quot;accept: application/json&quot; -H  &quot;Content-Type: application/json&quot; -H  &quot;X-CSRFToken: 92BgjW2DL1Q8aOWKvEFbYJubcVhbIx8jTMdypKm0KpwfXfp4NE9QW9hJxHiaP0gW&quot; -d &quot;{ \&quot;image_quality\&quot;: 95, \&quot;client_files\&quot;: [\&quot;bla.png\&quot;]}&quot;
-</code></pre>
+<span class="c1"># add an image to a task</span>
+curl --user &lt;username&gt;:&lt;password&gt; -X POST <span class="s2">&quot;http://ball.informatik.hu-berlin.de/api/v1/tasks/&lt;task_id&gt;/data&quot;</span> -H  <span class="s2">&quot;accept: application/json&quot;</span> -H  <span class="s2">&quot;Content-Type: application/json&quot;</span> -H  <span class="s2">&quot;X-CSRFToken: 92BgjW2DL1Q8aOWKvEFbYJubcVhbIx8jTMdypKm0KpwfXfp4NE9QW9hJxHiaP0gW&quot;</span> -d <span class="s2">&quot;{ \&quot;image_quality\&quot;: 95, \&quot;client_files\&quot;: [\&quot;bla.png\&quot;]}&quot;</span>
+</code></pre></div></p>
 <p>To automate many commons tasks python scripts were created in the naoth-deeplearning repo. The most relevant is the 
 function for creating a task. For this you need the name of the task and the path on the server to the zip containing 
 the images. A more detailed documentation can be found in the naoth-deeplearning repo.</p>

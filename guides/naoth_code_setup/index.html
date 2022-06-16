@@ -1029,10 +1029,10 @@ You need at least Java JDK 8. Normally you need a oracle account for downloading
 </div>
 </div>
 <h2 id="clone-and-build">Clone and build</h2>
-<p>To work with the project, checkout the git repo:</p>
-<pre><code class="language-sh">git clone &lt;url of this repo&gt; &lt;NaoTH-Projekt/Naoth-2020&gt;
-</code></pre>
-<p>where <code>&lt;NaoTH-Projekt/Naoth-2020&gt;</code> is the desired path to the repository on your machine.</p>
+<p>To work with the project, checkout the git repo:
+<div class="highlight"><pre><span></span><code>git clone &lt;url of this repo&gt; &lt;NaoTH-Projekt/Naoth-2020&gt;
+</code></pre></div>
+where <code>&lt;NaoTH-Projekt/Naoth-2020&gt;</code> is the desired path to the repository on your machine.</p>
 <div class="tabbed-set" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">Linux</label><div class="tabbed-content">
 <ol>
 <li>TODO</li>
@@ -1073,12 +1073,7 @@ We have a dedicated editor for editing and compiling the robots behavior written
     - compile: <code>./gradlew.bat clean build</code>
     - run: <code>./gradlew.bat run</code> or <code>./dist/robotcontrol.bat</code> or <code>java -jar dist/lib/RobotControl.jar</code></p>
 <p><strong>NaoSCP</strong><br />
-  - For deploying and setup of the nao robot<br />
-  - load the Netbeans project from <code>NaoSCP</code> and run the application<br />
-    - File-&gt;Import Project <code>&lt;ProjectDir&gt;</code>/NaoSCP<br />
-  - manual:<br />
-    - compile: <code>./gradlew.bat clean build</code><br />
-    - run: <code>./gradlew.bat run</code> or <code>./dist/naoscp.bat</code> or <code>java -jar dist/lib/NaoSCP-1.1.jar</code>  </p>
+See NaoSCP Documentation</p>
 <p><strong>Simspark</strong><br />
   - to run a simulated version of our naoth project<br />
   - check the <a href="Simspark-Windows-Setup">Simspark Setup Guide </a> for installation instructions  </p>
@@ -1089,17 +1084,16 @@ For working with logfiles we have a set of python scripts in the <code>utils/py<
 <p>Sometimes you want/need to compile something for the robot and not incorporate that into our premake builds. Usually those things are libraries that come with the cmake build system.</p>
 <h3 id="minimal-cmake-example">Minimal cmake example</h3>
 <p>TODO: what about sysroot?
-You can compile this helloworld.cpp</p>
-<pre><code class="language-cpp">#include&lt;iostream&gt;
+You can compile this helloworld.cpp
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 
-int main(int argc, char *argv[]){
-   std::cout &lt;&lt; &quot;Hello World!&quot; &lt;&lt; std::endl;
-   return 0;
-}
-
-</code></pre>
-<p>using the CMakeLists.txt file</p>
-<pre><code class="language-CMakeLists.txt">cmake_minimum_required(VERSION 2.8.9)
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">argv</span><span class="p">[]){</span><span class="w"></span>
+<span class="w">   </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Hello World!&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+using the CMakeLists.txt file
+<div class="highlight"><pre><span></span><code>cmake_minimum_required(VERSION 2.8.9)
 
 set(CMAKE_SYSTEM_PROCESSOR i686)
 
@@ -1108,12 +1102,12 @@ SET(CMAKE_CXX_COMPILER &lt;path to linuxtoolchain repo&gt;/toolchain_nao/compile
 
 project (hello)
 add_executable(hello helloworld.cpp)
-</code></pre>
-<p>to compile it run:</p>
-<pre><code class="language-bash">mkdir build &amp;&amp; cd build
+</code></pre></div>
+to compile it run:
+<div class="highlight"><pre><span></span><code>mkdir build <span class="o">&amp;&amp;</span> <span class="nb">cd</span> build
 cmake ../
 cmake --build .
-</code></pre>
+</code></pre></div></p>
 
               
             </article>
