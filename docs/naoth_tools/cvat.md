@@ -7,7 +7,7 @@ The forked repository with our changes is hosted at [github](https://github.com/
 This branch is always based on the upstream develop branch. Always use rebase instead of merge on the original develop branch to keep our changes
 cleanly separated from the cvat commits.
 
-On the internal ball.informatil.hu-berlin.de server, the code is checked out at `/opt/cvat-repo`.
+On the internal ball.informatik.hu-berlin.de server, the code is checked out at `/opt/cvat-repo`.
 
 There are three helper scripts for starting/stopping and building cvat:  
 
@@ -114,6 +114,38 @@ After this change run the build and start script again
 - in our instance it is possible to create bounding boxes that are (partially) outside the image
 - fixed api address to the ball server so that swagger works correctly
 
+Currently `docker-compose.override.yml` must look like this to have access to shared folders. From there a lot of data will be loaded.
+```bash
+version: "3.3"
+
+services:
+  cvat_proxy:
+    environment:
+      CVAT_HOST: "ball.informatik.hu-berlin.de 141.20.26.37"
+    ports:
+      - "80:80"
+      - "443:443"
+  cvat:
+    environment:
+      CVAT_SHARE_URL: "Mounted from /mnt/share host directory"
+    volumes:
+      - cvat_share2:/home/django/share/repl:ro
+      - cvat_share3:/home/django/share/devils:ro
+
+volumes:
+  cvat_share2:
+    driver_opts:
+      type: none
+      device: /mnt/repl/
+      o: bind
+
+  cvat_share3:
+    driver_opts:
+      type: none
+      device: /mnt/repl/Experiments/NaoDevilsDatasets
+      o: bind
+```
+
 ## Auto Annotation for developers
 !!! note
     Add note about sometimes getting errors in cvat ui about models that cant be loaded. I think cvat nuclio project must be recreated
@@ -128,3 +160,32 @@ For a general guide to auto annotation see the official [CVAT Docu](https://open
 
 The code for our models we use for auto annotation can be found at the [CVAT Models](https://github.com/BerlinUnited/cvat_models) repo.
 Currently the models must be deployed on the same server as the CVAT label tool. All further details can be found inside the repository.
+
+----
+### Docker and GPU
+TODO this is deprecated
+
+Since inference is unbearable slow on a cpu we need to enable GPU access in docker. On the host run this to install the nvidea-docker-toolkit:
+```bash
+distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
+curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | sudo apt-key add -
+curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | sudo tee /etc/apt/sources.list.d/nvidia-docker.list
+
+sudo apt-get update && sudo apt-get install -y nvidia-container-toolkit
+sudo systemctl restart docker
+```
+Install the nvidea-container runtime on the host
+```bash
+sudo apt-get install nvidia-container-runtime
+```
+modify /etc/docker/daemon.json in order to make the gpu work with compose-files
+```bash
+{
+    "runtimes": {
+        "nvidia": {
+            "path": "/usr/bin/nvidia-container-runtime",
+            "runtimeArgs": []
+        }
+    }
+}
+```

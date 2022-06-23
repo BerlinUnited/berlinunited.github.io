@@ -1,4 +1,4 @@
-# NaoTH Code Setup
+# NaoTH Development Setup
 
 ## Prerequisites
 
@@ -6,7 +6,30 @@ You need to install a bunch of software before being able to develop code for th
 
 === "Linux"
 
-    1. TODO
+    In Linux you need the following dependencies: cmake, gcc and g++ compiler, zlib, qtcreator, git, gettext, java, netbeans, libreadline-dev
+    
+    gettext is for compiling glib, libreadline-dev is needed for our LUA experiments. We support Java 8 and 11+. 
+    For the VideoAnalyzer-Dialog in RobotControl it is evtl. necessary to install `ffmpeg-compat-55` package (Arch) see
+    [here](https://wiki.archlinux.org/index.php/java#JavaFX.27s_MediaPlayer_constructor_throws_an_exception)
+
+    You can install them in ubuntu with this:
+    ```sh
+    # java
+    sudo apt install default-jdk openjfx netbeans
+    # c++ compile
+    sudo apt install build-essential cmake 
+    # c++ essential libs
+    sudo apt install zlib1g-dev libreadline-dev
+    # c++ IDE (qtcreator)
+    sudo apt install qtcreator qt4-qmake libqt4-dev 
+    # code versioning control
+    sudo apt install git
+    # for glib
+    sudo apt install gettext
+    ```
+    
+    You may want to install the cmake GUI for easier development. For example with `apt install cmake-curses-gui`
+    If you want to use clang instead of gcc you need to install clang llvm lld
 
 === "Windows"
 
@@ -49,11 +72,16 @@ You need to install a bunch of software before being able to develop code for th
     **Clang**    
 
       - Optionally you can install clang and use it for cross compilation. Download the latest stable release from https://github.com/llvm/llvm-project/releases for example [LLVM-11.1.0-win64.exe](https://github.com/llvm/llvm-project/releases/download/llvmorg-11.1.0/LLVM-11.1.0-win64.exe)  
-      - How to use clang for cross compilation is explained in https://scm.cms.hu-berlin.de/berlinunited/naoth-2020/-/wikis/setup/Generate-Project-Files-and-Build  
-    
-    **Toolchain**  
+      - How to use clang for cross compilation is explained in https://scm.cms.hu-berlin.de/berlinunited/naoth-2020/-/wikis/setup/Generate-Project-Files-and-Build
 
-      - **Note:** for team internal development clone the toolchain repo!  
+## Toolchain Setup
+=== "Linux"
+
+    1. TODO
+
+=== "Windows"
+
+    - **Note:** for team internal development clone the toolchain repo!  
       - clone the [toolchain repo](https://scm.cms.hu-berlin.de/berlinunited/tools/windowstoolchain) or download it from the [release page](https://github.com/BerlinUnited/NaoTH/releases) and unpack it to `<NaoTH-Projekt/NaoTHToolchain>`  
       - set up the paths  
         - **easy:** run the `setup.bat` as Administrator  
@@ -62,7 +90,6 @@ You need to install a bunch of software before being able to develop code for th
         - use the template file from  `<NaoTH-Projekt/NaoTHToolchain>/projectconfig.user.lua`
         - copy it to the `<NaoTH-Projekt/Naoth-2020>/NaoTHSoccer/Make`
         - if a path is set to `nil` in `projectconfig.user.lua` it will be ignored, so, you have to set only those which you really need
-
 
 ## Clone and build
 To work with the project, checkout the git repo:
@@ -115,38 +142,3 @@ See NaoSCP Documentation
 **Python**   
 For working with logfiles we have a set of python scripts in the `utils/py` folder. The basic functionality is inside a the naoth python package which you can install with pip:    
    - run `pip install -e naoth` in the `<repository>/Utils/py` this will install protobuf as well 
- 
-## Compiling Code for the robot via other means
-Sometimes you want/need to compile something for the robot and not incorporate that into our premake builds. Usually those things are libraries that come with the cmake build system.
-
-### Minimal cmake example
-TODO: what about sysroot?
-You can compile this helloworld.cpp
-```cpp
-#include<iostream>
- 
-int main(int argc, char *argv[]){
-   std::cout << "Hello World!" << std::endl;
-   return 0;
-}
-
-```
-using the CMakeLists.txt file
-```CMakeLists.txt
-cmake_minimum_required(VERSION 2.8.9)
-
-set(CMAKE_SYSTEM_PROCESSOR i686)
-
-SET(CMAKE_C_COMPILER <path to linuxtoolchain repo>/toolchain_nao/compiler/bin/i686-berlinunited-linux-gnu-gcc)
-SET(CMAKE_CXX_COMPILER <path to linuxtoolchain repo>/toolchain_nao/compiler/bin/i686-berlinunited-linux-gnu-g++)
-
-project (hello)
-add_executable(hello helloworld.cpp)
-```
-to compile it run:
-```bash
-mkdir build && cd build
-cmake ../
-cmake --build .
-```
-
