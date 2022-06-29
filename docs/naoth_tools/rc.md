@@ -4,6 +4,8 @@ Some explanations of commons tasks we do with RobotControl.
     - explain some implementation details (java fx, debug communication, netbeans specific stuff, gradle)
     - move and expand rc module documentation from team report
 
+- TODO: add note about alias in bashrc for gradle run/build naoscp
+
 ## View Teamcommlogs in Robotcontrol
 In RobotControl open the `TeamCommLogViewer` Dialog and open a teamcomm logfile.
 ![Open a teamcomm log file](../img/screenshot_open_teamcommlog.png)
@@ -15,3 +17,5 @@ Switch back to the `TeamCommLogViewer` and click on the play button. You then se
 message on the left and on the right you can see the robots positions on the field. Note that those positions are as the robots
 report it. So they show localization errors.
 ![Open a teamcomm log file](../img/screenshot_play_teamcomm.png)
+
+

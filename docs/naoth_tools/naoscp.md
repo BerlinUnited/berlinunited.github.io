@@ -18,3 +18,4 @@ You should see something like this
 ![NaoSCP startscreen](../img/naoscp/naoscp_start.png)
 
 - TODO add nao scp docu in extra site here and remove it from teamreport
+- TODO: add note about alias in bashrc for gradle run/build naoscp
