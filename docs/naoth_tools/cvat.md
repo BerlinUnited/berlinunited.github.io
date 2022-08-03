@@ -69,46 +69,6 @@ In this case modify the vpn config you use. It worked with the following changes
 dhcp-option DNS 8.8.8.8  # <-- set the name server of your liking
 
 ```
-### Problems with Nuclio Dashboard
-When you use the auto annotation feature in cvat a request gets made to `http:nuclio:8070`. The nuclio dashboard acts
-as a proxy to the container that actually holds the annotation function. In a normal docker environment this would be
-`172.17.0.1:<port_number>`. Where port number is the port specified during deployment of the nuclio function. But because
-the nuclio developers are insanely stupid they hardcoded the default docker gateway. You have to rebuild the
-nuclio dasboard image and use that.
-
-!!! Note
-    You can download the modified nuclio dashboard image by running `docker pull stellacbc/nuclio_dashboard:hu_berlin`
-    or instead building it yourself as described below.
-
-```bash
-# get the correct nuclio version as specified in https://github.com/openvinotoolkit/cvat/blob/develop/components/serverless/docker-compose.serverless.yml
-wget https://github.com/nuclio/nuclio/archive/refs/tags/1.5.16.zip
-unzip 1.5.16.zip
-cd nuclio-1.5.16
-
-# replace all occurrence of 172.17.0.1 with 172.240.0.1 in  pkg/platform/local/platform.go
-
-# NOTE: it will fail at some point but it should build the nuclio dashboard
-make build
-
-# tag the image with a name that is later used in cvat
-docker tag quay.io/nuclio/dashboard modified_nuclio_dashboard
-# save the newly build image to a tar file
-docker save modified_nuclio_dashboard > nuclio_dashboard.tar
-
-# after moving the container to the server where nuclio and cvat run extract the image from the tar file
-docker load < nuclio_dashboard.tar
-
-# you should now have image with the name modified_nuclio_dashboard
-```
-You now need to modify the docker-compose.serverless.yml inside the cvat repo. Set the image to the name of the 
-downloaded or built image. For example:
-```bash
-image: stellacbc/nuclio_dashboard:hu_berlin
-```
-After this change run the build and start script again
-
-
 
 ### Own changes to the CVAT Code
 - in our instance it is possible to create bounding boxes that are (partially) outside the image
