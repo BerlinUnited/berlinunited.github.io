@@ -910,7 +910,9 @@
 <h1 id="naoth-development-setup">NaoTH Development Setup</h1>
 <h2 id="prerequisites">Prerequisites</h2>
 <p>You need to install a bunch of software before being able to develop code for the Nao robot.</p>
-<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Linux</label><div class="tabbed-content">
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Linux</label><label for="__tabbed_1_2">Windows</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <p>In Linux you need the following dependencies: cmake, gcc and g++ compiler, zlib, qtcreator, git, gettext, java, netbeans, libreadline-dev</p>
 <p>gettext is for compiling glib, libreadline-dev is needed for our LUA experiments. We support Java 8 and 11+. 
 For the VideoAnalyzer-Dialog in RobotControl it is evtl. necessary to install <code>ffmpeg-compat-55</code> package (Arch) see
@@ -932,7 +934,7 @@ sudo apt install gettext
 <p>You may want to install the cmake GUI for easier development. For example with <code>apt install cmake-curses-gui</code>
 If you want to use clang instead of gcc you need to install clang llvm lld</p>
 </div>
-<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">Windows</label><div class="tabbed-content">
+<div class="tabbed-block">
 <p><strong>Visual Studio</strong><br />
   - Install Microsoft Visual Studio 2019 Community Edition from <a href="https://visualstudio.microsoft.com/vs/community/">https://visualstudio.microsoft.com/vs/community/</a> </p>
 <ul>
@@ -984,13 +986,16 @@ You need at least Java JDK 8. Normally you need a oracle account for downloading
 </ul>
 </div>
 </div>
+</div>
 <h2 id="toolchain-setup">Toolchain Setup</h2>
-<div class="tabbed-set" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">Linux</label><div class="tabbed-content">
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Linux</label><label for="__tabbed_2_2">Windows</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <ol>
 <li>TODO</li>
 </ol>
 </div>
-<input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><label for="__tabbed_2_2">Windows</label><div class="tabbed-content">
+<div class="tabbed-block">
 <ul>
 <li><strong>Note:</strong> for team internal development clone the toolchain repo!  </li>
 <li>clone the <a href="https://scm.cms.hu-berlin.de/berlinunited/tools/windowstoolchain">toolchain repo</a> or download it from the <a href="https://github.com/BerlinUnited/NaoTH/releases">release page</a> and unpack it to <code>&lt;NaoTH-Projekt/NaoTHToolchain&gt;</code>  </li>
@@ -1008,17 +1013,20 @@ You need at least Java JDK 8. Normally you need a oracle account for downloading
 </ul>
 </div>
 </div>
+</div>
 <h2 id="clone-and-build">Clone and build</h2>
 <p>To work with the project, checkout the git repo:
 <div class="highlight"><pre><span></span><code>git clone &lt;url of this repo&gt; &lt;NaoTH-Projekt/Naoth-2020&gt;
 </code></pre></div>
 where <code>&lt;NaoTH-Projekt/Naoth-2020&gt;</code> is the desired path to the repository on your machine.</p>
-<div class="tabbed-set" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">Linux</label><div class="tabbed-content">
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Linux</label><label for="__tabbed_3_2">Windows</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <ol>
 <li>TODO</li>
 </ol>
 </div>
-<input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><label for="__tabbed_3_2">Windows</label><div class="tabbed-content">
+<div class="tabbed-block">
 <ul>
 <li>
 <p>Go to the <code>&lt;NaoTH-Projekt/Naoth-2020&gt;/NaoTHSoccer/Make</code> directory and execute the following commands:  </p>
@@ -1033,6 +1041,7 @@ where <code>&lt;NaoTH-Projekt/Naoth-2020&gt;</code> is the desired path to the r
 </li>
 <li>TODO explain loladaptor, naosmal compilation</li>
 </ul>
+</div>
 </div>
 </div>
 <h2 id="additional-tools-for-development">Additional tools for development</h2>
