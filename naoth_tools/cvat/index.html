@@ -560,13 +560,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#problems-with-nuclio-dashboard" class="md-nav__link">
-    Problems with Nuclio Dashboard
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#own-changes-to-the-cvat-code" class="md-nav__link">
     Own changes to the CVAT Code
   </a>
@@ -914,13 +907,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#problems-with-nuclio-dashboard" class="md-nav__link">
-    Problems with Nuclio Dashboard
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#own-changes-to-the-cvat-code" class="md-nav__link">
     Own changes to the CVAT Code
   </a>
@@ -1015,46 +1001,9 @@ In this case modify the vpn config you use. It worked with the following changes
 ...
 dhcp-option DNS 8.8.8.8  # &lt;-- set the name server of your liking
 </code></pre></div></p>
-<h3 id="problems-with-nuclio-dashboard">Problems with Nuclio Dashboard</h3>
-<p>When you use the auto annotation feature in cvat a request gets made to <code>http:nuclio:8070</code>. The nuclio dashboard acts
-as a proxy to the container that actually holds the annotation function. In a normal docker environment this would be
-<code>172.17.0.1:&lt;port_number&gt;</code>. Where port number is the port specified during deployment of the nuclio function. But because
-the nuclio developers are insanely stupid they hardcoded the default docker gateway. You have to rebuild the
-nuclio dasboard image and use that.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>You can download the modified nuclio dashboard image by running <code>docker pull stellacbc/nuclio_dashboard:hu_berlin</code>
-or instead building it yourself as described below.</p>
-</div>
-<p><div class="highlight"><pre><span></span><code><span class="c1"># get the correct nuclio version as specified in https://github.com/openvinotoolkit/cvat/blob/develop/components/serverless/docker-compose.serverless.yml</span>
-wget https://github.com/nuclio/nuclio/archive/refs/tags/1.5.16.zip
-unzip <span class="m">1</span>.5.16.zip
-<span class="nb">cd</span> nuclio-1.5.16
-
-<span class="c1"># replace all occurrence of 172.17.0.1 with 172.240.0.1 in  pkg/platform/local/platform.go</span>
-
-<span class="c1"># NOTE: it will fail at some point but it should build the nuclio dashboard</span>
-make build
-
-<span class="c1"># tag the image with a name that is later used in cvat</span>
-docker tag quay.io/nuclio/dashboard modified_nuclio_dashboard
-<span class="c1"># save the newly build image to a tar file</span>
-docker save modified_nuclio_dashboard &gt; nuclio_dashboard.tar
-
-<span class="c1"># after moving the container to the server where nuclio and cvat run extract the image from the tar file</span>
-docker load &lt; nuclio_dashboard.tar
-
-<span class="c1"># you should now have image with the name modified_nuclio_dashboard</span>
-</code></pre></div>
-You now need to modify the docker-compose.serverless.yml inside the cvat repo. Set the image to the name of the 
-downloaded or built image. For example:
-<div class="highlight"><pre><span></span><code>image: stellacbc/nuclio_dashboard:hu_berlin
-</code></pre></div>
-After this change run the build and start script again</p>
 <h3 id="own-changes-to-the-cvat-code">Own changes to the CVAT Code</h3>
 <ul>
 <li>in our instance it is possible to create bounding boxes that are (partially) outside the image</li>
-<li>fixed api address to the ball server so that swagger works correctly</li>
 </ul>
 <p>Currently <code>docker-compose.override.yml</code> must look like this to have access to shared folders. From there a lot of data will be loaded.
 <div class="highlight"><pre><span></span><code>version: <span class="s2">&quot;3.3&quot;</span>
