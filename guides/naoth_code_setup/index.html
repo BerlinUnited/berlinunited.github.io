@@ -665,6 +665,20 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#softbank-image" class="md-nav__link">
+    Softbank Image
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clang-ubuntu-image" class="md-nav__link">
+    Clang + Ubuntu Image
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#cygwin-softbank-image" class="md-nav__link">
     Cygwin + Softbank Image
   </a>
@@ -672,7 +686,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#clang-ubuntu-image" class="md-nav__link">
+  <a href="#clang-ubuntu-image_1" class="md-nav__link">
     Clang + Ubuntu Image
   </a>
   
@@ -686,6 +700,13 @@
         <li class="md-nav__item">
   <a href="#additional-tools-for-development" class="md-nav__link">
     Additional tools for development
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#known-issues" class="md-nav__link">
+    Known Issues
   </a>
   
 </li>
@@ -908,6 +929,20 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#softbank-image" class="md-nav__link">
+    Softbank Image
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clang-ubuntu-image" class="md-nav__link">
+    Clang + Ubuntu Image
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#cygwin-softbank-image" class="md-nav__link">
     Cygwin + Softbank Image
   </a>
@@ -915,7 +950,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#clang-ubuntu-image" class="md-nav__link">
+  <a href="#clang-ubuntu-image_1" class="md-nav__link">
     Clang + Ubuntu Image
   </a>
   
@@ -929,6 +964,13 @@
         <li class="md-nav__item">
   <a href="#additional-tools-for-development" class="md-nav__link">
     Additional tools for development
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#known-issues" class="md-nav__link">
+    Known Issues
   </a>
   
 </li>
@@ -954,9 +996,9 @@
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>In Linux you need the following dependencies: cmake, gcc and g++ compiler, zlib, qtcreator, git, gettext, java, netbeans, libreadline-dev</p>
-<p>gettext is for compiling glib
-libreadline-dev is needed for our LUA experiments. 
-We support Java 8 and 11+. 
+<p>gettext is for compiling glib<br />
+libreadline-dev is needed for our LUA experiments.  </p>
+<p>We support Java 8 and 11+.<br />
 For the VideoAnalyzer-Dialog in RobotControl it is potentially necessary to install <code>ffmpeg-compat-55</code> package (Arch) see
 <a href="https://wiki.archlinux.org/index.php/java#JavaFX.27s_MediaPlayer_constructor_throws_an_exception">here</a></p>
 <p>You can install them in ubuntu with this:
@@ -975,21 +1017,14 @@ sudo apt install gettext
 </code></pre></div></p>
 <p>You may want to install the cmake GUI for easier development. For example with <code>apt install cmake-curses-gui</code>
 If you want to use clang instead of gcc you need to install the <code>clang</code>, <code>llvm</code> and <code>lld</code> packages.</p>
+<p>TODO: explain how to use different clang versions.(https://scm.cms.hu-berlin.de/berlinunited/tools/linuxtoolchain/-/merge_requests/34)</p>
 </div>
 <div class="tabbed-block">
 <p><strong>Visual Studio</strong><br />
   - Install Microsoft Visual Studio 2019 Community Edition from <a href="https://visualstudio.microsoft.com/vs/community/">https://visualstudio.microsoft.com/vs/community/</a> </p>
 <ul>
-<li>
-<p><strong>Note:</strong> The project is optimized for VS2019 it is therefore recommended to use it.  </p>
-</li>
-<li>
-<p><strong>Note:</strong> it's possible to update the Solution to newer version with 
-    <code>&lt;PATH_TO/devenv.exe&gt; SolutionFile | ProjectFile /upgrade</code> but our project is not guaranteed to work with newer Visual Studio Versions.  </p>
-</li>
-<li>
-<p><strong>Configure:</strong> After a fresh installation you should adjust following configurations</p>
-<ul>
+<li><strong>Note:</strong> The project is optimized for VS2019 it is therefore recommended to use it.</li>
+<li><strong>Configure:</strong> After a fresh installation you should adjust following configurations<ul>
 <li>change tab size and indent size to 2 and enable "Insert Spaces" here  <code>Tools-&gt;Options-&gt;Text Editor-&gt;C++-&gt;Tabs</code></li>
 <li>enable the "Build"-toolbar (right klick on the top toolbar) </li>
 </ul>
@@ -999,15 +1034,16 @@ If you want to use clang instead of gcc you need to install the <code>clang</cod
 <ul>
 <li>Get <a href="http://www.cygwin.com">cygwin</a></li>
 <li>Install cygwin, for example to <code>C:\cygwin</code>  <ul>
-<li><strong>Required</strong>: Select the package <em>make</em> for installation  </li>
-<li><strong>Required</strong>: Install the package <em>openssh: The Open SSH server and client programs</em>  </li>
+<li><strong>Required</strong>: Select the package <em>make</em> for installation</li>
 <li><strong>Required</strong>: Install the <em>mintty: Terminal emulator with native Windows look and feel</em> shell package.  </li>
-<li><strong>Optional</strong>: To add mintty to the windows context menu you have to install the cygwin chere package and execute <code>chere -i -t mintty -s bash</code> in  a cygwin console with admin privileges.</li>
+<li><strong>Optional</strong>: To add mintty to the windows context menu you have to install the cygwin chere package and execute 
+  <code>chere -i -t mintty -s bash</code> in  a cygwin console with admin privileges. You are now able to right click and open a mintty bash console in any folder.</li>
 </ul>
 </li>
 </ul>
 <p><strong>Java</strong><br />
-You need at least Java JDK 8. Normally you need a oracle account for downloading the jdk. Or you can use the following workaround taken from https://gist.github.com/wavezhang/ba8425f24a968ec9b2a8619d7c2d86a6</p>
+You need at least Java JDK 8. Normally you need a oracle account for downloading the jdk. Or you can use the 
+following workaround taken from <a href="https://gist.github.com/wavezhang/ba8425f24a968ec9b2a8619d7c2d86a6">here</a></p>
 <ul>
 <li>Select the JDK you want from https://www.oracle.com/java/technologies/javase-downloads.html  </li>
 <li>Click on a link like <code>jdk-8u291-windows-x64.exe</code>. This will open a popup.   </li>
@@ -1021,11 +1057,9 @@ You need at least Java JDK 8. Normally you need a oracle account for downloading
 <li>Get <a href="https://netbeans.org/downloads/index.html">NetBeans</a> and install it  </li>
 <li><strong>Important</strong>: Make sure that your Java Path is properly set before installing, otherwise it won't work!  </li>
 </ul>
-<p><strong>Clang</strong>    </p>
-<ul>
-<li>Optionally you can install clang and use it for cross compilation. Download the latest stable release from https://github.com/llvm/llvm-project/releases for example <a href="https://github.com/llvm/llvm-project/releases/download/llvmorg-11.1.0/LLVM-11.1.0-win64.exe">LLVM-11.1.0-win64.exe</a>  </li>
-<li>How to use clang for cross compilation is explained in https://scm.cms.hu-berlin.de/berlinunited/naoth-2020/-/wikis/setup/Generate-Project-Files-and-Build</li>
-</ul>
+<p><strong>Clang</strong></p>
+<p>You can use clang for cross compiling for the NAO. For that install a recent LLVM version from <a href="https://github.com/llvm/llvm-project/releases">here</a>. 
+For example choose <a href="https://github.com/llvm/llvm-project/releases/download/llvmorg-14.0.6/LLVM-14.0.6-win64.exe">LLVM-14.0.6-win64.exe</a></p>
 </div>
 </div>
 </div>
@@ -1038,21 +1072,13 @@ You need at least Java JDK 8. Normally you need a oracle account for downloading
 </ol>
 </div>
 <div class="tabbed-block">
-<ul>
-<li><strong>Note:</strong> for team internal development clone the toolchain repo!  </li>
-<li>clone the <a href="https://scm.cms.hu-berlin.de/berlinunited/tools/windowstoolchain">toolchain repo</a> or download it from the <a href="https://github.com/BerlinUnited/NaoTH/releases">release page</a> and unpack it to <code>&lt;NaoTH-Projekt/NaoTHToolchain&gt;</code>  </li>
-<li>set up the paths  <ul>
-<li><strong>easy:</strong> run the <code>setup.bat</code> as Administrator  </li>
-</ul>
-</li>
-<li>(optional) Manual Path configuration<br />
-    There are two possibilities to configure the needed paths: environment variables or config file. To set up the manual path configuration with a config file follow these steps:<ul>
-<li>use the template file from  <code>&lt;NaoTH-Projekt/NaoTHToolchain&gt;/projectconfig.user.lua</code></li>
-<li>copy it to the <code>&lt;NaoTH-Projekt/Naoth-2020&gt;/NaoTHSoccer/Make</code></li>
-<li>if a path is set to <code>nil</code> in <code>projectconfig.user.lua</code> it will be ignored, so, you have to set only those which you really need</li>
-</ul>
-</li>
-</ul>
+<p>Clone the toolchain repo from either internal or external<br />
+- <a href="https://scm.cms.hu-berlin.de/berlinunited/tools/windowstoolchain">Internal toolchain repo</a><br />
+- <a href="https://github.com/BerlinUnited/windowstoolchain.git">External toolchain repo</a>  </p>
+<p>Both repos are synced but the development only happens in the internal repo.</p>
+<p>Unpack it to <code>&lt;NaoTH-Projekt/NaoTHToolchain&gt;</code> and run <code>setup.bat</code> as admin.</p>
+<p>This script will generate <code>projectconfig.user.lua</code> which must be copied <code>&lt;NaoTH-Projekt/Naoth-2020&gt;/NaoTHSoccer/Make</code>.
+This is later used for configuring the compile step if needed.</p>
 </div>
 </div>
 </div>
@@ -1069,41 +1095,38 @@ where <code>&lt;NaoTH-Projekt/Naoth-2020&gt;</code> is the desired path to the r
 </ol>
 </div>
 <div class="tabbed-block">
-<ol>
-<li>TODO</li>
-</ol>
+<p>There are two ways to compile the naoth source code for the NAO. First you can target the softbank provided
+image for the NAO or use clang and target the self build Ubuntu image.</p>
+<h4 id="softbank-image">Softbank Image</h4>
+<p>In order to build the naoth binary go to <code>&lt;NaoTH-Projekt&gt;/Naoth-2020/NaoTHSoccer/Make</code> and run <code>./compileGame.sh -j 4</code></p>
+<h4 id="clang-ubuntu-image">Clang + Ubuntu Image</h4>
+<p>You need to have LLVM installed as described above in the prerequisites section.</p>
+<p>To tell premake to use the ubuntu toolchain you need to change two lines <code>&lt;NaoTH-Projekt&gt;/Naoth-2020/NaoTHSoccer/Make/projectconfig.user.lua</code>  </p>
+<ul>
+<li>NAO_CTC=<NaoTH-Projekt/NaoTHToolchain>/toolchain_nao_ubuntu  </li>
+<li>_OPTIONS["crosscompiler"] = "clang"</li>
+</ul>
+<p>In order to build the naoth binary go to <code>&lt;NaoTH-Projekt&gt;/Naoth-2020/NaoTHSoccer/Make</code> and run <code>./compileGame.sh -j 4</code></p>
 </div>
 <div class="tabbed-block">
-<ul>
-<li>
-<p>Go to the <code>&lt;NaoTH-Projekt/Naoth-2020&gt;/NaoTHSoccer/Make</code> directory and execute the following commands:  </p>
-<ul>
-<li>run <code>generate-vs2019.bat</code> to create Visual Studio 2019 project files</li>
-<li><code>premake5 --protoc</code> to create protobuf files</li>
-<li>with cygwin run <code>./compileGame.sh</code> to compile the naoth project for the robot</li>
-</ul>
-</li>
-<li>
-<p>TODO explain vpaths</p>
-</li>
-<li>TODO explain loladaptor, naosmal compilation</li>
-</ul>
+<p>Go to the <code>&lt;NaoTH-Projekt/Naoth-2020&gt;/NaoTHSoccer/Make</code> directory and execute <code>generate-vs2019.bat</code> to 
+create Visual Studio 2019 project files <code>&lt;NaoTH-Projekt/Naoth-2020&gt;/NaoTHSoccer/build/vs2019</code></p>
+<p>Open the NaoTHSoccer.sln file with Visual Studio and you have all the projects loaded that are needed for compilation.
+You can now build each project by right clicking on it and then clicking on build.</p>
 </div>
 <div class="tabbed-block">
 <p>There are two ways to compile the naoth source code for the NAO. First you can use cygwin and target the softbank provided
 image for the NAO or use clang and target the self build Ubuntu image.</p>
-<h3 id="cygwin-softbank-image">Cygwin + Softbank Image</h3>
-<h3 id="clang-ubuntu-image">Clang + Ubuntu Image</h3>
-<p>Install cygwin for 64bit from <a href="http://www.cygwin.com/">cygwin.com</a> and
-select the make, mintty and chere packages for installation</p>
-<p>To add mintty to the windows context menu open mintty with admin privileges and run <code>chere -i -t mintty -s bash</code>.
-You are now able to right click and open a mintty bash console in any folder.</p>
-<p>Install a recent LLVM version from <a href="https://github.com/llvm/llvm-project/releases">here</a>. For example choose 
-<a href="https://github.com/llvm/llvm-project/releases/download/llvmorg-14.0.6/LLVM-14.0.6-win64.exe">LLVM-14.0.6-win64.exe</a></p>
+<h4 id="cygwin-softbank-image">Cygwin + Softbank Image</h4>
+<p>You need to have cygwin installed as described above in the prerequisites section.</p>
+<p>In order to build the naoth binary go to <code>&lt;NaoTH-Projekt&gt;/Naoth-2020/NaoTHSoccer/Make</code>, open the mintty bash console in
+this folder via the context menu and run <code>./compileGame.sh -j 4</code></p>
+<h4 id="clang-ubuntu-image_1">Clang + Ubuntu Image</h4>
+<p>You need to have cygwin and LLVM installed as described above in the prerequisites section.</p>
 <p>To tell premake to use the ubuntu toolchain you need to change two lines <code>&lt;NaoTH-Projekt&gt;/Naoth-2020/NaoTHSoccer/Make/projectconfig.user.lua</code>  </p>
 <ul>
 <li>NAO_CTC=<NaoTH-Projekt/NaoTHToolchain>/toolchain_nao_ubuntu  </li>
-<li>_OPTIONS["crosscompiler"] = "clang"  </li>
+<li>_OPTIONS["crosscompiler"] = "clang"</li>
 </ul>
 <p>In order to build the naoth binary go to <code>&lt;NaoTH-Projekt&gt;/Naoth-2020/NaoTHSoccer/Make</code>, open the mintty bash console in
 this folder via the context menu and run <code>./compileGame.sh -j 4</code></p>
@@ -1137,6 +1160,20 @@ See NaoSCP Documentation</p>
 <p><strong>Python</strong> <br />
 For working with logfiles we have a set of python scripts in the <code>utils/py</code> folder. The basic functionality is inside a the naoth python package which you can install with pip:  <br />
    - run <code>pip install -e naoth</code> in the <code>&lt;repository&gt;/Utils/py</code> this will install protobuf as well </p>
+<h2 id="known-issues">Known Issues</h2>
+<p><strong>Premake5 is not found</strong><br />
+  - can happen if your PATH is exceeding the 1024 character limit if PATH is set with setup.bat
+  - Solution add it manualy to the Path. Note that trying to append to PATH with the setup.bat script can delete the 
+    last characters until the string that should be appended fits. In this case other paths are corrupted and don't work anymore.</p>
+<p><strong>RobotControlGUI, NaoSCP and the xabsl editor don't scale correctly for high resolution displays</strong><br />
+  - to fix this install java jdk 11+</p>
+<p><strong>Java 11:</strong><br />
+Java FX is not part of Java 11. It must be installed separately.</p>
+<p><strong>Netbeans does not find java:</strong><br />
+<img alt="image" src="../../img/build/netbeans_issue.png" /></p>
+<p>Solution: Edit the netbeans.conf file. It's located inside the install directory. For example 
+<code>C:/Program Files/NetBeans-12.0/netbeans/etc/netbeans.conf</code>. Set <code>netbeans_jdkhome</code> to the java jdk dir. 
+For example: <code>netbeans_jdkhome="C:\Program Files\Java\jdk1.8.0_271"</code></p>
 
               
             </article>
