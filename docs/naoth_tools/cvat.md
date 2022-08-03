@@ -72,7 +72,6 @@ dhcp-option DNS 8.8.8.8  # <-- set the name server of your liking
 
 ### Own changes to the CVAT Code
 - in our instance it is possible to create bounding boxes that are (partially) outside the image
-- fixed api address to the ball server so that swagger works correctly
 
 Currently `docker-compose.override.yml` must look like this to have access to shared folders. From there a lot of data will be loaded.
 ```bash
