@@ -661,6 +661,26 @@
     Clone and build
   </a>
   
+    <nav class="md-nav" aria-label="Clone and build">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cygwin-softbank-image" class="md-nav__link">
+    Cygwin + Softbank Image
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clang-ubuntu-image" class="md-nav__link">
+    Clang + Ubuntu Image
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -884,6 +904,26 @@
     Clone and build
   </a>
   
+    <nav class="md-nav" aria-label="Clone and build">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cygwin-softbank-image" class="md-nav__link">
+    Cygwin + Softbank Image
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clang-ubuntu-image" class="md-nav__link">
+    Clang + Ubuntu Image
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -914,8 +954,10 @@
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>In Linux you need the following dependencies: cmake, gcc and g++ compiler, zlib, qtcreator, git, gettext, java, netbeans, libreadline-dev</p>
-<p>gettext is for compiling glib, libreadline-dev is needed for our LUA experiments. We support Java 8 and 11+. 
-For the VideoAnalyzer-Dialog in RobotControl it is evtl. necessary to install <code>ffmpeg-compat-55</code> package (Arch) see
+<p>gettext is for compiling glib
+libreadline-dev is needed for our LUA experiments. 
+We support Java 8 and 11+. 
+For the VideoAnalyzer-Dialog in RobotControl it is potentially necessary to install <code>ffmpeg-compat-55</code> package (Arch) see
 <a href="https://wiki.archlinux.org/index.php/java#JavaFX.27s_MediaPlayer_constructor_throws_an_exception">here</a></p>
 <p>You can install them in ubuntu with this:
 <div class="highlight"><pre><span></span><code><span class="c1"># java</span>
@@ -932,7 +974,7 @@ sudo apt install git
 sudo apt install gettext
 </code></pre></div></p>
 <p>You may want to install the cmake GUI for easier development. For example with <code>apt install cmake-curses-gui</code>
-If you want to use clang instead of gcc you need to install clang llvm lld</p>
+If you want to use clang instead of gcc you need to install the <code>clang</code>, <code>llvm</code> and <code>lld</code> packages.</p>
 </div>
 <div class="tabbed-block">
 <p><strong>Visual Studio</strong><br />
@@ -1019,8 +1061,13 @@ You need at least Java JDK 8. Normally you need a oracle account for downloading
 <div class="highlight"><pre><span></span><code>git clone &lt;url of this repo&gt; &lt;NaoTH-Projekt/Naoth-2020&gt;
 </code></pre></div>
 where <code>&lt;NaoTH-Projekt/Naoth-2020&gt;</code> is the desired path to the repository on your machine.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Linux</label><label for="__tabbed_3_2">Windows</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:4"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><input id="__tabbed_3_4" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Linux</label><label for="__tabbed_3_2">Linux Crosscompilation</label><label for="__tabbed_3_3">Windows</label><label for="__tabbed_3_4">Windows Crosscompilation</label></div>
 <div class="tabbed-content">
+<div class="tabbed-block">
+<ol>
+<li>TODO</li>
+</ol>
+</div>
 <div class="tabbed-block">
 <ol>
 <li>TODO</li>
@@ -1042,8 +1089,29 @@ where <code>&lt;NaoTH-Projekt/Naoth-2020&gt;</code> is the desired path to the r
 <li>TODO explain loladaptor, naosmal compilation</li>
 </ul>
 </div>
+<div class="tabbed-block">
+<p>There are two ways to compile the naoth source code for the NAO. First you can use cygwin and target the softbank provided
+image for the NAO or use clang and target the self build Ubuntu image.</p>
+<h3 id="cygwin-softbank-image">Cygwin + Softbank Image</h3>
+<h3 id="clang-ubuntu-image">Clang + Ubuntu Image</h3>
+<p>Install cygwin for 64bit from <a href="http://www.cygwin.com/">cygwin.com</a> and
+select the make, mintty and chere packages for installation</p>
+<p>To add mintty to the windows context menu open mintty with admin privileges and run <code>chere -i -t mintty -s bash</code>.
+You are now able to right click and open a mintty bash console in any folder.</p>
+<p>Install a recent LLVM version from <a href="https://github.com/llvm/llvm-project/releases">here</a>. For example choose 
+<a href="https://github.com/llvm/llvm-project/releases/download/llvmorg-14.0.6/LLVM-14.0.6-win64.exe">LLVM-14.0.6-win64.exe</a></p>
+<p>To tell premake to use the ubuntu toolchain you need to change two lines <code>&lt;NaoTH-Projekt&gt;/Naoth-2020/NaoTHSoccer/Make/projectconfig.user.lua</code>  </p>
+<ul>
+<li>NAO_CTC=<NaoTH-Projekt/NaoTHToolchain>/toolchain_nao_ubuntu  </li>
+<li>_OPTIONS["crosscompiler"] = "clang"  </li>
+</ul>
+<p>In order to build the naoth binary go to <code>&lt;NaoTH-Projekt&gt;/Naoth-2020/NaoTHSoccer/Make</code>, open the mintty bash console in
+this folder via the context menu and run <code>./compileGame.sh -j 4</code></p>
 </div>
 </div>
+</div>
+<hr />
+<p>For development inside WSL follow the linux instructions.</p>
 <h2 id="additional-tools-for-development">Additional tools for development</h2>
 <p>We use different tools with our project:</p>
 <p><strong>XabslEditor</strong><br />
