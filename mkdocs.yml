@@ -27,14 +27,15 @@ nav:
     - 'guides/robot_setup.md'
     - 'guides/robot_handling.md'
     - 'guides/logging.md'
-    - 'guides/deep_learning_annotation.md'
-    - 'guides/deep_learning_training.md'
-    - 'guides/deep_learning_deployment.md'
     - 'guides/obstacle_detection.md'
     - 'guides/keyframe_motions.md'
     - 'guides/coding_guidelines.md'
     - 'guides/git-hooks.md'
     - 'guides/other_teams.md'
+    - Deep Learning:
+        - 'guides/deep_learning_annotation.md'
+        - 'guides/deep_learning_training.md'
+        - 'guides/deep_learning_deployment.md'
 
 theme:
   name: material
