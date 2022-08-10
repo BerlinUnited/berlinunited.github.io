@@ -1,4 +1,8 @@
 site_name: Berlin United - Documentation
+
+extra_css:
+  - stylesheets/extra.css
+
 nav:
   - Teamreport:
     - 'index.md'
@@ -81,6 +85,8 @@ extra_javascript:
   - javascripts/config.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+  -
+
 
 plugins:
     - mkdocs-video
