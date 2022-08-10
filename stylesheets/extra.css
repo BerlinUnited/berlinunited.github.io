@@ -1,0 +1,7 @@
+.md-sidebar--secondary{
+  visibility: hidden !important;
+  width: 0;
+}
+.md-grid {
+    max-width: 75rem;
+}
