@@ -5,15 +5,15 @@ extra_css:
 
 nav:
   - Teamreport:
-    - 'index.md'
-    - 'introduction.md'
-    - 'architecture_intro.md'
-    - 'debugging.md'
-    - 'vision.md'
-    - 'modeling.md'
-    - 'motion.md'
-    - 'behavior.md'
-    - 'bibliography.md'
+    - 'teamreport/index.md'
+    - 'teamreport/introduction.md'
+    - 'teamreport/architecture_intro.md'
+    - 'teamreport/debugging.md'
+    - 'teamreport/vision.md'
+    - 'teamreport/modeling.md'
+    - 'teamreport/motion.md'
+    - 'teamreport/behavior.md'
+    - 'teamreport/bibliography.md'
   - Tooling:
     - 'naoth_tools/rc.md'
     - 'naoth_tools/naoscp.md'
@@ -28,8 +28,9 @@ nav:
   - Guides:
     - 'guides/onboarding.md'
     - Setup:
-        - 'guides/naoth_code_setup.md'
-        - 'guides/robot_setup.md'
+        - 'guides/setup/naoth_code_setup.md'
+        - 'guides/setup/robot_setup.md'
+        - 'guides/setup/nao_config.md'
     - 'guides/robot_handling.md'
     - 'guides/logging.md'
     - 'guides/obstacle_detection.md'

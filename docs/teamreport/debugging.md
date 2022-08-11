@@ -113,7 +113,7 @@ code.
 
 ### Field Viewer
 
-![image](img/rc-dialogs/FieldViewer.png)
+![image](../img/rc-dialogs/FieldViewer.png)
 
 There are views for different field sizes and a local view. Certain
 debug requests draw on these views. For example, you could draw the
@@ -122,34 +122,34 @@ request.
 
 ### Image Viewer
 
-![image](img/rc-dialogs/ImageViewer.png)
+![image](../img/rc-dialogs/ImageViewer.png)
 
 Can show the top and bottom images. There are debug requests that draw
 on the camera images, if they are active.
 
 ### Logfile Recorder
 
-![image](img/rc-dialogs/LogfileRecorder.png)
+![image](../img/rc-dialogs/LogfileRecorder.png)
 
 Records a log file on a robot with manually selected representations.
 
 ### Modify
 
-![image](img/rc-dialogs/Modify.png)
+![image](../img/rc-dialogs/Modify.png)
 
 The Modify macro allows changing values of variables declared within
 this macro at runtime.
 
 ### Module Configuration Viewer
 
-![image](img/rc-dialogs/ModuleConfigurationViewer.png)
+![image](../img/rc-dialogs/ModuleConfigurationViewer.png)
 
 Shows which modules are currently (de-)activated. Also indicates, which
 other modules are required (left) and provided (right) by each module.
 
 ### Parameter Panel
 
-![image](img/rc-dialogs/ParameterPanel.png)
+![image](../img/rc-dialogs/ParameterPanel.png)
 
 Shows parameters defined in our configuration files. It is possible to
 change the values at runtime. The variables must be registered as
@@ -157,25 +157,25 @@ parameters in the code.
 
 ### Plot 2D
 
-![image](img/rc-dialogs/Plot2D.png)
+![image](../img/rc-dialogs/Plot2D.png)
 
 Shows plots activated by plot debug requests.
 
 ### Representation Inspector
 
-![image](img/rc-dialogs/RepresentationInspector.png)
+![image](../img/rc-dialogs/RepresentationInspector.png)
 
 Shows the data that is written to the blackboard by each representation.
 
 ### Stopwatch Viewer
 
-![image](img/rc-dialogs/StopwatchViewer2018.png)
+![image](../img/rc-dialogs/StopwatchViewer2018.png)
 
 Shows the execution time for each module.
 
 ### Team Communication Viewer
 
-![image](img/rc-dialogs/TeamCommViewer2018.png)
+![image](../img/rc-dialogs/TeamCommViewer2018.png)
 
 
 Shows all connected robots and possible all of their provided status
@@ -192,7 +192,7 @@ transitions. This year, the dialog was re-implemented using JavaFX.
 
 ### Team Communication Logviewer
 
-![image](img/rc-dialogs/TeamCommLogViewer2018.png)
+![image](../img/rc-dialogs/TeamCommLogViewer2018.png)
 
 The *Team Communication Logviewer* allows to re-play team communication
 logfiles previously recorded with the *Team Communication Viewer*. It's
@@ -201,7 +201,7 @@ JSON.
 
 ### Simspark
 
-![image](img/rc-dialogs/Simspark.png)
+![image](../img/rc-dialogs/Simspark.png)
 
 This dialog shows the state of the connected simspark instance. It also
 provides some predefined commands and a textfield for user-defined
@@ -210,7 +210,7 @@ teamcommunication of the simulated robots for other dialogs in
 RobotControl (e.g. *Team Communication Viewer*).
 
 ### External Tools
-![image](img/rc-dialogs/ExternalTools.png)
+![image](../img/rc-dialogs/ExternalTools.png)
 
 Some "external tools" where modified in order to load them into
 RobotControl via reflection. Its convenient to have all needed tools in
@@ -269,7 +269,7 @@ process, ensured backup of deployed binaries and reduction of the chance
 of mistakes during setup in critical situations, e.g., before a game at
 the world championship.
 
-![image](img/NaoSCP.png)
+![image](../img/NaoSCP.png)
 NaoSCP user interface. The log panel on the right displays status of
 the deployment process. The left side contains the panels for the
 configuration of the deployment / setup process: *Network* configures
@@ -416,7 +416,7 @@ files containing full images of particular situations for general image
 processing, which can be only recorded for a short period of time due to
 the large size.
 
-![iamge](img/synchronization_tool.png)
+![iamge](../img/synchronization_tool.png)
 Synchronization Interface for individual log files and videos of a
 game.
 
@@ -466,7 +466,7 @@ interface:
 <https://www2.informatik.hu-berlin.de/~naoth/videolabeling/index.php>
 <https://github.com/BerlinUnited/VideoLogLabeling>
 
-![image](img/labeling_screenshot.png)
+![image](../img/labeling_screenshot.png)
 Labeling interface used to annotate kick events regarding their
 quality. At the bottom are time lines for each of the robots. Different
 actions are represented by buttons on the time line with different
@@ -491,7 +491,7 @@ reference="fig:spl-and-sim"}. As already stated, therewith, we want to
 foster the cooperation between the two leagues and to improve both of
 them.
 
-![image](img/simulation.png "fig:")
+![image](../img/simulation.png "fig:")
 NAO robots run in Standard Platform League (left) and 3D Simulation
 League (right).
 

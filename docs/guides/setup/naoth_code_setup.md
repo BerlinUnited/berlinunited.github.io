@@ -201,7 +201,7 @@ For working with logfiles we have a set of python scripts in the `utils/py` fold
 Java FX is not part of Java 11. It must be installed separately.
 
 **Netbeans does not find java:**  
-![image](../img/build/netbeans_issue.png)
+![image](../../img/build/netbeans_issue.png)
 
 Solution: Edit the netbeans.conf file. It's located inside the install directory. For example 
 `C:/Program Files/NetBeans-12.0/netbeans/etc/netbeans.conf`. Set `netbeans_jdkhome` to the java jdk dir. 

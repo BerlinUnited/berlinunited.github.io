@@ -43,7 +43,7 @@ connected by the *platform interface*, which transfers data between the
 platform independent and specific part
 ![Platform Interface is responsible for data transfer and execution of
 the Cognition and Motion
-processes.](img/platform_interface.png)
+processes.](../img/platform_interface.png)
 
 ## Module framework
 
@@ -58,7 +58,7 @@ framework consists of the following basic components:
 
 **Module Manager:** manage the execution of the modules
 
-![Overview about the different components of the module framework.](img/modules.png)  
+![Overview about the different components of the module framework.](../img/modules.png)  
 
 The above figure describes the interaction between these components. A module may
 *require* a representation, in this case it has read-only access to it.

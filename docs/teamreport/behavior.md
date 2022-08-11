@@ -9,7 +9,7 @@ very successful and is used by many teams within the RoboCup community.
 We use XABSL to model the behavior of single robots and of the whole
 team in the Simulation League 3D and also in the SPL.
 
-![image](img/xabsl_editor.png)
+![image](../img/xabsl_editor.png)
 (left) XabslEditor: On the left side, you see the source code of a
 behavior option. On the right side the state machine of this option is
 visualized as a graph (right). In the main frame the execution path is
@@ -84,7 +84,7 @@ ball.
 Please refer to the code release for further details of the particular
 XABSL behaviors for different states (active, passive, goalie) etc.
 
-![image](img/strategic_positions.png)
+![image](../img/strategic_positions.png)
 Illustration of the different strategic player position: start
 positions (yellow), ready positions during opponent kickoff (blue),
 during own kickoff (gray) and home positions (red). For players 1 and 2

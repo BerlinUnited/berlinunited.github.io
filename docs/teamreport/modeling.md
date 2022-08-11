@@ -119,7 +119,7 @@ The dense false detections result in post hypotheses, which is later ignored whi
 More detailed description of the algorithm as well as the experimental
 results can be found in [@HSR-ScheunemannMellmann-14].
 
-![image](img/goal_modeling.png)
+![image](../img/goal_modeling.png)
 
 ## Simulation Based Selection of Actions
 
