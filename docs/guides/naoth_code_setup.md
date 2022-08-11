@@ -85,7 +85,7 @@ You need to install a bunch of software before being able to develop code for th
 
     Clone the toolchain repo from either internal or external  
     - [Internal toolchain repo](https://scm.cms.hu-berlin.de/berlinunited/tools/windowstoolchain)  
-    - [External toolchain repo](https://github.com/BerlinUnited/windowstoolchain.git)  
+    - [External toolchain repo](https://github.com/BerlinUnited/windowstoolchain)  
 
     Both repos are synced but the development only happens in the internal repo.
 

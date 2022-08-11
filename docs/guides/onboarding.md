@@ -1,6 +1,6 @@
 # Joining the team
-We are always happy to welcome new students in our team. There is also the possibility of doing your 
-diploma/master-thesis or student research project (“Studienarbeit”) at our working group.
+We are always happy to welcome new members in our team. You don't need to be a HU student. For HU students there is also
+the possibility of doing your diploma/master-thesis or student research project (“Studienarbeit”) at our working group.
 
 If you are interested to join please contact us via email or come directly to our lab. You can find our contact infos
 on our website [https://berlin-united.org/](https://berlin-united.org/)

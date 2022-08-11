@@ -27,15 +27,17 @@ nav:
     - 'robocup_tools/game_recording.md'
   - Guides:
     - 'guides/onboarding.md'
-    - 'guides/naoth_code_setup.md'
-    - 'guides/robot_setup.md'
+    - Setup:
+        - 'guides/naoth_code_setup.md'
+        - 'guides/robot_setup.md'
     - 'guides/robot_handling.md'
     - 'guides/logging.md'
     - 'guides/obstacle_detection.md'
     - 'guides/keyframe_motions.md'
-    - 'guides/coding_guidelines.md'
-    - 'guides/git-hooks.md'
     - 'guides/other_teams.md'
+    - Code Conventions:
+        - 'guides/coding_guidelines.md'
+        - 'guides/git-hooks.md'
     - Deep Learning:
         - 'guides/deep_learning_annotation.md'
         - 'guides/deep_learning_training.md'
@@ -85,8 +87,6 @@ extra_javascript:
   - javascripts/config.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
-  -
-
 
 plugins:
     - mkdocs-video
@@ -99,3 +99,5 @@ extra:
       link: https://github.com/BerlinUnited
     - icon: fontawesome/brands/youtube
       link: https://www.youtube.com/user/teamhumboldt
+    - icon: fontawesome/brands/instagram
+      link: https://www.instagram.com/naoteamhumboldt
