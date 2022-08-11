@@ -13,7 +13,7 @@
     
     
       
-        <title>NaoTH Development Setup - Berlin United - Documentation</title>
+        <title>Motion Control - Berlin United - Documentation</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#naoth-development-setup" class="md-skip">
+        <a href="#motion-control" class="md-skip">
           Skip to content
         </a>
       
@@ -100,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              NaoTH Development Setup
+              Motion Control
             
           </span>
         </div>
@@ -143,13 +143,15 @@
         
   
   
+    
+  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../.." class="md-tabs__link">
+      <a href="../" class="md-tabs__link md-tabs__link--active">
         Teamreport
       </a>
     </li>
@@ -175,15 +177,13 @@
         
   
   
-    
-  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../onboarding/" class="md-tabs__link md-tabs__link--active">
+      <a href="../../guides/onboarding/" class="md-tabs__link">
         Guides
       </a>
     </li>
@@ -233,12 +233,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" checked>
       
       
       
@@ -261,7 +263,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../" class="md-nav__link">
         Welcome
       </a>
     </li>
@@ -275,7 +277,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../introduction/" class="md-nav__link">
+      <a href="../introduction/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -289,7 +291,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../architecture_intro/" class="md-nav__link">
+      <a href="../architecture_intro/" class="md-nav__link">
         Architecture
       </a>
     </li>
@@ -303,7 +305,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../debugging/" class="md-nav__link">
+      <a href="../debugging/" class="md-nav__link">
         Debugging and Tools
       </a>
     </li>
@@ -317,7 +319,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../vision/" class="md-nav__link">
+      <a href="../vision/" class="md-nav__link">
         Visual Perception
       </a>
     </li>
@@ -331,7 +333,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../modeling/" class="md-nav__link">
+      <a href="../modeling/" class="md-nav__link">
         Modeling
       </a>
     </li>
@@ -343,11 +345,93 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../motion/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Motion Control
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Motion Control
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#walk" class="md-nav__link">
+    Walk
+  </a>
+  
+    <nav class="md-nav" aria-label="Walk">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#path-planner" class="md-nav__link">
+    Path Planner
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-planner" class="md-nav__link">
+    Step Planner
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#preview-control" class="md-nav__link">
+    Preview Control
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stabilization" class="md-nav__link">
+    Stabilization
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#energy-efficient-stand" class="md-nav__link">
+    Energy Efficient Stand
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -359,7 +443,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../behavior/" class="md-nav__link">
+      <a href="../behavior/" class="md-nav__link">
         Behavior
       </a>
     </li>
@@ -373,7 +457,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../bibliography/" class="md-nav__link">
+      <a href="../bibliography/" class="md-nav__link">
         Bibliography
       </a>
     </li>
@@ -567,14 +651,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
       
       
       
@@ -597,7 +679,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../onboarding/" class="md-nav__link">
+      <a href="../../guides/onboarding/" class="md-nav__link">
         Joining the team
       </a>
     </li>
@@ -609,14 +691,12 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" >
       
       
       
@@ -637,114 +717,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          NaoTH Development Setup
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../guides/setup/naoth_code_setup/" class="md-nav__link">
         NaoTH Development Setup
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
-    Prerequisites
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#toolchain-setup" class="md-nav__link">
-    Toolchain Setup
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#clone-and-build" class="md-nav__link">
-    Clone and build
-  </a>
-  
-    <nav class="md-nav" aria-label="Clone and build">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#softbank-image" class="md-nav__link">
-    Softbank Image
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#clang-ubuntu-image" class="md-nav__link">
-    Clang + Ubuntu Image
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#cygwin-softbank-image" class="md-nav__link">
-    Cygwin + Softbank Image
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#clang-ubuntu-image_1" class="md-nav__link">
-    Clang + Ubuntu Image
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#additional-tools-for-development" class="md-nav__link">
-    Additional tools for development
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#known-issues" class="md-nav__link">
-    Known Issues
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -756,8 +733,22 @@
   
   
     <li class="md-nav__item">
-      <a href="../robot_setup/" class="md-nav__link">
+      <a href="../../guides/setup/robot_setup/" class="md-nav__link">
         NAO setup and deployment
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/setup/nao_config/" class="md-nav__link">
+        Configuration Files
       </a>
     </li>
   
@@ -777,7 +768,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../robot_handling/" class="md-nav__link">
+      <a href="../../guides/robot_handling/" class="md-nav__link">
         Handling the Robot
       </a>
     </li>
@@ -791,7 +782,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../logging/" class="md-nav__link">
+      <a href="../../guides/logging/" class="md-nav__link">
         Logging
       </a>
     </li>
@@ -805,7 +796,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../obstacle_detection/" class="md-nav__link">
+      <a href="../../guides/obstacle_detection/" class="md-nav__link">
         Obstacle Detection and Pathplanning
       </a>
     </li>
@@ -819,7 +810,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../keyframe_motions/" class="md-nav__link">
+      <a href="../../guides/keyframe_motions/" class="md-nav__link">
         Keyframe Motions
       </a>
     </li>
@@ -833,7 +824,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../other_teams/" class="md-nav__link">
+      <a href="../../guides/other_teams/" class="md-nav__link">
         Setup code from other teams
       </a>
     </li>
@@ -873,7 +864,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../coding_guidelines/" class="md-nav__link">
+      <a href="../../guides/coding_guidelines/" class="md-nav__link">
         Coding Guidelines
       </a>
     </li>
@@ -887,7 +878,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../git-hooks/" class="md-nav__link">
+      <a href="../../guides/git-hooks/" class="md-nav__link">
         Git-Hooks
       </a>
     </li>
@@ -934,7 +925,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../deep_learning_annotation/" class="md-nav__link">
+      <a href="../../guides/deep_learning_annotation/" class="md-nav__link">
         Deep Learning Annotation Overview
       </a>
     </li>
@@ -948,7 +939,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../deep_learning_training/" class="md-nav__link">
+      <a href="../../guides/deep_learning_training/" class="md-nav__link">
         Deep Learning Training Overview
       </a>
     </li>
@@ -962,7 +953,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../deep_learning_deployment/" class="md-nav__link">
+      <a href="../../guides/deep_learning_deployment/" class="md-nav__link">
         Deep Learning Deployment Overview
       </a>
     </li>
@@ -1010,51 +1001,37 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
-    Prerequisites
+  <a href="#walk" class="md-nav__link">
+    Walk
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#toolchain-setup" class="md-nav__link">
-    Toolchain Setup
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#clone-and-build" class="md-nav__link">
-    Clone and build
-  </a>
-  
-    <nav class="md-nav" aria-label="Clone and build">
+    <nav class="md-nav" aria-label="Walk">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#softbank-image" class="md-nav__link">
-    Softbank Image
+  <a href="#path-planner" class="md-nav__link">
+    Path Planner
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#clang-ubuntu-image" class="md-nav__link">
-    Clang + Ubuntu Image
+  <a href="#step-planner" class="md-nav__link">
+    Step Planner
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#cygwin-softbank-image" class="md-nav__link">
-    Cygwin + Softbank Image
+  <a href="#preview-control" class="md-nav__link">
+    Preview Control
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#clang-ubuntu-image_1" class="md-nav__link">
-    Clang + Ubuntu Image
+  <a href="#stabilization" class="md-nav__link">
+    Stabilization
   </a>
   
 </li>
@@ -1065,15 +1042,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#additional-tools-for-development" class="md-nav__link">
-    Additional tools for development
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#known-issues" class="md-nav__link">
-    Known Issues
+  <a href="#energy-efficient-stand" class="md-nav__link">
+    Energy Efficient Stand
   </a>
   
 </li>
@@ -1092,191 +1062,175 @@
                 
 
 
-<h1 id="naoth-development-setup">NaoTH Development Setup</h1>
-<h2 id="prerequisites">Prerequisites</h2>
-<p>You need to install a bunch of software before being able to develop code for the Nao robot.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Linux</label><label for="__tabbed_1_2">Windows</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<p>In Linux you need the following dependencies: cmake, gcc and g++ compiler, zlib, qtcreator, git, gettext, java, netbeans, libreadline-dev</p>
-<p>gettext is for compiling glib<br />
-libreadline-dev is needed for our LUA experiments.  </p>
-<p>We support Java 8 and 11+.<br />
-For the VideoAnalyzer-Dialog in RobotControl it is potentially necessary to install <code>ffmpeg-compat-55</code> package (Arch) see
-<a href="https://wiki.archlinux.org/index.php/java#JavaFX.27s_MediaPlayer_constructor_throws_an_exception">here</a></p>
-<p>You can install them in ubuntu with this:
-<div class="highlight"><pre><span></span><code><span class="c1"># java</span>
-sudo apt install default-jdk openjfx netbeans
-<span class="c1"># c++ compile</span>
-sudo apt install build-essential cmake 
-<span class="c1"># c++ essential libs</span>
-sudo apt install zlib1g-dev libreadline-dev
-<span class="c1"># c++ IDE (qtcreator)</span>
-sudo apt install qtcreator qt4-qmake libqt4-dev 
-<span class="c1"># code versioning control</span>
-sudo apt install git
-<span class="c1"># for glib</span>
-sudo apt install gettext
-</code></pre></div></p>
-<p>You may want to install the cmake GUI for easier development. For example with <code>apt install cmake-curses-gui</code>
-If you want to use clang instead of gcc you need to install the <code>clang</code>, <code>llvm</code> and <code>lld</code> packages.</p>
-<p>TODO: explain how to use different clang versions.(https://scm.cms.hu-berlin.de/berlinunited/tools/linuxtoolchain/-/merge_requests/34)</p>
-</div>
-<div class="tabbed-block">
-<p><strong>Visual Studio</strong><br />
-  - Install Microsoft Visual Studio 2019 Community Edition from <a href="https://visualstudio.microsoft.com/vs/community/">https://visualstudio.microsoft.com/vs/community/</a> </p>
-<ul>
-<li><strong>Note:</strong> The project is optimized for VS2019 it is therefore recommended to use it.</li>
-<li><strong>Configure:</strong> After a fresh installation you should adjust following configurations<ul>
-<li>change tab size and indent size to 2 and enable "Insert Spaces" here  <code>Tools-&gt;Options-&gt;Text Editor-&gt;C++-&gt;Tabs</code></li>
-<li>enable the "Build"-toolbar (right klick on the top toolbar) </li>
-</ul>
-</li>
-</ul>
-<p><strong>Cygwin</strong>  </p>
-<ul>
-<li>Get <a href="http://www.cygwin.com">cygwin</a></li>
-<li>Install cygwin, for example to <code>C:\cygwin</code>  <ul>
-<li><strong>Required</strong>: Select the package <em>make</em> for installation</li>
-<li><strong>Required</strong>: Install the <em>mintty: Terminal emulator with native Windows look and feel</em> shell package.  </li>
-<li><strong>Optional</strong>: To add mintty to the windows context menu you have to install the cygwin chere package and execute 
-  <code>chere -i -t mintty -s bash</code> in  a cygwin console with admin privileges. You are now able to right click and open a mintty bash console in any folder.</li>
-</ul>
-</li>
-</ul>
-<p><strong>Java</strong><br />
-You need at least Java JDK 8. Normally you need a oracle account for downloading the jdk. Or you can use the 
-following workaround taken from <a href="https://gist.github.com/wavezhang/ba8425f24a968ec9b2a8619d7c2d86a6">here</a></p>
-<ul>
-<li>Select the JDK you want from https://www.oracle.com/java/technologies/javase-downloads.html  </li>
-<li>Click on a link like <code>jdk-8u291-windows-x64.exe</code>. This will open a popup.   </li>
-<li>Copy the link in the popup. It should be something like https://www.oracle.com/webapps/redirect/signon?nexturl=https://download.oracle.com/otn/java/jdk/8u291-b10/d7fc238d0cbf4b0dac67be84580cfb4b/jdk-8u291-windows-x64.exe  </li>
-<li>change this link to https://download.oracle.com/otn-pub/java/jdk/8u291-b10/d7fc238d0cbf4b0dac67be84580cfb4b/jdk-8u291-windows-x64.exe  </li>
-<li>This is the download link you can use to download the jdk.  </li>
-<li>Install the jdk</li>
-</ul>
-<p><strong>NetBeans</strong>  </p>
-<ul>
-<li>Get <a href="https://netbeans.org/downloads/index.html">NetBeans</a> and install it  </li>
-<li><strong>Important</strong>: Make sure that your Java Path is properly set before installing, otherwise it won't work!  </li>
-</ul>
-<p><strong>Clang</strong></p>
-<p>You can use clang for cross compiling for the NAO. For that install a recent LLVM version from <a href="https://github.com/llvm/llvm-project/releases">here</a>. 
-For example choose <a href="https://github.com/llvm/llvm-project/releases/download/llvmorg-14.0.6/LLVM-14.0.6-win64.exe">LLVM-14.0.6-win64.exe</a></p>
-</div>
-</div>
-</div>
-<h2 id="toolchain-setup">Toolchain Setup</h2>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Linux</label><label for="__tabbed_2_2">Windows</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<ol>
-<li>TODO</li>
-</ol>
-</div>
-<div class="tabbed-block">
-<p>Clone the toolchain repo from either internal or external<br />
-- <a href="https://scm.cms.hu-berlin.de/berlinunited/tools/windowstoolchain">Internal toolchain repo</a><br />
-- <a href="https://github.com/BerlinUnited/windowstoolchain">External toolchain repo</a>  </p>
-<p>Both repos are synced but the development only happens in the internal repo.</p>
-<p>Unpack it to <code>&lt;NaoTH-Projekt/NaoTHToolchain&gt;</code> and run <code>setup.bat</code> as admin.</p>
-<p>This script will generate <code>projectconfig.user.lua</code> which must be copied <code>&lt;NaoTH-Projekt/Naoth-2020&gt;/NaoTHSoccer/Make</code>.
-This is later used for configuring the compile step if needed.</p>
-</div>
-</div>
-</div>
-<h2 id="clone-and-build">Clone and build</h2>
-<p>To work with the project, checkout the git repo:
-<div class="highlight"><pre><span></span><code>git clone &lt;url of this repo&gt; &lt;NaoTH-Projekt/Naoth-2020&gt;
-</code></pre></div>
-where <code>&lt;NaoTH-Projekt/Naoth-2020&gt;</code> is the desired path to the repository on your machine.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:4"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><input id="__tabbed_3_4" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Linux</label><label for="__tabbed_3_2">Linux Crosscompilation</label><label for="__tabbed_3_3">Windows</label><label for="__tabbed_3_4">Windows Crosscompilation</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<ol>
-<li>TODO</li>
-</ol>
-</div>
-<div class="tabbed-block">
-<p>There are two ways to compile the naoth source code for the NAO. First you can target the softbank provided
-image for the NAO or use clang and target the self build Ubuntu image.</p>
-<h4 id="softbank-image">Softbank Image</h4>
-<p>In order to build the naoth binary go to <code>&lt;NaoTH-Projekt&gt;/Naoth-2020/NaoTHSoccer/Make</code> and run <code>./compileGame.sh -j 4</code></p>
-<h4 id="clang-ubuntu-image">Clang + Ubuntu Image</h4>
-<p>You need to have LLVM installed as described above in the prerequisites section.</p>
-<p>To tell premake to use the ubuntu toolchain you need to change two lines <code>&lt;NaoTH-Projekt&gt;/Naoth-2020/NaoTHSoccer/Make/projectconfig.user.lua</code>  </p>
-<ul>
-<li>NAO_CTC=<NaoTH-Projekt/NaoTHToolchain>/toolchain_nao_ubuntu  </li>
-<li>_OPTIONS["crosscompiler"] = "clang"</li>
-</ul>
-<p>In order to build the naoth binary go to <code>&lt;NaoTH-Projekt&gt;/Naoth-2020/NaoTHSoccer/Make</code> and run <code>./compileGame.sh -j 4</code></p>
-</div>
-<div class="tabbed-block">
-<p>Go to the <code>&lt;NaoTH-Projekt/Naoth-2020&gt;/NaoTHSoccer/Make</code> directory and execute <code>generate-vs2019.bat</code> to 
-create Visual Studio 2019 project files <code>&lt;NaoTH-Projekt/Naoth-2020&gt;/NaoTHSoccer/build/vs2019</code></p>
-<p>Open the NaoTHSoccer.sln file with Visual Studio and you have all the projects loaded that are needed for compilation.
-You can now build each project by right clicking on it and then clicking on build.</p>
-</div>
-<div class="tabbed-block">
-<p>There are two ways to compile the naoth source code for the NAO. First you can use cygwin and target the softbank provided
-image for the NAO or use clang and target the self build Ubuntu image.</p>
-<h4 id="cygwin-softbank-image">Cygwin + Softbank Image</h4>
-<p>You need to have cygwin installed as described above in the prerequisites section.</p>
-<p>In order to build the naoth binary go to <code>&lt;NaoTH-Projekt&gt;/Naoth-2020/NaoTHSoccer/Make</code>, open the mintty bash console in
-this folder via the context menu and run <code>./compileGame.sh -j 4</code></p>
-<h4 id="clang-ubuntu-image_1">Clang + Ubuntu Image</h4>
-<p>You need to have cygwin and LLVM installed as described above in the prerequisites section.</p>
-<p>To tell premake to use the ubuntu toolchain you need to change two lines <code>&lt;NaoTH-Projekt&gt;/Naoth-2020/NaoTHSoccer/Make/projectconfig.user.lua</code>  </p>
-<ul>
-<li>NAO_CTC=<NaoTH-Projekt/NaoTHToolchain>/toolchain_nao_ubuntu  </li>
-<li>_OPTIONS["crosscompiler"] = "clang"</li>
-</ul>
-<p>In order to build the naoth binary go to <code>&lt;NaoTH-Projekt&gt;/Naoth-2020/NaoTHSoccer/Make</code>, open the mintty bash console in
-this folder via the context menu and run <code>./compileGame.sh -j 4</code></p>
-</div>
-</div>
-</div>
-<hr />
-<p>For development inside WSL follow the linux instructions.</p>
-<h2 id="additional-tools-for-development">Additional tools for development</h2>
-<p>We use different tools with our project:</p>
-<p><strong>XabslEditor</strong><br />
-We have a dedicated editor for editing and compiling the robots behavior written in xabsl.
-  - clone: <code>git clone https://github.com/BerlinUnited/xabsleditor.git</code><br />
-  - load the Netbeans project from <code>xabsleditor</code> and run the application<br />
-  - manual (after the project was loaded once with netbeans):<br />
-    - change dir <code>cd xabsleditor</code><br />
-    - compile: <code>./gradlew.bat clean build</code><br />
-    - run: <code>./gradlew.bat run</code> or <code>./dist/xabsleditor.bat</code> or <code>java -jar dist/lib/xabsleditor-1.2.jar</code>  </p>
-<p><strong>RobotControl</strong><br />
-  - For controlling, modify and analyze the nao robot
-  - load the Netbeans project <code>RobotControl</code> and run the application
-    - File-&gt;Import Project <code>&lt;ProjectDir&gt;</code>/RobotControl
-  - manual:
-    - compile: <code>./gradlew.bat clean build</code>
-    - run: <code>./gradlew.bat run</code> or <code>./dist/robotcontrol.bat</code> or <code>java -jar dist/lib/RobotControl.jar</code></p>
-<p><strong>NaoSCP</strong><br />
-See NaoSCP Documentation</p>
-<p><strong>Simspark</strong><br />
-  - to run a simulated version of our naoth project<br />
-  - check the <a href="Simspark-Windows-Setup">Simspark Setup Guide </a> for installation instructions  </p>
-<p><strong>Python</strong> <br />
-For working with logfiles we have a set of python scripts in the <code>utils/py</code> folder. The basic functionality is inside a the naoth python package which you can install with pip:  <br />
-   - run <code>pip install -e naoth</code> in the <code>&lt;repository&gt;/Utils/py</code> this will install protobuf as well </p>
-<h2 id="known-issues">Known Issues</h2>
-<p><strong>Premake5 is not found</strong><br />
-  - can happen if your PATH is exceeding the 1024 character limit if PATH is set with setup.bat
-  - Solution add it manualy to the Path. Note that trying to append to PATH with the setup.bat script can delete the 
-    last characters until the string that should be appended fits. In this case other paths are corrupted and don't work anymore.</p>
-<p><strong>RobotControlGUI, NaoSCP and the xabsl editor don't scale correctly for high resolution displays</strong><br />
-  - to fix this install java jdk 11+</p>
-<p><strong>Java 11:</strong><br />
-Java FX is not part of Java 11. It must be installed separately.</p>
-<p><strong>Netbeans does not find java:</strong><br />
-<img alt="image" src="../../img/build/netbeans_issue.png" /></p>
-<p>Solution: Edit the netbeans.conf file. It's located inside the install directory. For example 
-<code>C:/Program Files/NetBeans-12.0/netbeans/etc/netbeans.conf</code>. Set <code>netbeans_jdkhome</code> to the java jdk dir. 
-For example: <code>netbeans_jdkhome="C:\Program Files\Java\jdk1.8.0_271"</code></p>
+<h1 id="motion-control">Motion Control</h1>
+<p>The performance of a soccer robot is highly dependent on its motion
+ability. Together with the ability to walk, the kicking motion is one of
+the most important motions in a soccer game. However, at the current
+state the most common approaches of implementing the kick are based on a
+key frame technique. Such solutions are inflexible and take a lot of
+time to adjust the robots position correctly in order to use a key frame
+motion effectively. Moreover, they are hard to integrate into the
+general motion flow, e.g. to change between walk and kick the robot
+usually has to change to a special stand position.</p>
+<p>Fixed motions such as keyframe nets perform well in deterministic
+environments, but they are restrictive. More flexible motions must be
+able to adapt to different conditions. Four possible specifications are
+adaptation to control demands, e.g. required changes of speed and
+direction to enable omnidirectional walk, adaptation to the environment,
+e.g. different floors with different heights and angles, kick execution
+according to ball state and fluent change between walk and kick.</p>
+<p>At the current state we have a stable version of an omnidirectional walk
+control and a dynamic kick, both used in our gameplay. Along with
+further improvements of the dynamic walk and kick motions our current
+research focuses in particular on <em>integration</em> of the motions, e.g. a
+fluent change between walk and kick.</p>
+<p>Adaptation to changing conditions requires feedback from sensors. We
+experiment with the different sensors of the NAO. Especially, adaptation
+to the visual data, e.g. the seen ball or optical flow, is investigated.
+Problems arise from sensor noise and delays within the feedback loop. As
+a correlated project we also investigate the paradigm of local control
+loops, e.g. we extended the Nao with additional sensors.</p>
+<h2 id="walk">Walk</h2>
+<p>The algorithm we use to accomplish a walking motion can be subdivided
+into four components: the path planner, the step planner, the preview
+controller and stabilization.</p>
+<p>The path planner is currently of very primitive nature, acting solely as
+a bridge for certain movement routines between behavior and motion
+control. The behavior part is presented in behavior chapter.</p>
+<p>At first, the step planner determines the target position for the next
+step considering the walk request and various stability criteria. After
+that, a sequence of desired ZMPs (zero moment points) is planned for
+each execution cycle of that step. This sequence of ZMPs is used by the
+preview controller to compute the trajectory of the COM (center of mass)
+during the execution of the step assuming a linear inverted pendulum
+model. While the step is executed the foot's 3D trajectory is calculated
+on demand and combined with the corresponding COM pose to finally
+determine the target joint configuration using inverse kinematics.</p>
+<figure>
+  <img src="../img/walking_engine.png"/>
+  <figcaption>
+  Overview of the walking engine
+</figcaption>
+</figure>
+
+<h3 id="path-planner">Path Planner</h3>
+<p>The path planner is intended to calculate a collision free and optimal
+path from the robot towards a goal. Currently that intention is not
+fulfilled. Instead it is used as a bridge between the behavior
+and motion control. The behavior requests a certain routine, e.g. that
+the robot walks to the ball, and the path planner executes that routine
+by requesting steps from motion control. The types of routines that are
+implemented inside the path planner are walking or kicking routines.</p>
+<p>Currently, there are two different interfaces to walk requests, i.e.
+standard and step control. A standard walk request consists of a target
+pose <span class="arithmatex">\((x, y, \theta)\)</span>, a frame of reference for the target pose in form
+of a local coordinate with its origin in the left foot, the right foot
+or the hip and a flag signaling fast, normal or slow step execution.
+Step control extends the standard interface by adding the following
+parameters: the target foot, the execution time in <span class="arithmatex">\(ms\)</span>, an angle <span class="arithmatex">\(d\)</span>
+that impacts the final trajectory and <span class="arithmatex">\(s\in[0,\,1]\)</span> which can scale the
+final trajectory resulting in faster execution. The flag in the standard
+interface maps itself to <span class="arithmatex">\(s\)</span>.</p>
+<p>Step control allows for more fine-grained control over the actual steps,
+e.g. allowing retraction of the kicking foot after kick execution, and
+is thus preferred, but the standard interface is kept for backwards
+compatibility as not all possible movement routines related to walking
+are implemented inside the path planner. To allow this fine-grained
+control over actual steps the path planner implements a simple mechanism
+to ensure that a desired step is requested until actual execution of the
+step, unless the step becomes obsolete in the process.</p>
+<h3 id="step-planner">Step Planner</h3>
+<p>The step planner calculates the next 2D positions of the feet based on
+the walk request inside the motion request.</p>
+<p>The walk request and the current pose of the moving foot are transformed
+into the local coordinate system of the supporting foot. The supporting
+foot is the one that isn't executing the current step. The local
+coordinate system of the supporting foot is chosen for this as it is
+static whilst the step is being executed. This is not the case for the
+moving foot or the hip. The walk request is then applied to said current
+pose of the target foot resulting in the target pose for the step.</p>
+<p>If the walk request was made using the standard interface the step
+planner is responsible for choosing the moving foot. Step control
+requests a specific foot explicitly.</p>
+<p>The requested steps are restricted in regard of anatomic constraints as
+well as to increase the walks stability. A step is restricted
+elliptically in x-y-plane in general. The normal steps final dimensions
+are scaled by the cosine of the requested rotation. A big rotation
+therefore results in a small translation. In addition, the change in the
+step size is also restricted to increase stability. This prevents the
+robot to begin walking with the maximal possible step size. After
+applying these restrictions the step is finally added to the step
+buffer.</p>
+<p>Independent of the requested steps the step planner might insert zero
+steps for increasing the stability of the walk. A zero step is a step in
+which no foot is moved.</p>
+<h3 id="preview-control">Preview Control</h3>
+<p>The Preview Controller calculates the trajectory for the COM based on
+planed ZMPs. For estimating a stable trajectory for the COM we assume a
+linear inverted pendulum model with constant height. In each planning
+cycle of a step a target ZMP is added to the ZMP-buffer. The ZMP-buffer
+is used by the preview controller to calculate the target position,
+velocity and acceleration of the COM during a step. The following
+equation is used to determine the control vector [@Xu14Dissertation]:</p>
+<div class="arithmatex">\[u = -\underbrace{K_x x_k}_{state feedback} - K_I \underbrace{\sum_{i=0}^k (p_k - p_k^{ref})}_{accumulated ZMP error} - \underbrace{\begin{bmatrix} f_1, f_2, \ldots, f_N\end{bmatrix}}_{preview\, gain} \underbrace{\begin{bmatrix} p_{k+1}^{ref}\\ p_{k+2}^{ref}\\ \vdots \\ p_{k+N}^{ref}\end{bmatrix}}_{future ZMP}\]</div>
+<p>Where <span class="arithmatex">\(x_k\)</span> is a vector describing the location, velocity and
+acceleration of the COM at time <span class="arithmatex">\(k\)</span>. <span class="arithmatex">\(p_k\)</span> is the ZMP and <span class="arithmatex">\(p_k^{ref}\)</span>
+the target ZMP at time <span class="arithmatex">\(k\)</span>. <span class="arithmatex">\(K_x\)</span>, <span class="arithmatex">\(K_I\)</span> and <span class="arithmatex">\(f_1, \cdots, f_N\)</span> are the
+parameters of the preview controller and are pre-calculated. The next
+target COM <span class="arithmatex">\(x_{k+1}\)</span> can be calculated using a linear motion model:
+<span class="arithmatex">\(<span class="arithmatex">\(x_{k+1} = Ax_k + ub\)</span>\)</span></p>
+<h3 id="stabilization">Stabilization</h3>
+<p>The simplified model can easily be affected by disturbances in the
+environment. Therefore a closed loop stabilization is required.</p>
+<p>Different control techniques are used during step creation and execution
+to accomplish a stable walk.</p>
+<p>During step creation the target step is adapted by a P-D-Controller
+mechanism to compensate small errors in the COM's position. Another
+mechanism uses the average COM-Error. If the average COM-Error exceeds a
+threshold an emergency stop is performed. This emergency stop is
+realized by zero-steps. As long as the COM-Error doesn't drop below a
+threshold the robot won't execute a step which is requested by a
+Walk-Request.</p>
+<p>During the execution of a step three stabilization mechanisms are used.
+At first the height of the hip and its rotation around the x axis are
+adapted to compensate the moments appearing while a foot is lifted. A
+second stabilizer tries to keep the upper body in an upright position
+the whole time. And a third controller adapts the ankles according to
+the current orientation of the robot's body and its change in
+orientation.</p>
+<h2 id="energy-efficient-stand">Energy Efficient Stand</h2>
+<p>During games we have to deal with two problems regarding the hardware of
+the robots. The first problem is the increasing temperature of the
+joints, which affects the stability of walking. The second problem is
+the overall power consumption limiting the operational time. We observed
+that the robots are standing a lot on strategic positions during the
+game causing high energy consumption. The core of the problem seems to
+be that when going to the stand pose the joints are never reached
+completely and so remain in a state of permanent tension. In particular
+this can happen when the last step before stand was not completed
+exactly and the feet are a bit shifted. Therefore to address both
+problems we try to reduce the energy consumption and temperature
+increase during standing.</p>
+<p>After the robot reached the target standing pose the <em>measured</em> joint
+positions are used as new target joint angles to ensure that each joint
+really reached the target position and thus relaxing the joints.
+Reducing the applied stiffness on the motors will result in a reduction
+of the applied current and so reduce temperature increase and the energy
+consumption. Additionally we try to use as less stiffness as possible
+while maintaining a posture close to the target standing pose. To
+achieve that the stiffness is linearly interpolated between 0.3 and 1
+depending on the joint angle error for each joint.</p>
+<p>The knee pitch and ankle pitch joints are the joints which have to carry
+most of the load. It was observed that in some cases the applied current
+can be reduced significantly if the target position of these joints is
+relaxed by the minimal step size of the motors. Therefore an offset is
+added to the joint positions. Every second the offset of the joint with
+the highest current consumption is relaxed, i.e., increased (for knees)
+or decreased (for ankles), by the minimal step size of the motors.</p>
+<p>Both energy saving approaches may result in a drifting of center of
+mass. So if the difference to the target center of mass becomes too
+large regarding translation and rotation the offset are reset and the
+standing posture is corrected again with full stiffness.</p>
 
               
             </article>
