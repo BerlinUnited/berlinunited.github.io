@@ -29,6 +29,8 @@ You need to install a bunch of software before being able to develop code for th
     sudo apt install git
     # for glib
     sudo apt install gettext
+    # for archives in the toolchain repo
+    sudo apt install unzip
     ```
     
     You may want to install the cmake GUI for easier development. For example with `apt install cmake-curses-gui`

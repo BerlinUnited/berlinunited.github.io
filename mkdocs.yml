@@ -4,6 +4,7 @@ extra_css:
   - stylesheets/extra.css
 
 nav:
+  - 'index.md'
   - Teamreport:
     - 'teamreport/index.md'
     - 'teamreport/introduction.md'

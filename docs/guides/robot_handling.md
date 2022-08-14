@@ -10,6 +10,9 @@ TODO: explain LED's and buttons
 ## How to inspect for hardware damage
 TODO
 
+## USB drive stuff
+TODO: wo soll das hin?
+
 ## Camera Matrix Calibration
 TODO: auto calibration
 TODO: manuall calibration
