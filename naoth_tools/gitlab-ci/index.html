@@ -574,6 +574,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#cleanup-jobs" class="md-nav__link">
+    Cleanup Jobs
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1021,6 +1028,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#cleanup-jobs" class="md-nav__link">
+    Cleanup Jobs
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1078,6 +1092,13 @@ docker image is published to the internal gitlab docker registry of the reposito
 <h2 id="naoimage-pipeline">NaoImage Pipeline</h2>
 <p>This pipeline will run inside the image created by the naoth pipeline. It will build the softbank and the ubuntu image. 
 This repo is still experimental. It is based on work done by the NaoDevils (currently unreleased).</p>
+<h2 id="cleanup-jobs">Cleanup Jobs</h2>
+<p>The Gitlab CI docker executor leaves a lot of volumes and images behind to speed up the CI jobs. To free up the disk a bit
+we run a cron job once every day to cleanup the CI cache volumes and old images. For this we added the following lines to
+the root crontab file (run <code>sudo crontab -e</code> to edit)
+<div class="highlight"><pre><span></span><code><span class="m">55</span> <span class="m">23</span> * * * /usr/share/gitlab-runner/clear-docker-cache prune-volumes &gt;/dev/null <span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
+<span class="m">55</span> <span class="m">23</span> * * * docker image prune -f
+</code></pre></div></p>
 
               
             </article>
