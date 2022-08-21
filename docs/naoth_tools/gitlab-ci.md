@@ -54,3 +54,12 @@ The `publish_naoth_python` job publishes the naoth python package to the interna
 ## NaoImage Pipeline
 This pipeline will run inside the image created by the naoth pipeline. It will build the softbank and the ubuntu image. 
 This repo is still experimental. It is based on work done by the NaoDevils (currently unreleased).
+
+## Cleanup Jobs
+The Gitlab CI docker executor leaves a lot of volumes and images behind to speed up the CI jobs. To free up the disk a bit
+we run a cron job once every day to cleanup the CI cache volumes and old images. For this we added the following lines to
+the root crontab file (run `sudo crontab -e` to edit)
+```bash
+55 23 * * * /usr/share/gitlab-runner/clear-docker-cache prune-volumes >/dev/null 2>&1
+55 23 * * * docker image prune -f
+```
