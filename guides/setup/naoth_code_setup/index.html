@@ -1161,9 +1161,36 @@ sudo apt install gettext
 <span class="c1"># for archives in the toolchain repo</span>
 sudo apt install unzip
 </code></pre></div></p>
-<p>You may want to install the cmake GUI for easier development. For example with <code>apt install cmake-curses-gui</code>
-If you want to use clang instead of gcc you need to install the <code>clang</code>, <code>llvm</code> and <code>lld</code> packages.</p>
-<p>TODO: explain how to use different clang versions.(https://scm.cms.hu-berlin.de/berlinunited/tools/linuxtoolchain/-/merge_requests/34)</p>
+<details>
+<summary>Optional Step (Cmake GUI)</summary>
+<p>You may want to install the cmake GUI for easier development. For example with <code>apt install cmake-curses-gui</code> after
+installation run ccmake instead of cmake.</p>
+<p>You can also use the QT GUI by installing <code>sudo apt install cmake-qt-gui</code> and running cmake-gui after.</p>
+</details>
+<details>
+<summary>Optional Step (Clang)</summary>
+<p>If you want to use clang instead of gcc you need to install the <code>clang</code>, <code>llvm</code> and <code>lld</code> packages.
+<div class="highlight"><pre><span></span><code>sudo apt install clang llvm lld
+</code></pre></div>
+In Ubuntu 20.04 clang-12 is installed with the above command however the binaries are not recognized without the version
+suffix. To fix this setup the symlinks for the commands like this.
+<div class="highlight"><pre><span></span><code>sudo ln -sf /usr/bin/clang-12 /usr/bin/clang
+sudo ln -sf /usr/bin/clang++-12 /usr/bin/clang++
+sudo ln -sf /usr/bin/llvm-ar-12 /usr/bin/llvm-ar
+</code></pre></div>
+You can also install clang 13, 14 and 15 like this:
+<div class="highlight"><pre><span></span><code>sudo add-apt-repository &quot;deb http://apt.llvm.org/focal/ llvm-toolchain-focal-13 main&quot;
+sudo add-apt-repository &quot;deb http://apt.llvm.org/focal/ llvm-toolchain-focal-14 main&quot;
+sudo add-apt-repository &quot;deb http://apt.llvm.org/focal/ llvm-toolchain-focal main&quot;
+
+sudo apt update --allow-insecure-repositories
+
+sudo apt install clang-13 lld-13 llvm-13
+sudo apt install clang-14 lld-14 llvm-14
+sudo apt install clang-15 lld-15 llvm-15
+</code></pre></div>
+After this setup the symlinks as done above.</p>
+</details>
 </div>
 <div class="tabbed-block">
 <p><strong>Visual Studio</strong><br />
