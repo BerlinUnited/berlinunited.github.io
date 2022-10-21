@@ -31,6 +31,8 @@ You need to install a bunch of software before being able to develop code for th
     sudo apt install gettext
     # for archives in the toolchain repo
     sudo apt install unzip
+    # for creating an ubuntu image for the nao
+    sudo apt install pigz debootstrap
     ```
 
     ??? "Optional Step (Cmake GUI)"
@@ -40,7 +42,8 @@ You need to install a bunch of software before being able to develop code for th
         You can also use the QT GUI by installing `sudo apt install cmake-qt-gui` and running cmake-gui after.
     
     ??? "Optional Step (Clang)"
-        If you want to use clang instead of gcc you need to install the `clang`, `llvm` and `lld` packages.
+        If you want to use clang instead of gcc you need to install the `clang`, `llvm` and `lld` packages. 
+        The following snippets are specific for Ubuntu-20.04. For other operating systems they need to be modified.
         ```
         sudo apt install clang llvm lld
         ```
@@ -53,9 +56,11 @@ You need to install a bunch of software before being able to develop code for th
         ```
         You can also install clang 13, 14 and 15 like this:
         ```
+        wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key|sudo apt-key add -
+
         sudo add-apt-repository "deb http://apt.llvm.org/focal/ llvm-toolchain-focal-13 main"
         sudo add-apt-repository "deb http://apt.llvm.org/focal/ llvm-toolchain-focal-14 main"
-        sudo add-apt-repository "deb http://apt.llvm.org/focal/ llvm-toolchain-focal main"
+        sudo add-apt-repository "deb http://apt.llvm.org/focal/ llvm-toolchain-focal-15 main"
         
         sudo apt update --allow-insecure-repositories
         
@@ -63,7 +68,7 @@ You need to install a bunch of software before being able to develop code for th
         sudo apt install clang-14 lld-14 llvm-14
         sudo apt install clang-15 lld-15 llvm-15
         ```
-        After this setup the symlinks as done above.
+        After this setup the symlinks as done above. This documentation is taken from [https://apt.llvm.org/](https://apt.llvm.org/)
 
 
 === "Windows"
@@ -109,17 +114,23 @@ You need to install a bunch of software before being able to develop code for th
 ## Toolchain Setup
 === "Linux"
 
-    1. TODO
-
-=== "Windows"
-
-    Clone the toolchain repo from either internal or external  
-    - [Internal toolchain repo](https://scm.cms.hu-berlin.de/berlinunited/tools/windowstoolchain)  
-    - [External toolchain repo](https://github.com/BerlinUnited/windowstoolchain)  
+    Clone the toolchain repo from either our [internal gitlab](https://scm.cms.hu-berlin.de/berlinunited/tools/linuxtoolchain)
+    or [public github](https://github.com/BerlinUnited/linuxtoolchain). In this docu to the path of the cloned repo is called
+    `<NaoTH-Projekt/toolchain>` Obviously on your system the path looks different.  
 
     Both repos are synced but the development only happens in the internal repo.
 
-    Unpack it to `<NaoTH-Projekt/NaoTHToolchain>` and run `setup.bat` as admin.
+    TODO: add missing parts here
+
+=== "Windows"
+
+    Clone the toolchain repo from either our [internal gitlab](https://scm.cms.hu-berlin.de/berlinunited/tools/windowstoolchain)
+    or [public github](https://github.com/BerlinUnited/windowstoolchain). In this docu to the path of the cloned repo is called
+    `<NaoTH-Projekt/toolchain>` Obviously on your system the path looks different.
+
+    Both repos are synced but the development only happens in the internal repo.
+
+    Inside `<NaoTH-Projekt/NaoTHToolchain>` run `setup.bat` as admin.
 
     This script will generate `projectconfig.user.lua` which must be copied `<NaoTH-Projekt/Naoth-2020>/NaoTHSoccer/Make`.
     This is later used for configuring the compile step if needed.
