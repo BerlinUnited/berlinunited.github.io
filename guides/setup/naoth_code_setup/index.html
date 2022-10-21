@@ -1160,6 +1160,8 @@ sudo apt install git
 sudo apt install gettext
 <span class="c1"># for archives in the toolchain repo</span>
 sudo apt install unzip
+<span class="c1"># for creating an ubuntu image for the nao</span>
+sudo apt install pigz debootstrap
 </code></pre></div></p>
 <details>
 <summary>Optional Step (Cmake GUI)</summary>
@@ -1169,7 +1171,8 @@ installation run ccmake instead of cmake.</p>
 </details>
 <details>
 <summary>Optional Step (Clang)</summary>
-<p>If you want to use clang instead of gcc you need to install the <code>clang</code>, <code>llvm</code> and <code>lld</code> packages.
+<p>If you want to use clang instead of gcc you need to install the <code>clang</code>, <code>llvm</code> and <code>lld</code> packages. 
+The following snippets are specific for Ubuntu-20.04. For other operating systems they need to be modified.
 <div class="highlight"><pre><span></span><code>sudo apt install clang llvm lld
 </code></pre></div>
 In Ubuntu 20.04 clang-12 is installed with the above command however the binaries are not recognized without the version
@@ -1179,9 +1182,11 @@ sudo ln -sf /usr/bin/clang++-12 /usr/bin/clang++
 sudo ln -sf /usr/bin/llvm-ar-12 /usr/bin/llvm-ar
 </code></pre></div>
 You can also install clang 13, 14 and 15 like this:
-<div class="highlight"><pre><span></span><code>sudo add-apt-repository &quot;deb http://apt.llvm.org/focal/ llvm-toolchain-focal-13 main&quot;
+<div class="highlight"><pre><span></span><code>wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key|sudo apt-key add -
+
+sudo add-apt-repository &quot;deb http://apt.llvm.org/focal/ llvm-toolchain-focal-13 main&quot;
 sudo add-apt-repository &quot;deb http://apt.llvm.org/focal/ llvm-toolchain-focal-14 main&quot;
-sudo add-apt-repository &quot;deb http://apt.llvm.org/focal/ llvm-toolchain-focal main&quot;
+sudo add-apt-repository &quot;deb http://apt.llvm.org/focal/ llvm-toolchain-focal-15 main&quot;
 
 sudo apt update --allow-insecure-repositories
 
@@ -1189,7 +1194,7 @@ sudo apt install clang-13 lld-13 llvm-13
 sudo apt install clang-14 lld-14 llvm-14
 sudo apt install clang-15 lld-15 llvm-15
 </code></pre></div>
-After this setup the symlinks as done above.</p>
+After this setup the symlinks as done above. This documentation is taken from <a href="https://apt.llvm.org/">https://apt.llvm.org/</a></p>
 </details>
 </div>
 <div class="tabbed-block">
@@ -1240,16 +1245,18 @@ For example choose <a href="https://github.com/llvm/llvm-project/releases/downlo
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Linux</label><label for="__tabbed_2_2">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<ol>
-<li>TODO</li>
-</ol>
+<p>Clone the toolchain repo from either our <a href="https://scm.cms.hu-berlin.de/berlinunited/tools/linuxtoolchain">internal gitlab</a>
+or <a href="https://github.com/BerlinUnited/linuxtoolchain">public github</a>. In this docu to the path of the cloned repo is called
+<code>&lt;NaoTH-Projekt/toolchain&gt;</code> Obviously on your system the path looks different.  </p>
+<p>Both repos are synced but the development only happens in the internal repo.</p>
+<p>TODO: add missing parts here</p>
 </div>
 <div class="tabbed-block">
-<p>Clone the toolchain repo from either internal or external<br />
-- <a href="https://scm.cms.hu-berlin.de/berlinunited/tools/windowstoolchain">Internal toolchain repo</a><br />
-- <a href="https://github.com/BerlinUnited/windowstoolchain">External toolchain repo</a>  </p>
+<p>Clone the toolchain repo from either our <a href="https://scm.cms.hu-berlin.de/berlinunited/tools/windowstoolchain">internal gitlab</a>
+or <a href="https://github.com/BerlinUnited/windowstoolchain">public github</a>. In this docu to the path of the cloned repo is called
+<code>&lt;NaoTH-Projekt/toolchain&gt;</code> Obviously on your system the path looks different.</p>
 <p>Both repos are synced but the development only happens in the internal repo.</p>
-<p>Unpack it to <code>&lt;NaoTH-Projekt/NaoTHToolchain&gt;</code> and run <code>setup.bat</code> as admin.</p>
+<p>Inside <code>&lt;NaoTH-Projekt/NaoTHToolchain&gt;</code> run <code>setup.bat</code> as admin.</p>
 <p>This script will generate <code>projectconfig.user.lua</code> which must be copied <code>&lt;NaoTH-Projekt/Naoth-2020&gt;/NaoTHSoccer/Make</code>.
 This is later used for configuring the compile step if needed.</p>
 </div>
