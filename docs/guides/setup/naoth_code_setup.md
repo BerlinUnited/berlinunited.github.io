@@ -32,11 +32,39 @@ You need to install a bunch of software before being able to develop code for th
     # for archives in the toolchain repo
     sudo apt install unzip
     ```
-    
-    You may want to install the cmake GUI for easier development. For example with `apt install cmake-curses-gui`
-    If you want to use clang instead of gcc you need to install the `clang`, `llvm` and `lld` packages.
 
-    TODO: explain how to use different clang versions.(https://scm.cms.hu-berlin.de/berlinunited/tools/linuxtoolchain/-/merge_requests/34)
+    ??? "Optional Step (Cmake GUI)"
+        You may want to install the cmake GUI for easier development. For example with `apt install cmake-curses-gui` after
+        installation run ccmake instead of cmake.
+
+        You can also use the QT GUI by installing `sudo apt install cmake-qt-gui` and running cmake-gui after.
+    
+    ??? "Optional Step (Clang)"
+        If you want to use clang instead of gcc you need to install the `clang`, `llvm` and `lld` packages.
+        ```
+        sudo apt install clang llvm lld
+        ```
+        In Ubuntu 20.04 clang-12 is installed with the above command however the binaries are not recognized without the version
+        suffix. To fix this setup the symlinks for the commands like this.
+        ```
+        sudo ln -sf /usr/bin/clang-12 /usr/bin/clang
+        sudo ln -sf /usr/bin/clang++-12 /usr/bin/clang++
+        sudo ln -sf /usr/bin/llvm-ar-12 /usr/bin/llvm-ar
+        ```
+        You can also install clang 13, 14 and 15 like this:
+        ```
+        sudo add-apt-repository "deb http://apt.llvm.org/focal/ llvm-toolchain-focal-13 main"
+        sudo add-apt-repository "deb http://apt.llvm.org/focal/ llvm-toolchain-focal-14 main"
+        sudo add-apt-repository "deb http://apt.llvm.org/focal/ llvm-toolchain-focal main"
+        
+        sudo apt update --allow-insecure-repositories
+        
+        sudo apt install clang-13 lld-13 llvm-13
+        sudo apt install clang-14 lld-14 llvm-14
+        sudo apt install clang-15 lld-15 llvm-15
+        ```
+        After this setup the symlinks as done above.
+
 
 === "Windows"
 
