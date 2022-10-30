@@ -1147,36 +1147,6 @@ dhcp-option DNS 8.8.8.8  # &lt;-- set the name server of your liking
 <ul>
 <li>in our instance it is possible to create bounding boxes that are (partially) outside the image</li>
 </ul>
-<p>Currently <code>docker-compose.override.yml</code> must look like this to have access to shared folders. From there a lot of data will be loaded.
-<div class="highlight"><pre><span></span><code>version: <span class="s2">&quot;3.3&quot;</span>
-
-services:
-  cvat_proxy:
-    environment:
-      CVAT_HOST: <span class="s2">&quot;ball.informatik.hu-berlin.de 141.20.26.37&quot;</span>
-    ports:
-      - <span class="s2">&quot;80:80&quot;</span>
-      - <span class="s2">&quot;443:443&quot;</span>
-  cvat:
-    environment:
-      CVAT_SHARE_URL: <span class="s2">&quot;Mounted from /mnt/share host directory&quot;</span>
-    volumes:
-      - cvat_share2:/home/django/share/repl:ro
-      - cvat_share3:/home/django/share/devils:ro
-
-volumes:
-  cvat_share2:
-    driver_opts:
-      type: none
-      device: /mnt/repl/
-      o: <span class="nb">bind</span>
-
-  cvat_share3:
-    driver_opts:
-      type: none
-      device: /mnt/repl/Experiments/NaoDevilsDatasets
-      o: <span class="nb">bind</span>
-</code></pre></div></p>
 <h2 id="auto-annotation-for-developers">Auto Annotation for developers</h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
