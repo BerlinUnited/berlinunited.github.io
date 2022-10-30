@@ -73,38 +73,6 @@ dhcp-option DNS 8.8.8.8  # <-- set the name server of your liking
 ### Own changes to the CVAT Code
 - in our instance it is possible to create bounding boxes that are (partially) outside the image
 
-Currently `docker-compose.override.yml` must look like this to have access to shared folders. From there a lot of data will be loaded.
-```bash
-version: "3.3"
-
-services:
-  cvat_proxy:
-    environment:
-      CVAT_HOST: "ball.informatik.hu-berlin.de 141.20.26.37"
-    ports:
-      - "80:80"
-      - "443:443"
-  cvat:
-    environment:
-      CVAT_SHARE_URL: "Mounted from /mnt/share host directory"
-    volumes:
-      - cvat_share2:/home/django/share/repl:ro
-      - cvat_share3:/home/django/share/devils:ro
-
-volumes:
-  cvat_share2:
-    driver_opts:
-      type: none
-      device: /mnt/repl/
-      o: bind
-
-  cvat_share3:
-    driver_opts:
-      type: none
-      device: /mnt/repl/Experiments/NaoDevilsDatasets
-      o: bind
-```
-
 ## Auto Annotation for developers
 !!! note
     Add note about sometimes getting errors in cvat ui about models that cant be loaded. I think cvat nuclio project must be recreated
