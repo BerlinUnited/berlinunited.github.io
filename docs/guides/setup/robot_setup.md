@@ -12,7 +12,7 @@ In order to flash the robot, make sure the robot is turned off then insert the u
 The robot should be in the monkey pose during the flash process. After this is finished you can set the robot upright. It will then
 stand up and calibrate (BUT WHAT EXACTLY???). During the calibration the robot must stand on an even surface.
 
-![monkey_pose](../../img/naoth_setup/robot_poses.png)
+![monkey_pose](../../img/naoth_setup/robot_poses.png)  
 Left: monkey pose. Right: sit pose
 
 The next step is to initialize the robot with the required libs. This can be done with NaoSCP and is described [here](../../naoth_tools/naoscp.md)
