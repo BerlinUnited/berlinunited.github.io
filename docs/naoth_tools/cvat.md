@@ -18,7 +18,7 @@ cd  cvat-repo || exit
 export CVAT_HOST=ball.informatik.hu-berlin.de
 export ACME_EMAIL=schlottb@informatik.hu-berlin.de
 
-docker-compose -f docker-compose.yml -f docker-compose.dev.yml -f docker-compose.https.yml -f docker-compose.override.yml -f components/serverless/docker-compose.serverless.yml build
+docker compose -f docker-compose.yml -f docker-compose.dev.yml -f docker-compose.https.yml -f docker-compose.override.yml -f components/serverless/docker-compose.serverless.yml build
 ```
 
 **start_cvat.sh**  
@@ -28,13 +28,13 @@ cd cvat-repo || exit
 export CVAT_HOST=ball.informatik.hu-berlin.de
 export ACME_EMAIL=schlottb@informatik.hu-berlin.de
 
-docker-compose -f docker-compose.yml -f docker-compose.dev.yml -f docker-compose.https.yml -f components/serverless/docker-compose.serverless.yml -f docker-compose.override.yml up -d
+docker compose -f docker-compose.yml -f docker-compose.dev.yml -f docker-compose.https.yml -f components/serverless/docker-compose.serverless.yml -f docker-compose.override.yml up -d
 ```
 
 **stop_cvat.sh**  
 ```bash
 cd cvat-repo || exit
-docker-compose -f docker-compose.yml -f docker-compose.dev.yml -f components/serverless/docker-compose.serverless.yml -f docker-compose.override.yml down --remove-orphans
+docker compose -f docker-compose.yml -f docker-compose.dev.yml -f components/serverless/docker-compose.serverless.yml -f docker-compose.override.yml down --remove-orphans
 ```
 
 
@@ -86,7 +86,7 @@ For a general guide to auto annotation see the official [CVAT Docu](https://open
     Move used models to models.naoth.de
 
 The code for our models we use for auto annotation can be found at the [CVAT Models](https://github.com/BerlinUnited/cvat_models) repo.
-Currently the models must be deployed on the same server as the CVAT label tool. All further details can be found inside the repository.
+Currently, the models must be deployed on the same server as the CVAT label tool. All further details can be found inside the repository.
 
 ----
 ### Docker and GPU
