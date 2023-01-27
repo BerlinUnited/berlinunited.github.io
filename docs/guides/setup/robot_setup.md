@@ -17,6 +17,8 @@ Left: monkey pose. Right: sit pose
 
 The next step is to initialize the robot with the required libs. This can be done with NaoSCP and is described [here](../../naoth_tools/naoscp.md)
 
+TODO: how to compile NaoSmal??? You need the naoqi toolchain in AL_DIR
+
 ## New Setup Routine (with custom image)
 The first two steps will be done with a custom image.
 
