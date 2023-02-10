@@ -1101,24 +1101,24 @@ cleanly separated from the cvat commits.</p>
 <p>On the internal ball.informatik.hu-berlin.de server, the code is checked out at <code>/opt/cvat-repo</code>.</p>
 <p>There are three helper scripts for starting/stopping and building cvat:  </p>
 <p><strong>build_cvat.sh</strong><br />
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span>  cvat-repo <span class="o">||</span> <span class="nb">exit</span>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w">  </span>cvat-repo<span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">exit</span>
 
-<span class="nb">export</span> <span class="nv">CVAT_HOST</span><span class="o">=</span>ball.informatik.hu-berlin.de
-<span class="nb">export</span> <span class="nv">ACME_EMAIL</span><span class="o">=</span>schlottb@informatik.hu-berlin.de
+<span class="nb">export</span><span class="w"> </span><span class="nv">CVAT_HOST</span><span class="o">=</span>ball.informatik.hu-berlin.de
+<span class="nb">export</span><span class="w"> </span><span class="nv">ACME_EMAIL</span><span class="o">=</span>schlottb@informatik.hu-berlin.de
 
-docker compose -f docker-compose.yml -f docker-compose.dev.yml -f docker-compose.https.yml -f docker-compose.override.yml -f components/serverless/docker-compose.serverless.yml build
+docker<span class="w"> </span>compose<span class="w"> </span>-f<span class="w"> </span>docker-compose.yml<span class="w"> </span>-f<span class="w"> </span>docker-compose.dev.yml<span class="w"> </span>-f<span class="w"> </span>docker-compose.https.yml<span class="w"> </span>-f<span class="w"> </span>docker-compose.override.yml<span class="w"> </span>-f<span class="w"> </span>components/serverless/docker-compose.serverless.yml<span class="w"> </span>build
 </code></pre></div></p>
 <p><strong>start_cvat.sh</strong><br />
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span> cvat-repo <span class="o">||</span> <span class="nb">exit</span>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>cvat-repo<span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">exit</span>
 
-<span class="nb">export</span> <span class="nv">CVAT_HOST</span><span class="o">=</span>ball.informatik.hu-berlin.de
-<span class="nb">export</span> <span class="nv">ACME_EMAIL</span><span class="o">=</span>schlottb@informatik.hu-berlin.de
+<span class="nb">export</span><span class="w"> </span><span class="nv">CVAT_HOST</span><span class="o">=</span>ball.informatik.hu-berlin.de
+<span class="nb">export</span><span class="w"> </span><span class="nv">ACME_EMAIL</span><span class="o">=</span>schlottb@informatik.hu-berlin.de
 
-docker compose -f docker-compose.yml -f docker-compose.dev.yml -f docker-compose.https.yml -f components/serverless/docker-compose.serverless.yml -f docker-compose.override.yml up -d
+docker<span class="w"> </span>compose<span class="w"> </span>-f<span class="w"> </span>docker-compose.yml<span class="w"> </span>-f<span class="w"> </span>docker-compose.dev.yml<span class="w"> </span>-f<span class="w"> </span>docker-compose.https.yml<span class="w"> </span>-f<span class="w"> </span>components/serverless/docker-compose.serverless.yml<span class="w"> </span>-f<span class="w"> </span>docker-compose.override.yml<span class="w"> </span>up<span class="w"> </span>-d
 </code></pre></div></p>
 <p><strong>stop_cvat.sh</strong><br />
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span> cvat-repo <span class="o">||</span> <span class="nb">exit</span>
-docker compose -f docker-compose.yml -f docker-compose.dev.yml -f components/serverless/docker-compose.serverless.yml -f docker-compose.override.yml down --remove-orphans
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>cvat-repo<span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">exit</span>
+docker<span class="w"> </span>compose<span class="w"> </span>-f<span class="w"> </span>docker-compose.yml<span class="w"> </span>-f<span class="w"> </span>docker-compose.dev.yml<span class="w"> </span>-f<span class="w"> </span>components/serverless/docker-compose.serverless.yml<span class="w"> </span>-f<span class="w"> </span>docker-compose.override.yml<span class="w"> </span>down<span class="w"> </span>--remove-orphans
 </code></pre></div></p>
 <h3 id="setup-docker-network">Setup Docker Network</h3>
 <p>The server where cvat is hosted is inside the HU network. From the outside it is only accessible via a VPN. However
@@ -1168,24 +1168,24 @@ Currently, the models must be deployed on the same server as the CVAT label tool
 <h3 id="docker-and-gpu">Docker and GPU</h3>
 <p>TODO this is deprecated</p>
 <p>Since inference is unbearable slow on a cpu we need to enable GPU access in docker. On the host run this to install the nvidea-docker-toolkit:
-<div class="highlight"><pre><span></span><code><span class="nv">distribution</span><span class="o">=</span><span class="k">$(</span>. /etc/os-release<span class="p">;</span><span class="nb">echo</span> <span class="nv">$ID$VERSION_ID</span><span class="k">)</span>
-curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey <span class="p">|</span> sudo apt-key add -
-curl -s -L https://nvidia.github.io/nvidia-docker/<span class="nv">$distribution</span>/nvidia-docker.list <span class="p">|</span> sudo tee /etc/apt/sources.list.d/nvidia-docker.list
+<div class="highlight"><pre><span></span><code><span class="nv">distribution</span><span class="o">=</span><span class="k">$(</span>.<span class="w"> </span>/etc/os-release<span class="p">;</span><span class="nb">echo</span><span class="w"> </span><span class="nv">$ID$VERSION_ID</span><span class="k">)</span>
+curl<span class="w"> </span>-s<span class="w"> </span>-L<span class="w"> </span>https://nvidia.github.io/nvidia-docker/gpgkey<span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>apt-key<span class="w"> </span>add<span class="w"> </span>-
+curl<span class="w"> </span>-s<span class="w"> </span>-L<span class="w"> </span>https://nvidia.github.io/nvidia-docker/<span class="nv">$distribution</span>/nvidia-docker.list<span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>/etc/apt/sources.list.d/nvidia-docker.list
 
-sudo apt-get update <span class="o">&amp;&amp;</span> sudo apt-get install -y nvidia-container-toolkit
-sudo systemctl restart docker
+sudo<span class="w"> </span>apt-get<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>nvidia-container-toolkit
+sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>docker
 </code></pre></div>
 Install the nvidea-container runtime on the host
-<div class="highlight"><pre><span></span><code>sudo apt-get install nvidia-container-runtime
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>nvidia-container-runtime
 </code></pre></div>
 modify /etc/docker/daemon.json in order to make the gpu work with compose-files
 <div class="highlight"><pre><span></span><code><span class="o">{</span>
-    <span class="s2">&quot;runtimes&quot;</span>: <span class="o">{</span>
-        <span class="s2">&quot;nvidia&quot;</span>: <span class="o">{</span>
-            <span class="s2">&quot;path&quot;</span>: <span class="s2">&quot;/usr/bin/nvidia-container-runtime&quot;</span>,
-            <span class="s2">&quot;runtimeArgs&quot;</span>: <span class="o">[]</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
+<span class="w">    </span><span class="s2">&quot;runtimes&quot;</span>:<span class="w"> </span><span class="o">{</span>
+<span class="w">        </span><span class="s2">&quot;nvidia&quot;</span>:<span class="w"> </span><span class="o">{</span>
+<span class="w">            </span><span class="s2">&quot;path&quot;</span>:<span class="w"> </span><span class="s2">&quot;/usr/bin/nvidia-container-runtime&quot;</span>,
+<span class="w">            </span><span class="s2">&quot;runtimeArgs&quot;</span>:<span class="w"> </span><span class="o">[]</span>
+<span class="w">        </span><span class="o">}</span>
+<span class="w">    </span><span class="o">}</span>
 <span class="o">}</span>
 </code></pre></div></p>
 

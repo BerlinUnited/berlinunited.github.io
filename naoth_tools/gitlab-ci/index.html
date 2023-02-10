@@ -1096,8 +1096,8 @@ This repo is still experimental. It is based on work done by the NaoDevils (curr
 <p>The Gitlab CI docker executor leaves a lot of volumes and images behind to speed up the CI jobs. To free up the disk a bit
 we run a cron job once every day to cleanup the CI cache volumes and old images. For this we added the following lines to
 the root crontab file (run <code>sudo crontab -e</code> to edit)
-<div class="highlight"><pre><span></span><code><span class="m">55</span> <span class="m">23</span> * * * /usr/share/gitlab-runner/clear-docker-cache prune-volumes &gt;/dev/null <span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
-<span class="m">55</span> <span class="m">23</span> * * * docker image prune -f
+<div class="highlight"><pre><span></span><code><span class="m">55</span><span class="w"> </span><span class="m">23</span><span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span>/usr/share/gitlab-runner/clear-docker-cache<span class="w"> </span>prune-volumes<span class="w"> </span>&gt;/dev/null<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
+<span class="m">55</span><span class="w"> </span><span class="m">23</span><span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span>docker<span class="w"> </span>image<span class="w"> </span>prune<span class="w"> </span>-f
 </code></pre></div></p>
 
               
