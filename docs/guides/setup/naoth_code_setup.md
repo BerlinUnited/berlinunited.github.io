@@ -122,6 +122,8 @@ You need to install a bunch of software before being able to develop code for th
 
     TODO: add missing parts here
 
+    TODO: how to compile NaoSmal??? You need the naoqi toolchain in AL_DIR
+
 === "Windows"
 
     Clone the toolchain repo from either our [internal gitlab](https://scm.cms.hu-berlin.de/berlinunited/tools/windowstoolchain)
@@ -134,6 +136,8 @@ You need to install a bunch of software before being able to develop code for th
 
     This script will generate `projectconfig.user.lua` which must be copied `<NaoTH-Projekt/Naoth-2020>/NaoTHSoccer/Make`.
     This is later used for configuring the compile step if needed.
+
+    TODO: how to compile NaoSmal??? You need the naoqi toolchain in AL_DIR
 
 
 ## Clone and build
@@ -165,6 +169,8 @@ where `<NaoTH-Projekt/Naoth-2020>` is the desired path to the repository on your
 
     In order to build the naoth binary go to `<NaoTH-Projekt>/Naoth-2020/NaoTHSoccer/Make` and run `./compileGame.sh -j 4`
 
+    TODO: mention lolaadaptor and naosmal compilation
+
 === "Windows"
 
     Go to the `<NaoTH-Projekt/Naoth-2020>/NaoTHSoccer/Make` directory and execute `generate-vs2019.bat` to 
@@ -194,6 +200,8 @@ where `<NaoTH-Projekt/Naoth-2020>` is the desired path to the repository on your
 
     In order to build the naoth binary go to `<NaoTH-Projekt>/Naoth-2020/NaoTHSoccer/Make`, open the mintty bash console in
     this folder via the context menu and run `./compileGame.sh -j 4`
+
+    TODO: mention lolaadaptor and naosmal compilation
 
 ---
 For development inside WSL follow the linux instructions.
