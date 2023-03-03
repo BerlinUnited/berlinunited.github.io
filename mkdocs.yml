@@ -28,6 +28,7 @@ nav:
     - 'robocup_tools/game_recording.md'
   - Guides:
     - 'guides/onboarding.md'
+    - 'guides/prerequisites.md'
     - Setup:
         - 'guides/setup/naoth_code_setup.md'
         - 'guides/setup/robot_setup.md'
