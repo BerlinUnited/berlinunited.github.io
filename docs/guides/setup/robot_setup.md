@@ -26,47 +26,49 @@ After that the compiled robot code can be deployed with NaoSCP as well.
 
 ## Calibrating Joints 
 
+What to do:
+
+1. prepare a USB stick with NaoOS Image (as described above) with factory reset.
+2. flash the robot
+   - a. turn off the robot
+   - b. insert the USB stick with the system
+   - c. press the chestbutton **until it turns blue** (this takes about 3s), then release the button
+   - d. (the button should blink blue very fast)
+   - e. wait until the flashing is done (can take 10 min) (robot in the monkey pose)
+   - f. wait until the robor says either 
+       - (x): "I'm not save like this ... etc."
+       - (y): "Good morning. Please put me in an open space on the floor and touch my head or my bumper so I can wake up correctly."
+3. if the robot says (y):
+   - a. put the robot on the solid floor (not carper, not table) with enough space around it (50cm) in a crouch position.
+   - b. touch robot's head or a foot bumber 
+   - c. robot will perform a "wakin up" procedure
+   - d. wait until the robot sits down and says "Thanks, now I feel great."
+4. if the robot says (x):
+   - a. connect a LAN cable to the router and wait some seconds
+   - b. press robot's chest button
+   - c. the root willsay it's ip address
+   - d. connect to the robot with `ssh`
+   - e. create a new directory (if it doesn't exist)
+       ```sh
+       sudo mkdir /media/internal/diagnostic.bak
+       ```
+   - f. move old diagnostic files into the the new directory
+       ```sh
+       sudo mv /media/internal/diagnostic_* /media/internal/diagnostic.bak
+       ```
+   - g. reboot the robot
+      ```sh
+      sudo reboot
+      ```
+   - h. after the sturtpu the robot should say (y)
+   - i. go to 3.
+5. now the robot is calubrated
+   - a. turn off the robot
+   - b. proceed with the setup of the ubuntu system
+
 Reference:
 * https://www.robotlab.com/support/nao-will-not-stand-up
 
-What to do:
-1. prepare a USB stick with NaoOS Image (as described above) with factory reset.
-2. flash the robot
-  a. turn off the robot
-  b. insert the USB stick with the system
-  c. press the chestbutton **until it turns blue** (this takes about 3s), then release the button
-  d. <the button should blink blue very fast>
-  e. wait until the flashing is done (can take 10 min) <robot in the monkey pose>
-  f. wait until the robor says either 
-    - (x): "I'm not save like this ... etc."
-    - (y): "Good morning. Please put me in an open space on the floor and touch my head or my bumper so I can wake up correctly."
-3. if the robot says (y):
-  a. put the robot on the solid floor (not carper, not table) with enough space around it (50cm) in a crouch position.
-  b. touch robot's head or a foot bumber 
-  c. robot will perform a "wakin up" procedure
-  d. wait until the robot sits down and says "Thanks, now I feel great."
-4. if the robot says (x):
-  a. connect a LAN cable to the router and wait some seconds
-  b. press robot's chest button
-  c. the root willsay it's ip address
-  d. connect to the robot with `ssh`
-  e. create a new directory (if it doesn't exist)
-     ```sh
-     sudo mkdir /media/internal/diagnostic.bak
-     ```
-  f. move old diagnostic files into the the new directory
-     ```sh
-     sudo mv /media/internal/diagnostic_* /media/internal/diagnostic.bak
-     ```
-  g. reboot the robot
-     ```sh
-     sudo reboot
-     ```
-  h. after the sturtpu the robot should say (y)
-  i. go to 3.
-5. now the robot is calubrated
-  a. turn off the robot
-  b. proceed with the setup of the ubuntu system
 
 
 ## New Setup Routine (with custom image)
