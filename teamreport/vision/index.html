@@ -1253,7 +1253,7 @@
                 
 
 
-<h1 id="visual-perception">Visual Perception</h1>
+<div><h1 id="visual-perception">Visual Perception</h1>
 <p>Visual perception is the primary way for the NAO robot of perceiving its environment. To reduce computational 
 complexity our vision is based on a reliable field color detection. This color information is used to estimate 
 the boundaries of the visible field region in the image. Which is done while scanning for 
@@ -1266,7 +1266,7 @@ modules and the representations they provide, which were used at the
 RoboCup 2016 competition. In the following we describe some of the
 important modules in more detail.</p>
 <figure>
-  <img src="../img/vision-modules.png" />
+  <img src="../img/vision-modules.png">
   <figcaption>
 Overview over the vision system. Green boxes illustrate modules and
 round nodes visualize the representations with arrows indicating the
@@ -1282,7 +1282,7 @@ This constitutes the first step in the attempt for a automatic field color detec
 the structure of the color space perceived by the robot NAO and propose a simple yet powerful model for 
 separation of the color regions, whereby green color is of a particular interest.</p>
 <figure>
-  <img src="../img/green_detection.png"/>
+  <img src="../img/green_detection.png">
   <figcaption>
 (left) Example image from the Iran Open 2015. (right) Pixels
 classified as green are marked green; pixels with too low chroma marked
@@ -1313,7 +1313,7 @@ Figure <a href="#fig:green-hist">4.6</a>{reference-type="ref"
 reference="fig:green-hist"} (middle) illustrates the resulting
 histogram. Here we clearly see the gray and the green cluster.</p>
 <figure>
-  <img src="../img/green_histogram.png"/>
+  <img src="../img/green_histogram.png">
   <figcaption>
 (left) UV-histogram for a log file taken
 at the Iran Open 2015. Red line illustrates the projection plane along
@@ -1390,7 +1390,7 @@ which would be able to cover the variety of the shades to enable a robot
 to play outside.</p>
 <h2 id="scanlineedgeldetector">ScanLineEdgelDetector</h2>
 <figure>
-  <img src="../img/ScanLineEdgelDetector.png"/>
+  <img src="../img/ScanLineEdgelDetector.png">
   <figcaption>
 With top to down scanlines [green lines] the edges of possible
 field lines [black lines] including their orientation are detected
@@ -1412,7 +1412,7 @@ scanline a point, which marks the border of the field.</p>
 <em>ScanLineEdgelDetector</em>, we calculate for each image a polygon, which is
 representing the border of the field in the image.</p>
 <figure>
-  <img src="../img/field_detector.png"/>
+  <img src="../img/field_detector.png">
   <figcaption>
 The endpoints provided by the ScanLineEdgelDetector (left) are used
 to calculate the field border (right).
@@ -1423,7 +1423,7 @@ to calculate the field border (right).
 <p>This module clusters neighbouring line border points, detected by
 <em>ScanLineEdgelDetector</em>.</p>
 <figure>
-  <img src="../img/line_graph_provider.png"/>
+  <img src="../img/line_graph_provider.png">
   <figcaption>
 TODO: write a caption here
 </figcaption>
@@ -1471,7 +1471,7 @@ Figure <a href="#fig:GoalFeatureDetector">4.8</a>{reference-type="ref"
 reference="fig:GoalFeatureDetector"} illustrates the scan lines as well
 as detected edgels (left) and resulting goal post features (right).</p>
 <figure>
-  <img src="../img/goal_feature_detector.png"/>
+  <img src="../img/goal_feature_detector.png">
   <figcaption>
 The scan lines [grey lines] above and below the estimated horizon
 are used to detect the goal post border points and the orientation of
@@ -1492,7 +1492,7 @@ y coordinate) are checked against these features. Features of all scan
 lines, which are located underneath of each other, are collected into
 one cluster. Each of these clusters represents a possible goal post.</p>
 <figure>
-  <img src="../img/goal_detector.png"/>
+  <img src="../img/goal_detector.png">
   <figcaption>
 Goal features detected as described in
 [4.6](#s:GoalFeatureDetector){reference-type="ref"
@@ -1534,9 +1534,9 @@ divided into two steps: finding a small set of suitable candidates for a
 ball by a fast heuristic algorithm, and classifying the candidates
 afterwards with a more precise method.</p>
 <figure>
-  <img src="../img/ball_examples.png"/>
+  <img src="../img/ball_examples.png">
   <figcaption>
-Examples of the black&white as seen by the
+Examples of the black&amp;white as seen by the
 robot.
 </figcaption>
 </figure>
@@ -1624,7 +1624,7 @@ calculate the measure function at this point:
 the ball would be completely inside the image. The following algorithm
 illustrates how the local maxima of this function are estimated:</p>
 <figure>
-  <img src="../img/local_maxima_algorithm.png"/>
+  <img src="../img/local_maxima_algorithm.png">
   <figcaption>
 </figcaption>
 </figure>
@@ -1644,7 +1644,7 @@ Figure <a href="#fig:bw-patches">4.21</a>{reference-type="ref"
 reference="fig:bw-patches"} illustrate the detected best 5 local maxima
 of the measure function.</p>
 <figure>
-  <img src="../img/key_points.png"/>
+  <img src="../img/key_points.png">
   <figcaption>
   Illustration of the value function for finding the ball key points.
 Semitransparent overlay illustrates the searched area. Intensity of the
@@ -1654,7 +1654,7 @@ function.
 </figure>
 
 <figure>
-  <img src="../img/patches.png"/>
+  <img src="../img/patches.png">
   <figcaption>
   Illustration of detected key points in the situations where the ball
 is close to the robot or overlapping with the line.
@@ -1690,7 +1690,7 @@ labeling interface. Patches are presented in pages consisting of a
 <span class="arithmatex">\(10\times10\)</span> matrix. Labels can be applied or removed simply by clicking
 with the mouse at a particular patch.</p>
 <figure>
-  <img src="../img/old_label_tool.png"/>
+  <img src="../img/old_label_tool.png">
   <figcaption>
   Examples of the labeling interface. Patches are presented in pages
 consisting of a $10\times10$ matrix. Labels are applied or removed by a
@@ -1711,7 +1711,7 @@ directly used by the ball detector. All corresponding functions can be
 found in the directory <code>Utils\MatlabDeepLearning</code>. Example of the
 resulting classification can be found in .</p>
 <figure>
-  <img src="../img/detected_ball.png"/>
+  <img src="../img/detected_ball.png">
   <figcaption>
 Examples of the detected
 ball.
@@ -1725,7 +1725,7 @@ this point we would like to thank in particular the team NaoDevils for
 providing their trained CNN classifier during the RoboCup 2017
 competition. This classifier is included in our code base and can be
 used for comparison purposes. It can be found in\
-<code>...\VisualCortex\BallDetector\Classifier\DortmundCNN</code>.</p>
+<code>...\VisualCortex\BallDetector\Classifier\DortmundCNN</code>.</p></div>
 
               
             </article>

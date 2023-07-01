@@ -1227,7 +1227,7 @@
                 
 
 
-<h1 id="modeling">Modeling</h1>
+<div><h1 id="modeling">Modeling</h1>
 <p>In order to realize a complex and successful cooperative behavior it is necessary to have 
 a appropriate model of the surrounding world. In our approach we focus on local models of particular aspect</p>
 <h2 id="camera-matrix-calibration">Camera Matrix Calibration</h2>
@@ -1255,7 +1255,7 @@ It can be choosen between a simple Gauss-Newton and two Levenberg-Marquardt impl
 The current implementation supports a manual and automatic mode for the calibration procedure.
 The figure below illustrates the projection of the collected line perceptions before (left) and after (right) the minimization procedure.</p>
 <figure>
-  <img src="../img/camera_matrix_calibration.png"/>
+  <img src="../img/camera_matrix_calibration.png">
   <figcaption>
 Projection of the line point perceptions before (left) and
 after(right) camera calibration. The assignments of the perceived line
@@ -1288,7 +1288,7 @@ Figure <a href="#fig:compass" reference="fig:compass" reference-type="ref">5.4<
 shows a set of edgels detected in a particular frame on the left side.
 On the right side the according histogram is plotted.</p>
 <figure>
-  <img src="../img/prob_compass.png"/>
+  <img src="../img/prob_compass.png">
   <figcaption>
 Left figure visualizes the edgel graph in local coordinates of the
 robot in a particular frame. Right illustrates the kernel histogram over
@@ -1329,7 +1329,7 @@ the behavior is the hypothesis which is the closest to the robot and is updated 
 <p>The dense false detections result in post hypotheses, which is later ignored while extracting the goal.</p>
 <p>More detailed description of the algorithm as well as the experimental
 results can be found in [@HSR-ScheunemannMellmann-14].</p>
-<p><img alt="image" src="../../img/goal_modeling.png" /></p>
+<p><img alt="image" src="../../img/goal_modeling.png"></p>
 <h2 id="simulation-based-selection-of-actions">Simulation Based Selection of Actions</h2>
 <p>The robot is capable of different kicks and should given a particular situation, e.g., the robot's position, the position 
 of the ball and obstacles, determine which kick is the optimal kick to perform in this situation. A naive geometric 
@@ -1346,7 +1346,7 @@ distribution is modeled as a Gaussian distribution. The parameters which
 describe the distribution for one action are velocity, angle and their
 standard deviations.</p>
 <figure>
-  <img src="../img/kickdist.png"/>
+  <img src="../img/kickdist.png">
   <figcaption>
 Kick action model: distributions of the possible ball positions after
 a sidekick and the long kick forward with the right foot. Blue dots
@@ -1427,7 +1427,7 @@ action with the highest mean is selected and executed. If no action has
 enough good particles, the best action is to turn towards the opponent
 goal.</p>
 <figure>
-  <img src="../img/action_selection.png"/>
+  <img src="../img/action_selection.png">
   <figcaption>
 Three examples of kick simulations. Each possible kick direction is
 simulated with 30 samples (different colors correspond to different
@@ -1472,7 +1472,7 @@ and</p>
 <p>for the repulsor and attractor respectively. All parameters are of unit
 m. The resulting potential field is visualized below.</p>
 <figure>
-  <img src="../img/potential-field.png"/>
+  <img src="../img/potential-field.png">
   <figcaption>
 Strategic potential field evaluating ball positions. Own goal is on
 the left (blue).
@@ -1498,7 +1498,7 @@ the avoidance. However, a false detection will force the robot to take the arms 
 (MotorJointdata) and the measured joint position (SensorJointData) of the LShoulderPitch and 
 RShoulderPitch joints. These joints have the largest leverage and are affected the most when a collision on an arm occurs.</p>
 <figure>
-  <img src="../img/collision.png"/>
+  <img src="../img/collision.png">
   <figcaption>
 Moving average of the absolute joint error during a collision on the
 left arm. The error of the left shoulder pitch (LShoulderPitch) is shown
@@ -1584,7 +1584,7 @@ accelerometer and gyrometer to a orientation and a gravity adjusted
 acceleration in the inertial frame. Quaternions are used in calculations
 and the orientation is represented as a rotation vector (Euler vector)
 in the state of the Unscented-Kalman-Filter to improve the numerical
-stability and avoid the problem of singularities.</p>
+stability and avoid the problem of singularities.</p></div>
 
               
             </article>

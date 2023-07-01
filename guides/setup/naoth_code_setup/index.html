@@ -1133,20 +1133,20 @@
                 
 
 
-<h1 id="naoth-development-setup">NaoTH Development Setup</h1>
+<div><h1 id="naoth-development-setup">NaoTH Development Setup</h1>
 <h2 id="prerequisites">Prerequisites</h2>
 <p>You need to install a bunch of software before being able to develop code for the Nao robot.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Linux</label><label for="__tabbed_1_2">Windows</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Linux</label><label for="__tabbed_1_2">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>In Linux you need the following dependencies: cmake, gcc and g++ compiler, zlib, qtcreator, git, gettext, java, netbeans, libreadline-dev</p>
-<p>gettext is for compiling glib<br />
+<p>gettext is for compiling glib<br>
 libreadline-dev is needed for our LUA experiments.  </p>
-<p>We support Java 8 and 11+.<br />
+<p>We support Java 8 and 11+.<br>
 For the VideoAnalyzer-Dialog in RobotControl it is potentially necessary to install <code>ffmpeg-compat-55</code> package (Arch) see
 <a href="https://wiki.archlinux.org/index.php/java#JavaFX.27s_MediaPlayer_constructor_throws_an_exception">here</a></p>
 <p>You can install them in ubuntu with this:
-<div class="highlight"><pre><span></span><code><span class="c1"># java</span>
+</p><div class="highlight"><pre><span></span><code><span class="c1"># java</span>
 sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>default-jdk<span class="w"> </span>openjfx<span class="w"> </span>netbeans
 <span class="c1"># c++ compile</span>
 sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>build-essential<span class="w"> </span>cmake<span class="w"> </span>
@@ -1162,7 +1162,7 @@ sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> <
 sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>unzip
 <span class="c1"># for creating an ubuntu image for the nao</span>
 sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>pigz<span class="w"> </span>debootstrap
-</code></pre></div></p>
+</code></pre></div>
 <details>
 <summary>Optional Step (Cmake GUI)</summary>
 <p>You may want to install the cmake GUI for easier development. For example with <code>apt install cmake-curses-gui</code> after
@@ -1173,7 +1173,7 @@ installation run ccmake instead of cmake.</p>
 <summary>Optional Step (Clang)</summary>
 <p>If you want to use clang instead of gcc you need to install the <code>clang</code>, <code>llvm</code> and <code>lld</code> packages. 
 The following snippets are specific for Ubuntu-20.04. For other operating systems they need to be modified.
-<div class="highlight"><pre><span></span><code>sudo apt install clang llvm lld
+</p><div class="highlight"><pre><span></span><code>sudo apt install clang llvm lld
 </code></pre></div>
 In Ubuntu 20.04 clang-12 is installed with the above command however the binaries are not recognized without the version
 suffix. To fix this setup the symlinks for the commands like this.
@@ -1184,9 +1184,9 @@ sudo ln -sf /usr/bin/llvm-ar-12 /usr/bin/llvm-ar
 You can also install clang 13, 14 and 15 like this:
 <div class="highlight"><pre><span></span><code>wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key|sudo apt-key add -
 
-sudo add-apt-repository &quot;deb http://apt.llvm.org/focal/ llvm-toolchain-focal-13 main&quot;
-sudo add-apt-repository &quot;deb http://apt.llvm.org/focal/ llvm-toolchain-focal-14 main&quot;
-sudo add-apt-repository &quot;deb http://apt.llvm.org/focal/ llvm-toolchain-focal-15 main&quot;
+sudo add-apt-repository "deb http://apt.llvm.org/focal/ llvm-toolchain-focal-13 main"
+sudo add-apt-repository "deb http://apt.llvm.org/focal/ llvm-toolchain-focal-14 main"
+sudo add-apt-repository "deb http://apt.llvm.org/focal/ llvm-toolchain-focal-15 main"
 
 sudo apt update --allow-insecure-repositories
 
@@ -1194,11 +1194,11 @@ sudo apt install clang-13 lld-13 llvm-13
 sudo apt install clang-14 lld-14 llvm-14
 sudo apt install clang-15 lld-15 llvm-15
 </code></pre></div>
-After this setup the symlinks as done above. This documentation is taken from <a href="https://apt.llvm.org/">https://apt.llvm.org/</a></p>
+After this setup the symlinks as done above. This documentation is taken from <a href="https://apt.llvm.org/">https://apt.llvm.org/</a>
 </details>
 </div>
 <div class="tabbed-block">
-<p><strong>Visual Studio</strong><br />
+<p><strong>Visual Studio</strong><br>
   - Install Microsoft Visual Studio 2019 Community Edition from <a href="https://visualstudio.microsoft.com/vs/community/">https://visualstudio.microsoft.com/vs/community/</a> </p>
 <ul>
 <li><strong>Note:</strong> The project is optimized for VS2019 it is therefore recommended to use it.</li>
@@ -1219,7 +1219,7 @@ After this setup the symlinks as done above. This documentation is taken from <a
 </ul>
 </li>
 </ul>
-<p><strong>Java</strong><br />
+<p><strong>Java</strong><br>
 You need at least Java JDK 8. Normally you need a oracle account for downloading the jdk. Or you can use the 
 following workaround taken from <a href="https://gist.github.com/wavezhang/ba8425f24a968ec9b2a8619d7c2d86a6">here</a></p>
 <ul>
@@ -1242,7 +1242,7 @@ For example choose <a href="https://github.com/llvm/llvm-project/releases/downlo
 </div>
 </div>
 <h2 id="toolchain-setup">Toolchain Setup</h2>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Linux</label><label for="__tabbed_2_2">Windows</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">Linux</label><label for="__tabbed_2_2">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>Clone the toolchain repo from either our <a href="https://scm.cms.hu-berlin.de/berlinunited/tools/linuxtoolchain">internal gitlab</a>
@@ -1250,6 +1250,7 @@ or <a href="https://github.com/BerlinUnited/linuxtoolchain">public github</a>. I
 <code>&lt;NaoTH-Projekt/toolchain&gt;</code> Obviously on your system the path looks different.  </p>
 <p>Both repos are synced but the development only happens in the internal repo.</p>
 <p>TODO: add missing parts here</p>
+<p>TODO: how to compile NaoSmal??? You need the naoqi toolchain in AL_DIR</p>
 </div>
 <div class="tabbed-block">
 <p>Clone the toolchain repo from either our <a href="https://scm.cms.hu-berlin.de/berlinunited/tools/windowstoolchain">internal gitlab</a>
@@ -1259,15 +1260,16 @@ or <a href="https://github.com/BerlinUnited/windowstoolchain">public github</a>.
 <p>Inside <code>&lt;NaoTH-Projekt/NaoTHToolchain&gt;</code> run <code>setup.bat</code> as admin.</p>
 <p>This script will generate <code>projectconfig.user.lua</code> which must be copied <code>&lt;NaoTH-Projekt/Naoth-2020&gt;/NaoTHSoccer/Make</code>.
 This is later used for configuring the compile step if needed.</p>
+<p>TODO: how to compile NaoSmal??? You need the naoqi toolchain in AL_DIR</p>
 </div>
 </div>
 </div>
 <h2 id="clone-and-build">Clone and build</h2>
 <p>To work with the project, checkout the git repo:
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>&lt;url<span class="w"> </span>of<span class="w"> </span>this<span class="w"> </span>repo&gt;<span class="w"> </span>&lt;NaoTH-Projekt/Naoth-2020&gt;
+</p><div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>&lt;url<span class="w"> </span>of<span class="w"> </span>this<span class="w"> </span>repo&gt;<span class="w"> </span>&lt;NaoTH-Projekt/Naoth-2020&gt;
 </code></pre></div>
-where <code>&lt;NaoTH-Projekt/Naoth-2020&gt;</code> is the desired path to the repository on your machine.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:4"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><input id="__tabbed_3_4" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Linux</label><label for="__tabbed_3_2">Linux Crosscompilation</label><label for="__tabbed_3_3">Windows</label><label for="__tabbed_3_4">Windows Crosscompilation</label></div>
+where <code>&lt;NaoTH-Projekt/Naoth-2020&gt;</code> is the desired path to the repository on your machine.
+<div class="tabbed-set tabbed-alternate" data-tabs="3:4"><input checked id="__tabbed_3_1" name="__tabbed_3" type="radio"><input id="__tabbed_3_2" name="__tabbed_3" type="radio"><input id="__tabbed_3_3" name="__tabbed_3" type="radio"><input id="__tabbed_3_4" name="__tabbed_3" type="radio"><div class="tabbed-labels"><label for="__tabbed_3_1">Linux</label><label for="__tabbed_3_2">Linux Crosscompilation</label><label for="__tabbed_3_3">Windows</label><label for="__tabbed_3_4">Windows Crosscompilation</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <ol>
@@ -1283,10 +1285,11 @@ image for the NAO or use clang and target the self build Ubuntu image.</p>
 <p>You need to have LLVM installed as described above in the prerequisites section.</p>
 <p>To tell premake to use the ubuntu toolchain you need to change two lines <code>&lt;NaoTH-Projekt&gt;/Naoth-2020/NaoTHSoccer/Make/projectconfig.user.lua</code>  </p>
 <ul>
-<li>NAO_CTC=<NaoTH-Projekt/NaoTHToolchain>/toolchain_nao_ubuntu  </li>
+<li>NAO_CTC=<naoth-projekt>/toolchain_nao_ubuntu  </naoth-projekt></li>
 <li>_OPTIONS["crosscompiler"] = "clang"</li>
 </ul>
 <p>In order to build the naoth binary go to <code>&lt;NaoTH-Projekt&gt;/Naoth-2020/NaoTHSoccer/Make</code> and run <code>./compileGame.sh -j 4</code></p>
+<p>TODO: mention lolaadaptor and naosmal compilation</p>
 </div>
 <div class="tabbed-block">
 <p>Go to the <code>&lt;NaoTH-Projekt/Naoth-2020&gt;/NaoTHSoccer/Make</code> directory and execute <code>generate-vs2019.bat</code> to 
@@ -1305,55 +1308,56 @@ this folder via the context menu and run <code>./compileGame.sh -j 4</code></p>
 <p>You need to have cygwin and LLVM installed as described above in the prerequisites section.</p>
 <p>To tell premake to use the ubuntu toolchain you need to change two lines <code>&lt;NaoTH-Projekt&gt;/Naoth-2020/NaoTHSoccer/Make/projectconfig.user.lua</code>  </p>
 <ul>
-<li>NAO_CTC=<NaoTH-Projekt/NaoTHToolchain>/toolchain_nao_ubuntu  </li>
+<li>NAO_CTC=<naoth-projekt>/toolchain_nao_ubuntu  </naoth-projekt></li>
 <li>_OPTIONS["crosscompiler"] = "clang"</li>
 </ul>
 <p>In order to build the naoth binary go to <code>&lt;NaoTH-Projekt&gt;/Naoth-2020/NaoTHSoccer/Make</code>, open the mintty bash console in
 this folder via the context menu and run <code>./compileGame.sh -j 4</code></p>
+<p>TODO: mention lolaadaptor and naosmal compilation</p>
 </div>
 </div>
 </div>
-<hr />
+<hr>
 <p>For development inside WSL follow the linux instructions.</p>
 <h2 id="additional-tools-for-development">Additional tools for development</h2>
 <p>We use different tools with our project:</p>
-<p><strong>XabslEditor</strong><br />
+<p><strong>XabslEditor</strong><br>
 We have a dedicated editor for editing and compiling the robots behavior written in xabsl.
-  - clone: <code>git clone https://github.com/BerlinUnited/xabsleditor.git</code><br />
-  - load the Netbeans project from <code>xabsleditor</code> and run the application<br />
-  - manual (after the project was loaded once with netbeans):<br />
-    - change dir <code>cd xabsleditor</code><br />
-    - compile: <code>./gradlew.bat clean build</code><br />
+  - clone: <code>git clone https://github.com/BerlinUnited/xabsleditor.git</code><br>
+  - load the Netbeans project from <code>xabsleditor</code> and run the application<br>
+  - manual (after the project was loaded once with netbeans):<br>
+    - change dir <code>cd xabsleditor</code><br>
+    - compile: <code>./gradlew.bat clean build</code><br>
     - run: <code>./gradlew.bat run</code> or <code>./dist/xabsleditor.bat</code> or <code>java -jar dist/lib/xabsleditor-1.2.jar</code>  </p>
-<p><strong>RobotControl</strong><br />
+<p><strong>RobotControl</strong><br>
   - For controlling, modify and analyze the nao robot
   - load the Netbeans project <code>RobotControl</code> and run the application
     - File-&gt;Import Project <code>&lt;ProjectDir&gt;</code>/RobotControl
   - manual:
     - compile: <code>./gradlew.bat clean build</code>
     - run: <code>./gradlew.bat run</code> or <code>./dist/robotcontrol.bat</code> or <code>java -jar dist/lib/RobotControl.jar</code></p>
-<p><strong>NaoSCP</strong><br />
+<p><strong>NaoSCP</strong><br>
 See NaoSCP Documentation</p>
-<p><strong>Simspark</strong><br />
-  - to run a simulated version of our naoth project<br />
+<p><strong>Simspark</strong><br>
+  - to run a simulated version of our naoth project<br>
   - check the <a href="Simspark-Windows-Setup">Simspark Setup Guide </a> for installation instructions  </p>
-<p><strong>Python</strong> <br />
-For working with logfiles we have a set of python scripts in the <code>utils/py</code> folder. The basic functionality is inside a the naoth python package which you can install with pip:  <br />
+<p><strong>Python</strong> <br>
+For working with logfiles we have a set of python scripts in the <code>utils/py</code> folder. The basic functionality is inside a the naoth python package which you can install with pip:  <br>
    - run <code>pip install -e naoth</code> in the <code>&lt;repository&gt;/Utils/py</code> this will install protobuf as well </p>
 <h2 id="known-issues">Known Issues</h2>
-<p><strong>Premake5 is not found</strong><br />
+<p><strong>Premake5 is not found</strong><br>
   - can happen if your PATH is exceeding the 1024 character limit if PATH is set with setup.bat
   - Solution add it manualy to the Path. Note that trying to append to PATH with the setup.bat script can delete the 
     last characters until the string that should be appended fits. In this case other paths are corrupted and don't work anymore.</p>
-<p><strong>RobotControlGUI, NaoSCP and the xabsl editor don't scale correctly for high resolution displays</strong><br />
+<p><strong>RobotControlGUI, NaoSCP and the xabsl editor don't scale correctly for high resolution displays</strong><br>
   - to fix this install java jdk 11+</p>
-<p><strong>Java 11:</strong><br />
+<p><strong>Java 11:</strong><br>
 Java FX is not part of Java 11. It must be installed separately.</p>
-<p><strong>Netbeans does not find java:</strong><br />
-<img alt="image" src="../../../img/build/netbeans_issue.png" /></p>
+<p><strong>Netbeans does not find java:</strong><br>
+<img alt="image" src="../../../img/build/netbeans_issue.png"></p>
 <p>Solution: Edit the netbeans.conf file. It's located inside the install directory. For example 
 <code>C:/Program Files/NetBeans-12.0/netbeans/etc/netbeans.conf</code>. Set <code>netbeans_jdkhome</code> to the java jdk dir. 
-For example: <code>netbeans_jdkhome="C:\Program Files\Java\jdk1.8.0_271"</code></p>
+For example: <code>netbeans_jdkhome="C:\Program Files\Java\jdk1.8.0_271"</code></p></div>
 
               
             </article>

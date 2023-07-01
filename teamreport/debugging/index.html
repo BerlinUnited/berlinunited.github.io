@@ -1497,7 +1497,7 @@
                 
 
 
-<h1 id="debugging-and-tools">Debugging and Tools</h1>
+<div><h1 id="debugging-and-tools">Debugging and Tools</h1>
 <p>In order to develop a complex software for a mobile robot, we require
 means for high-level debugging and monitoring (e. g., visualization of
 the robot's posture or its position on the field). Since we do not
@@ -1525,12 +1525,12 @@ usage and to be able to deactivate the debug code at compilation time,
 if necessary.</p>
 <p>In order to use a debug request in the code you have to register it once
 with the <code>DEBUG_REQUEST_REGISTER</code> macro:</p>
-<div class="highlight"><pre><span></span><code><span class="n">DEBUG_REQUEST_REGISTER</span><span class="p">(</span><span class="s">&quot;My:Debug:Request&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Description of the debug request&quot;</span><span class="p">,</span><span class="w"> </span><span class="nb">true</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="n">DEBUG_REQUEST_REGISTER</span><span class="p">(</span><span class="s">"My:Debug:Request"</span><span class="p">,</span><span class="w"> </span><span class="s">"Description of the debug request"</span><span class="p">,</span><span class="w"> </span><span class="nb">true</span><span class="p">);</span>
 </code></pre></div>
 <p>After that, you can use the <code>DEBUG_REQUEST</code> macro to wrap code that
 should be only executed when the debug request is active.</p>
-<div class="highlight"><pre><span></span><code><span class="n">DEBUG_REQUEST</span><span class="p">(</span><span class="s">&quot;My:Debug:Request&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;This code is not executed normally&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="n">DEBUG_REQUEST</span><span class="p">(</span><span class="s">"My:Debug:Request"</span><span class="p">,</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"This code is not executed normally"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 <span class="w">    </span><span class="o">++</span><span class="n">c</span><span class="p">;</span>
 <span class="p">);</span>
 </code></pre></div>
@@ -1538,7 +1538,7 @@ should be only executed when the debug request is active.</p>
 for example, wrapping a variable and defining an identifier, this
 variable can be changed later from RobotControl.</p>
 <div class="highlight"><pre><span></span><code><span class="kt">double</span><span class="w"> </span><span class="n">yaw</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="n">MODIFY</span><span class="p">(</span><span class="s">&quot;BasicTestBehavior:head:headYaw_deg&quot;</span><span class="p">,</span><span class="n">yaw</span><span class="p">);</span>
+<span class="n">MODIFY</span><span class="p">(</span><span class="s">"BasicTestBehavior:head:headYaw_deg"</span><span class="p">,</span><span class="n">yaw</span><span class="p">);</span>
 </code></pre></div>
 <p>In addition to these means for individual debugging, there are some more
 for general monitoring purposes: the whole content of the blackboard,
@@ -1554,7 +1554,7 @@ In this year we started to update the UI by switching to JavaFX for some
 dialogs. The following list consists of our most used RobotControl
 Dialogs.</p>
 <figure>
-  <img src="../img/robotcontrol2018.png"/>
+  <img src="../img/robotcontrol2018.png">
   <figcaption>
 The RobotControl program contains different dialogs. The 3DViewer (top
 left) is used to visualize the current state of the robot; the Value
@@ -1567,7 +1567,7 @@ enabling/disabling debug requests.
 
 <h3 id="behavior-viewer">Behavior Viewer</h3>
 <figure>
-  <img src="../img/rc-dialogs/BehaviorViewer.png"/>
+  <img src="../img/rc-dialogs/BehaviorViewer.png">
   <figcaption>
 Shows the behavior tree for the current behavior. The compiled XABSL
 behavior needs to be sent to the robot first and then an agent can be
@@ -1578,7 +1578,7 @@ output symbols.
 
 <h3 class="unnumbered" id="debug-requests">Debug Requests</h3>
 <figure>
-  <img src="../img/rc-dialogs/DebugRequests.png"/>
+  <img src="../img/rc-dialogs/DebugRequests.png">
   <figcaption>
 (De-)activates the debug request code. Usually a debug request draws
 something on the field viewer or on the camera images. For further
@@ -1588,42 +1588,42 @@ code.
 </figure>
 
 <h3 id="field-viewer">Field Viewer</h3>
-<p><img alt="image" src="../../img/rc-dialogs/FieldViewer.png" /></p>
+<p><img alt="image" src="../../img/rc-dialogs/FieldViewer.png"></p>
 <p>There are views for different field sizes and a local view. Certain
 debug requests draw on these views. For example, you could draw the
 robots' positions on the field by activating the corresponding debug
 request.</p>
 <h3 id="image-viewer">Image Viewer</h3>
-<p><img alt="image" src="../../img/rc-dialogs/ImageViewer.png" /></p>
+<p><img alt="image" src="../../img/rc-dialogs/ImageViewer.png"></p>
 <p>Can show the top and bottom images. There are debug requests that draw
 on the camera images, if they are active.</p>
 <h3 id="logfile-recorder">Logfile Recorder</h3>
-<p><img alt="image" src="../../img/rc-dialogs/LogfileRecorder.png" /></p>
+<p><img alt="image" src="../../img/rc-dialogs/LogfileRecorder.png"></p>
 <p>Records a log file on a robot with manually selected representations.</p>
 <h3 id="modify">Modify</h3>
-<p><img alt="image" src="../../img/rc-dialogs/Modify.png" /></p>
+<p><img alt="image" src="../../img/rc-dialogs/Modify.png"></p>
 <p>The Modify macro allows changing values of variables declared within
 this macro at runtime.</p>
 <h3 id="module-configuration-viewer">Module Configuration Viewer</h3>
-<p><img alt="image" src="../../img/rc-dialogs/ModuleConfigurationViewer.png" /></p>
+<p><img alt="image" src="../../img/rc-dialogs/ModuleConfigurationViewer.png"></p>
 <p>Shows which modules are currently (de-)activated. Also indicates, which
 other modules are required (left) and provided (right) by each module.</p>
 <h3 id="parameter-panel">Parameter Panel</h3>
-<p><img alt="image" src="../../img/rc-dialogs/ParameterPanel.png" /></p>
+<p><img alt="image" src="../../img/rc-dialogs/ParameterPanel.png"></p>
 <p>Shows parameters defined in our configuration files. It is possible to
 change the values at runtime. The variables must be registered as
 parameters in the code.</p>
 <h3 id="plot-2d">Plot 2D</h3>
-<p><img alt="image" src="../../img/rc-dialogs/Plot2D.png" /></p>
+<p><img alt="image" src="../../img/rc-dialogs/Plot2D.png"></p>
 <p>Shows plots activated by plot debug requests.</p>
 <h3 id="representation-inspector">Representation Inspector</h3>
-<p><img alt="image" src="../../img/rc-dialogs/RepresentationInspector.png" /></p>
+<p><img alt="image" src="../../img/rc-dialogs/RepresentationInspector.png"></p>
 <p>Shows the data that is written to the blackboard by each representation.</p>
 <h3 id="stopwatch-viewer">Stopwatch Viewer</h3>
-<p><img alt="image" src="../../img/rc-dialogs/StopwatchViewer2018.png" /></p>
+<p><img alt="image" src="../../img/rc-dialogs/StopwatchViewer2018.png"></p>
 <p>Shows the execution time for each module.</p>
 <h3 id="team-communication-viewer">Team Communication Viewer</h3>
-<p><img alt="image" src="../../img/rc-dialogs/TeamCommViewer2018.png" /></p>
+<p><img alt="image" src="../../img/rc-dialogs/TeamCommViewer2018.png"></p>
 <p>Shows all connected robots and possible all of their provided status
 information via TeamComm (e.g. ip address, battery charge, temperature,
 etc.). This dialog is mainly used during competitions to get a quick
@@ -1636,20 +1636,20 @@ reference="rc:fieldviewer"}. It's also useful for debugging the team
 communication to get a general overview of the role decision and its
 transitions. This year, the dialog was re-implemented using JavaFX.</p>
 <h3 id="team-communication-logviewer">Team Communication Logviewer</h3>
-<p><img alt="image" src="../../img/rc-dialogs/TeamCommLogViewer2018.png" /></p>
+<p><img alt="image" src="../../img/rc-dialogs/TeamCommLogViewer2018.png"></p>
 <p>The <em>Team Communication Logviewer</em> allows to re-play team communication
 logfiles previously recorded with the <em>Team Communication Viewer</em>. It's
 also able to re-play logs from the GameController and export them as
 JSON.</p>
 <h3 id="simspark">Simspark</h3>
-<p><img alt="image" src="../../img/rc-dialogs/Simspark.png" /></p>
+<p><img alt="image" src="../../img/rc-dialogs/Simspark.png"></p>
 <p>This dialog shows the state of the connected simspark instance. It also
 provides some predefined commands and a textfield for user-defined
 commands to send to simspark. Furthermore it also provides the
 teamcommunication of the simulated robots for other dialogs in
 RobotControl (e.g. <em>Team Communication Viewer</em>).</p>
 <h3 id="external-tools">External Tools</h3>
-<p><img alt="image" src="../../img/rc-dialogs/ExternalTools.png" /></p>
+<p><img alt="image" src="../../img/rc-dialogs/ExternalTools.png"></p>
 <p>Some "external tools" where modified in order to load them into
 RobotControl via reflection. Its convenient to have all needed tools in
 the application we're using most. Currently we have the NaoSCP tool (see
@@ -1705,7 +1705,7 @@ main aims for designing <em>NaoSCP</em> were simplification of the deployment
 process, ensured backup of deployed binaries and reduction of the chance
 of mistakes during setup in critical situations, e.g., before a game at
 the world championship.</p>
-<p><img alt="image" src="../../img/NaoSCP.png" />
+<p><img alt="image" src="../../img/NaoSCP.png">
 NaoSCP user interface. The log panel on the right displays status of
 the deployment process. The left side contains the panels for the
 configuration of the deployment / setup process: <em>Network</em> configures
@@ -1824,7 +1824,7 @@ debugging or analysis in isolated experiments. A good example are log
 files containing full images of particular situations for general image
 processing, which can be only recorded for a short period of time due to
 the large size.</p>
-<p><img alt="iamge" src="../../img/synchronization_tool.png" />
+<p><img alt="iamge" src="../../img/synchronization_tool.png">
 Synchronization Interface for individual log files and videos of a
 game.</p>
 <h3 id="logfile-format">Logfile Format</h3>
@@ -1865,10 +1865,10 @@ published in [@RC-MellmannSchlotterBlum-16]. illustrates an example of a
 labeling session for the first half of the game with the team
 <em>NaoDevils</em> at the RoboCup 2015. The following two links lead to an
 online demo and to the public repository with the code of the labeling
-interface:<br />
+interface:<br>
 <a href="https://www2.informatik.hu-berlin.de/~naoth/videolabeling/index.php">https://www2.informatik.hu-berlin.de/~naoth/videolabeling/index.php</a>
 <a href="https://github.com/BerlinUnited/VideoLogLabeling">https://github.com/BerlinUnited/VideoLogLabeling</a></p>
-<p><img alt="image" src="../../img/labeling_screenshot.png" />
+<p><img alt="image" src="../../img/labeling_screenshot.png">
 Labeling interface used to annotate kick events regarding their
 quality. At the bottom are time lines for each of the robots. Different
 actions are represented by buttons on the time line with different
@@ -1890,7 +1890,7 @@ Figure <a href="#fig:spl-and-sim">3.6</a>{reference-type="ref"
 reference="fig:spl-and-sim"}. As already stated, therewith, we want to
 foster the cooperation between the two leagues and to improve both of
 them.</p>
-<p><img alt="image" src="../../img/simulation.png" title="fig:" />
+<p><img alt="image" src="../../img/simulation.png" title="fig:">
 NAO robots run in Standard Platform League (left) and 3D Simulation
 League (right).</p>
 <p>When compared to real Nao robots, some devices are missing in the
@@ -1927,7 +1927,7 @@ in the 2D simulation [@Uc-Cetina09thesis], while Case Based Reasoning
 was used for strategic behavior
 [@BurkhardBerger07Cases; @berger-laemmel-wall-pass]. BDI-techniques have
 been investigated for behavior control, e. g., in
-[@diplom-berger; @hdb-bound-rat].</p>
+[@diplom-berger; @hdb-bound-rat].</p></div>
 
               
             </article>

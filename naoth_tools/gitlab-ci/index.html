@@ -1049,14 +1049,14 @@
                 
 
 
-<h1 id="gitlab-ci">Gitlab CI</h1>
+<div><h1 id="gitlab-ci">Gitlab CI</h1>
 <p>This document details the CI Implementation of the NaoTH Source Code.</p>
 <h2 id="linux-toolchain">Linux Toolchain</h2>
 <p>Code can be found at https://github.com/BerlinUnited/linuxtoolchain. This repo is a mirror from an internal repo.  </p>
-<p>The following files are used for setting up the automatic compilation and deployment of the NaoTH Linux-Toolchain:<br />
-- <code>Dockerfile</code><br />
-- <code>.dockerignore</code><br />
-- <code>.gitlab-ci.yml</code><br />
+<p>The following files are used for setting up the automatic compilation and deployment of the NaoTH Linux-Toolchain:<br>
+- <code>Dockerfile</code><br>
+- <code>.dockerignore</code><br>
+- <code>.gitlab-ci.yml</code><br>
 - <code>Dockerfile.base</code>  </p>
 <p><code>Dockerfile.base</code> describes a docker image based on Ubuntu:18.04 where all the system and python dependencies are installed. 
 This is separate to the compilation of the toolchain libraries for performance reasons.</p>
@@ -1096,9 +1096,9 @@ This repo is still experimental. It is based on work done by the NaoDevils (curr
 <p>The Gitlab CI docker executor leaves a lot of volumes and images behind to speed up the CI jobs. To free up the disk a bit
 we run a cron job once every day to cleanup the CI cache volumes and old images. For this we added the following lines to
 the root crontab file (run <code>sudo crontab -e</code> to edit)
-<div class="highlight"><pre><span></span><code><span class="m">55</span><span class="w"> </span><span class="m">23</span><span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span>/usr/share/gitlab-runner/clear-docker-cache<span class="w"> </span>prune-volumes<span class="w"> </span>&gt;/dev/null<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
+</p><div class="highlight"><pre><span></span><code><span class="m">55</span><span class="w"> </span><span class="m">23</span><span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span>/usr/share/gitlab-runner/clear-docker-cache<span class="w"> </span>prune-volumes<span class="w"> </span>&gt;/dev/null<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
 <span class="m">55</span><span class="w"> </span><span class="m">23</span><span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span>docker<span class="w"> </span>image<span class="w"> </span>prune<span class="w"> </span>-f
-</code></pre></div></p>
+</code></pre></div></div>
 
               
             </article>

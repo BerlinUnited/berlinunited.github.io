@@ -1035,7 +1035,7 @@
                 
 
 
-<h1 id="behavior">Behavior</h1>
+<div><h1 id="behavior">Behavior</h1>
 <p>The Extensible Agent Behavior Specification Language | <em>XABSL</em>
 cf. [@xabsl_web] is a behavior description language for autonomous
 agents based on hierarchical finite state machines. XABSL is originally
@@ -1044,7 +1044,7 @@ cf. [@2006:IROSLoetzschRislerJuengel]. Since then it turned out to be
 very successful and is used by many teams within the RoboCup community.
 We use XABSL to model the behavior of single robots and of the whole
 team in the Simulation League 3D and also in the SPL.</p>
-<p><img alt="image" src="../../img/xabsl_editor.png" />
+<p><img alt="image" src="../../img/xabsl_editor.png">
 (left) XabslEditor: On the left side, you see the source code of a
 behavior option. On the right side the state machine of this option is
 visualized as a graph (right). In the main frame the execution path is
@@ -1109,7 +1109,7 @@ within the penalty area and a straight line from the goal center to the
 ball.</p>
 <p>Please refer to the code release for further details of the particular
 XABSL behaviors for different states (active, passive, goalie) etc.</p>
-<p><img alt="image" src="../../img/strategic_positions.png" />
+<p><img alt="image" src="../../img/strategic_positions.png">
 Illustration of the different strategic player position: start
 positions (yellow), ready positions during opponent kickoff (blue),
 during own kickoff (gray) and home positions (red). For players 1 and 2
@@ -1236,7 +1236,7 @@ striker.</p>
 <p>The teamball is then used to adjust the search behavior of passive robots and the goalie. In the past years, when the robot was passive and searched for the ball, the robot turned in one direction (randomly) and moves his head to find the ball. With the teamball the robot changes its behavior. Before the robot starts a new search rotation he turns to the teamball and looks in that direction in order to find the ball. If he doesn't see the ball, he continues to turn in the same turning direction as before, until a full round is completed. Before starting a new round, the robot takes again a look at the teamball and re-starts the described behavior. The ball search continues until the robot found the ball or another game event occurs.</p>
 <p>In 2017 we reintroduced the teamball in order to improve our ball search behavior. Therefor each player communicated its ball model and collected the global ball position of its teammates over a certain amount of time. In each cognition cycle the median in x and y position of all collected balls where determined and used as teamball in the above described behavior. If there wasn't an update for some time, the teamball was invalidated and not used anymore.</p>
 <p>This year, another calculation method was implemented. The "old" teamball was sometimes far away from the "real" ball, because of one de-localized robot or incorrect ball detection of teammates. The new method uses the canopy clustering algorithm to generate clusters of balls, communicated by teammates, and selects the cluster to which most robots contribute. The algorithm works roughly by collecting all communicated balls (global position on the field) and generating clusters of balls. The clustering uses two parameters in order to determine the "cluster membership" of a ball. The "tight distance"' is used to select all balls which are only part of just one cluster and the "loose distance" is used to mark balls which possibly belongs to one or more clusters. After the cluster generation, the cluster center (mean/average) with the most "`members"' is used as teamball. The teamball gets invalidated, if there wasn't an update for a certain amount of time.</p>
-<p>With the new calculation method, the teamball was more often closer to the "real" ball and more robust against single robots providing "false" ball information.</p>
+<p>With the new calculation method, the teamball was more often closer to the "real" ball and more robust against single robots providing "false" ball information.</p></div>
 
               
             </article>

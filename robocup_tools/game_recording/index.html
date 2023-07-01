@@ -1131,7 +1131,7 @@
                 
 
 
-<h1 id="game-recording">Game Recording</h1>
+<div><h1 id="game-recording">Game Recording</h1>
 <p>We want to be able to record RoboCup games in synchronized fashion. To achieve this we created a setup which records the game
 bases on GameController signals.</p>
 <p>The raspberry receives game controller messages over it's LAN interface. The Wifi interface is connected the GoPros own 
@@ -1142,44 +1142,44 @@ if it does not receive a message from the gamecontroller for 5 seconds.</p>
 <p>The Setup consists of a tripod base, two tripod extensions, a mounting plate with a tripod ball head, a raspberry pi, gopro + cables.
 The cable setup is slightly different for gopro sessions vs gopro hero 5. For more details on which parts we bought and
 what alterations we did see the advanced setup section at the bottom.</p>
-<p><img alt="Session Setup" src="../../img/game_recording/combined_pi_setup.png" />
+<p><img alt="Session Setup" src="../../img/game_recording/combined_pi_setup.png">
 Left: Setup with GoPro Session. Right: View from the back. NOTE: Make sure not to screw the Pi on too tight, otherwise
 the mount will break!</p>
 <p>In order to open the side door at the GoPro you need to first close the door and put the GoPro into it's casing but don't
 close the hatch. You can then carefully open the side door and insert the usb cable. This process is also shown in the
 video below:
-<div class="video-container"><iframe src="https://www.youtube.com/embed/C7iGkOgB5T0" style="position: relative; width: 100%; height: 22.172vw" frameborder="0"allowfullscreen></iframe></div></p>
+<div class="video-container"><iframe src="https://www.youtube.com/embed/C7iGkOgB5T0" style="position:relative;width:100%;height:22.172vw" frameborder="0" allowfullscreen alt="type:video"></iframe></div></p>
 <p>The raspberry pi must be connected via cable to the router where the GameController is also connected. If a GoPro Session
 is used connect the GoPro via it's micro usb port to the usb 2 port of the raspberry. This is used for charging the camera.</p>
 <p><strong>Note</strong> that the charging only works if you connect it to the high voltage usb ports of the pi. We put plugs in the non
 high voltage usb ports so its clear which are the right ones. Also in order for that too work with the Pi you need to 
 tape over the data lines of the usb cable on the usb 2 end. The data lines are the two in the middle. Also the camera
 will only charge if it is not recording.</p>
-<p><img alt="USB cable data lines" src="../img/game_recording/cable_setup.png" /></p>
+<p><img alt="USB cable data lines" src="../img/game_recording/cable_setup.png"></p>
 <h2 id="software-setup">Software Setup</h2>
 <p>Our Pi's have  configured IP addresses like 10.0.4.X Where X is the number written on the Pi
-<div class="highlight"><pre><span></span><code>  IP Address: 10.0.4.x
+</p><div class="highlight"><pre><span></span><code>  IP Address: 10.0.4.x
   mask: 255.255.0.0
 </code></pre></div>
 The address and the mask correspond to the standardformat of the SPL
-Muss die IP-Adresse des Pi geändert werden, dann kann es über ssh geschehen:<br />
+Muss die IP-Adresse des Pi geändert werden, dann kann es über ssh geschehen:<br>
 <div class="highlight"><pre><span></span><code>  Benutzer: pi
   Passwort: raspberry
 </code></pre></div>
-Und zu anpassen der Adresse:<br />
+Und zu anpassen der Adresse:<br>
 <div class="highlight"><pre><span></span><code>  sudo nano /etc/dhcpcd.conf
-</code></pre></div></p>
+</code></pre></div>
 <p>On the GoPro you need to start Wifi manually in the camera settings.</p>
 <h2 id="leds">LED's</h2>
-<p>Die <strong>blaue LED</strong> zeigt den Status der Verbindung zur GoPro an.<br />
-- <strong>schnelles Blinken</strong>: bedeutet das der Raspberry Pi sich nicht zu dem Wlan der GoPro verbinden kann.<br />
-- <strong>langsames Blinken</strong>: bedeutet das der Raspberry Pi das Wlan der GoPro sieht aber noch nicht verbunden ist.<br />
+<p>Die <strong>blaue LED</strong> zeigt den Status der Verbindung zur GoPro an.<br>
+- <strong>schnelles Blinken</strong>: bedeutet das der Raspberry Pi sich nicht zu dem Wlan der GoPro verbinden kann.<br>
+- <strong>langsames Blinken</strong>: bedeutet das der Raspberry Pi das Wlan der GoPro sieht aber noch nicht verbunden ist.<br>
 - <strong>konstant</strong>: bedeutet das der Raspberry Pi im Netz der GoPro ist und mit der GoPro kommuniziert.  </p>
-<p>Die <strong>grüne LED</strong> zeigt den Status der Verbindung zum GameController an.<br />
-- <strong>aus</strong> bedeutet das der Raspberry Pi keine Nachrichten vom GameController empfängt.<br />
-- <strong>an</strong> bedeutet das der Raspberry Pi Nachrichten vom GameController erhält. Es gibt hierbei einen Timeout von 5 Sekunden.<br />
+<p>Die <strong>grüne LED</strong> zeigt den Status der Verbindung zum GameController an.<br>
+- <strong>aus</strong> bedeutet das der Raspberry Pi keine Nachrichten vom GameController empfängt.<br>
+- <strong>an</strong> bedeutet das der Raspberry Pi Nachrichten vom GameController erhält. Es gibt hierbei einen Timeout von 5 Sekunden.<br>
 - <strong>blinken</strong>: Raspberry Pi empfängt die GameController Nachrichten und weiß das ein Team <strong>Invisibles</strong> ist. Es wird in diesem Zustand keine Aufnahme gestartet.  </p>
-<p>Die <strong>rote LED</strong> zeigt den Status der Aufnahme an.<br />
+<p>Die <strong>rote LED</strong> zeigt den Status der Aufnahme an.<br>
 - <strong>blinken:</strong> zeigt an das ein Signal für die Aufnahme an die GoPro gesendet wird. An der Vorder- und Hinterseite der 
 GoPro sollten auch jeweils eine rote LED blinken, was bedeutet, dass die GoPro tatsächlich aufnimmt.  </p>
 <h2 id="vor-dem-spiel-bekanntes-problem">Vor dem Spiel - Bekanntes Problem</h2>
@@ -1189,13 +1189,13 @@ GoPro sollten auch jeweils eine rote LED blinken, was bedeutet, dass die GoPro t
 <p>Der GameController nimmt für jedes Spiel ein Log und ein TeamComm Log auf. Diese müssen bisher von Hand gesichert werden. Für uns es ist wichtig das wir diese Daten bekommen. Die Logs liegen im <strong>logs</strong>  und <strong>logs_teamcomm</strong> Ordner neben der GameController.jar Datei.  </p>
 <p>Die Daten der GoPro SD Karte müssen nach einem Spieltag auf ein externes Speichermedium gesichert werden um Platz zu schaffen für die Aufnahmen des nächsten Tages. </p>
 <h2 id="video-tutorial-for-setup-in-german">Video tutorial for setup in german</h2>
-<p><div class="video-container"><iframe src="https://www.youtube.com/embed/M_FL3YvP3o8" style="position: relative; width: 100%; height: 22.172vw" frameborder="0"allowfullscreen></iframe></div></p>
+<p><div class="video-container"><iframe src="https://www.youtube.com/embed/M_FL3YvP3o8" style="position:relative;width:100%;height:22.172vw" frameborder="0" allowfullscreen alt="type:video"></iframe></div></p>
 <h2 id="advanced-setup">Advanced Setup:</h2>
 <h3 id="alterations-to-the-hardware">Alterations to the hardware</h3>
 <p>TODO</p>
 <h3 id="hardware-list">Hardware List:</h3>
 <p>Tripod Head: <a href="https://www.amazon.de/UTEBIT-Stativkopf-Blitzschuh-Kugelgelenk-Lampenstativ-1-St%C3%BCck/dp/B075SFM1GD/">Amazon</a>
-TODO</p>
+TODO</p></div>
 
               
             </article>

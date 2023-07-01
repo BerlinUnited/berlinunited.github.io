@@ -1091,7 +1091,7 @@
                 
 
 
-<h1 id="deep-learning-deployment-overview">Deep Learning Deployment Overview</h1>
+<div><h1 id="deep-learning-deployment-overview">Deep Learning Deployment Overview</h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>TODO: this is very much a WIP. For now just some notes so that we don't forget. We will fix this in the future</p>
@@ -1209,7 +1209,7 @@ int main(int argc, char* argv[]) {
 <h2 id="tensorflow-lite-micro-tflm-on-nao-with-c">tensorflow lite micro (tflm) on Nao with C++</h2>
 <p>Setup ubuntu on the nao as described elsewhere (TODO: insert link)
 Make sure python3, pip and the pillow package is installed on the Nao
-<div class="highlight"><pre><span></span><code><span class="c1"># this is needed during tflm compilation</span>
+</p><div class="highlight"><pre><span></span><code><span class="c1"># this is needed during tflm compilation</span>
 apt<span class="w"> </span>install<span class="w"> </span>python3,<span class="w"> </span>python3-pip<span class="w"> </span>python-is-python3
 python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>pillow
 </code></pre></div>
@@ -1218,11 +1218,11 @@ Compile the tflm library:
 <span class="nb">cd</span><span class="w"> </span>tflm_src
 make<span class="w"> </span>-f<span class="w"> </span>tensorflow/lite/micro/tools/make/Makefile<span class="w"> </span>microlite
 </code></pre></div>
-The compiled lib will be in tflm_src/tensorflow/lite/micro/tools/make/gen/linux_x86_64_default/lib/libtensorflow-microlite.a</p>
+The compiled lib will be in tflm_src/tensorflow/lite/micro/tools/make/gen/linux_x86_64_default/lib/libtensorflow-microlite.a
 <h3 id="create-a-tflite-file">Create a tflite file</h3>
 <p>TODO explain exporter options</p>
 <h3 id="convert-a-model-for-inference-with-tflite-micro">Convert a model for inference with tflite-micro</h3>
-<p><div class="highlight"><pre><span></span><code>xxd<span class="w"> </span>-i<span class="w"> </span>cool_model.tflite<span class="w"> </span>&gt;<span class="w"> </span>my_model.cc
+<p></p><div class="highlight"><pre><span></span><code>xxd<span class="w"> </span>-i<span class="w"> </span>cool_model.tflite<span class="w"> </span>&gt;<span class="w"> </span>my_model.cc
 </code></pre></div>
 this will produce something like this:
 <div class="highlight"><pre><span></span><code>unsigned<span class="w"> </span>char<span class="w"> </span>cool_model_tflite<span class="o">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">{</span>
@@ -1231,7 +1231,7 @@ this will produce something like this:
 <span class="o">}</span><span class="p">;</span>
 unsigned<span class="w"> </span>int<span class="w"> </span><span class="nv">cool_model_tflite_len</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">18200</span><span class="p">;</span>
 </code></pre></div>
-The <code>-i</code> in the xxd command tells it to output the hexdump in c include file style.</p>
+The <code>-i</code> in the xxd command tells it to output the hexdump in c include file style.
 <p>For creating cpp code for basic inference the hello world example from the tflite micro repo is good start.
 <a href="https://github.com/tensorflow/tflite-micro/blob/main/tensorflow/lite/micro/examples/hello_world/hello_world_test.cc">tflm</a></p>
 <details>
@@ -1285,14 +1285,14 @@ The <code>-i</code> in the xxd command tells it to output the hexdump in c inclu
 <p>TODO: create an example with quantization</p>
 </details>
 <p>Those examples can be compiled with:
-<div class="highlight"><pre><span></span><code>g++<span class="w"> </span>main.cpp<span class="w"> </span>-std<span class="o">=</span>c++11<span class="w"> </span><span class="se">\</span>
+</p><div class="highlight"><pre><span></span><code>g++<span class="w"> </span>main.cpp<span class="w"> </span>-std<span class="o">=</span>c++11<span class="w"> </span><span class="se">\</span>
 -L&lt;path<span class="w"> </span>to<span class="w"> </span>folder<span class="w"> </span>where<span class="w"> </span>libtensorflow-microlite.lib<span class="w"> </span>is&gt;<span class="w"> </span><span class="se">\</span>
 -I&lt;path<span class="w"> </span>to<span class="w"> </span>tflm<span class="w"> </span>repo&gt;<span class="w"> </span><span class="se">\</span>
 -I&lt;path<span class="w"> </span>to<span class="w"> </span>flatbuffers<span class="w"> </span>include<span class="w"> </span>folder&gt;<span class="w"> </span><span class="se">\</span>
 -ltensorflow-microlite<span class="w"> </span><span class="se">\</span>
 -DTF_LITE_STATIC_MEMORY
 </code></pre></div>
-The last line is especially important. Without it you will get unpredictable behavior using this code.</p>
+The last line is especially important. Without it you will get unpredictable behavior using this code.
 <h2 id="compilednn">CompiledNN</h2>
 <p>CompiledNN is a library from B-Human. You can compile it on the Nao itself with:</p>
 <div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/bhuman/CompiledNN.git
@@ -1365,7 +1365,7 @@ make<span class="w"> </span>install
     -L/usr/lib/x86_64-linux-gnu/hdf5/serial \
     -lCompiledNN -lprotobuf -lhdf5 -lrt -O3
 </code></pre>
-</details>
+</details></div>
 
               
             </article>
