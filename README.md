@@ -1,15 +1,28 @@
 berlinunited.github.io
 ======================
-First install the pip dependencies  
-`python -m pip install -r requirements.txt`
+This was tested with python 3.10
+
+Create a virtual environment
+```bash
+python3 -m venv venv
+```
+
+First install the pip dependencies
+```bash
+python -m pip install -r requirements.txt
+```
 
 ## Local Development
-To run the website locally run:
-`mkdocs serve`
+To run the website locally run
+```bash
+mkdocs serve
+```
 
 ## Deployment
-To deploy the website to github pages run:
-`mkdocs gh-deploy`
+To deploy the website to github pages run
+```bash
+mkdocs gh-deploy
+```
 
 This will modify the branch `gh-pages` and push it, which in turn we trigger github to show the new website. Sometimes
 this can take a couple of minutes. Do not change the gh-pages branch manually!
