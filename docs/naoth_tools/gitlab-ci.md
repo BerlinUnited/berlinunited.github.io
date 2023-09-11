@@ -1,6 +1,29 @@
 # Gitlab CI
 This document details the CI Implementation of the NaoTH Source Code.
 
+## Gitlab Runner
+We have a gitlab runner set up at ball.informatik.hu-berlin.de and goal.informatik.hu-berlin.de. Both servers are located in our lab.
+
+Install gitlab runner
+```bash
+# setup package repo
+curl -L "https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.deb.sh" | sudo bash
+
+# install gitlab runner
+sudo apt-get install gitlab-runner
+```
+Source: https://docs.gitlab.com/runner/install/linux-repository.html
+
+Setup a runner like this
+gitlab-runner register  --url https://scm.cms.hu-berlin.de  --token glrt-GqYPQxqs2ejzFBcCrfwh
+
+runner config is located in /etc/gitlab-runner/config.toml
+
+enable gpus by adding stuff to the config.toml
+https://docs.gitlab.com/runner/configuration/gpus.html
+
+
+
 ## Linux Toolchain
 Code can be found at https://github.com/BerlinUnited/linuxtoolchain. This repo is a mirror from an internal repo.  
 
