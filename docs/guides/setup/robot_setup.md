@@ -24,50 +24,63 @@ The next step is to initialize the robot with the required libs. This can be don
 
 After that the compiled robot code can be deployed with NaoSCP as well.
 
+
 ## Calibrating Joints 
 
-What to do:
+The default software of the robot has an integrated automatic calibration routine for the alignment of the joints.
+This routine is usually executed only at the first start of a new robot.
+During the RoboCup games it can happen (and it does happen) that the joints lose their alignment, 
+which might negatively affect all motions, e.g., the walk become a bit more unstable. 
+The calibration values are stored internally and are preserved even when the OS is replaced.
+The following describes how the automatic calibration routine can be triggered when needed.
+
+### Trigger the Automatic Calibration Routine
 
 1. prepare a USB stick with NaoOS Image (as described above) with factory reset.
-2. flash the robot
-   - a. turn off the robot
-   - b. insert the USB stick with the system
-   - c. press the chestbutton **until it turns blue** (this takes about 3s), then release the button
-   - d. (the button should blink blue very fast)
-   - e. wait until the flashing is done (can take 10 min) (robot in the monkey pose)
-   - f. wait until the robor says either 
-       - (x): "I'm not save like this ... etc."
-       - (y): "Good morning. Please put me in an open space on the floor and touch my head or my bumper so I can wake up correctly."
-3. if the robot says (y):
-   - a. put the robot on the solid floor (not carper, not table) with enough space around it (50cm) in a crouch position.
-   - b. touch robot's head or a foot bumber 
-   - c. robot will perform a "wakin up" procedure
-   - d. wait until the robot sits down and says "Thanks, now I feel great."
-4. if the robot says (x):
-   - a. connect a LAN cable to the router and wait some seconds
-   - b. press robot's chest button
-   - c. the root willsay it's ip address
-   - d. connect to the robot with `ssh`
-   - e. create a new directory (if it doesn't exist)
+
+2. flash the robot:
+    1. turn off the robot
+    2. insert the USB stick with the system
+    3. press the chest-button **until it turns blue** (this takes about 3s), then release the button
+    4. (the button should blink blue very fast)
+    5. wait until the flashing is done (can take 10 min) (robot in the monkey pose)
+    6. wait until the robor says either 
+        - **(A)** "Good morning. Please put me in an open space on the floor and touch my head or my bumper, so I can wake up correctly."
+        - **(B)** "I'm not safe like this ... etc."
+
+3. if the robot says **(A)**, then the robot is ready to calibrate:
+    1. put the robot on the solid floor (not carper, not table) with enough space around it (50cm) in a crouch position.
+    2. touch robot's head or a foot bumper 
+    3. robot will perform a "waking up" procedure
+    4. wait until the robot sits down and says "Thanks, now I feel great."
+
+4. if the robot says **(B)**, then we need to manually delete old calibration files to trigger the calibration routine:
+    1. connect a LAN cable to the router and wait some seconds
+    2. press robot's chest button
+    3. the root will say it's ip-address
+    4. connect to the robot with `ssh`
+    5. create a new directory (if it doesn't exist)
        ```sh
        sudo mkdir /media/internal/diagnostic.bak
        ```
-   - f. move old diagnostic files into the the new directory
+    6. move old diagnostic files into the new directory
        ```sh
        sudo mv /media/internal/diagnostic_* /media/internal/diagnostic.bak
        ```
-   - g. reboot the robot
+    7. reboot the robot
       ```sh
       sudo reboot
       ```
-   - h. after the sturtpu the robot should say (y)
-   - i. go to 3.
-5. now the robot is calubrated
-   - a. turn off the robot
-   - b. proceed with the setup of the ubuntu system
+    8. after the startup the robot should say **(A)**
+    9. go to 3.
+    
+5. now the robot is calibrated
+    1. turn off the robot
+    2. proceed with the setup of the Ubuntu system
 
-Reference:
-* https://www.robotlab.com/support/nao-will-not-stand-up
+### Reference
+
+* <https://www.robotlab.com/support/nao-will-not-stand-up>
 
 
 
