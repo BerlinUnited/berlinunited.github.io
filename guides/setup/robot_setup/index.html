@@ -725,6 +725,26 @@
     Calibrating Joints
   </a>
   
+    <nav class="md-nav" aria-label="Calibrating Joints">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#trigger-the-automatic-calibration-routine" class="md-nav__link">
+    Trigger the Automatic Calibration Routine
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reference" class="md-nav__link">
+    Reference
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1021,6 +1041,26 @@
     Calibrating Joints
   </a>
   
+    <nav class="md-nav" aria-label="Calibrating Joints">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#trigger-the-automatic-calibration-routine" class="md-nav__link">
+    Trigger the Automatic Calibration Routine
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reference" class="md-nav__link">
+    Reference
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1071,47 +1111,73 @@ Left: monkey pose. Right: sit pose</p>
 <a href="../../../naoth_tools/naoscp/">here</a></p>
 <p>After that the compiled robot code can be deployed with NaoSCP as well.</p>
 <h2 id="calibrating-joints">Calibrating Joints</h2>
-<p>What to do:</p>
+<p>The default software of the robot has an integrated automatic calibration routine for the alignment of the joints.
+This routine is usually executed only at the first start of a new robot.
+During the RoboCup games it can happen (and it does happen) that the joints lose their alignment, 
+which might negatively affect all motions, e.g., the walk become a bit more unstable. 
+The calibration values are stored internally and are preserved even when the OS is replaced.
+The following describes how the automatic calibration routine can be triggered when needed.</p>
+<h3 id="trigger-the-automatic-calibration-routine">Trigger the Automatic Calibration Routine</h3>
 <ol>
-<li>prepare a USB stick with NaoOS Image (as described above) with factory reset.</li>
-<li>flash the robot</li>
-<li>a. turn off the robot</li>
-<li>b. insert the USB stick with the system</li>
-<li>c. press the chestbutton <strong>until it turns blue</strong> (this takes about 3s), then release the button</li>
-<li>d. (the button should blink blue very fast)</li>
-<li>e. wait until the flashing is done (can take 10 min) (robot in the monkey pose)</li>
-<li>f. wait until the robor says either <ul>
-<li>(x): "I'm not save like this ... etc."</li>
-<li>(y): "Good morning. Please put me in an open space on the floor and touch my head or my bumper so I can wake up correctly."</li>
+<li>
+<p>prepare a USB stick with NaoOS Image (as described above) with factory reset.</p>
+</li>
+<li>
+<p>flash the robot:</p>
+<ol>
+<li>turn off the robot</li>
+<li>insert the USB stick with the system</li>
+<li>press the chest-button <strong>until it turns blue</strong> (this takes about 3s), then release the button</li>
+<li>(the button should blink blue very fast)</li>
+<li>wait until the flashing is done (can take 10 min) (robot in the monkey pose)</li>
+<li>wait until the robor says either <ul>
+<li><strong>(A)</strong> "Good morning. Please put me in an open space on the floor and touch my head or my bumper, so I can wake up correctly."</li>
+<li><strong>(B)</strong> "I'm not safe like this ... etc."</li>
 </ul>
 </li>
-<li>if the robot says (y):</li>
-<li>a. put the robot on the solid floor (not carper, not table) with enough space around it (50cm) in a crouch position.</li>
-<li>b. touch robot's head or a foot bumber </li>
-<li>c. robot will perform a "wakin up" procedure</li>
-<li>d. wait until the robot sits down and says "Thanks, now I feel great."</li>
-<li>if the robot says (x):</li>
-<li>a. connect a LAN cable to the router and wait some seconds</li>
-<li>b. press robot's chest button</li>
-<li>c. the root willsay it's ip address</li>
-<li>d. connect to the robot with <code>ssh</code></li>
-<li>e. create a new directory (if it doesn't exist)
-       <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>mkdir<span class="w"> </span>/media/internal/diagnostic.bak
-</code></pre></div></li>
-<li>f. move old diagnostic files into the the new directory
-       <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>mv<span class="w"> </span>/media/internal/diagnostic_*<span class="w"> </span>/media/internal/diagnostic.bak
-</code></pre></div></li>
-<li>g. reboot the robot
-      <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>reboot
-</code></pre></div></li>
-<li>h. after the sturtpu the robot should say (y)</li>
-<li>i. go to 3.</li>
-<li>now the robot is calubrated</li>
-<li>a. turn off the robot</li>
-<li>b. proceed with the setup of the ubuntu system</li>
 </ol>
-<p>Reference:
-* https://www.robotlab.com/support/nao-will-not-stand-up</p>
+</li>
+<li>
+<p>if the robot says <strong>(A)</strong>, then the robot is ready to calibrate:</p>
+<ol>
+<li>put the robot on the solid floor (not carper, not table) with enough space around it (50cm) in a crouch position.</li>
+<li>touch robot's head or a foot bumper </li>
+<li>robot will perform a "waking up" procedure</li>
+<li>wait until the robot sits down and says "Thanks, now I feel great."</li>
+</ol>
+</li>
+<li>
+<p>if the robot says <strong>(B)</strong>, then we need to manually delete old calibration files to trigger the calibration routine:</p>
+<ol>
+<li>connect a LAN cable to the router and wait some seconds</li>
+<li>press robot's chest button</li>
+<li>the root will say it's ip-address</li>
+<li>connect to the robot with <code>ssh</code></li>
+<li>create a new directory (if it doesn't exist)
+   <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>mkdir<span class="w"> </span>/media/internal/diagnostic.bak
+</code></pre></div></li>
+<li>move old diagnostic files into the new directory
+   <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>mv<span class="w"> </span>/media/internal/diagnostic_*<span class="w"> </span>/media/internal/diagnostic.bak
+</code></pre></div></li>
+<li>reboot the robot
+  <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>reboot
+</code></pre></div></li>
+<li>after the startup the robot should say <strong>(A)</strong></li>
+<li>go to 3.</li>
+</ol>
+</li>
+<li>
+<p>now the robot is calibrated</p>
+<ol>
+<li>turn off the robot</li>
+<li>proceed with the setup of the Ubuntu system</li>
+</ol>
+</li>
+</ol>
+<h3 id="reference">Reference</h3>
+<ul>
+<li><a href="https://www.robotlab.com/support/nao-will-not-stand-up">https://www.robotlab.com/support/nao-will-not-stand-up</a></li>
+</ul>
 <h2 id="new-setup-routine-with-custom-image">New Setup Routine (with custom image)</h2>
 <p>For the NAO V6 robots we will use a custom ubuntu based image. Each robot has to be set up with this image once. For creating 
 the image see the NaoImage repository in gitlab. (Not public). The instructions for building and deploying the image can

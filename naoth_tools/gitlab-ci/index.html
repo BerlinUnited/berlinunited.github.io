@@ -554,6 +554,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#gitlab-runner" class="md-nav__link">
+    Gitlab Runner
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#linux-toolchain" class="md-nav__link">
     Linux Toolchain
   </a>
@@ -1008,6 +1015,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#gitlab-runner" class="md-nav__link">
+    Gitlab Runner
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#linux-toolchain" class="md-nav__link">
     Linux Toolchain
   </a>
@@ -1051,6 +1065,21 @@
 
 <div><h1 id="gitlab-ci">Gitlab CI</h1>
 <p>This document details the CI Implementation of the NaoTH Source Code.</p>
+<h2 id="gitlab-runner">Gitlab Runner</h2>
+<p>We have a gitlab runner set up at ball.informatik.hu-berlin.de and goal.informatik.hu-berlin.de. Both servers are located in our lab.</p>
+<p>Install gitlab runner
+</p><div class="highlight"><pre><span></span><code><span class="c1"># setup package repo</span>
+curl<span class="w"> </span>-L<span class="w"> </span><span class="s2">"https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.deb.sh"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>bash
+
+<span class="c1"># install gitlab runner</span>
+sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>gitlab-runner
+</code></pre></div>
+Source: https://docs.gitlab.com/runner/install/linux-repository.html
+<p>Setup a runner like this
+gitlab-runner register  --url https://scm.cms.hu-berlin.de  --token glrt-GqYPQxqs2ejzFBcCrfwh</p>
+<p>runner config is located in /etc/gitlab-runner/config.toml</p>
+<p>enable gpus by adding stuff to the config.toml
+https://docs.gitlab.com/runner/configuration/gpus.html</p>
 <h2 id="linux-toolchain">Linux Toolchain</h2>
 <p>Code can be found at https://github.com/BerlinUnited/linuxtoolchain. This repo is a mirror from an internal repo.  </p>
 <p>The following files are used for setting up the automatic compilation and deployment of the NaoTH Linux-Toolchain:<br>
