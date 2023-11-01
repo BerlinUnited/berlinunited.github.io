@@ -32,6 +32,7 @@ nav:
         - 'guides/setup/naoth_code_setup.md'
         - 'guides/setup/robot_setup.md'
         - 'guides/setup/nao_config.md'
+    - 'guides/working-with-logfiles/working-with-logfiles.md'
     - 'guides/robot_handling.md'
     - 'guides/logging.md'
     - 'guides/obstacle_detection.md'
