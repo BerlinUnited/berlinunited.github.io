@@ -37,8 +37,9 @@ There are two ways to access the folder with the logfiles and videos of our game
 # 2 Work with logfiles in RobotControl
 ## Run a logfile in the LogSimulator
 
-For this tutorial use the following file
-*  https://logs.naoth.de/2017-08-RC17/logs/far_ball_issue/rc17_ball_far.log
+For this tutorial use the following file  
+
+* <https://logs.naoth.de/2017-08-RC17/logs/far_ball_issue/rc17_ball_far.log>
 
 Download a logfile and start the LogSimulator in Debug with the name of the logfile as argument. In the Console window you can press p to play the logfile and l to loop the logfile. More Controls for the LogSimulator are displayed in the console window.
 
