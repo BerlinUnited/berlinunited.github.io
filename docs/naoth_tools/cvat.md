@@ -67,7 +67,17 @@ In this case modify the vpn config you use. It worked with the following changes
 #register-dns  # <-- make sure this line is not active
 ...
 dhcp-option DNS 8.8.8.8  # <-- set the name server of your liking
+```
 
+### Setup sshfs mounts
+Install sshfs:
+```bash
+sudo apt install sshfs
+```
+Create group fuse and add users to it:
+```bash
+sudo addgroup fuse
+sudo adduser $USER fuse
 ```
 
 ### Own changes to the CVAT Code
