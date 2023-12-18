@@ -53,7 +53,11 @@ The current modules for whistle detection can be found here:
 
 ## Recording with PulseAudio
 
-* TBD
+### Recording RAW audio data
+
+```sh
+    parecord -r --raw --format=s16le --rate=8000 --channel-map=rear-left,rear-right,front-left,front-right --channels=4 > test.raw
+```
 
 ## References
 
