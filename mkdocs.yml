@@ -42,9 +42,9 @@ nav:
         - 'guides/coding_guidelines.md'
         - 'guides/git-hooks.md'
     - Deep Learning:
-        - 'guides/deep_learning_annotation.md'
-        - 'guides/deep_learning_training.md'
-        - 'guides/deep_learning_deployment.md'
+        - 'guides/deeplearning/deep_learning_annotation.md'
+        - 'guides/deeplearning/deep_learning_training.md'
+        - 'guides/deeplearning/deep_learning_deployment.md'
 
 theme:
   name: material
