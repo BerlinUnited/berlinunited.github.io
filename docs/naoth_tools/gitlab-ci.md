@@ -1,28 +1,26 @@
 # Gitlab CI
-This document details the CI Implementation of the NaoTH Source Code.
+For our main repositories we utilize gitlab runner to build the code. You can specify jobs in a `.gitlab-ci.yml` file and set the execution order. Each job will run inside a docker container you specify. You can also built docker images within a job and later use those in another job. See ... The actual execution of the jobs is triggered by a gitlab-runner binary installed on Universities servers and two of our own lab servers (goal and ball server).
 
-## Gitlab Runner
-We have a gitlab runner set up at ball.informatik.hu-berlin.de and goal.informatik.hu-berlin.de. Both servers are located in our lab.
-
-Install gitlab runner
-```bash
-# setup package repo
-curl -L "https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.deb.sh" | sudo bash
-
-# install gitlab runner
-sudo apt-get install gitlab-runner
+## Usage
+The simplest example is to create a `.gitlab-ci.yml` in the repos root and upload it.
+```yaml
+hello:
+  script:
+    - echo "I am running inside a CI job"
 ```
-Source: https://docs.gitlab.com/runner/install/linux-repository.html
+The job hello would run the echo command whenever there is a change in the default branch. The job is running inside the default docker container determined by the gitlab-runner configuration.
 
-Setup a runner like this
-gitlab-runner register  --url https://scm.cms.hu-berlin.de  --token glrt-GqYPQxqs2ejzFBcCrfwh
+You can set a specific runner for execution by setting the tags inside the job. If you select the goal runner you have access to the GPU.
+```yaml
+train:
+  tags:
+    - goal
+  script:
+    - nvidia-smi
+```
+The tags for a runner are configured during the installation of the gitlab runner. Please note that if a runner has multiple tags you have to set all of them to select this runner. You can use the runner provided by the university and for jobs without special needs we recommend using them. But you can get rate limited there. If you have repos where you commit often you should set up your pipeline to not run on every commit.
 
-runner config is located in /etc/gitlab-runner/config.toml
-
-enable gpus by adding stuff to the config.toml
-https://docs.gitlab.com/runner/configuration/gpus.html
-
-
+There are many more options to configure your CI pipeline. For reference please have a look at the existing ones or the official documentation at https://docs.gitlab.com/ee/ci/yaml/
 
 ## Linux Toolchain
 Code can be found at https://github.com/BerlinUnited/linuxtoolchain. This repo is a mirror from an internal repo.  
@@ -77,6 +75,30 @@ The `publish_naoth_python` job publishes the naoth python package to the interna
 ## NaoImage Pipeline
 This pipeline will run inside the image created by the naoth pipeline. It will build the softbank and the ubuntu image. 
 This repo is still experimental. It is based on work done by the NaoDevils (currently unreleased).
+
+## Setup 
+As mentioned above we set up gitlab-runner on our ball and goal server.
+
+### How to setup Gitlab Runner
+We have a gitlab runner set up at ball.informatik.hu-berlin.de and goal.informatik.hu-berlin.de. Both servers are located in our lab.
+
+Install gitlab runner
+```bash
+# setup package repo
+curl -L "https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.deb.sh" | sudo bash
+
+# install gitlab runner
+sudo apt-get install gitlab-runner
+```
+Source: https://docs.gitlab.com/runner/install/linux-repository.html
+
+Setup a runner like this
+gitlab-runner register  --url https://scm.cms.hu-berlin.de  --token glrt-GqYPQxqs2ejzFBcCrfwh
+
+runner config is located in /etc/gitlab-runner/config.toml
+
+enable gpus by adding stuff to the config.toml
+https://docs.gitlab.com/runner/configuration/gpus.html
 
 ## Cleanup Jobs
 The Gitlab CI docker executor leaves a lot of volumes and images behind to speed up the CI jobs. To free up the disk a bit
