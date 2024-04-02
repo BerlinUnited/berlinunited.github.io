@@ -1,0 +1,1466 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.6">
+    
+    
+      
+        <title>NaoTH Development Setup - Berlin United - Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.4a0965b7.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#naoth-development-setup" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Berlin United - Documentation" class="md-header__button md-logo" aria-label="Berlin United - Documentation" data-md-component="logo">
+      
+  <img src="../../../img/favicon.ico" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Berlin United - Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              NaoTH Development Setup
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../.." class="md-tabs__link">
+      Welcome to Berlin United
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../teamreport/" class="md-tabs__link">
+        Teamreport
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../naoth_tools/rc/" class="md-tabs__link">
+        Tooling
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../onboarding/" class="md-tabs__link md-tabs__link--active">
+        Guides
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Berlin United - Documentation" class="md-nav__button md-logo" aria-label="Berlin United - Documentation" data-md-component="logo">
+      
+  <img src="../../../img/favicon.ico" alt="logo">
+
+    </a>
+    Berlin United - Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        Welcome to Berlin United
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Teamreport
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Teamreport" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Teamreport
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../teamreport/" class="md-nav__link">
+        Welcome
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../teamreport/introduction/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../teamreport/architecture_intro/" class="md-nav__link">
+        Architecture
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../teamreport/debugging/" class="md-nav__link">
+        Debugging and Tools
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../teamreport/vision/" class="md-nav__link">
+        Visual Perception
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../teamreport/modeling/" class="md-nav__link">
+        Modeling
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../teamreport/motion/" class="md-nav__link">
+        Motion Control
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../teamreport/behavior/" class="md-nav__link">
+        Behavior
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../teamreport/bibliography/" class="md-nav__link">
+        Bibliography
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Tooling
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Tooling" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Tooling
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../naoth_tools/rc/" class="md-nav__link">
+        RoboControl
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../naoth_tools/naoscp/" class="md-nav__link">
+        NaoSCP
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../naoth_tools/xabsleditor/" class="md-nav__link">
+        Xabsleditor
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../naoth_tools/simspark/" class="md-nav__link">
+        Simspark
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../naoth_tools/webots/" class="md-nav__link">
+        Webots
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../naoth_tools/gitlab-ci/" class="md-nav__link">
+        Gitlab CI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../naoth_tools/lab-trackingsystem/" class="md-nav__link">
+        NaoTH Tracking System
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../robocup_tools/" class="md-nav__link">
+        RoboCup Project
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../robocup_tools/game_recording/" class="md-nav__link">
+        Game Recording
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Guides
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Guides" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Guides
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../onboarding/" class="md-nav__link">
+        Joining the team
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2" type="checkbox" id="__nav_4_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_2">
+          Setup
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Setup" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          Setup
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          NaoTH Development Setup
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        NaoTH Development Setup
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#toolchain-setup" class="md-nav__link">
+    Toolchain Setup
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#clone-and-build" class="md-nav__link">
+    Clone and build
+  </a>
+  
+    <nav class="md-nav" aria-label="Clone and build">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#softbank-image" class="md-nav__link">
+    Softbank Image
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clang-ubuntu-image" class="md-nav__link">
+    Clang + Ubuntu Image
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cygwin-softbank-image" class="md-nav__link">
+    Cygwin + Softbank Image
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clang-ubuntu-image_1" class="md-nav__link">
+    Clang + Ubuntu Image
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-tools-for-development" class="md-nav__link">
+    Additional tools for development
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#known-issues" class="md-nav__link">
+    Known Issues
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../robot_setup/" class="md-nav__link">
+        NAO setup and deployment
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nao_config/" class="md-nav__link">
+        Configuration Files
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../working-with-logfiles/working-with-logfiles/" class="md-nav__link">
+        Working with logfiles
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../working-with-sound/working-with-sound/" class="md-nav__link">
+        Sound
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../robot_handling/" class="md-nav__link">
+        Handling the Robot
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../logging/" class="md-nav__link">
+        Logging
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../obstacle_detection/" class="md-nav__link">
+        Obstacle Detection and Pathplanning
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../keyframe_motions/" class="md-nav__link">
+        Keyframe Motions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../other_teams/" class="md-nav__link">
+        Setup code from other teams
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_10" type="checkbox" id="__nav_4_10" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_10">
+          Code Conventions
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Code Conventions" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_10">
+          <span class="md-nav__icon md-icon"></span>
+          Code Conventions
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../coding_guidelines/" class="md-nav__link">
+        Coding Guidelines
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../git-hooks/" class="md-nav__link">
+        Git-Hooks
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_11" type="checkbox" id="__nav_4_11" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_11">
+          Deep Learning
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Deep Learning" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_11">
+          <span class="md-nav__icon md-icon"></span>
+          Deep Learning
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deeplearning/training/" class="md-nav__link">
+        Training Deep Learning Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deeplearning/deep_learning_annotation/" class="md-nav__link">
+        Data Prep for Deep Learning
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deeplearning/deep_learning_deployment/" class="md-nav__link">
+        Deep Learning Deployment Overview
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#toolchain-setup" class="md-nav__link">
+    Toolchain Setup
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#clone-and-build" class="md-nav__link">
+    Clone and build
+  </a>
+  
+    <nav class="md-nav" aria-label="Clone and build">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#softbank-image" class="md-nav__link">
+    Softbank Image
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clang-ubuntu-image" class="md-nav__link">
+    Clang + Ubuntu Image
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cygwin-softbank-image" class="md-nav__link">
+    Cygwin + Softbank Image
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clang-ubuntu-image_1" class="md-nav__link">
+    Clang + Ubuntu Image
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-tools-for-development" class="md-nav__link">
+    Additional tools for development
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#known-issues" class="md-nav__link">
+    Known Issues
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+<div><h1 id="naoth-development-setup">NaoTH Development Setup</h1>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>You need to install a bunch of software before being able to develop code for the Nao robot.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Linux</label><label for="__tabbed_1_2">Windows</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>In Linux you need the following dependencies: cmake, gcc and g++ compiler, zlib, qtcreator, git, gettext, java, netbeans, libreadline-dev</p>
+<p>gettext is for compiling glib<br>
+libreadline-dev is needed for our LUA experiments.  </p>
+<p>We support Java 8 and 11+.<br>
+For the VideoAnalyzer-Dialog in RobotControl it is potentially necessary to install <code>ffmpeg-compat-55</code> package (Arch) see
+<a href="https://wiki.archlinux.org/index.php/java#JavaFX.27s_MediaPlayer_constructor_throws_an_exception">here</a></p>
+<p>You can install them in ubuntu with this:
+</p><div class="highlight"><pre><span></span><code><span class="c1"># java</span>
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>default-jdk<span class="w"> </span>openjfx<span class="w"> </span>netbeans
+<span class="c1"># c++ compile</span>
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>build-essential<span class="w"> </span>cmake<span class="w"> </span>
+<span class="c1"># c++ essential libs</span>
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>zlib1g-dev<span class="w"> </span>libreadline-dev
+<span class="c1"># c++ IDE (qtcreator)</span>
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>qtcreator<span class="w"> </span>qt4-qmake<span class="w"> </span>libqt4-dev<span class="w"> </span>
+<span class="c1"># code versioning control</span>
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>git
+<span class="c1"># for glib</span>
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>gettext
+<span class="c1"># for archives in the toolchain repo</span>
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>unzip
+<span class="c1"># for creating an ubuntu image for the nao</span>
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>pigz<span class="w"> </span>debootstrap
+</code></pre></div>
+<details>
+<summary>Optional Step (Cmake GUI)</summary>
+<p>You may want to install the cmake GUI for easier development. For example with <code>apt install cmake-curses-gui</code> after
+installation run ccmake instead of cmake.</p>
+<p>You can also use the QT GUI by installing <code>sudo apt install cmake-qt-gui</code> and running cmake-gui after.</p>
+</details>
+<details>
+<summary>Optional Step (Clang)</summary>
+<p>If you want to use clang instead of gcc you need to install the <code>clang</code>, <code>llvm</code> and <code>lld</code> packages. 
+The following snippets are specific for Ubuntu-20.04. For other operating systems they need to be modified.
+</p><div class="highlight"><pre><span></span><code>sudo apt install clang llvm lld
+</code></pre></div>
+In Ubuntu 20.04 clang-12 is installed with the above command however the binaries are not recognized without the version
+suffix. To fix this setup the symlinks for the commands like this.
+<div class="highlight"><pre><span></span><code>sudo ln -sf /usr/bin/clang-12 /usr/bin/clang
+sudo ln -sf /usr/bin/clang++-12 /usr/bin/clang++
+sudo ln -sf /usr/bin/llvm-ar-12 /usr/bin/llvm-ar
+</code></pre></div>
+You can also install clang 13, 14 and 15 like this:
+<div class="highlight"><pre><span></span><code>wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key|sudo apt-key add -
+
+sudo add-apt-repository "deb http://apt.llvm.org/focal/ llvm-toolchain-focal-13 main"
+sudo add-apt-repository "deb http://apt.llvm.org/focal/ llvm-toolchain-focal-14 main"
+sudo add-apt-repository "deb http://apt.llvm.org/focal/ llvm-toolchain-focal-15 main"
+
+sudo apt update --allow-insecure-repositories
+
+sudo apt install clang-13 lld-13 llvm-13
+sudo apt install clang-14 lld-14 llvm-14
+sudo apt install clang-15 lld-15 llvm-15
+</code></pre></div>
+After this setup the symlinks as done above. This documentation is taken from <a href="https://apt.llvm.org/">https://apt.llvm.org/</a>
+</details>
+</div>
+<div class="tabbed-block">
+<p><strong>Visual Studio</strong><br>
+  - Install Microsoft Visual Studio 2019 Community Edition from <a href="https://visualstudio.microsoft.com/vs/community/">https://visualstudio.microsoft.com/vs/community/</a> </p>
+<ul>
+<li><strong>Note:</strong> The project is optimized for VS2019 it is therefore recommended to use it.</li>
+<li><strong>Configure:</strong> After a fresh installation you should adjust following configurations<ul>
+<li>change tab size and indent size to 2 and enable "Insert Spaces" here  <code>Tools-&gt;Options-&gt;Text Editor-&gt;C++-&gt;Tabs</code></li>
+<li>enable the "Build"-toolbar (right klick on the top toolbar) </li>
+</ul>
+</li>
+</ul>
+<p><strong>Cygwin</strong>  </p>
+<ul>
+<li>Get <a href="http://www.cygwin.com">cygwin</a></li>
+<li>Install cygwin, for example to <code>C:\cygwin</code>  <ul>
+<li><strong>Required</strong>: Select the package <em>make</em> for installation</li>
+<li><strong>Required</strong>: Install the <em>mintty: Terminal emulator with native Windows look and feel</em> shell package.  </li>
+<li><strong>Optional</strong>: To add mintty to the windows context menu you have to install the cygwin chere package and execute 
+  <code>chere -i -t mintty -s bash</code> in  a cygwin console with admin privileges. You are now able to right click and open a mintty bash console in any folder.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Java</strong><br>
+You need at least Java JDK 8. Normally you need a oracle account for downloading the jdk. Or you can use the 
+following workaround taken from <a href="https://gist.github.com/wavezhang/ba8425f24a968ec9b2a8619d7c2d86a6">here</a></p>
+<ul>
+<li>Select the JDK you want from https://www.oracle.com/java/technologies/javase-downloads.html  </li>
+<li>Click on a link like <code>jdk-8u291-windows-x64.exe</code>. This will open a popup.   </li>
+<li>Copy the link in the popup. It should be something like https://www.oracle.com/webapps/redirect/signon?nexturl=https://download.oracle.com/otn/java/jdk/8u291-b10/d7fc238d0cbf4b0dac67be84580cfb4b/jdk-8u291-windows-x64.exe  </li>
+<li>change this link to https://download.oracle.com/otn-pub/java/jdk/8u291-b10/d7fc238d0cbf4b0dac67be84580cfb4b/jdk-8u291-windows-x64.exe  </li>
+<li>This is the download link you can use to download the jdk.  </li>
+<li>Install the jdk</li>
+</ul>
+<p><strong>NetBeans</strong>  </p>
+<ul>
+<li>Get <a href="https://netbeans.org/downloads/index.html">NetBeans</a> and install it  </li>
+<li><strong>Important</strong>: Make sure that your Java Path is properly set before installing, otherwise it won't work!  </li>
+</ul>
+<p><strong>Clang</strong></p>
+<p>You can use clang for cross compiling for the NAO. For that install a recent LLVM version from <a href="https://github.com/llvm/llvm-project/releases">here</a>. 
+For example choose <a href="https://github.com/llvm/llvm-project/releases/download/llvmorg-14.0.6/LLVM-14.0.6-win64.exe">LLVM-14.0.6-win64.exe</a></p>
+</div>
+</div>
+</div>
+<h2 id="toolchain-setup">Toolchain Setup</h2>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">Linux</label><label for="__tabbed_2_2">Windows</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Clone the toolchain repo from either our <a href="https://scm.cms.hu-berlin.de/berlinunited/tools/linuxtoolchain">internal gitlab</a>
+or <a href="https://github.com/BerlinUnited/linuxtoolchain">public github</a>. In this docu to the path of the cloned repo is called
+<code>&lt;NaoTH-Projekt/toolchain&gt;</code> Obviously on your system the path looks different.  </p>
+<p>Both repos are synced but the development only happens in the internal repo.</p>
+<p>TODO: add missing parts here</p>
+<p>TODO: how to compile NaoSmal??? You need the naoqi toolchain in AL_DIR</p>
+</div>
+<div class="tabbed-block">
+<p>Clone the toolchain repo from either our <a href="https://scm.cms.hu-berlin.de/berlinunited/tools/windowstoolchain">internal gitlab</a>
+or <a href="https://github.com/BerlinUnited/windowstoolchain">public github</a>. In this docu to the path of the cloned repo is called
+<code>&lt;NaoTH-Projekt/toolchain&gt;</code> Obviously on your system the path looks different.</p>
+<p>Both repos are synced but the development only happens in the internal repo.</p>
+<p>Inside <code>&lt;NaoTH-Projekt/NaoTHToolchain&gt;</code> run <code>setup.bat</code> as admin.</p>
+<p>This script will generate <code>projectconfig.user.lua</code> which must be copied <code>&lt;NaoTH-Projekt/Naoth-2020&gt;/NaoTHSoccer/Make</code>.
+This is later used for configuring the compile step if needed.</p>
+<p>TODO: how to compile NaoSmal??? You need the naoqi toolchain in AL_DIR</p>
+</div>
+</div>
+</div>
+<h2 id="clone-and-build">Clone and build</h2>
+<p>To work with the project, checkout the git repo:
+</p><div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>&lt;url<span class="w"> </span>of<span class="w"> </span>this<span class="w"> </span>repo&gt;<span class="w"> </span>&lt;NaoTH-Projekt/Naoth-2020&gt;
+</code></pre></div>
+where <code>&lt;NaoTH-Projekt/Naoth-2020&gt;</code> is the desired path to the repository on your machine.
+<div class="tabbed-set tabbed-alternate" data-tabs="3:4"><input checked id="__tabbed_3_1" name="__tabbed_3" type="radio"><input id="__tabbed_3_2" name="__tabbed_3" type="radio"><input id="__tabbed_3_3" name="__tabbed_3" type="radio"><input id="__tabbed_3_4" name="__tabbed_3" type="radio"><div class="tabbed-labels"><label for="__tabbed_3_1">Linux</label><label for="__tabbed_3_2">Linux Crosscompilation</label><label for="__tabbed_3_3">Windows</label><label for="__tabbed_3_4">Windows Crosscompilation</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ol>
+<li>TODO</li>
+</ol>
+</div>
+<div class="tabbed-block">
+<p>There are two ways to compile the naoth source code for the NAO. First you can target the softbank provided
+image for the NAO or use clang and target the self build Ubuntu image.</p>
+<h4 id="softbank-image">Softbank Image</h4>
+<p>In order to build the naoth binary go to <code>&lt;NaoTH-Projekt&gt;/Naoth-2020/NaoTHSoccer/Make</code> and run <code>./compileGame.sh -j 4</code></p>
+<h4 id="clang-ubuntu-image">Clang + Ubuntu Image</h4>
+<p>You need to have LLVM installed as described above in the prerequisites section.</p>
+<p>To tell premake to use the ubuntu toolchain you need to change two lines <code>&lt;NaoTH-Projekt&gt;/Naoth-2020/NaoTHSoccer/Make/projectconfig.user.lua</code>  </p>
+<ul>
+<li>NAO_CTC=<naoth-projekt>/toolchain_nao_ubuntu  </naoth-projekt></li>
+<li>_OPTIONS["crosscompiler"] = "clang"</li>
+</ul>
+<p>In order to build the naoth binary go to <code>&lt;NaoTH-Projekt&gt;/Naoth-2020/NaoTHSoccer/Make</code> and run <code>./compileGame.sh -j 4</code></p>
+<p>TODO: mention lolaadaptor and naosmal compilation</p>
+</div>
+<div class="tabbed-block">
+<p>Go to the <code>&lt;NaoTH-Projekt/Naoth-2020&gt;/NaoTHSoccer/Make</code> directory and execute <code>generate-vs2019.bat</code> to 
+create Visual Studio 2019 project files <code>&lt;NaoTH-Projekt/Naoth-2020&gt;/NaoTHSoccer/build/vs2019</code></p>
+<p>Open the NaoTHSoccer.sln file with Visual Studio and you have all the projects loaded that are needed for compilation.
+You can now build each project by right clicking on it and then clicking on build.</p>
+</div>
+<div class="tabbed-block">
+<p>There are two ways to compile the naoth source code for the NAO. First you can use cygwin and target the softbank provided
+image for the NAO or use clang and target the self build Ubuntu image.</p>
+<h4 id="cygwin-softbank-image">Cygwin + Softbank Image</h4>
+<p>You need to have cygwin installed as described above in the prerequisites section.</p>
+<p>In order to build the naoth binary go to <code>&lt;NaoTH-Projekt&gt;/Naoth-2020/NaoTHSoccer/Make</code>, open the mintty bash console in
+this folder via the context menu and run <code>./compileGame.sh -j 4</code></p>
+<h4 id="clang-ubuntu-image_1">Clang + Ubuntu Image</h4>
+<p>You need to have cygwin and LLVM installed as described above in the prerequisites section.</p>
+<p>To tell premake to use the ubuntu toolchain you need to change two lines <code>&lt;NaoTH-Projekt&gt;/Naoth-2020/NaoTHSoccer/Make/projectconfig.user.lua</code>  </p>
+<ul>
+<li>NAO_CTC=<naoth-projekt>/toolchain_nao_ubuntu  </naoth-projekt></li>
+<li>_OPTIONS["crosscompiler"] = "clang"</li>
+</ul>
+<p>In order to build the naoth binary go to <code>&lt;NaoTH-Projekt&gt;/Naoth-2020/NaoTHSoccer/Make</code>, open the mintty bash console in
+this folder via the context menu and run <code>./compileGame.sh -j 4</code></p>
+<p>TODO: mention lolaadaptor and naosmal compilation</p>
+</div>
+</div>
+</div>
+<hr>
+<p>For development inside WSL follow the linux instructions.</p>
+<h2 id="additional-tools-for-development">Additional tools for development</h2>
+<p>We use different tools with our project:</p>
+<p><strong>XabslEditor</strong><br>
+We have a dedicated editor for editing and compiling the robots behavior written in xabsl.
+  - clone: <code>git clone https://github.com/BerlinUnited/xabsleditor.git</code><br>
+  - load the Netbeans project from <code>xabsleditor</code> and run the application<br>
+  - manual (after the project was loaded once with netbeans):<br>
+    - change dir <code>cd xabsleditor</code><br>
+    - compile: <code>./gradlew.bat clean build</code><br>
+    - run: <code>./gradlew.bat run</code> or <code>./dist/xabsleditor.bat</code> or <code>java -jar dist/lib/xabsleditor-1.2.jar</code>  </p>
+<p><strong>RobotControl</strong><br>
+  - For controlling, modify and analyze the nao robot
+  - load the Netbeans project <code>RobotControl</code> and run the application
+    - File-&gt;Import Project <code>&lt;ProjectDir&gt;</code>/RobotControl
+  - manual:
+    - compile: <code>./gradlew.bat clean build</code>
+    - run: <code>./gradlew.bat run</code> or <code>./dist/robotcontrol.bat</code> or <code>java -jar dist/lib/RobotControl.jar</code></p>
+<p><strong>NaoSCP</strong><br>
+See NaoSCP Documentation</p>
+<p><strong>Simspark</strong><br>
+  - to run a simulated version of our naoth project<br>
+  - check the <a href="Simspark-Windows-Setup">Simspark Setup Guide </a> for installation instructions  </p>
+<p><strong>Python</strong> <br>
+For working with logfiles we have a set of python scripts in the <code>utils/py</code> folder. The basic functionality is inside a the naoth python package which you can install with pip:  <br>
+   - run <code>pip install -e naoth</code> in the <code>&lt;repository&gt;/Utils/py</code> this will install protobuf as well </p>
+<h2 id="known-issues">Known Issues</h2>
+<p><strong>Premake5 is not found</strong><br>
+  - can happen if your PATH is exceeding the 1024 character limit if PATH is set with setup.bat
+  - Solution add it manualy to the Path. Note that trying to append to PATH with the setup.bat script can delete the 
+    last characters until the string that should be appended fits. In this case other paths are corrupted and don't work anymore.</p>
+<p><strong>RobotControlGUI, NaoSCP and the xabsl editor don't scale correctly for high resolution displays</strong><br>
+  - to fix this install java jdk 11+</p>
+<p><strong>Java 11:</strong><br>
+Java FX is not part of Java 11. It must be installed separately.</p>
+<p><strong>Netbeans does not find java:</strong><br>
+<img alt="image" src="../../../img/build/netbeans_issue.png"></p>
+<p>Solution: Edit the netbeans.conf file. It's located inside the install directory. For example 
+<code>C:/Program Files/NetBeans-12.0/netbeans/etc/netbeans.conf</code>. Set <code>netbeans_jdkhome</code> to the java jdk dir. 
+For example: <code>netbeans_jdkhome="C:\Program Files\Java\jdk1.8.0_271"</code></p></div>
+
+              
+            </article>
+            
+          </div>
+        </div>
+        
+      </main>
+      
+        
+
+<!-- Footer -->
+<footer class="md-footer">
+
+  <!-- The base theme links to previous and/or next page, we omit that here. -->
+
+  <!-- Further information -->
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+
+      <!-- Copyright and theme information -->
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+
+      <!-- Social links -->
+      <div class="md-social">
+  
+    
+    
+      
+      
+    
+    <a href="https://twitter.com/naoteamhumboldt" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+    </a>
+  
+    
+    
+      
+      
+    
+    <a href="https://github.com/BerlinUnited" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+    
+    
+      
+      
+    
+    <a href="https://www.youtube.com/user/teamhumboldt" target="_blank" rel="noopener" title="www.youtube.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg>
+    </a>
+  
+    
+    
+      
+      
+    
+    <a href="https://www.instagram.com/naoteamhumboldt" target="_blank" rel="noopener" title="www.instagram.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
+    </a>
+  
+</div>
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.tabs.sticky"], "search": "../../../assets/javascripts/workers/search.85cb4492.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.a877e258.min.js"></script>
+      
+        <script src="../../../javascripts/config.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
