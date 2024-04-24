@@ -31,7 +31,7 @@ nav:
         - 'guides/setup/naoth_code_setup.md'
         - 'guides/setup/robot_setup.md'
         - 'guides/setup/nao_config.md'
-    - Working Wich Robots:
+    - Working With Robots:
         - 'guides/robot_handling.md'
         - 'guides/robots/known-robot-issues.md'
     - 'guides/working-with-logfiles/working-with-logfiles.md'
@@ -50,12 +50,14 @@ nav:
 
 theme:
   name: material
+  locale: en
   favicon: img/favicon.ico
   logo: img/favicon.ico
   custom_dir: overrides
   features:
     - navigation.tabs
     - navigation.tabs.sticky
+    - toc.follow
 
   palette:
     # Light mode
@@ -76,6 +78,11 @@ theme:
         name: Switch to light mode
 
 markdown_extensions:
+  - toc:
+      permalink: true
+      baselevel: 1
+      toc_depth: 3
+      
   - attr_list
   - admonition
   - pymdownx.tabbed:
