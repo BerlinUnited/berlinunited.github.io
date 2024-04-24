@@ -31,9 +31,11 @@ nav:
         - 'guides/setup/naoth_code_setup.md'
         - 'guides/setup/robot_setup.md'
         - 'guides/setup/nao_config.md'
+    - Working Wich Robots:
+        - 'guides/robot_handling.md'
+        - 'guides/robots/known-robot-issues.md'
     - 'guides/working-with-logfiles/working-with-logfiles.md'
     - 'guides/working-with-sound/working-with-sound.md'
-    - 'guides/robot_handling.md'
     - 'guides/logging.md'
     - 'guides/obstacle_detection.md'
     - 'guides/keyframe_motions.md'
