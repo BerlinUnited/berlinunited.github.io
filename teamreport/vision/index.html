@@ -441,59 +441,12 @@
     Candidate Search -- Perspective Key Points Detection
   </a>
   
-    <nav class="md-nav" aria-label="Candidate Search -- Perspective Key Points Detection">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#representation" class="md-nav__link">
-    Representation:
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#measure" class="md-nav__link">
-    Measure:
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#finding-the-local-maxima" class="md-nav__link">
-    Finding the local maxima:
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
         
           <li class="md-nav__item">
   <a href="#classification" class="md-nav__link">
     Classification
   </a>
-  
-    <nav class="md-nav" aria-label="Classification">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#sample-data-generation" class="md-nav__link">
-    Sample Data Generation
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#classification-with-convolutional-neural-networks" class="md-nav__link">
-    Classification with Convolutional Neural Networks
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -862,6 +815,67 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3" type="checkbox" id="__nav_4_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_3">
+          Working With Robots
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Working With Robots" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_3">
+          <span class="md-nav__icon md-icon"></span>
+          Working With Robots
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/robot_handling/" class="md-nav__link">
+        Handling the Robot
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/robots/known-robot-issues/" class="md-nav__link">
+        Known Issues with Robots
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
       <a href="../../guides/working-with-logfiles/working-with-logfiles/" class="md-nav__link">
         Working with logfiles
@@ -879,20 +893,6 @@
     <li class="md-nav__item">
       <a href="../../guides/working-with-sound/working-with-sound/" class="md-nav__link">
         Sound
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../guides/robot_handling/" class="md-nav__link">
-        Handling the Robot
       </a>
     </li>
   
@@ -1062,7 +1062,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../guides/deeplearning/deep_learning_annotation/" class="md-nav__link">
+      <a href="../../guides/deeplearning/data_prep/" class="md-nav__link">
         Data Prep for Deep Learning
       </a>
     </li>
@@ -1185,59 +1185,12 @@
     Candidate Search -- Perspective Key Points Detection
   </a>
   
-    <nav class="md-nav" aria-label="Candidate Search -- Perspective Key Points Detection">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#representation" class="md-nav__link">
-    Representation:
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#measure" class="md-nav__link">
-    Measure:
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#finding-the-local-maxima" class="md-nav__link">
-    Finding the local maxima:
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
         
           <li class="md-nav__item">
   <a href="#classification" class="md-nav__link">
     Classification
   </a>
-  
-    <nav class="md-nav" aria-label="Classification">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#sample-data-generation" class="md-nav__link">
-    Sample Data Generation
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#classification-with-convolutional-neural-networks" class="md-nav__link">
-    Classification with Convolutional Neural Networks
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -1267,7 +1220,7 @@
                 
 
 
-<div><h1 id="visual-perception">Visual Perception</h1>
+<div><h1 id="visual-perception">Visual Perception<a class="headerlink" href="#visual-perception" title="Permanent link">¶</a></h1>
 <p>Visual perception is the primary way for the NAO robot of perceiving its environment. To reduce computational 
 complexity our vision is based on a reliable field color detection. This color information is used to estimate 
 the boundaries of the visible field region in the image. Which is done while scanning for 
@@ -1289,7 +1242,7 @@ An outgoing arrow from a module $A$ to a representation $R$ means $A$ provides $
 arrow from $R$ to $A$ means $R$ is required by $A$.</figcaption>
 </figure>
 
-<h2 id="green-detection">Green Detection</h2>
+<h2 id="green-detection">Green Detection<a class="headerlink" href="#green-detection" title="Permanent link">¶</a></h2>
 <p>This section describes a new approach to classify the field color which has been used since late 2015. 
 For the first time this approach has been presented in November 2015 at the RoHOW workshop in Hamburg, Germany.
 This constitutes the first step in the attempt for a automatic field color detection. Thereby we analyze 
@@ -1402,7 +1355,7 @@ example the green tends rather towards the blue region. Tracking these
 shifts might be the way for a fully automatic green color classifier
 which would be able to cover the variety of the shades to enable a robot
 to play outside.</p>
-<h2 id="scanlineedgeldetector">ScanLineEdgelDetector</h2>
+<h2 id="scanlineedgeldetector">ScanLineEdgelDetector<a class="headerlink" href="#scanlineedgeldetector" title="Permanent link">¶</a></h2>
 <figure>
   <img src="../img/ScanLineEdgelDetector.png">
   <figcaption>
@@ -1421,7 +1374,7 @@ at the maximum of the response of that filter. We estimate with two
 3x3-Sobel-Filters (horizontal and vertical) the orientation of the line.
 With the result of the field color classification we detect along every
 scanline a point, which marks the border of the field.</p>
-<h2 id="fielddetector">FieldDetector</h2>
+<h2 id="fielddetector">FieldDetector<a class="headerlink" href="#fielddetector" title="Permanent link">¶</a></h2>
 <p>With the field border points, estimated with the
 <em>ScanLineEdgelDetector</em>, we calculate for each image a polygon, which is
 representing the border of the field in the image.</p>
@@ -1433,7 +1386,7 @@ to calculate the field border (right).
 </figcaption>
 </figure>
 
-<h2 id="linegraphprovider">LineGraphProvider</h2>
+<h2 id="linegraphprovider">LineGraphProvider<a class="headerlink" href="#linegraphprovider" title="Permanent link">¶</a></h2>
 <p>This module clusters neighbouring line border points, detected by
 <em>ScanLineEdgelDetector</em>.</p>
 <figure>
@@ -1443,7 +1396,7 @@ TODO: write a caption here
 </figcaption>
 </figure>
 
-<h2 id="ransaclinedetector">RansacLineDetector</h2>
+<h2 id="ransaclinedetector">RansacLineDetector<a class="headerlink" href="#ransaclinedetector" title="Permanent link">¶</a></h2>
 <p>This module detects lines on the directed points generated by the
 LineGraphProvider using the Random sample consensus (RANSAC) method. Our
 implementation can be summarized by the following 4 steps.</p>
@@ -1471,7 +1424,7 @@ implementation can be summarized by the following 4 steps.</p>
 </ol>
 <p>In order to detect the remaining field lines we repeat this procedure on
 the remaining outliers until no lines are found.</p>
-<h2 id="goalfeaturedetector">GoalFeatureDetector</h2>
+<h2 id="goalfeaturedetector">GoalFeatureDetector<a class="headerlink" href="#goalfeaturedetector" title="Permanent link">¶</a></h2>
 <p>This module is the first step of the goal post detection procedure. To
 detect the goal posts we scan along the horizontal scan lines parallel
 to the artificial horizon estimated in <em>ArtificialHorizonProvider</em>.
@@ -1496,7 +1449,7 @@ red dots]
 </figcaption>
 </figure>
 
-<h2 id="goaldetector">GoalDetector</h2>
+<h2 id="goaldetector">GoalDetector<a class="headerlink" href="#goaldetector" title="Permanent link">¶</a></h2>
 <p>The <em>GoalDetector</em> clusters the features found by the
 <em>GoalFeatureDetector</em>. The main idea here is, that features, which
 represent a goal post, must be located underneath of each other. We
@@ -1535,7 +1488,7 @@ reference="fig:GoalDetector"} illustrates the clustering step and the
 evaluation of the candidate clusters. Although there seem to be a
 considerable amount of false features, both posts of the goal are
 detected correctly.</p>
-<h2 id="blackwhite-ball-detection">Black&amp;White Ball Detection</h2>
+<h2 id="blackwhite-ball-detection">Black&amp;White Ball Detection<a class="headerlink" href="#blackwhite-ball-detection" title="Permanent link">¶</a></h2>
 <p>In 2015 the standard ball used in competitions changed to a black&amp;white
 foam ball as illustrated in
 Figure <a href="#fig:bw-ball">4.13</a>{reference-type="ref"
@@ -1555,7 +1508,7 @@ robot.
 </figcaption>
 </figure>
 
-<h3 id="s:ball:candidate">Candidate Search -- Perspective Key Points Detection</h3>
+<h3 id="s:ball:candidate">Candidate Search -- Perspective Key Points Detection<a class="headerlink" href="#s:ball:candidate" title="Permanent link">¶</a></h3>
 <p>Properties of the ball as an object that can be assumed as known include</p>
 <ul>
 <li>
@@ -1603,7 +1556,7 @@ for following three things:</p>
     candidates);</p>
 </li>
 </ol>
-<h5 id="representation">Representation:</h5>
+<h5 id="representation">Representation:<a class="headerlink" href="#representation" title="Permanent link">¶</a></h5>
 <p>In our case we define a <em>ball candidate</em> (more general a <em>key point</em>) as
 a square region in the image which is likely to contain a ball. Such a
 key point <span class="arithmatex">\(c = (x,y,r)\)</span> can be described by its position in the image
@@ -1612,7 +1565,7 @@ represent a circular object by the outer square (bounding box) enclosing
 the circle. This leads to a vast number of possible candidates in a
 single image and a necessity for an efficient heuristic algorithm to
 find the most likely ones.</p>
-<h5 id="measure">Measure:</h5>
+<h5 id="measure">Measure:<a class="headerlink" href="#measure" title="Permanent link">¶</a></h5>
 <p>Intuitively described, a <em>good</em> key point is much brighter inside than
 on its outer border. For a key point <span class="arithmatex">\(c = (x,y,r)\)</span> we define its
 <em>intensity value</em> <span class="arithmatex">\(I(c)\)</span> by</p>
@@ -1627,7 +1580,7 @@ Now we can formulate the measure for <span class="arithmatex">\(c\)</span> by</p
 images. Figure <a href="#fig:bw-patch-function">4.17</a>{reference-type="ref"
 reference="fig:bw-patch-function"} (left) illustrates the measure
 function for the valid pixels of the image.</p>
-<h5 id="finding-the-local-maxima">Finding the local maxima:</h5>
+<h5 id="finding-the-local-maxima">Finding the local maxima:<a class="headerlink" href="#finding-the-local-maxima" title="Permanent link">¶</a></h5>
 <p>To save resources the search is performed only within the estimated
 field region (cf. Section <a href="#s:FieldDetector">4.3</a>{reference-type="ref"
 reference="s:FieldDetector"}). For a given point <span class="arithmatex">\(p = (i,j)\)</span> in image we
@@ -1675,7 +1628,7 @@ is close to the robot or overlapping with the line.
 </figcaption>
 </figure>
 
-<h3 id="classification">Classification</h3>
+<h3 id="classification">Classification<a class="headerlink" href="#classification" title="Permanent link">¶</a></h3>
 <p>In the previous section we discussed how the number of possible ball
 candidates can be efficiently reduced. At the current state we consider
 about 5 candidates per image. In general these candidates look very ball
@@ -1686,7 +1639,7 @@ training a classifier. In the following we outline our approach for fast
 collection of the sample data and give some brief remarks about our
 experience with the OpenCV Cascade Classifier which we used during the
 RoboCup competition in 2016.</p>
-<h4 id="sample-data-generation">Sample Data Generation</h4>
+<h4 id="sample-data-generation">Sample Data Generation<a class="headerlink" href="#sample-data-generation" title="Permanent link">¶</a></h4>
 <p>Collecting sample data basically involves two steps: collecting images
 from game situations and labeling the ones containing the ball. This can
 be a very tedious and time consuming task. To simplify and accelerate
@@ -1713,7 +1666,7 @@ patch.
 </figcaption>
 </figure>
 
-<h4 id="classification-with-convolutional-neural-networks">Classification with Convolutional Neural Networks</h4>
+<h4 id="classification-with-convolutional-neural-networks">Classification with Convolutional Neural Networks<a class="headerlink" href="#classification-with-convolutional-neural-networks" title="Permanent link">¶</a></h4>
 <p>In the last step the generated ball candidates (patches) are classified.
 At the current point we distinguish two classes: <code>ball</code> and <code>noball</code>. As
 a classifier we use a Convolutional Neural Network (CNN). The weights of
@@ -1732,7 +1685,7 @@ ball.
 </figcaption>
 </figure>
 
-<h3 id="acknowledgment">Acknowledgment</h3>
+<h3 id="acknowledgment">Acknowledgment<a class="headerlink" href="#acknowledgment" title="Permanent link">¶</a></h3>
 <p>Some of the most important parts of this ball detection procedure were
 inspired by very fruitful discussions with the RoboCup community. At
 this point we would like to thank in particular the team NaoDevils for
@@ -1818,7 +1771,7 @@ used for comparison purposes. It can be found in\
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky"], "search": "../../assets/javascripts/workers/search.85cb4492.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "toc.follow"], "search": "../../assets/javascripts/workers/search.85cb4492.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.a877e258.min.js"></script>

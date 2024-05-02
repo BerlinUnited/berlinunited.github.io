@@ -698,6 +698,67 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3" type="checkbox" id="__nav_4_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_3">
+          Working With Robots
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Working With Robots" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_3">
+          <span class="md-nav__icon md-icon"></span>
+          Working With Robots
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../robot_handling/" class="md-nav__link">
+        Handling the Robot
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../robots/known-robot-issues/" class="md-nav__link">
+        Known Issues with Robots
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
       <a href="../../working-with-logfiles/working-with-logfiles/" class="md-nav__link">
         Working with logfiles
@@ -818,20 +879,6 @@
   
 </nav>
       
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../robot_handling/" class="md-nav__link">
-        Handling the Robot
-      </a>
     </li>
   
 
@@ -1000,7 +1047,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../deeplearning/deep_learning_annotation/" class="md-nav__link">
+      <a href="../../deeplearning/data_prep/" class="md-nav__link">
         Data Prep for Deep Learning
       </a>
     </li>
@@ -1143,29 +1190,29 @@
                 
 
 
-<div><h1 id="sound">Sound</h1>
-<h2 id="tools">Tools</h2>
-<h3 id="audacity">Audacity</h3>
+<div><h1 id="sound">Sound<a class="headerlink" href="#sound" title="Permanent link">¶</a></h1>
+<h2 id="tools">Tools<a class="headerlink" href="#tools" title="Permanent link">¶</a></h2>
+<h3 id="audacity">Audacity<a class="headerlink" href="#audacity" title="Permanent link">¶</a></h3>
 <p>A tool for working with audio files</p>
 <ul>
 <li><a href="https://www.audacityteam.org/">https://www.audacityteam.org/</a></li>
 <li><a href="https://github.com/audacity">https://github.com/audacity</a></li>
 </ul>
-<h3 id="pyroomacoustics">Pyroomacoustics</h3>
+<h3 id="pyroomacoustics">Pyroomacoustics<a class="headerlink" href="#pyroomacoustics" title="Permanent link">¶</a></h3>
 <p>A software package aimed at the rapid development and testing of audio array processing algorithms. Can be used to simulate the behavior of sound in space.</p>
 <ul>
 <li><a href="https://pypi.org/project/pyroomacoustics/">https://pypi.org/project/pyroomacoustics/</a></li>
 <li><a href="https://github.com/LCAV/pyroomacoustics">https://github.com/LCAV/pyroomacoustics</a></li>
 <li><a href="https://pyroomacoustics.readthedocs.io/en/pypi-release/pyroomacoustics.room.html">https://pyroomacoustics.readthedocs.io/en/pypi-release/pyroomacoustics.room.html</a></li>
 </ul>
-<h2 id="sound-in-logfiles">Sound in Logfiles</h2>
+<h2 id="sound-in-logfiles">Sound in Logfiles<a class="headerlink" href="#sound-in-logfiles" title="Permanent link">¶</a></h2>
 <p>Logfies recorded by the robots during the game can be found here:
 * <a href="https://logs.naoth.de/">https://logs.naoth.de/</a></p>
 <ul>
 <li>Python tools for working with recorded sounds in the logs
    <a href="https://github.com/BerlinUnited/NaoTH/tree/develop/Utils/py/WhistleDetector">https://github.com/BerlinUnited/NaoTH/tree/develop/Utils/py/WhistleDetector</a></li>
 </ul>
-<h2 id="code">Code</h2>
+<h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">¶</a></h2>
 <p>Audio data is recorded in the Logfiles in blocks. The format of the block can be found in the message <code>AudioData.proto</code> and the corresponding representation in <code>AudioData.h</code>.</p>
 <ul>
 <li><a href="https://github.com/BerlinUnited/NaoTH/blob/develop/Framework/Commons/Messages/AudioData.proto">https://github.com/BerlinUnited/NaoTH/blob/develop/Framework/Commons/Messages/AudioData.proto</a></li>
@@ -1188,11 +1235,11 @@
 <ul>
 <li><a href="https://github.com/BerlinUnited/NaoTH/tree/develop/NaoTHSoccer/Source/Cognition/Modules/Perception/WhistleDetector">https://github.com/BerlinUnited/NaoTH/tree/develop/NaoTHSoccer/Source/Cognition/Modules/Perception/WhistleDetector</a></li>
 </ul>
-<h2 id="recording-with-pulseaudio">Recording with PulseAudio</h2>
-<h3 id="recording-raw-audio-data">Recording RAW audio data</h3>
+<h2 id="recording-with-pulseaudio">Recording with PulseAudio<a class="headerlink" href="#recording-with-pulseaudio" title="Permanent link">¶</a></h2>
+<h3 id="recording-raw-audio-data">Recording RAW audio data<a class="headerlink" href="#recording-raw-audio-data" title="Permanent link">¶</a></h3>
 <div class="highlight"><pre><span></span><code><span class="w">    </span>parecord<span class="w"> </span>-r<span class="w"> </span>--raw<span class="w"> </span>--format<span class="o">=</span>s16le<span class="w"> </span>--rate<span class="o">=</span><span class="m">8000</span><span class="w"> </span>--channel-map<span class="o">=</span>rear-left,rear-right,front-left,front-right<span class="w"> </span>--channels<span class="o">=</span><span class="m">4</span><span class="w"> </span>&gt;<span class="w"> </span>test.raw
 </code></pre></div>
-<h2 id="references">References</h2>
+<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">¶</a></h2>
 <ul>
 <li><a href="https://www2.informatik.hu-berlin.de/~naoth/docs/theses/2022-masterthesis-duebel.pdf">Akustische Ortung im Roboterfußball</a>, Jakob Dübel, Masterthesis (German).<ul>
 <li>Code (Internal): <a href="https://scm.cms.hu-berlin.de/berlinunited/papers/2020-jakob-duebel-masterarbeit">https://scm.cms.hu-berlin.de/berlinunited/papers/2020-jakob-duebel-masterarbeit</a></li>
@@ -1285,7 +1332,7 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.tabs.sticky"], "search": "../../../assets/javascripts/workers/search.85cb4492.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "toc.follow"], "search": "../../../assets/javascripts/workers/search.85cb4492.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.a877e258.min.js"></script>

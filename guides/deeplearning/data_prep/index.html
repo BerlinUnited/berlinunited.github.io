@@ -698,6 +698,67 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3" type="checkbox" id="__nav_4_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_3">
+          Working With Robots
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Working With Robots" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_3">
+          <span class="md-nav__icon md-icon"></span>
+          Working With Robots
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../robot_handling/" class="md-nav__link">
+        Handling the Robot
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../robots/known-robot-issues/" class="md-nav__link">
+        Known Issues with Robots
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
       <a href="../../working-with-logfiles/working-with-logfiles/" class="md-nav__link">
         Working with logfiles
@@ -715,20 +776,6 @@
     <li class="md-nav__item">
       <a href="../../working-with-sound/working-with-sound/" class="md-nav__link">
         Sound
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../robot_handling/" class="md-nav__link">
-        Handling the Robot
       </a>
     </li>
   
@@ -948,56 +995,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#cvat-labeltool" class="md-nav__link">
-    CVAT Labeltool
-  </a>
-  
-    <nav class="md-nav" aria-label="CVAT Labeltool">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#label-rules" class="md-nav__link">
-    Label Rules
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#rules-for-gopro-tasks" class="md-nav__link">
-    Rules for GoPro Tasks
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#rules-for-log-tasks" class="md-nav__link">
-    Rules for Log Tasks
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#auto-annotation-for-users" class="md-nav__link">
-    Auto Annotation for users
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#training-a-model" class="md-nav__link">
-    Training a model
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#deploying-a-model" class="md-nav__link">
-    Deploying a model
+  <a href="#validate-auto-annotation" class="md-nav__link">
+    Validate Auto Annotation
   </a>
   
 </li>
@@ -1079,56 +1078,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#cvat-labeltool" class="md-nav__link">
-    CVAT Labeltool
-  </a>
-  
-    <nav class="md-nav" aria-label="CVAT Labeltool">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#label-rules" class="md-nav__link">
-    Label Rules
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#rules-for-gopro-tasks" class="md-nav__link">
-    Rules for GoPro Tasks
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#rules-for-log-tasks" class="md-nav__link">
-    Rules for Log Tasks
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#auto-annotation-for-users" class="md-nav__link">
-    Auto Annotation for users
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#training-a-model" class="md-nav__link">
-    Training a model
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#deploying-a-model" class="md-nav__link">
-    Deploying a model
+  <a href="#validate-auto-annotation" class="md-nav__link">
+    Validate Auto Annotation
   </a>
   
 </li>
@@ -1147,7 +1098,7 @@
                 
 
 
-<div><h1 id="data-prep-for-deep-learning">Data Prep for Deep Learning</h1>
+<div><h1 id="data-prep-for-deep-learning">Data Prep for Deep Learning<a class="headerlink" href="#data-prep-for-deep-learning" title="Permanent link">¶</a></h1>
 <p>We use Labelstudio <a href="https://labelstud.io/">https://labelstud.io/</a> for all annotation tasks. It's deployed to our k8s cluster. Our instance is available at <a href="https://ls.berlinunited-cloud.de/">https://ls.berlinunited-cloud.de/</a>. For more information about the deployment part see the <a href="../../../naoth_tools/k8s/">k8s docs</a>.</p>
 <p>We largely automated the data ingestion process from the point of uploading the data to our server.</p>
 <div class="admonition note">
@@ -1155,7 +1106,7 @@
 <p>finds new data in the log folder -&gt; adds data to a postgres db -&gt; if images are not already extracted from log, extract them -&gt; add information about image location to db -&gt; if images not already present in labelstudio add them there -&gt; if images not annotated, run annotation model.</p>
 </div>
 <p>In the following sections this process is described in more detail. Please note that you don't have to run the automation. You can always do everything manually. But for reproducibility this is not advised. The code for the whole data prep process is in <a href="https://scm.cms.hu-berlin.de/berlinunited/projects/log-crawler">https://scm.cms.hu-berlin.de/berlinunited/projects/log-crawler</a></p>
-<h2 id="logfolder-structure">Logfolder Structure</h2>
+<h2 id="logfolder-structure">Logfolder Structure<a class="headerlink" href="#logfolder-structure" title="Permanent link">¶</a></h2>
 <p>Internally we have a file server that you can access via any gruenau server. The logs are located at <code>/vol/repl261-vol4/naoth/logs</code>. Externally this folder is accessable via <a href="logs.naoth.de">logs.naoth.de</a>. Please see the page about infrastructure for more information.</p>
 <div class="highlight"><pre><span></span><code>logs/
     2015-07-17_RC15/
@@ -1213,7 +1164,7 @@ logs/
             game_logs/
                 1_91_Nao0379-after-failure/
 </code></pre></div>
-<h2 id="data-sources">Data sources</h2>
+<h2 id="data-sources">Data sources<a class="headerlink" href="#data-sources" title="Permanent link">¶</a></h2>
 <p>Currently we have two main source where image data for deep learning can come from:
 - log files created on the nao robot
 - gopro footage from games</p>
@@ -1225,72 +1176,12 @@ the gopro footage.</p>
 <p class="admonition-title">Note</p>
 <p>TODO: explain the log folder structure somewhere</p>
 </div>
-<h2 id="cvat-labeltool">CVAT Labeltool</h2>
-<p>Our CVAT instance can be accessed via <a href="https://ball.informatik.hu-berlin.de">https://ball.informatik.hu-berlin.de</a>. The setup of our instance is described in
-<a href="../naoth_tools/cvat.md">CVAT Setup</a>.</p>
-<p>Everyone can register, but to see the tasks you have to be manually added to a group with the appropriate permissons.
-Contact the team via slack or email to get the permissions set.</p>
-<p>The api can be tested with swagger at <a href="https://ball.informatik.hu-berlin.de/api/swagger/">https://ball.informatik.hu-berlin.de/api/swagger/</a>. Alternatively you can use curl requests directly
-for example like this
-</p><div class="highlight"><pre><span></span><code><span class="c1"># get an image</span>
-curl<span class="w"> </span>--user<span class="w"> </span>&lt;username&gt;:&lt;password&gt;<span class="w"> </span>-X<span class="w"> </span>GET<span class="w"> </span><span class="s2">"http://ball.informatik.hu-berlin.de/api/v1/tasks/&lt;task_id&gt;/data?type=frame&amp;quality=original&amp;number=0"</span><span class="w"> </span>-H<span class="w">  </span><span class="s2">"accept: application/json"</span><span class="w"> </span>-H<span class="w">  </span><span class="s2">"X-CSRFToken: 92BgjW2DL1Q8aOWKvEFbYJubcVhbIx8jTMdypKm0KpwfXfp4NE9QW9hJxHiaP0gW"</span><span class="w"> </span>&gt;<span class="w"> </span>test.png
-
-<span class="c1"># add an image to a task</span>
-curl<span class="w"> </span>--user<span class="w"> </span>&lt;username&gt;:&lt;password&gt;<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span><span class="s2">"http://ball.informatik.hu-berlin.de/api/v1/tasks/&lt;task_id&gt;/data"</span><span class="w"> </span>-H<span class="w">  </span><span class="s2">"accept: application/json"</span><span class="w"> </span>-H<span class="w">  </span><span class="s2">"Content-Type: application/json"</span><span class="w"> </span>-H<span class="w">  </span><span class="s2">"X-CSRFToken: 92BgjW2DL1Q8aOWKvEFbYJubcVhbIx8jTMdypKm0KpwfXfp4NE9QW9hJxHiaP0gW"</span><span class="w"> </span>-d<span class="w"> </span><span class="s2">"{ \"image_quality\": 95, \"client_files\": [\"bla.png\"]}"</span>
-</code></pre></div>
-<p>To automate many commons tasks python scripts were created in the naoth-deeplearning repo. The most relevant is the 
-function for creating a task. For this you need the name of the task and the path on the server to the zip containing 
-the images. A more detailed documentation can be found in the naoth-deeplearning repo.</p>
-<h3 id="label-rules">Label Rules</h3>
-<ul>
-<li>You should not modify tasks that are assigned to someone else</li>
-<li>You should not modify tasks that are marked <em>completed</em></li>
-<li>Do not change labels of existing projects</li>
-<li>Every task should belong to a project</li>
-<li>Notify the team via slack if your are adding tasks or projects</li>
-<li>Notify the team via slack before adding more automatic annotation models</li>
-<li>Before you start assign the task to yourself so that others don't interfere</li>
-<li>After you are done select <em>Request a review</em> from the menu and select another active user</li>
-<li>Before you start working please read the official documentation at <a href="https://openvinotoolkit.github.io/cvat/docs">https://openvinotoolkit.github.io/cvat/docs</a></li>
-<li>only label balls that you can clearly detect as balls when zoomed in a bit (TODO create some examples)</li>
-<li>the bounding box of a ball should include the whole ball even if part of it is outside the image or occluded</li>
-<li>Don't use ellipses for ball annotations yet</li>
-</ul>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>TODO: Update the rules when circle annotation is possible. Ellipses are not useful for us right now.</p>
-</div>
-<h3 id="rules-for-gopro-tasks">Rules for GoPro Tasks</h3>
-<p>Starting in 2018 we tried to record every SPL game with a camera outside of the field. The videos can be found at logs.naoth.de</p>
-<p>You should not import the Gopro videos directly. Instead the functions inside the NaoTH-Deeplearning repo for everything.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>TODO: what should the labels be???
-TODO: mention that labels should be done in projects not tasks</p>
-</div>
-<h3 id="rules-for-log-tasks">Rules for Log Tasks</h3>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>TODO: write down the annotations that dortmund does. its important to know where the robot is blurred, fully in the
-picture etc.</p>
-</div>
-<h3 id="auto-annotation-for-users">Auto Annotation for users</h3>
-<p>You can see a list of available models by clicking Models View on the top:
-<img alt="models_view" src="../img/cvat/models.png"></p>
-<p>By clicking on supported labels you can see a list of labels this model can annotate. To create new models see the documentation at
-<a href="../naoth_tools/cvat.md">CVAT Setup</a>.</p>
-<p>Navigate to a task and click <code>Actions-&gt;Automatic annotation</code> and select the model you want to run.
-<img alt="models_view" src="../img/cvat/model_task.png"><br>
-Now you have to wait for a long time. After all images of the tasks are done you can see the created annotations.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Those models are not able to do proper annotations (e.g. blurrendness) for bounding boxes yet. 
-Those still have to be done manually.</p>
-</div>
-<h2 id="training-a-model">Training a model</h2>
-<p>TODO</p>
-<h2 id="deploying-a-model">Deploying a model</h2>
-<p>TODO</p></div>
+<h2 id="validate-auto-annotation">Validate Auto Annotation<a class="headerlink" href="#validate-auto-annotation" title="Permanent link">¶</a></h2>
+<p>As described before the actual annotating should be done automatically. But we still have to validate the annotations. Just click on each row and have a look if the annotations are correct. Don't skip any row as the preview images can hide some details. If you need to make changes you have to click the blue update button, otherwise changes are not persisted.</p>
+<p><img alt="labelstudio_annotation_overview" src="../img/labelstudio_annotation_overview.png"></p>
+<p>Sometimes we have logs where nothing is moving for a while. In this case propagating the annotations from the first frame to a later one is useful. In this case annotate the first one as usual. Then select each frame that should have the same annotation and then click "Propagate Annotation". You need to set the annotation ID you want to propagate in the pop up window. You can find that when opening the first frame in history windows on the left side.</p>
+<p>Note: This is an experimental labelstudio feature.</p>
+<p>TODO: explain how to mark a project as done.</p></div>
 
               
             </article>
@@ -1369,7 +1260,7 @@ Those still have to be done manually.</p>
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.tabs.sticky"], "search": "../../../assets/javascripts/workers/search.85cb4492.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "toc.follow"], "search": "../../../assets/javascripts/workers/search.85cb4492.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.a877e258.min.js"></script>

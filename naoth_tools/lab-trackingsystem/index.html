@@ -543,61 +543,9 @@
         
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          NaoTH Tracking System
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="./" class="md-nav__link md-nav__link--active">
         NaoTH Tracking System
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#preparations" class="md-nav__link">
-    Preparations
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configure-the-recording" class="md-nav__link">
-    Configure the recording
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#calibrate-the-system" class="md-nav__link">
-    Calibrate the system
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#recording" class="md-nav__link">
-    Recording
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
       
     </li>
   
@@ -760,6 +708,67 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3" type="checkbox" id="__nav_4_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_3">
+          Working With Robots
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Working With Robots" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_3">
+          <span class="md-nav__icon md-icon"></span>
+          Working With Robots
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/robot_handling/" class="md-nav__link">
+        Handling the Robot
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/robots/known-robot-issues/" class="md-nav__link">
+        Known Issues with Robots
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
       <a href="../../guides/working-with-logfiles/working-with-logfiles/" class="md-nav__link">
         Working with logfiles
@@ -777,20 +786,6 @@
     <li class="md-nav__item">
       <a href="../../guides/working-with-sound/working-with-sound/" class="md-nav__link">
         Sound
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../guides/robot_handling/" class="md-nav__link">
-        Handling the Robot
       </a>
     </li>
   
@@ -960,7 +955,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../guides/deeplearning/deep_learning_annotation/" class="md-nav__link">
+      <a href="../../guides/deeplearning/data_prep/" class="md-nav__link">
         Data Prep for Deep Learning
       </a>
     </li>
@@ -1015,42 +1010,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#preparations" class="md-nav__link">
-    Preparations
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configure-the-recording" class="md-nav__link">
-    Configure the recording
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#calibrate-the-system" class="md-nav__link">
-    Calibrate the system
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#recording" class="md-nav__link">
-    Recording
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -1063,16 +1022,16 @@
                 
 
 
-<div><h1 id="naoth-tracking-system">NaoTH Tracking System</h1>
-<h4 id="preparations">Preparations</h4>
+<div><h1 id="naoth-tracking-system">NaoTH Tracking System<a class="headerlink" href="#naoth-tracking-system" title="Permanent link">¶</a></h1>
+<h4 id="preparations">Preparations<a class="headerlink" href="#preparations" title="Permanent link">¶</a></h4>
 <p>You have to run the following code on the robot to enable multicast<br>
 <code>sudo route add -net 224.0.0.0 netmask 240.0.0.0 dev wlan0</code>  </p>
 <p>Multicast must be enabled before the tracking system code works on the robot. Otherwise you will get a segfault.</p>
-<h4 id="configure-the-recording">Configure the recording</h4>
+<h4 id="configure-the-recording">Configure the recording<a class="headerlink" href="#configure-the-recording" title="Permanent link">¶</a></h4>
 <p>TODO make images showing the workflow</p>
-<h4 id="calibrate-the-system">Calibrate the system</h4>
+<h4 id="calibrate-the-system">Calibrate the system<a class="headerlink" href="#calibrate-the-system" title="Permanent link">¶</a></h4>
 <p>TODO</p>
-<h4 id="recording">Recording</h4>
+<h4 id="recording">Recording<a class="headerlink" href="#recording" title="Permanent link">¶</a></h4>
 <p>TODO: mention tips for optimal results</p></div>
 
               
@@ -1152,7 +1111,7 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky"], "search": "../../assets/javascripts/workers/search.85cb4492.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "toc.follow"], "search": "../../assets/javascripts/workers/search.85cb4492.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.a877e258.min.js"></script>

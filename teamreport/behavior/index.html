@@ -753,6 +753,67 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3" type="checkbox" id="__nav_4_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_3">
+          Working With Robots
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Working With Robots" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_3">
+          <span class="md-nav__icon md-icon"></span>
+          Working With Robots
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/robot_handling/" class="md-nav__link">
+        Handling the Robot
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/robots/known-robot-issues/" class="md-nav__link">
+        Known Issues with Robots
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
       <a href="../../guides/working-with-logfiles/working-with-logfiles/" class="md-nav__link">
         Working with logfiles
@@ -770,20 +831,6 @@
     <li class="md-nav__item">
       <a href="../../guides/working-with-sound/working-with-sound/" class="md-nav__link">
         Sound
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../guides/robot_handling/" class="md-nav__link">
-        Handling the Robot
       </a>
     </li>
   
@@ -953,7 +1000,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../guides/deeplearning/deep_learning_annotation/" class="md-nav__link">
+      <a href="../../guides/deeplearning/data_prep/" class="md-nav__link">
         Data Prep for Deep Learning
       </a>
     </li>
@@ -1049,7 +1096,7 @@
                 
 
 
-<div><h1 id="behavior">Behavior</h1>
+<div><h1 id="behavior">Behavior<a class="headerlink" href="#behavior" title="Permanent link">¶</a></h1>
 <p>The Extensible Agent Behavior Specification Language | <em>XABSL</em>
 cf. [@xabsl_web] is a behavior description language for autonomous
 agents based on hierarchical finite state machines. XABSL is originally
@@ -1082,7 +1129,7 @@ debugging and monitoring tool <em>RobotControl</em>.
 Figure <a href="#fig:xabsleditor">7.2</a>{reference-type="ref"
 reference="fig:xabsleditor"} (right) illustrates the execution tree of
 the behavior shown within the visualizer.</p>
-<h2 id="team-strategy">Team Strategy</h2>
+<h2 id="team-strategy">Team Strategy<a class="headerlink" href="#team-strategy" title="Permanent link">¶</a></h2>
 <p>Our team strategy is based on the notion of the <em>active</em> and <em>passive</em>
 behavior. Active behavior defines for each robot what is to do if the
 robot is at the ball, while passive behavior describes what is to do if
@@ -1132,7 +1179,7 @@ different ready position during own kickoff. Solid arrows illustrate the
 assignment of ready positions to the players. Dashed arrows illustrate
 the transitions from passive kickoff positions to the corresponding
 passive positions.</p>
-<h2 id="role-change">Role Change</h2>
+<h2 id="role-change">Role Change<a class="headerlink" href="#role-change" title="Permanent link">¶</a></h2>
 <p>The task of the role decision mechanism is to determine who is striker
 and who's passive. In general there should only be one robot which acts
 as striker. This year we loosened the "only one striker" condition in
@@ -1245,7 +1292,7 @@ should be striker and who should be passive.</p>
 often kick the "real" ball, even if the first striker sees a wrong ball.</p>
 <p>As last safeguard, if there's only one player left, this player becomes
 striker.</p>
-<h2 id="teamball">Teamball</h2>
+<h2 id="teamball">Teamball<a class="headerlink" href="#teamball" title="Permanent link">¶</a></h2>
 <p>The teamball represents a hypothesis of the real ball, based on the ball observations of each player and consolidated to a single position on the field.</p>
 <p>The teamball is then used to adjust the search behavior of passive robots and the goalie. In the past years, when the robot was passive and searched for the ball, the robot turned in one direction (randomly) and moves his head to find the ball. With the teamball the robot changes its behavior. Before the robot starts a new search rotation he turns to the teamball and looks in that direction in order to find the ball. If he doesn't see the ball, he continues to turn in the same turning direction as before, until a full round is completed. Before starting a new round, the robot takes again a look at the teamball and re-starts the described behavior. The ball search continues until the robot found the ball or another game event occurs.</p>
 <p>In 2017 we reintroduced the teamball in order to improve our ball search behavior. Therefor each player communicated its ball model and collected the global ball position of its teammates over a certain amount of time. In each cognition cycle the median in x and y position of all collected balls where determined and used as teamball in the above described behavior. If there wasn't an update for some time, the teamball was invalidated and not used anymore.</p>
@@ -1329,7 +1376,7 @@ striker.</p>
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky"], "search": "../../assets/javascripts/workers/search.85cb4492.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "toc.follow"], "search": "../../assets/javascripts/workers/search.85cb4492.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.a877e258.min.js"></script>

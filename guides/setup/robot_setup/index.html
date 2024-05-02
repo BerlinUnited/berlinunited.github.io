@@ -782,6 +782,67 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3" type="checkbox" id="__nav_4_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_3">
+          Working With Robots
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Working With Robots" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_3">
+          <span class="md-nav__icon md-icon"></span>
+          Working With Robots
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../robot_handling/" class="md-nav__link">
+        Handling the Robot
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../robots/known-robot-issues/" class="md-nav__link">
+        Known Issues with Robots
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
       <a href="../../working-with-logfiles/working-with-logfiles/" class="md-nav__link">
         Working with logfiles
@@ -799,20 +860,6 @@
     <li class="md-nav__item">
       <a href="../../working-with-sound/working-with-sound/" class="md-nav__link">
         Sound
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../robot_handling/" class="md-nav__link">
-        Handling the Robot
       </a>
     </li>
   
@@ -982,7 +1029,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../deeplearning/deep_learning_annotation/" class="md-nav__link">
+      <a href="../../deeplearning/data_prep/" class="md-nav__link">
         Data Prep for Deep Learning
       </a>
     </li>
@@ -1105,10 +1152,10 @@
                 
 
 
-<div><h1 id="nao-setup-and-deployment">NAO setup and deployment</h1>
+<div><h1 id="nao-setup-and-deployment">NAO setup and deployment<a class="headerlink" href="#nao-setup-and-deployment" title="Permanent link">¶</a></h1>
 <p>Before you can deploy the NaoTH Code to the robot needs to be set up in a special way. This is a one time setup which 
 replaces the operating system that comes with the robot and additionally sets up some libraries we need on the robot. </p>
-<h2 id="setup-routine-for-v5-robots">Setup Routine for V5 Robots</h2>
+<h2 id="setup-routine-for-v5-robots">Setup Routine for V5 Robots<a class="headerlink" href="#setup-routine-for-v5-robots" title="Permanent link">¶</a></h2>
 <p>First we need to set up the operating system with the image provided by softbank robotics. You can download it from 
 <a href="https://www2.informatik.hu-berlin.de/~naoth/ressources/Softbank/nao-2.8.5.11_ROBOCUP_ONLY_with_root.opn">here</a></p>
 <p>This image must be put onto a usb drive. For this you can use the 
@@ -1124,14 +1171,14 @@ Left: monkey pose. Right: sit pose</p>
 <p>The next step is to initialize the robot with the required libs. This can be done with NaoSCP and is described
 <a href="../../../naoth_tools/naoscp/">here</a></p>
 <p>After that the compiled robot code can be deployed with NaoSCP as well.</p>
-<h2 id="calibrating-joints">Calibrating Joints</h2>
+<h2 id="calibrating-joints">Calibrating Joints<a class="headerlink" href="#calibrating-joints" title="Permanent link">¶</a></h2>
 <p>The default software of the robot has an integrated automatic calibration routine for the alignment of the joints.
 This routine is usually executed only at the first start of a new robot.
 During the RoboCup games it can happen (and it does happen) that the joints lose their alignment, 
 which might negatively affect all motions, e.g., the walk become a bit more unstable. 
 The calibration values are stored internally and are preserved even when the OS is replaced.
 The following describes how the automatic calibration routine can be triggered when needed.</p>
-<h3 id="trigger-the-automatic-calibration-routine">Trigger the Automatic Calibration Routine</h3>
+<h3 id="trigger-the-automatic-calibration-routine">Trigger the Automatic Calibration Routine<a class="headerlink" href="#trigger-the-automatic-calibration-routine" title="Permanent link">¶</a></h3>
 <ol>
 <li>
 <p>prepare a USB stick with NaoOS Image (as described above) with factory reset.</p>
@@ -1188,16 +1235,16 @@ The following describes how the automatic calibration routine can be triggered w
 </ol>
 </li>
 </ol>
-<h3 id="reference">Reference</h3>
+<h3 id="reference">Reference<a class="headerlink" href="#reference" title="Permanent link">¶</a></h3>
 <ul>
 <li><a href="https://www.robotlab.com/support/nao-will-not-stand-up">https://www.robotlab.com/support/nao-will-not-stand-up</a></li>
 </ul>
-<h2 id="new-setup-routine-with-custom-image">New Setup Routine (with custom image)</h2>
+<h2 id="new-setup-routine-with-custom-image">New Setup Routine (with custom image)<a class="headerlink" href="#new-setup-routine-with-custom-image" title="Permanent link">¶</a></h2>
 <p>For the NAO V6 robots we will use a custom ubuntu based image. Each robot has to be set up with this image once. For creating 
 the image see the NaoImage repository in gitlab. (Not public). The instructions for building and deploying the image can
 be found there.</p>
 <hr>
-<h2 id="deploy-code-to-robot">Deploy Code to robot</h2>
+<h2 id="deploy-code-to-robot">Deploy Code to robot<a class="headerlink" href="#deploy-code-to-robot" title="Permanent link">¶</a></h2>
 <p>TODO: explain network stick<br>
 TODO: explain deploy stick<br>
 TODO: explain deploy routines?</p></div>
@@ -1279,7 +1326,7 @@ TODO: explain deploy routines?</p></div>
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.tabs.sticky"], "search": "../../../assets/javascripts/workers/search.85cb4492.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "toc.follow"], "search": "../../../assets/javascripts/workers/search.85cb4492.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.a877e258.min.js"></script>

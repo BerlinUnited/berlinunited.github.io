@@ -448,33 +448,6 @@
     The algorithm
   </a>
   
-    <nav class="md-nav" aria-label="The algorithm">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#simulating-the-consequences" class="md-nav__link">
-    Simulating the consequences
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#evaluation" class="md-nav__link">
-    Evaluation
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#decision" class="md-nav__link">
-    Decision
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
         
           <li class="md-nav__item">
@@ -849,6 +822,67 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3" type="checkbox" id="__nav_4_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_3">
+          Working With Robots
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Working With Robots" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_3">
+          <span class="md-nav__icon md-icon"></span>
+          Working With Robots
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/robot_handling/" class="md-nav__link">
+        Handling the Robot
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/robots/known-robot-issues/" class="md-nav__link">
+        Known Issues with Robots
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
       <a href="../../guides/working-with-logfiles/working-with-logfiles/" class="md-nav__link">
         Working with logfiles
@@ -866,20 +900,6 @@
     <li class="md-nav__item">
       <a href="../../guides/working-with-sound/working-with-sound/" class="md-nav__link">
         Sound
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../guides/robot_handling/" class="md-nav__link">
-        Handling the Robot
       </a>
     </li>
   
@@ -1049,7 +1069,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../guides/deeplearning/deep_learning_annotation/" class="md-nav__link">
+      <a href="../../guides/deeplearning/data_prep/" class="md-nav__link">
         Data Prep for Deep Learning
       </a>
     </li>
@@ -1165,33 +1185,6 @@
     The algorithm
   </a>
   
-    <nav class="md-nav" aria-label="The algorithm">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#simulating-the-consequences" class="md-nav__link">
-    Simulating the consequences
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#evaluation" class="md-nav__link">
-    Evaluation
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#decision" class="md-nav__link">
-    Decision
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
         
           <li class="md-nav__item">
@@ -1241,10 +1234,10 @@
                 
 
 
-<div><h1 id="modeling">Modeling</h1>
+<div><h1 id="modeling">Modeling<a class="headerlink" href="#modeling" title="Permanent link">¶</a></h1>
 <p>In order to realize a complex and successful cooperative behavior it is necessary to have 
 a appropriate model of the surrounding world. In our approach we focus on local models of particular aspect</p>
-<h2 id="camera-matrix-calibration">Camera Matrix Calibration</h2>
+<h2 id="camera-matrix-calibration">Camera Matrix Calibration<a class="headerlink" href="#camera-matrix-calibration" title="Permanent link">¶</a></h2>
 <p>Camera matrix is the coordinate transformation of a camera in relation to the local coordinate 
 system of the robot. The camera matrix is used to establish the relation between objects detected 
 in the image and their position relative to the robot. For instance, the center of the detected 
@@ -1279,7 +1272,7 @@ lines.
 </figcaption>
 </figure>
 
-<h2 id="probabilistic-compass">Probabilistic Compass</h2>
+<h2 id="probabilistic-compass">Probabilistic Compass<a class="headerlink" href="#probabilistic-compass" title="Permanent link">¶</a></h2>
 <p>We estimate the orientation of the robot on the field based on the detected line edgels utilizing the fact, that 
 all field lines are either orthogonal or parallel to the field. Based on the orientations of the particular 
 projected edgels it is possible to estimate the rotation of the robot up to the <span class="arithmatex">\(\pi\)</span> symmetry.</p>
@@ -1311,7 +1304,7 @@ formula.
 </figcaption>
 </figure>
 
-<h2 id="multi-hypothesis-extended-kalman-filter-ball-model">Multi-Hypothesis-Extended-Kalman-Filter Ball Model</h2>
+<h2 id="multi-hypothesis-extended-kalman-filter-ball-model">Multi-Hypothesis-Extended-Kalman-Filter Ball Model<a class="headerlink" href="#multi-hypothesis-extended-kalman-filter-ball-model" title="Permanent link">¶</a></h2>
 <p>Although there is usually only one ball involved in a RoboCup game, there are several good reasons 
 for being able to represent and track several ball hypotheses at the same time. The main reason however 
 are the false-positives. Due to the change to the new black and white ball as described in the 
@@ -1333,7 +1326,7 @@ After that the ball candidates in the image are assigned to the hypotheses and t
 Each measurement is assigned at most to one hypothesis and vice versa. If no matching hypothesis is 
 found a new Kalman filter is created which will represent a new hypothesis. The final ball model for 
 the behavior is the hypothesis which is the closest to the robot and is updated frequently.</p>
-<h2 id="multi-hypothesis-goal-model-mhgm">Multi-Hypothesis Goal Model (MHGM)</h2>
+<h2 id="multi-hypothesis-goal-model-mhgm">Multi-Hypothesis Goal Model (MHGM)<a class="headerlink" href="#multi-hypothesis-goal-model-mhgm" title="Permanent link">¶</a></h2>
 <p>In this section we describe a multi-hypothesis approach for modeling a soccer goal within the RoboCup context.</p>
 <p>The whole goal is rarely observed and we assume the image processing to detect separate goal posts. So we represent the goal by its corresponding posts. To reduce complexity of the shape of uncertainty we model the separate goal posts in local robot coordinates. The ambiguous goal posts are tracked by a multi-hypothesis particle filter. The actual goal model is extracted from the set of post hypotheses. </p>
 <p>The joint uncertainty can be subdivided into <em>noise</em>, <em>false detections</em> and <em>ambiguity</em>. Each of these components is treated separately in our approach.</p>
@@ -1344,14 +1337,14 @@ the behavior is the hypothesis which is the closest to the robot and is updated 
 <p>More detailed description of the algorithm as well as the experimental
 results can be found in [@HSR-ScheunemannMellmann-14].</p>
 <p><img alt="image" src="../../img/goal_modeling.png"></p>
-<h2 id="simulation-based-selection-of-actions">Simulation Based Selection of Actions</h2>
+<h2 id="simulation-based-selection-of-actions">Simulation Based Selection of Actions<a class="headerlink" href="#simulation-based-selection-of-actions" title="Permanent link">¶</a></h2>
 <p>The robot is capable of different kicks and should given a particular situation, e.g., the robot's position, the position 
 of the ball and obstacles, determine which kick is the optimal kick to perform in this situation. A naive geometric 
 solution which selects a kick based on the robot's direction towards the opponent goal does not account for uncertainty of the actual execution of the kick. Furthermore the distance of the kick is not considered in this approach. An improved kick selection algorithm was 
 developed which is based on a forward simulation of the actions. Thereby each possible kick is simulated and the 
 best kick is chosen based on the outcome, i.e., the position of the ball after the kick. Uncertainty and additional 
 constraints can be integrated in a straight forward way.</p>
-<h3 id="definition-of-an-action">Definition of an Action</h3>
+<h3 id="definition-of-an-action">Definition of an Action<a class="headerlink" href="#definition-of-an-action" title="Permanent link">¶</a></h3>
 <p>An Action is a set of parameters which describe a probability
 distribution of the possible ball location after the execution of a
 kick. Currently there are 4 kicks, two forward kicks and two sidekicks
@@ -1368,7 +1361,7 @@ illustrate experimental data.
 </figcaption>
 </figure>
 
-<h3 id="determine-the-parameters">Determine the parameters</h3>
+<h3 id="determine-the-parameters">Determine the parameters<a class="headerlink" href="#determine-the-parameters" title="Permanent link">¶</a></h3>
 <p>To calculate the initial velocity of a kick the distance the ball rolled
 after a kick was measured in an experiment. By using the stopping
 distance formula the initial velocity of one kick can be calculated by</p>
@@ -1407,17 +1400,17 @@ The above figure shows a resulting end position cloud of
 a hypothetical kick. The end points are calculated by drawing a sample
 from both the angle and kick speed distribution and plugging these
 values in the last equation. For details, refer to the next section.</p>
-<h3 id="the-algorithm">The algorithm</h3>
+<h3 id="the-algorithm">The algorithm<a class="headerlink" href="#the-algorithm" title="Permanent link">¶</a></h3>
 <p>The whole simulation is divided into three steps: simulate the
 consequences, evaluate the consequences and decide the best action.</p>
-<h4 id="simulating-the-consequences">Simulating the consequences</h4>
+<h4 id="simulating-the-consequences">Simulating the consequences<a class="headerlink" href="#simulating-the-consequences" title="Permanent link">¶</a></h4>
 <p>Each action is simulated a fixed number of times. The resulting ball
 position of one simulation for an action is referred to as particle. The
 positions of the particles are calculated according to the parameters of
 the action with applied standard deviations. The algorithm checks for possible 
 collisions with the goal box and in case there are any the kick distance 
 gets shortened appropriately. Collisions with the obstacle model are handled the same way.</p>
-<h4 id="evaluation">Evaluation</h4>
+<h4 id="evaluation">Evaluation<a class="headerlink" href="#evaluation" title="Permanent link">¶</a></h4>
 <p>Each particle is sorted in different categories based on where on the
 field it is, e.g., inside the field, inside the own Goal, outside the
 field. If a particle lands outside the field it is sorted in the
@@ -1425,7 +1418,7 @@ category according where it went out, e.g., left sideline or opponent
 ground line. This is repeated for every particle of every Action that is
 defined. The algorithm then counts the number of particles of each
 action that is either inside the field or inside the opponent goal.</p>
-<h4 id="decision">Decision</h4>
+<h4 id="decision">Decision<a class="headerlink" href="#decision" title="Permanent link">¶</a></h4>
 <p>If an action has less than the defined threshold of particles either
 inside the field or inside the opponent goal the action is discarded.
 For the remaining actions the one with the most particles inside the
@@ -1454,7 +1447,7 @@ field.
 </figcaption>
 </figure>
 
-<h3 id="potential-field">Potential field</h3>
+<h3 id="potential-field">Potential field<a class="headerlink" href="#potential-field" title="Permanent link">¶</a></h3>
 <p>A potential field assigns a value to each position of the ball inside
 the field. The values reflect the static strategy of the game and are
 used to compare possible ball positions in terms of their strategic
@@ -1497,7 +1490,7 @@ the left (blue).
 @RCMellmannSchlotterBlum16. A continuation of this work was
 presented at the HUMANOIDS 2017 RoboCup Workshop
 @HSR-MellmannSchlotter-17.</p>
-<h2 id="arm-collision-detection">Arm Collision Detection</h2>
+<h2 id="arm-collision-detection">Arm Collision Detection<a class="headerlink" href="#arm-collision-detection" title="Permanent link">¶</a></h2>
 <p>In the current implementation of the stand and walk motions the arms are used for stability and energy efficiency.
 During the stand motion the arms are kept down along the sides to minimize energy consumption, and are moved back and 
 forth during the walk to balance the rotational forces and stabilize the walk. On the downside, these arm 
@@ -1540,7 +1533,7 @@ detector. To avoid false detections, the static threshold has to be chosen large
 expected error which might occur with out a collision. The accuracy can be improved with a dynamic 
 threshold. We observed a correlation between the position of the joint the average absolute error which.
 Thus, a threshold depending on the position of the joint might improve the results significantly.</p>
-<h2 id="time-synchronization">Time synchronization</h2>
+<h2 id="time-synchronization">Time synchronization<a class="headerlink" href="#time-synchronization" title="Permanent link">¶</a></h2>
 <p>The robots communicate via wifi with the gamecontroller and with each
 other. The communicated information are not only used for debugging &amp;
 visualization in RobotControl, their're also used in the behavior and
@@ -1592,7 +1585,7 @@ only the teamball module uses the time synchronization to determine how
 old a seen ball of its teammates really is, but future development
 should use the feature more and thus make the communicated information
 more reliable and the thereon based calculations more accurate.</p>
-<h2 id="imu">IMU</h2>
+<h2 id="imu">IMU<a class="headerlink" href="#imu" title="Permanent link">¶</a></h2>
 <p>A Unscented-Kalman-Filter is used to combine the measurements of the
 accelerometer and gyrometer to a orientation and a gravity adjusted
 acceleration in the inertial frame. Quaternions are used in calculations
@@ -1677,7 +1670,7 @@ stability and avoid the problem of singularities.</p></div>
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky"], "search": "../../assets/javascripts/workers/search.85cb4492.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "toc.follow"], "search": "../../assets/javascripts/workers/search.85cb4492.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.a877e258.min.js"></script>

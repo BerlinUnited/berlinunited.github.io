@@ -780,6 +780,67 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3" type="checkbox" id="__nav_4_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_3">
+          Working With Robots
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Working With Robots" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_3">
+          <span class="md-nav__icon md-icon"></span>
+          Working With Robots
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/robot_handling/" class="md-nav__link">
+        Handling the Robot
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/robots/known-robot-issues/" class="md-nav__link">
+        Known Issues with Robots
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
       <a href="../../guides/working-with-logfiles/working-with-logfiles/" class="md-nav__link">
         Working with logfiles
@@ -797,20 +858,6 @@
     <li class="md-nav__item">
       <a href="../../guides/working-with-sound/working-with-sound/" class="md-nav__link">
         Sound
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../guides/robot_handling/" class="md-nav__link">
-        Handling the Robot
       </a>
     </li>
   
@@ -980,7 +1027,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../guides/deeplearning/deep_learning_annotation/" class="md-nav__link">
+      <a href="../../guides/deeplearning/data_prep/" class="md-nav__link">
         Data Prep for Deep Learning
       </a>
     </li>
@@ -1103,7 +1150,7 @@
                 
 
 
-<div><h1 id="motion-control">Motion Control</h1>
+<div><h1 id="motion-control">Motion Control<a class="headerlink" href="#motion-control" title="Permanent link">¶</a></h1>
 <p>The performance of a soccer robot is highly dependent on its motion
 ability. Together with the ability to walk, the kicking motion is one of
 the most important motions in a soccer game. However, at the current
@@ -1131,7 +1178,7 @@ to the visual data, e.g. the seen ball or optical flow, is investigated.
 Problems arise from sensor noise and delays within the feedback loop. As
 a correlated project we also investigate the paradigm of local control
 loops, e.g. we extended the Nao with additional sensors.</p>
-<h2 id="walk">Walk</h2>
+<h2 id="walk">Walk<a class="headerlink" href="#walk" title="Permanent link">¶</a></h2>
 <p>The algorithm we use to accomplish a walking motion can be subdivided
 into four components: the path planner, the step planner, the preview
 controller and stabilization.</p>
@@ -1154,7 +1201,7 @@ determine the target joint configuration using inverse kinematics.</p>
 </figcaption>
 </figure>
 
-<h3 id="path-planner">Path Planner</h3>
+<h3 id="path-planner">Path Planner<a class="headerlink" href="#path-planner" title="Permanent link">¶</a></h3>
 <p>The path planner is intended to calculate a collision free and optimal
 path from the robot towards a goal. Currently that intention is not
 fulfilled. Instead it is used as a bridge between the behavior
@@ -1180,7 +1227,7 @@ are implemented inside the path planner. To allow this fine-grained
 control over actual steps the path planner implements a simple mechanism
 to ensure that a desired step is requested until actual execution of the
 step, unless the step becomes obsolete in the process.</p>
-<h3 id="step-planner">Step Planner</h3>
+<h3 id="step-planner">Step Planner<a class="headerlink" href="#step-planner" title="Permanent link">¶</a></h3>
 <p>The step planner calculates the next 2D positions of the feet based on
 the walk request inside the motion request.</p>
 <p>The walk request and the current pose of the moving foot are transformed
@@ -1205,7 +1252,7 @@ buffer.</p>
 <p>Independent of the requested steps the step planner might insert zero
 steps for increasing the stability of the walk. A zero step is a step in
 which no foot is moved.</p>
-<h3 id="preview-control">Preview Control</h3>
+<h3 id="preview-control">Preview Control<a class="headerlink" href="#preview-control" title="Permanent link">¶</a></h3>
 <p>The Preview Controller calculates the trajectory for the COM based on
 planed ZMPs. For estimating a stable trajectory for the COM we assume a
 linear inverted pendulum model with constant height. In each planning
@@ -1220,7 +1267,7 @@ the target ZMP at time <span class="arithmatex">\(k\)</span>. <span class="arith
 parameters of the preview controller and are pre-calculated. The next
 target COM <span class="arithmatex">\(x_{k+1}\)</span> can be calculated using a linear motion model:
 <span class="arithmatex">\(<span class="arithmatex">\(x_{k+1} = Ax_k + ub\)</span>\)</span></p>
-<h3 id="stabilization">Stabilization</h3>
+<h3 id="stabilization">Stabilization<a class="headerlink" href="#stabilization" title="Permanent link">¶</a></h3>
 <p>The simplified model can easily be affected by disturbances in the
 environment. Therefore a closed loop stabilization is required.</p>
 <p>Different control techniques are used during step creation and execution
@@ -1239,7 +1286,7 @@ second stabilizer tries to keep the upper body in an upright position
 the whole time. And a third controller adapts the ankles according to
 the current orientation of the robot's body and its change in
 orientation.</p>
-<h2 id="energy-efficient-stand">Energy Efficient Stand</h2>
+<h2 id="energy-efficient-stand">Energy Efficient Stand<a class="headerlink" href="#energy-efficient-stand" title="Permanent link">¶</a></h2>
 <p>During games we have to deal with two problems regarding the hardware of
 the robots. The first problem is the increasing temperature of the
 joints, which affects the stability of walking. The second problem is
@@ -1350,7 +1397,7 @@ standing posture is corrected again with full stiffness.</p></div>
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky"], "search": "../../assets/javascripts/workers/search.85cb4492.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "toc.follow"], "search": "../../assets/javascripts/workers/search.85cb4492.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.a877e258.min.js"></script>

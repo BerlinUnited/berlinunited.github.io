@@ -773,6 +773,67 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3" type="checkbox" id="__nav_4_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_3">
+          Working With Robots
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Working With Robots" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_3">
+          <span class="md-nav__icon md-icon"></span>
+          Working With Robots
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/robot_handling/" class="md-nav__link">
+        Handling the Robot
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/robots/known-robot-issues/" class="md-nav__link">
+        Known Issues with Robots
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
       <a href="../../guides/working-with-logfiles/working-with-logfiles/" class="md-nav__link">
         Working with logfiles
@@ -790,20 +851,6 @@
     <li class="md-nav__item">
       <a href="../../guides/working-with-sound/working-with-sound/" class="md-nav__link">
         Sound
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../guides/robot_handling/" class="md-nav__link">
-        Handling the Robot
       </a>
     </li>
   
@@ -973,7 +1020,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../guides/deeplearning/deep_learning_annotation/" class="md-nav__link">
+      <a href="../../guides/deeplearning/data_prep/" class="md-nav__link">
         Data Prep for Deep Learning
       </a>
     </li>
@@ -1089,7 +1136,7 @@
                 
 
 
-<div><h1 id="architecture">Architecture</h1>
+<div><h1 id="architecture">Architecture<a class="headerlink" href="#architecture" title="Permanent link">¶</a></h1>
 <p>An appropriate architecture is the base of each successful software
 project. It enables a group of developers to work at the same project
 and to organize the solutions for their particular research questions.
@@ -1105,7 +1152,7 @@ capabilities.</p>
 implementation of different parts of the architecture. A detailed
 description of the principles we used can also be found in
 [@Mellmann2010b].</p>
-<h2 id="naosmal">NaoSMAL</h2>
+<h2 id="naosmal">NaoSMAL<a class="headerlink" href="#naosmal" title="Permanent link">¶</a></h2>
 <p>In our architecture we don't use the NAOqi API directly but use our own
 so-called NaoSMAL (<strong>N</strong>ao <strong>S</strong>hared <strong>M</strong>emory <strong>A</strong>bstraction <strong>L</strong>ayer)
 NAOqi-module. This calls the DCM API of <a href="http://doc.aldebaran.com/1-14/naoqi/sensors/dcm-api.html">NAOqi</a>
@@ -1116,7 +1163,7 @@ The benefits are a safer operation of the Nao on code crashes (NaoSMAL
 will continue to run and ensures the robot will go in a stable
 position), faster redeploy of our binary without restarting NAOqi and a
 faster compilation since we have fewer dependencies.</p>
-<h2 id="platform-interface">Platform Interface</h2>
+<h2 id="platform-interface">Platform Interface<a class="headerlink" href="#platform-interface" title="Permanent link">¶</a></h2>
 <p>In order to integrate different platforms, our project is divided into
 two parts: a platform independent one and platform specific one. The
 platform specific part contains code which is applied to the particular
@@ -1129,7 +1176,7 @@ platform independent and specific part
 <img alt="Platform Interface is responsible for data transfer and execution of
 the Cognition and Motion
 processes." src="../../img/platform_interface.png"></p>
-<h2 id="module-framework">Module framework</h2>
+<h2 id="module-framework">Module framework<a class="headerlink" href="#module-framework" title="Permanent link">¶</a></h2>
 <p>Our module framework is based on a <em>blackboard architecture</em>. The
 framework consists of the following basic components:</p>
 <p><strong>Representation:</strong> objects carrying data and simple manipulation functions</p>
@@ -1147,7 +1194,7 @@ during compilation time. Different modules can implement similar
 functionality and provide the same representations. You can configure
 which of the modules should be executed at runtime and it is also
 possible to dynamically change this for debugging purposes.</p>
-<h3 id="example-module">Example module</h3>
+<h3 id="example-module">Example module<a class="headerlink" href="#example-module" title="Permanent link">¶</a></h3>
 <p>A module is a C++ class which inherits a base class which is created
 with the help of some macros defining the interface of the the module.</p>
 <div class="highlight"><pre><span></span><code><span class="cp">#ifndef _MyModule_H</span>
@@ -1225,7 +1272,7 @@ the file <code>NaoTHSoccer/Source/Core/Cognition/Cognition.cpp</code>.</p>
 <div class="highlight"><pre><span></span><code><span class="n">REGISTER_MODULE</span><span class="p">(</span><span class="n">MyModule</span><span class="p">);</span>
 </code></pre></div>
 <p>The order of registration defines the order of execution of the modules.</p>
-<h2 id="serialization">Serialization</h2>
+<h2 id="serialization">Serialization<a class="headerlink" href="#serialization" title="Permanent link">¶</a></h2>
 <p>As described in the 
 Section <a href="#s:module_framework">2.3</a> the core of the program is structured in
 modules which are responsible for different tasks like image processing,
@@ -1405,7 +1452,7 @@ serialization functions in the file <em>MyRepresentation.cpp</em>.</p>
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky"], "search": "../../assets/javascripts/workers/search.85cb4492.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "toc.follow"], "search": "../../assets/javascripts/workers/search.85cb4492.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.a877e258.min.js"></script>

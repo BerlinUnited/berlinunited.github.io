@@ -787,6 +787,67 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3" type="checkbox" id="__nav_4_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_3">
+          Working With Robots
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Working With Robots" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_3">
+          <span class="md-nav__icon md-icon"></span>
+          Working With Robots
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/robot_handling/" class="md-nav__link">
+        Handling the Robot
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/robots/known-robot-issues/" class="md-nav__link">
+        Known Issues with Robots
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
       <a href="../../guides/working-with-logfiles/working-with-logfiles/" class="md-nav__link">
         Working with logfiles
@@ -804,20 +865,6 @@
     <li class="md-nav__item">
       <a href="../../guides/working-with-sound/working-with-sound/" class="md-nav__link">
         Sound
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../guides/robot_handling/" class="md-nav__link">
-        Handling the Robot
       </a>
     </li>
   
@@ -987,7 +1034,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../guides/deeplearning/deep_learning_annotation/" class="md-nav__link">
+      <a href="../../guides/deeplearning/data_prep/" class="md-nav__link">
         Data Prep for Deep Learning
       </a>
     </li>
@@ -1117,9 +1164,9 @@
                 
 
 
-<div><h1 id="gitlab-ci">Gitlab CI</h1>
+<div><h1 id="gitlab-ci">Gitlab CI<a class="headerlink" href="#gitlab-ci" title="Permanent link">¶</a></h1>
 <p>For our main repositories we utilize gitlab runner to build the code. You can specify jobs in a <code>.gitlab-ci.yml</code> file and set the execution order. Each job will run inside a docker container you specify. You can also built docker images within a job and later use those in another job. See ... The actual execution of the jobs is triggered by a gitlab-runner binary installed on Universities servers and two of our own lab servers (goal and ball server).</p>
-<h2 id="usage">Usage</h2>
+<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">¶</a></h2>
 <p>The simplest example is to create a <code>.gitlab-ci.yml</code> in the repos root and upload it.
 </p><div class="highlight"><pre><span></span><code><span class="nt">hello</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">script</span><span class="p">:</span>
@@ -1135,7 +1182,7 @@ The job hello would run the echo command whenever there is a change in the defau
 </code></pre></div>
 The tags for a runner are configured during the installation of the gitlab runner. Please note that if a runner has multiple tags you have to set all of them to select this runner. You can use the runner provided by the university and for jobs without special needs we recommend using them. But you can get rate limited there. If you have repos where you commit often you should set up your pipeline to not run on every commit.
 <p>There are many more options to configure your CI pipeline. For reference please have a look at the existing ones or the official documentation at https://docs.gitlab.com/ee/ci/yaml/</p>
-<h2 id="linux-toolchain">Linux Toolchain</h2>
+<h2 id="linux-toolchain">Linux Toolchain<a class="headerlink" href="#linux-toolchain" title="Permanent link">¶</a></h2>
 <p>Code can be found at https://github.com/BerlinUnited/linuxtoolchain. This repo is a mirror from an internal repo.  </p>
 <p>The following files are used for setting up the automatic compilation and deployment of the NaoTH Linux-Toolchain:<br>
 - <code>Dockerfile</code><br>
@@ -1156,7 +1203,7 @@ of the file. The toolchain image is deployed into our gitlab internal docker reg
 <p>Note that Docker only works with linux container when the base system is linux. More information can be found at: 
 <a href="https://stackoverflow.com/questions/42158596/can-windows-containers-be-hosted-on-linux">https://stackoverflow.com/questions/42158596/can-windows-containers-be-hosted-on-linux</a></p>
 <p>The execution of the linux toolchain pipeline will trigger the execution of the NaoTH pipeline.</p>
-<h2 id="naoth-pipeline">NaoTH Pipeline</h2>
+<h2 id="naoth-pipeline">NaoTH Pipeline<a class="headerlink" href="#naoth-pipeline" title="Permanent link">¶</a></h2>
 <p>Code can be found at https://github.com/BerlinUnited/NaoTH. This repo is currently updated once a year. </p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1173,12 +1220,12 @@ on Ubuntu 18.04.</p>
 <p>The <code>publish_naoth_docker</code> job creates a docker image based on the linux toolchain with all the compile output. The
 docker image is published to the internal gitlab docker registry of the repository.</p>
 <p>The <code>publish_naoth_python</code> job publishes the naoth python package to the internal pip registry of the repository.</p>
-<h2 id="naoimage-pipeline">NaoImage Pipeline</h2>
+<h2 id="naoimage-pipeline">NaoImage Pipeline<a class="headerlink" href="#naoimage-pipeline" title="Permanent link">¶</a></h2>
 <p>This pipeline will run inside the image created by the naoth pipeline. It will build the softbank and the ubuntu image. 
 This repo is still experimental. It is based on work done by the NaoDevils (currently unreleased).</p>
-<h2 id="setup">Setup</h2>
+<h2 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">¶</a></h2>
 <p>As mentioned above we set up gitlab-runner on our ball and goal server.</p>
-<h3 id="how-to-setup-gitlab-runner">How to setup Gitlab Runner</h3>
+<h3 id="how-to-setup-gitlab-runner">How to setup Gitlab Runner<a class="headerlink" href="#how-to-setup-gitlab-runner" title="Permanent link">¶</a></h3>
 <p>We have a gitlab runner set up at ball.informatik.hu-berlin.de and goal.informatik.hu-berlin.de. Both servers are located in our lab.</p>
 <p>Install gitlab runner
 </p><div class="highlight"><pre><span></span><code><span class="c1"># setup package repo</span>
@@ -1193,7 +1240,7 @@ gitlab-runner register  --url https://scm.cms.hu-berlin.de  --token glrt-GqYPQxq
 <p>runner config is located in /etc/gitlab-runner/config.toml</p>
 <p>enable gpus by adding stuff to the config.toml
 https://docs.gitlab.com/runner/configuration/gpus.html</p>
-<h2 id="cleanup-jobs">Cleanup Jobs</h2>
+<h2 id="cleanup-jobs">Cleanup Jobs<a class="headerlink" href="#cleanup-jobs" title="Permanent link">¶</a></h2>
 <p>The Gitlab CI docker executor leaves a lot of volumes and images behind to speed up the CI jobs. To free up the disk a bit
 we run a cron job once every day to cleanup the CI cache volumes and old images. For this we added the following lines to
 the root crontab file (run <code>sudo crontab -e</code> to edit)
@@ -1278,7 +1325,7 @@ the root crontab file (run <code>sudo crontab -e</code> to edit)
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky"], "search": "../../assets/javascripts/workers/search.85cb4492.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "toc.follow"], "search": "../../assets/javascripts/workers/search.85cb4492.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.a877e258.min.js"></script>

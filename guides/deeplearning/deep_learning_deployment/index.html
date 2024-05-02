@@ -698,6 +698,67 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3" type="checkbox" id="__nav_4_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_3">
+          Working With Robots
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Working With Robots" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_3">
+          <span class="md-nav__icon md-icon"></span>
+          Working With Robots
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../robot_handling/" class="md-nav__link">
+        Handling the Robot
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../robots/known-robot-issues/" class="md-nav__link">
+        Known Issues with Robots
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
       <a href="../../working-with-logfiles/working-with-logfiles/" class="md-nav__link">
         Working with logfiles
@@ -715,20 +776,6 @@
     <li class="md-nav__item">
       <a href="../../working-with-sound/working-with-sound/" class="md-nav__link">
         Sound
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../robot_handling/" class="md-nav__link">
-        Handling the Robot
       </a>
     </li>
   
@@ -900,7 +947,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../deep_learning_annotation/" class="md-nav__link">
+      <a href="../data_prep/" class="md-nav__link">
         Data Prep for Deep Learning
       </a>
     </li>
@@ -1105,14 +1152,14 @@
                 
 
 
-<div><h1 id="deep-learning-deployment-overview">Deep Learning Deployment Overview</h1>
+<div><h1 id="deep-learning-deployment-overview">Deep Learning Deployment Overview<a class="headerlink" href="#deep-learning-deployment-overview" title="Permanent link">¶</a></h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>TODO: this is very much a WIP. For now just some notes so that we don't forget. We will fix this in the future</p>
 </div>
 <p>For deployment there are multiple options. The easiest to just use python for inference. However this is probably not
 what you want in an embedded system.</p>
-<h2 id="tensorflow-inference-with-python">Tensorflow inference with python</h2>
+<h2 id="tensorflow-inference-with-python">Tensorflow inference with python<a class="headerlink" href="#tensorflow-inference-with-python" title="Permanent link">¶</a></h2>
 <p>The easiest method is just to use python similar to the way we train models.</p>
 <details>
 <summary>Compile Tensorflow for Nao</summary>
@@ -1140,7 +1187,7 @@ what you want in an embedded system.</p>
   step and package building again.</p>
 </details>
 <p>Example inference code and the compiled pip package can be found at ... (TODO: expose the lib folder to the public)</p>
-<h2 id="tensorflow-lite-on-nao-with-c">tensorflow lite on Nao with C++</h2>
+<h2 id="tensorflow-lite-on-nao-with-c">tensorflow lite on Nao with C++<a class="headerlink" href="#tensorflow-lite-on-nao-with-c" title="Permanent link">¶</a></h2>
 <ol>
 <li>Setup ubuntu on the nao as described elsewhere (TODO: insert link)</li>
 <li>build the tensorflow library directly on the nao robot:</li>
@@ -1220,7 +1267,7 @@ int main(int argc, char* argv[]) {
 }
 </code></pre>
 </details>
-<h2 id="tensorflow-lite-micro-tflm-on-nao-with-c">tensorflow lite micro (tflm) on Nao with C++</h2>
+<h2 id="tensorflow-lite-micro-tflm-on-nao-with-c">tensorflow lite micro (tflm) on Nao with C++<a class="headerlink" href="#tensorflow-lite-micro-tflm-on-nao-with-c" title="Permanent link">¶</a></h2>
 <p>Setup ubuntu on the nao as described elsewhere (TODO: insert link)
 Make sure python3, pip and the pillow package is installed on the Nao
 </p><div class="highlight"><pre><span></span><code><span class="c1"># this is needed during tflm compilation</span>
@@ -1233,9 +1280,9 @@ Compile the tflm library:
 make<span class="w"> </span>-f<span class="w"> </span>tensorflow/lite/micro/tools/make/Makefile<span class="w"> </span>microlite
 </code></pre></div>
 The compiled lib will be in tflm_src/tensorflow/lite/micro/tools/make/gen/linux_x86_64_default/lib/libtensorflow-microlite.a
-<h3 id="create-a-tflite-file">Create a tflite file</h3>
+<h3 id="create-a-tflite-file">Create a tflite file<a class="headerlink" href="#create-a-tflite-file" title="Permanent link">¶</a></h3>
 <p>TODO explain exporter options</p>
-<h3 id="convert-a-model-for-inference-with-tflite-micro">Convert a model for inference with tflite-micro</h3>
+<h3 id="convert-a-model-for-inference-with-tflite-micro">Convert a model for inference with tflite-micro<a class="headerlink" href="#convert-a-model-for-inference-with-tflite-micro" title="Permanent link">¶</a></h3>
 <p></p><div class="highlight"><pre><span></span><code>xxd<span class="w"> </span>-i<span class="w"> </span>cool_model.tflite<span class="w"> </span>&gt;<span class="w"> </span>my_model.cc
 </code></pre></div>
 this will produce something like this:
@@ -1307,7 +1354,7 @@ The <code>-i</code> in the xxd command tells it to output the hexdump in c inclu
 -DTF_LITE_STATIC_MEMORY
 </code></pre></div>
 The last line is especially important. Without it you will get unpredictable behavior using this code.
-<h2 id="compilednn">CompiledNN</h2>
+<h2 id="compilednn">CompiledNN<a class="headerlink" href="#compilednn" title="Permanent link">¶</a></h2>
 <p>CompiledNN is a library from B-Human. You can compile it on the Nao itself with:</p>
 <div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/bhuman/CompiledNN.git
 <span class="nb">cd</span><span class="w"> </span>CompiledNN
@@ -1458,7 +1505,7 @@ make<span class="w"> </span>install
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.tabs.sticky"], "search": "../../../assets/javascripts/workers/search.85cb4492.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "toc.follow"], "search": "../../../assets/javascripts/workers/search.85cb4492.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.a877e258.min.js"></script>

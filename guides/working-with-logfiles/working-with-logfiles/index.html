@@ -697,6 +697,67 @@
               
   
   
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3" type="checkbox" id="__nav_4_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_3">
+          Working With Robots
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Working With Robots" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_3">
+          <span class="md-nav__icon md-icon"></span>
+          Working With Robots
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../robot_handling/" class="md-nav__link">
+        Handling the Robot
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../robots/known-robot-issues/" class="md-nav__link">
+        Known Issues with Robots
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
     
   
   
@@ -725,20 +786,6 @@
     <li class="md-nav__item">
       <a href="../../working-with-sound/working-with-sound/" class="md-nav__link">
         Sound
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../robot_handling/" class="md-nav__link">
-        Handling the Robot
       </a>
     </li>
   
@@ -908,7 +955,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../deeplearning/deep_learning_annotation/" class="md-nav__link">
+      <a href="../../deeplearning/data_prep/" class="md-nav__link">
         Data Prep for Deep Learning
       </a>
     </li>
@@ -978,7 +1025,7 @@
 <div><p><strong>Prerequisites:</strong><br>
 - You should be able to compile the Commons, NaothSoccer and LogSimulator projects on your system<br>
 - You can run RobotControl  </p>
-<h1 id="1-get-access-to-logfiles">1 Get access to logfiles</h1>
+<h1 id="1-get-access-to-logfiles">1 Get access to logfiles<a class="headerlink" href="#1-get-access-to-logfiles" title="Permanent link">¶</a></h1>
 <p>There are two ways to access the folder with the logfiles and videos of our games and tests. </p>
 <ol>
 <li>You can get <strong>read-only</strong> access to the logs (without the need of the ssh access) at</li>
@@ -1000,14 +1047,14 @@
 </code></pre></div>
 <p>For Linux use <code>ssh-keygen</code> and on Windows use cygwin's ssh-keygen. 
    Send your public key to a teammember who can add your key.</p>
-<h1 id="2-work-with-logfiles-in-robotcontrol">2 Work with logfiles in RobotControl</h1>
-<h2 id="run-a-logfile-in-the-logsimulator">Run a logfile in the LogSimulator</h2>
+<h1 id="2-work-with-logfiles-in-robotcontrol">2 Work with logfiles in RobotControl<a class="headerlink" href="#2-work-with-logfiles-in-robotcontrol" title="Permanent link">¶</a></h1>
+<h2 id="run-a-logfile-in-the-logsimulator">Run a logfile in the LogSimulator<a class="headerlink" href="#run-a-logfile-in-the-logsimulator" title="Permanent link">¶</a></h2>
 <p>For this tutorial use the following file  </p>
 <ul>
 <li><a href="https://logs.naoth.de/2017-08-RC17/logs/far_ball_issue/rc17_ball_far.log">https://logs.naoth.de/2017-08-RC17/logs/far_ball_issue/rc17_ball_far.log</a></li>
 </ul>
 <p>Download a logfile and start the LogSimulator in Debug with the name of the logfile as argument. In the Console window you can press p to play the logfile and l to loop the logfile. More Controls for the LogSimulator are displayed in the console window.</p>
-<h2 id="start-robotcontrol">Start RobotControl</h2>
+<h2 id="start-robotcontrol">Start RobotControl<a class="headerlink" href="#start-robotcontrol" title="Permanent link">¶</a></h2>
 <p>A detailed description of the RobotControl can be found in the <a href="https://www2.informatik.hu-berlin.de/~naoth/docs/publications/technical/naoth-report16.pdf">Teamreport</a>.
 There are multiple ways to start RobotControl:</p>
 <ol>
@@ -1033,8 +1080,8 @@ java -jar RobotControl.jar
 <p>In the <code>Finder</code>, go to <code>naoth-2020/RobotControl</code> and double-click the <code>granlew</code> script. Same for the <code>robotcontrol</code> script located in <code>naoth-2020/RobotControl/dist</code>.</p>
 </li>
 </ol>
-<h2 id="view-representations-in-robotcontrol">View Representations in RobotControl</h2>
-<h3 id="logfile-inspector">Logfile Inspector</h3>
+<h2 id="view-representations-in-robotcontrol">View Representations in RobotControl<a class="headerlink" href="#view-representations-in-robotcontrol" title="Permanent link">¶</a></h2>
+<h3 id="logfile-inspector">Logfile Inspector<a class="headerlink" href="#logfile-inspector" title="Permanent link">¶</a></h3>
 <p>Depending on what you want to do with the logfiles, you can view them in different ways. If you want to check if the logfiles contain any data and quickly look through it, you can use the <code>Logfile Inspector</code>, which gives you the possibility to view the data (e.g. images, sensor values) in RobotControl:</p>
 <ol>
 <li>
@@ -1064,7 +1111,7 @@ java -jar RobotControl.jar
 <img alt="Screenshot_2021-03-19_at_17.34.12" src="img/Screenshot_2021-03-19_at_17.34.12.png"></p>
 </li>
 </ol>
-<h3 id="logsimulator">LogSimulator</h3>
+<h3 id="logsimulator">LogSimulator<a class="headerlink" href="#logsimulator" title="Permanent link">¶</a></h3>
 <p>If you want to run robot code on the logfile, you should create a robot instance by starting the <code>LogSimulator</code> in the terminal, playing the logfile, and connecting RobotControl to your localhost. In this way the logfile is basically acting like a real robot, which you can observe and program via RobotControl.</p>
 <ol>
 <li>
@@ -1095,8 +1142,8 @@ java -jar RobotControl.jar
 </ol>
 <p>In the image above the DebugRequests for showing the green pixels are enabled 
    (on the left). On the right side of the image the ParameterTreePanel is shown. </p>
-<h1 id="3-work-with-logfiles-in-python">3 Work with logfiles in python</h1>
-<h2 id="31-python-ecosystem">3.1 Python Ecosystem</h2>
+<h1 id="3-work-with-logfiles-in-python">3 Work with logfiles in python<a class="headerlink" href="#3-work-with-logfiles-in-python" title="Permanent link">¶</a></h1>
+<h2 id="31-python-ecosystem">3.1 Python Ecosystem<a class="headerlink" href="#31-python-ecosystem" title="Permanent link">¶</a></h2>
 <p>All python ecosystem is located in the directory </p>
 <div class="highlight"><pre><span></span><code>&lt;naoth-2020<span class="w"> </span>repository<span class="w"> </span>path&gt;/Utils/py
 </code></pre></div>
@@ -1118,12 +1165,12 @@ This step is necesary if message files were chaned (<em>need a reference here</e
 </code></pre></div></li>
 </ol>
 <p><strong>NOTE:</strong> The python messages are saves in <code>Utils/py/naoth/naoth/pb</code>. If you don't have the up-to-date messages, the logs can't be parsed. </p>
-<h2 id="32-example-logfile">3.2 Example Logfile</h2>
+<h2 id="32-example-logfile">3.2 Example Logfile<a class="headerlink" href="#32-example-logfile" title="Permanent link">¶</a></h2>
 <p>For our examples we use the following logfile
 </p><div class="highlight"><pre><span></span><code>https://logs.naoth.de/2019-07-02_RC19/2019-07-04_11-00-00_Berlin%20United_vs_NaoDevils_half1/game_logs/3_93_Nao0212_190704-1112/game.log
 </code></pre></div>
 We assume, that the logfile is named <code>game.log</code> and is placed in the same directory as your scripts.
-<h2 id="33-logfiles-structure">3.3 Logfiles structure</h2>
+<h2 id="33-logfiles-structure">3.3 Logfiles structure<a class="headerlink" href="#33-logfiles-structure" title="Permanent link">¶</a></h2>
 <p>A logfile consists of <strong>frames</strong> and each frame contains <strong>representations</strong>, 
 which hold various data recorded from the robot. Such data can be Images, 
 Ball detections etc. Each Frame has a number increasing from 0. The representations 
@@ -1140,7 +1187,7 @@ can be accessed by their name. Here is an example for the structure of a logfile
 <span class="w">  </span><span class="p">|</span><span class="w">    </span>+--...
 <span class="w"> </span>...
 </code></pre></div>
-<h2 id="34-reading-a-logfile">3.4 Reading a logfile</h2>
+<h2 id="34-reading-a-logfile">3.4 Reading a logfile<a class="headerlink" href="#34-reading-a-logfile" title="Permanent link">¶</a></h2>
 <p>To read and parse a logfile we use the <code>naoth.log.Reader</code> class. More Information can be found in the file</p>
 <div class="highlight"><pre><span></span><code>py/naoth/naoth/log/_experimental_reader.py
 </code></pre></div>
@@ -1163,7 +1210,7 @@ Frame<span class="w"> </span>number:<span class="w"> </span><span class="m">1</s
 Representations:
 dict_keys<span class="o">([</span><span class="s1">'BehaviorStateComplete'</span>,<span class="w"> </span><span class="s1">'RobotInfo'</span>,<span class="w"> </span><span class="s1">'BehaviorStateSparse'</span>,<span class="w"> </span><span class="s1">'OdometryData'</span>,<span class="w"> </span><span class="s1">'CameraMatrix'</span>,<span class="w"> </span><span class="s1">'CameraMatrixTop'</span>,<span class="w"> </span><span class="s1">'GoalPercept'</span>,<span class="w"> </span><span class="s1">'GoalPerceptTop'</span>,<span class="w"> </span><span class="s1">'MultiBallPercept'</span>,<span class="w"> </span><span class="s1">'BallModel'</span>,<span class="w"> </span><span class="s1">'FieldPercept'</span>,<span class="w"> </span><span class="s1">'FieldPerceptTop'</span>,<span class="w"> </span><span class="s1">'ScanLineEdgelPercept'</span>,<span class="w"> </span><span class="s1">'ScanLineEdgelPerceptTop'</span>,<span class="w"> </span><span class="s1">'ShortLinePercept'</span>,<span class="w"> </span><span class="s1">'RansacLinePercept'</span>,<span class="w"> </span><span class="s1">'RansacCirclePercept2018'</span>,<span class="w"> </span><span class="s1">'TeamMessage'</span>,<span class="w"> </span><span class="s1">'FrameInfo'</span><span class="o">])</span>
 </code></pre></div>
-<h2 id="35-reading-representations">3.5 Reading representations</h2>
+<h2 id="35-reading-representations">3.5 Reading representations<a class="headerlink" href="#35-reading-representations" title="Permanent link">¶</a></h2>
 <p>We extend the above example to read the content of an important Representation <code>FrameInfo</code>. <code>FrameInfo</code> contains the timestamp and the number of the frame in the actual execution cycle of the robot. (Note: this frame number doen not correspond to the number of the frame in the logfile).</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">naoth.log</span> <span class="kn">import</span> <span class="n">Reader</span>
 
@@ -1182,7 +1229,7 @@ dict_keys<span class="o">([</span><span class="s1">'BehaviorStateComplete'</span
 frameNumber:<span class="w"> </span><span class="m">1</span>
 time:<span class="w"> </span><span class="m">1417</span>
 </code></pre></div>
-<h2 id="36-other-examples">3.6 Other examples</h2>
+<h2 id="36-other-examples">3.6 Other examples<a class="headerlink" href="#36-other-examples" title="Permanent link">¶</a></h2>
 <p>Further more complex examples can be found in 
 </p><div class="highlight"><pre><span></span><code>Utils/py/log_parser_examples
 </code></pre></div></div>
@@ -1264,7 +1311,7 @@ time:<span class="w"> </span><span class="m">1417</span>
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.tabs.sticky"], "search": "../../../assets/javascripts/workers/search.85cb4492.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "toc.follow"], "search": "../../../assets/javascripts/workers/search.85cb4492.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.a877e258.min.js"></script>

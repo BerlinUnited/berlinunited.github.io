@@ -698,6 +698,67 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3" type="checkbox" id="__nav_4_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_3">
+          Working With Robots
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Working With Robots" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_3">
+          <span class="md-nav__icon md-icon"></span>
+          Working With Robots
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../robot_handling/" class="md-nav__link">
+        Handling the Robot
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../robots/known-robot-issues/" class="md-nav__link">
+        Known Issues with Robots
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
       <a href="../working-with-logfiles/working-with-logfiles/" class="md-nav__link">
         Working with logfiles
@@ -715,20 +776,6 @@
     <li class="md-nav__item">
       <a href="../working-with-sound/working-with-sound/" class="md-nav__link">
         Sound
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../robot_handling/" class="md-nav__link">
-        Handling the Robot
       </a>
     </li>
   
@@ -966,7 +1013,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../deeplearning/deep_learning_annotation/" class="md-nav__link">
+      <a href="../deeplearning/data_prep/" class="md-nav__link">
         Data Prep for Deep Learning
       </a>
     </li>
@@ -1075,10 +1122,10 @@
                 
 
 
-<div><h1 id="setup-code-from-other-teams">Setup code from other teams</h1>
+<div><h1 id="setup-code-from-other-teams">Setup code from other teams<a class="headerlink" href="#setup-code-from-other-teams" title="Permanent link">¶</a></h1>
 <p>There are a couple of code releases that might be interesting to setup for experiments. This is a guide on how to do this.</p>
 <p>TODO: explain the multiple repositories and give an overview on how they are connected</p>
-<h2 id="htwk-motion-library">HTWK Motion Library</h2>
+<h2 id="htwk-motion-library">HTWK Motion Library<a class="headerlink" href="#htwk-motion-library" title="Permanent link">¶</a></h2>
 <p>Since we don't currently have crosscompiler that supports C++17 we have to setup the ubuntu image on the nao and compile the library there. A guide on how to setup the ubuntu image can be found at <a href="TODO">TODO</a>.</p>
 <p>On the Nao:<br>
 - install git, cmake, g++, unzip<br>
@@ -1089,11 +1136,11 @@
 - cmake ../
 - cmake --build .</p>
 <p>you end up with a libWalkingEngine.a</p>
-<h2 id="bhuman-coderelease-2020">BHuman Coderelease 2020</h2>
+<h2 id="bhuman-coderelease-2020">BHuman Coderelease 2020<a class="headerlink" href="#bhuman-coderelease-2020" title="Permanent link">¶</a></h2>
 <p>TODO</p>
-<h2 id="compiling-code-for-the-robot-via-other-means">Compiling Code for the robot via other means</h2>
+<h2 id="compiling-code-for-the-robot-via-other-means">Compiling Code for the robot via other means<a class="headerlink" href="#compiling-code-for-the-robot-via-other-means" title="Permanent link">¶</a></h2>
 <p>Sometimes you want/need to compile something for the robot and not incorporate that into our premake builds. Usually those things are libraries that come with the cmake build system.</p>
-<h3 id="minimal-cmake-example">Minimal cmake example</h3>
+<h3 id="minimal-cmake-example">Minimal cmake example<a class="headerlink" href="#minimal-cmake-example" title="Permanent link">¶</a></h3>
 <p>TODO: what about sysroot?
 You can compile this helloworld.cpp
 </p><div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span>
@@ -1197,7 +1244,7 @@ cmake<span class="w"> </span>--build<span class="w"> </span>.
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky"], "search": "../../assets/javascripts/workers/search.85cb4492.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "toc.follow"], "search": "../../assets/javascripts/workers/search.85cb4492.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.a877e258.min.js"></script>

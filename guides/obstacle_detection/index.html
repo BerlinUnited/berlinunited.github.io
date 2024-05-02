@@ -698,6 +698,67 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3" type="checkbox" id="__nav_4_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_3">
+          Working With Robots
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Working With Robots" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_3">
+          <span class="md-nav__icon md-icon"></span>
+          Working With Robots
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../robot_handling/" class="md-nav__link">
+        Handling the Robot
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../robots/known-robot-issues/" class="md-nav__link">
+        Known Issues with Robots
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
       <a href="../working-with-logfiles/working-with-logfiles/" class="md-nav__link">
         Working with logfiles
@@ -715,20 +776,6 @@
     <li class="md-nav__item">
       <a href="../working-with-sound/working-with-sound/" class="md-nav__link">
         Sound
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../robot_handling/" class="md-nav__link">
-        Handling the Robot
       </a>
     </li>
   
@@ -960,7 +1007,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../deeplearning/deep_learning_annotation/" class="md-nav__link">
+      <a href="../deeplearning/data_prep/" class="md-nav__link">
         Data Prep for Deep Learning
       </a>
     </li>
@@ -1063,28 +1110,28 @@
                 
 
 
-<div><h1 id="obstacle-detection-and-pathplanning">Obstacle Detection and Pathplanning</h1>
+<div><h1 id="obstacle-detection-and-pathplanning">Obstacle Detection and Pathplanning<a class="headerlink" href="#obstacle-detection-and-pathplanning" title="Permanent link">¶</a></h1>
 <p>Pathplanning for a single robot is easy as long as there are no obstacles to move around. In our case pathplanning can
 be challenging due to the dynamic nature of the robots on the field. There are multiple ways to detect obstacles. First
 we can detect if we are pushed or not able to move as expected. Then we can detect obstacles from further away with the 
 ultrasound sensors or by detecting robots and other obstacles elements in the image. We can also take the broadcasted 
 positions of our teammates into account.</p>
-<h2 id="collision-detection">Collision Detection</h2>
+<h2 id="collision-detection">Collision Detection<a class="headerlink" href="#collision-detection" title="Permanent link">¶</a></h2>
 <p>We have three different methods to detect collisions. The <code>ArmCollisionDetector</code> module detects wether the arm movements
 are blocked. In this case we try to move our arms back to reduce the width of the robot.</p>
 <p>The <code>BumperCollisionDetector</code> module detects if the bumper on the feet are pressed for a period of time. This happens 
 when the robots walks into a fallen robot or agains a goalpost.</p>
 <p>The <code>BodyCollisionDetector</code> module detects wether the robot was pushed. </p>
 <p><img alt="Collision Detection" src="../../img/obstacle_detection/collision_detection.png"></p>
-<h2 id="obstacle-detection">Obstacle Detection</h2>
+<h2 id="obstacle-detection">Obstacle Detection<a class="headerlink" href="#obstacle-detection" title="Permanent link">¶</a></h2>
 <ul>
 <li>Ultrasound</li>
 <li>NoGreenDetection</li>
 <li>Robot Detection via Deep Learning</li>
 </ul>
 <p><img alt="Obstacle Detection" src="../../img/obstacle_detection/obstacle_detection.png"></p>
-<h2 id="modeling-the-obstacles">Modeling the obstacles</h2>
-<h2 id="pathplanning">Pathplanning</h2>
+<h2 id="modeling-the-obstacles">Modeling the obstacles<a class="headerlink" href="#modeling-the-obstacles" title="Permanent link">¶</a></h2>
+<h2 id="pathplanning">Pathplanning<a class="headerlink" href="#pathplanning" title="Permanent link">¶</a></h2>
 <p>TODO: steffen</p></div>
 
               
@@ -1164,7 +1211,7 @@ when the robots walks into a fallen robot or agains a goalpost.</p>
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky"], "search": "../../assets/javascripts/workers/search.85cb4492.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "toc.follow"], "search": "../../assets/javascripts/workers/search.85cb4492.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.a877e258.min.js"></script>
