@@ -45,7 +45,7 @@ nav:
         - 'guides/git-hooks.md'
     - Deep Learning:
         - 'guides/deeplearning/training.md'
-        - 'guides/deeplearning/deep_learning_annotation.md'
+        - 'guides/deeplearning/data_prep.md'
         - 'guides/deeplearning/deep_learning_deployment.md'
 
 theme:

@@ -8,6 +8,7 @@ We largely automated the data ingestion process from the point of uploading the 
 
 In the following sections this process is described in more detail. Please note that you don't have to run the automation. You can always do everything manually. But for reproducibility this is not advised. The code for the whole data prep process is in [https://scm.cms.hu-berlin.de/berlinunited/projects/log-crawler](https://scm.cms.hu-berlin.de/berlinunited/projects/log-crawler)
 
+
 ## Logfolder Structure
 Internally we have a file server that you can access via any gruenau server. The logs are located at `/vol/repl261-vol4/naoth/logs`. Externally this folder is accessable via [logs.naoth.de](logs.naoth.de). Please see the page about infrastructure for more information.
 
@@ -83,75 +84,13 @@ the gopro footage.
 !!! note
     TODO: explain the log folder structure somewhere
 
-## CVAT Labeltool
-Our CVAT instance can be accessed via <https://ball.informatik.hu-berlin.de>. The setup of our instance is described in
-[CVAT Setup](../naoth_tools/cvat.md).
+## Validate Auto Annotation
+As described before the actual annotating should be done automatically. But we still have to validate the annotations. Just click on each row and have a look if the annotations are correct. Don't skip any row as the preview images can hide some details. If you need to make changes you have to click the blue update button, otherwise changes are not persisted.
 
-Everyone can register, but to see the tasks you have to be manually added to a group with the appropriate permissons.
-Contact the team via slack or email to get the permissions set.
+![labelstudio_annotation_overview](./img/labelstudio_annotation_overview.png)
 
-The api can be tested with swagger at <https://ball.informatik.hu-berlin.de/api/swagger/>. Alternatively you can use curl requests directly
-for example like this
-```bash
-# get an image
-curl --user <username>:<password> -X GET "http://ball.informatik.hu-berlin.de/api/v1/tasks/<task_id>/data?type=frame&quality=original&number=0" -H  "accept: application/json" -H  "X-CSRFToken: 92BgjW2DL1Q8aOWKvEFbYJubcVhbIx8jTMdypKm0KpwfXfp4NE9QW9hJxHiaP0gW" > test.png
+Sometimes we have logs where nothing is moving for a while. In this case propagating the annotations from the first frame to a later one is useful. In this case annotate the first one as usual. Then select each frame that should have the same annotation and then click "Propagate Annotation". You need to set the annotation ID you want to propagate in the pop up window. You can find that when opening the first frame in history windows on the left side.
 
-# add an image to a task
-curl --user <username>:<password> -X POST "http://ball.informatik.hu-berlin.de/api/v1/tasks/<task_id>/data" -H  "accept: application/json" -H  "Content-Type: application/json" -H  "X-CSRFToken: 92BgjW2DL1Q8aOWKvEFbYJubcVhbIx8jTMdypKm0KpwfXfp4NE9QW9hJxHiaP0gW" -d "{ \"image_quality\": 95, \"client_files\": [\"bla.png\"]}"
-```
+Note: This is an experimental labelstudio feature.
 
-To automate many commons tasks python scripts were created in the naoth-deeplearning repo. The most relevant is the 
-function for creating a task. For this you need the name of the task and the path on the server to the zip containing 
-the images. A more detailed documentation can be found in the naoth-deeplearning repo.
-
-### Label Rules
-- You should not modify tasks that are assigned to someone else
-- You should not modify tasks that are marked *completed*
-- Do not change labels of existing projects
-- Every task should belong to a project
-- Notify the team via slack if your are adding tasks or projects
-- Notify the team via slack before adding more automatic annotation models
-- Before you start assign the task to yourself so that others don't interfere
-- After you are done select *Request a review* from the menu and select another active user
-- Before you start working please read the official documentation at <https://openvinotoolkit.github.io/cvat/docs>
-- only label balls that you can clearly detect as balls when zoomed in a bit (TODO create some examples)
-- the bounding box of a ball should include the whole ball even if part of it is outside the image or occluded
-- Don't use ellipses for ball annotations yet
-
-!!! note
-    TODO: Update the rules when circle annotation is possible. Ellipses are not useful for us right now.
-
-### Rules for GoPro Tasks
-Starting in 2018 we tried to record every SPL game with a camera outside of the field. The videos can be found at logs.naoth.de
-
-You should not import the Gopro videos directly. Instead the functions inside the NaoTH-Deeplearning repo for everything.
-
-!!! note
-    TODO: what should the labels be???
-    TODO: mention that labels should be done in projects not tasks
-
-### Rules for Log Tasks
-!!! note
-    TODO: write down the annotations that dortmund does. its important to know where the robot is blurred, fully in the
-    picture etc.
-
-### Auto Annotation for users
-You can see a list of available models by clicking Models View on the top:
-![models_view](../img/cvat/models.png)
-
-By clicking on supported labels you can see a list of labels this model can annotate. To create new models see the documentation at
-[CVAT Setup](../naoth_tools/cvat.md).
-
-Navigate to a task and click `Actions->Automatic annotation` and select the model you want to run.
-![models_view](../img/cvat/model_task.png)  
-Now you have to wait for a long time. After all images of the tasks are done you can see the created annotations.
-
-!!! note
-    Those models are not able to do proper annotations (e.g. blurrendness) for bounding boxes yet. 
-    Those still have to be done manually.
-
-## Training a model
-TODO
-
-## Deploying a model
-TODO
+TODO: explain how to mark a project as done.
