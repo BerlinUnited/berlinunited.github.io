@@ -91,19 +91,11 @@ You need to install a bunch of software before being able to develop code for th
           `chere -i -t mintty -s bash` in  a cygwin console with admin privileges. You are now able to right click and open a mintty bash console in any folder.
 
     **Java**  
-    You need at least Java JDK 8. Normally you need a oracle account for downloading the jdk. Or you can use the 
-    following workaround taken from [here](https://gist.github.com/wavezhang/ba8425f24a968ec9b2a8619d7c2d86a6)
-
-      - Select the JDK you want from https://www.oracle.com/java/technologies/javase-downloads.html  
-      - Click on a link like `jdk-8u291-windows-x64.exe`. This will open a popup.   
-      - Copy the link in the popup. It should be something like https://www.oracle.com/webapps/redirect/signon?nexturl=https://download.oracle.com/otn/java/jdk/8u291-b10/d7fc238d0cbf4b0dac67be84580cfb4b/jdk-8u291-windows-x64.exe  
-      - change this link to https://download.oracle.com/otn-pub/java/jdk/8u291-b10/d7fc238d0cbf4b0dac67be84580cfb4b/jdk-8u291-windows-x64.exe  
-      - This is the download link you can use to download the jdk.  
-      - Install the jdk
+    Install Java JDK 21 from https://learn.microsoft.com/de-de/java/openjdk/download#openjdk-21
     
     **NetBeans**  
 
-      - Get [NetBeans](https://netbeans.org/downloads/index.html) and install it  
+      - Get [NetBeans](https://netbeans.apache.org/front/main/download/) and install it. Currently we tested our setup with Netbeans 21.
       - **Important**: Make sure that your Java Path is properly set before installing, otherwise it won't work!  
 
     **Clang**
