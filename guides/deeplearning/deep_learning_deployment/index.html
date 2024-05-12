@@ -13,7 +13,7 @@
     
     
       
-        <title>Deep Learning Deployment Overview - Berlin United - Documentation</title>
+        <title>How to deploy Tensorflow Models on the Nao - Berlin United - Documentation</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#deep-learning-deployment-overview" class="md-skip">
+        <a href="#how-to-deploy-tensorflow-models-on-the-nao" class="md-skip">
           Skip to content
         </a>
       
@@ -100,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Deep Learning Deployment Overview
+              How to deploy Tensorflow Models on the Nao
             
           </span>
         </div>
@@ -971,12 +971,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Deep Learning Deployment Overview
+          How to deploy Tensorflow Models on the Nao
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Deep Learning Deployment Overview
+        How to deploy Tensorflow Models on the Nao
       </a>
       
         
@@ -1002,18 +1002,32 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#tensorflow-lite-on-nao-with-c" class="md-nav__link">
-    tensorflow lite on Nao with C++
+  <a href="#tensorflow-lite-on-nao-with-c-v263" class="md-nav__link">
+    Tensorflow-Lite on Nao with C++ (&lt;= v2.6.3)
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#tensorflow-lite-micro-tflm-on-nao-with-c" class="md-nav__link">
-    tensorflow lite micro (tflm) on Nao with C++
+  <a href="#tensorflow-lite-on-nao-with-c-v2150" class="md-nav__link">
+    Tensorflow-Lite on Nao with C++ (v2.15.0)
   </a>
   
-    <nav class="md-nav" aria-label="tensorflow lite micro (tflm) on Nao with C++">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tensorflow-lite-on-nao-c-api-v2150" class="md-nav__link">
+    Tensorflow-Lite on Nao C API (v2.15.0)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tensorflow-lite-micro" class="md-nav__link">
+    Tensorflow-Lite Micro
+  </a>
+  
+    <nav class="md-nav" aria-label="Tensorflow-Lite Micro">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1098,18 +1112,32 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#tensorflow-lite-on-nao-with-c" class="md-nav__link">
-    tensorflow lite on Nao with C++
+  <a href="#tensorflow-lite-on-nao-with-c-v263" class="md-nav__link">
+    Tensorflow-Lite on Nao with C++ (&lt;= v2.6.3)
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#tensorflow-lite-micro-tflm-on-nao-with-c" class="md-nav__link">
-    tensorflow lite micro (tflm) on Nao with C++
+  <a href="#tensorflow-lite-on-nao-with-c-v2150" class="md-nav__link">
+    Tensorflow-Lite on Nao with C++ (v2.15.0)
   </a>
   
-    <nav class="md-nav" aria-label="tensorflow lite micro (tflm) on Nao with C++">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tensorflow-lite-on-nao-c-api-v2150" class="md-nav__link">
+    Tensorflow-Lite on Nao C API (v2.15.0)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tensorflow-lite-micro" class="md-nav__link">
+    Tensorflow-Lite Micro
+  </a>
+  
+    <nav class="md-nav" aria-label="Tensorflow-Lite Micro">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1152,13 +1180,7 @@
                 
 
 
-<div><h1 id="deep-learning-deployment-overview">Deep Learning Deployment Overview<a class="headerlink" href="#deep-learning-deployment-overview" title="Permanent link">¶</a></h1>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>TODO: this is very much a WIP. For now just some notes so that we don't forget. We will fix this in the future</p>
-</div>
-<p>For deployment there are multiple options. The easiest to just use python for inference. However this is probably not
-what you want in an embedded system.</p>
+<div><h1 id="how-to-deploy-tensorflow-models-on-the-nao">How to deploy Tensorflow Models on the Nao<a class="headerlink" href="#how-to-deploy-tensorflow-models-on-the-nao" title="Permanent link">¶</a></h1>
 <h2 id="tensorflow-inference-with-python">Tensorflow inference with python<a class="headerlink" href="#tensorflow-inference-with-python" title="Permanent link">¶</a></h2>
 <p>The easiest method is just to use python similar to the way we train models.</p>
 <details>
@@ -1187,11 +1209,9 @@ what you want in an embedded system.</p>
   step and package building again.</p>
 </details>
 <p>Example inference code and the compiled pip package can be found at ... (TODO: expose the lib folder to the public)</p>
-<h2 id="tensorflow-lite-on-nao-with-c">tensorflow lite on Nao with C++<a class="headerlink" href="#tensorflow-lite-on-nao-with-c" title="Permanent link">¶</a></h2>
-<ol>
-<li>Setup ubuntu on the nao as described elsewhere (TODO: insert link)</li>
-<li>build the tensorflow library directly on the nao robot:</li>
-</ol>
+<h2 id="tensorflow-lite-on-nao-with-c-v263">Tensorflow-Lite on Nao with C++ (&lt;= v2.6.3)<a class="headerlink" href="#tensorflow-lite-on-nao-with-c-v263" title="Permanent link">¶</a></h2>
+<p>We assume you have a Nao v6 set up with ubuntu on the nao as described elsewhere (TODO: insert link)
+2. build the tensorflow library directly on the nao robot:</p>
 <div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/tensorflow/tensorflow.git<span class="w"> </span>tensorflow_src
 <span class="nb">cd</span><span class="w"> </span>tensorflow_src
 git<span class="w"> </span>checkout<span class="w"> </span><span class="m">2</span>.6.3
@@ -1267,8 +1287,53 @@ int main(int argc, char* argv[]) {
 }
 </code></pre>
 </details>
-<h2 id="tensorflow-lite-micro-tflm-on-nao-with-c">tensorflow lite micro (tflm) on Nao with C++<a class="headerlink" href="#tensorflow-lite-micro-tflm-on-nao-with-c" title="Permanent link">¶</a></h2>
-<p>Setup ubuntu on the nao as described elsewhere (TODO: insert link)
+<h2 id="tensorflow-lite-on-nao-with-c-v2150">Tensorflow-Lite on Nao with C++ (v2.15.0)<a class="headerlink" href="#tensorflow-lite-on-nao-with-c-v2150" title="Permanent link">¶</a></h2>
+<div class="highlight"><pre><span></span><code>wget<span class="w"> </span>https://github.com/tensorflow/tensorflow/archive/refs/tags/v2.15.0.zip
+unzip<span class="w"> </span>v2.15.0.zip
+mkdir<span class="w"> </span>tf_build<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>tf_build
+
+sudo<span class="w"> </span>apt<span class="w"> </span>update
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>cmake<span class="w"> </span>git
+
+cmake<span class="w"> </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>RELEASE<span class="w"> </span>-DTFLITE_ENABLE_MMAP<span class="o">=</span>ON<span class="w"> </span>-DTFLITE_ENABLE_XNNPACK<span class="o">=</span>OFF<span class="w"> </span>-DSYSTEM_FARMHASH<span class="o">=</span>OFF<span class="w"> </span>-DTFLITE_ENABLE_GPU<span class="o">=</span>OFF<span class="w"> </span>-DTFLITE_ENABLE_NNAPI<span class="o">=</span>OFF<span class="w"> </span>-DTFLITE_ENABLE_RUY<span class="o">=</span>OFF<span class="w"> </span>-DBUILD_SHARED_LIBS<span class="o">=</span>ON<span class="w"> </span>-DCMAKE_C_FLAGS<span class="o">=</span><span class="s2">"-ffast-math -funsafe-math-optimizations -march=silvermont -mtune=silvermont"</span><span class="w"> </span>-DCMAKE_CXX_FLAGS<span class="o">=</span><span class="s2">"-ffast-math -funsafe-math-optimizations -march=silvermont -mtune=silvermont"</span><span class="w"> </span>-DCMAKE_BUILD_RPATH<span class="o">=</span><span class="s2">"/home/nao/lib;."</span><span class="w"> </span>../tensorflow-2.15.0/tensorflow/lite
+cmake<span class="w"> </span>--build<span class="w"> </span>.<span class="w"> </span>-j3
+</code></pre></div>
+<p>These libs need to be copied to the <code>toolchain_nao_ubuntu\extern\lib</code> folder of the toolchain repositories.
+</p><div class="highlight"><pre><span></span><code>libabsl_strings.so               libabsl_strings_internal.so         libabsl_base.so                  libabsl_symbolize.so            libpthreadpool.so
+libabsl_city.so                  libabsl_synchronization.so          libabsl_debugging_internal.so    libabsl_time.so                 libabsl_demangle_internal.so
+libabsl_time_zone.so             libabsl_hash.so                     libabsl_int128.so                libtensorflow-lite.so         libabsl_low_level_hash.so        
+libabsl_malloc_internal.so       libcpuinfo.so                       libabsl_raw_hash_set.so          libabsl_raw_logging_internal.so  libfarmhash.so                       
+libabsl_spinlock_wait.so         libfft2d_fftsg.so                   libabsl_stacktrace.so            libfft2d_fftsg2d.so          
+</code></pre></div>
+<p>To make it easy we can just grep all the header files from the tensorflow lite directory like this
+</p><div class="highlight"><pre><span></span><code>rsync<span class="w"> </span>-am<span class="w"> </span>--include<span class="o">=</span><span class="s1">'*.h'</span><span class="w"> </span>-f<span class="w"> </span><span class="s1">'hide,! */'</span><span class="w"> </span>../tensorflow-2.15.0/tensorflow/lite/<span class="w"> </span>&lt;my<span class="w"> </span>output<span class="w"> </span>path&gt;/tensorflow/lite/
+</code></pre></div>
+Those header files need to be comitted to the toolchain repos in <code>toolchain_nao_ubuntu\extern\include</code>
+<h2 id="tensorflow-lite-on-nao-c-api-v2150">Tensorflow-Lite on Nao C API (v2.15.0)<a class="headerlink" href="#tensorflow-lite-on-nao-c-api-v2150" title="Permanent link">¶</a></h2>
+<p></p><div class="highlight"><pre><span></span><code>wget<span class="w"> </span>https://github.com/tensorflow/tensorflow/archive/refs/tags/v2.15.0.zip
+unzip<span class="w"> </span>v2.15.0.zip
+mkdir<span class="w"> </span>tf_build<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>tf_build
+
+sudo<span class="w"> </span>apt<span class="w"> </span>update
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>cmake<span class="w"> </span>git
+
+cmake<span class="w"> </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>RELEASE<span class="w"> </span>-DTFLITE_ENABLE_MMAP<span class="o">=</span>ON<span class="w"> </span>-DTFLITE_ENABLE_XNNPACK<span class="o">=</span>OFF<span class="w"> </span>-DSYSTEM_FARMHASH<span class="o">=</span>OFF<span class="w"> </span>-DTFLITE_ENABLE_GPU<span class="o">=</span>OFF<span class="w"> </span>-DTFLITE_ENABLE_NNAPI<span class="o">=</span>OFF<span class="w"> </span>-DTFLITE_ENABLE_RUY<span class="o">=</span>OFF<span class="w"> </span>-DBUILD_SHARED_LIBS<span class="o">=</span>ON<span class="w"> </span>-DCMAKE_C_FLAGS<span class="o">=</span><span class="s2">"-ffast-math -funsafe-math-optimizations -march=silvermont -mtune=silvermont"</span><span class="w"> </span>-DCMAKE_CXX_FLAGS<span class="o">=</span><span class="s2">"-ffast-math -funsafe-math-optimizations -march=silvermont -mtune=silvermont"</span><span class="w"> </span>-DCMAKE_BUILD_RPATH<span class="o">=</span><span class="s2">"/home/nao/lib;."</span><span class="w"> </span>../tensorflow-2.15.0/tensorflow/lite/c
+cmake<span class="w"> </span>--build<span class="w"> </span>.<span class="w"> </span>-j<span class="w"> </span><span class="m">2</span>
+</code></pre></div>
+These libs need to be copied to the <code>toolchain_nao_ubuntu\extern\lib</code> folder of the toolchain repositories.
+<div class="highlight"><pre><span></span><code>libtensorflowlite_c.so
+</code></pre></div>
+When building like this It will first compile tensorflow lite and all its dependencies as static libs and then link them together with the C Wrapper to <code>libtensorflowlite_c.so</code>. That way we don't need to copy any other libs.
+<details>
+<summary>Compile like HTWK</summary>
+<p>HTWK do not disable all the extras and use XNNPack functionalities in their code. To do something similar we can adapt the CMAKE command like this
+  </p><div class="highlight"><pre><span></span><code>cmake<span class="w"> </span>-DCMAKE_C_FLAGS<span class="o">=</span><span class="s2">"-ffast-math -funsafe-math-optimizations -march=silvermont -mtune=silvermont"</span><span class="w"> </span>-DCMAKE_CXX_FLAGS<span class="o">=</span><span class="s2">"-ffast-math -funsafe-math-optimizations -march=silvermont -mtune=silvermont"</span><span class="w"> </span>-DCMAKE_BUILD_RPATH<span class="o">=</span><span class="s2">"/home/nao/lib;."</span><span class="w"> </span>../tensorflow-2.15.0/tensorflow/lite/c
+</code></pre></div>
+  For reference: <a href="https://github.com/NaoHTWK/HTWKVision/blob/master/tflite/README">https://github.com/NaoHTWK/HTWKVision/blob/master/tflite/README</a>
+<p>It might be interesting to compare the inference speed of our vanilla tflite implementation with the one HTWK is doing.</p>
+</details>
+<h2 id="tensorflow-lite-micro">Tensorflow-Lite Micro<a class="headerlink" href="#tensorflow-lite-micro" title="Permanent link">¶</a></h2>
+<p>This was last tested with tensorflow v2.6.3
 Make sure python3, pip and the pillow package is installed on the Nao
 </p><div class="highlight"><pre><span></span><code><span class="c1"># this is needed during tflm compilation</span>
 apt<span class="w"> </span>install<span class="w"> </span>python3,<span class="w"> </span>python3-pip<span class="w"> </span>python-is-python3
