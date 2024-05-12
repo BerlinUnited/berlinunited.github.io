@@ -1,9 +1,5 @@
-# Deep Learning Deployment Overview
-!!! note
-    TODO: this is very much a WIP. For now just some notes so that we don't forget. We will fix this in the future
+# How to deploy Tensorflow Models on the Nao
 
-For deployment there are multiple options. The easiest to just use python for inference. However this is probably not
-what you want in an embedded system.
 
 ## Tensorflow inference with python
 The easiest method is just to use python similar to the way we train models.
@@ -37,8 +33,8 @@ The easiest method is just to use python similar to the way we train models.
 
 Example inference code and the compiled pip package can be found at ... (TODO: expose the lib folder to the public)
 
-## tensorflow lite on Nao with C++
-1. Setup ubuntu on the nao as described elsewhere (TODO: insert link)
+## Tensorflow-Lite on Nao with C++ (<= v2.6.3)
+We assume you have a Nao v6 set up with ubuntu on the nao as described elsewhere (TODO: insert link)
 2. build the tensorflow library directly on the nao robot:
 
 ```bash
@@ -115,8 +111,64 @@ from the official docs.
           return 0;
         }
 
-## tensorflow lite micro (tflm) on Nao with C++
-Setup ubuntu on the nao as described elsewhere (TODO: insert link)
+## Tensorflow-Lite on Nao with C++ (v2.15.0)
+```bash
+wget https://github.com/tensorflow/tensorflow/archive/refs/tags/v2.15.0.zip
+unzip v2.15.0.zip
+mkdir tf_build && cd tf_build
+
+sudo apt update
+sudo apt install cmake git
+
+cmake -DCMAKE_BUILD_TYPE=RELEASE -DTFLITE_ENABLE_MMAP=ON -DTFLITE_ENABLE_XNNPACK=OFF -DSYSTEM_FARMHASH=OFF -DTFLITE_ENABLE_GPU=OFF -DTFLITE_ENABLE_NNAPI=OFF -DTFLITE_ENABLE_RUY=OFF -DBUILD_SHARED_LIBS=ON -DCMAKE_C_FLAGS="-ffast-math -funsafe-math-optimizations -march=silvermont -mtune=silvermont" -DCMAKE_CXX_FLAGS="-ffast-math -funsafe-math-optimizations -march=silvermont -mtune=silvermont" -DCMAKE_BUILD_RPATH="/home/nao/lib;." ../tensorflow-2.15.0/tensorflow/lite
+cmake --build . -j3
+``` 
+
+These libs need to be copied to the `toolchain_nao_ubuntu\extern\lib` folder of the toolchain repositories.
+```txt
+libabsl_strings.so               libabsl_strings_internal.so         libabsl_base.so                  libabsl_symbolize.so            libpthreadpool.so
+libabsl_city.so                  libabsl_synchronization.so          libabsl_debugging_internal.so    libabsl_time.so                 libabsl_demangle_internal.so
+libabsl_time_zone.so             libabsl_hash.so                     libabsl_int128.so                libtensorflow-lite.so         libabsl_low_level_hash.so        
+libabsl_malloc_internal.so       libcpuinfo.so                       libabsl_raw_hash_set.so          libabsl_raw_logging_internal.so  libfarmhash.so                       
+libabsl_spinlock_wait.so         libfft2d_fftsg.so                   libabsl_stacktrace.so            libfft2d_fftsg2d.so          
+```
+
+To make it easy we can just grep all the header files from the tensorflow lite directory like this
+```bash
+rsync -am --include='*.h' -f 'hide,! */' ../tensorflow-2.15.0/tensorflow/lite/ <my output path>/tensorflow/lite/
+```
+Those header files need to be comitted to the toolchain repos in `toolchain_nao_ubuntu\extern\include`
+
+## Tensorflow-Lite on Nao C API (v2.15.0)
+```bash
+wget https://github.com/tensorflow/tensorflow/archive/refs/tags/v2.15.0.zip
+unzip v2.15.0.zip
+mkdir tf_build && cd tf_build
+
+sudo apt update
+sudo apt install cmake git
+
+cmake -DCMAKE_BUILD_TYPE=RELEASE -DTFLITE_ENABLE_MMAP=ON -DTFLITE_ENABLE_XNNPACK=OFF -DSYSTEM_FARMHASH=OFF -DTFLITE_ENABLE_GPU=OFF -DTFLITE_ENABLE_NNAPI=OFF -DTFLITE_ENABLE_RUY=OFF -DBUILD_SHARED_LIBS=ON -DCMAKE_C_FLAGS="-ffast-math -funsafe-math-optimizations -march=silvermont -mtune=silvermont" -DCMAKE_CXX_FLAGS="-ffast-math -funsafe-math-optimizations -march=silvermont -mtune=silvermont" -DCMAKE_BUILD_RPATH="/home/nao/lib;." ../tensorflow-2.15.0/tensorflow/lite/c
+cmake --build . -j 2
+```
+These libs need to be copied to the `toolchain_nao_ubuntu\extern\lib` folder of the toolchain repositories.
+```txt
+libtensorflowlite_c.so
+```
+When building like this It will first compile tensorflow lite and all its dependencies as static libs and then link them together with the C Wrapper to `libtensorflowlite_c.so`. That way we don't need to copy any other libs.
+
+??? "Compile like HTWK" 
+      HTWK do not disable all the extras and use XNNPack functionalities in their code. To do something similar we can adapt the CMAKE command like this
+      ```bash
+      cmake -DCMAKE_C_FLAGS="-ffast-math -funsafe-math-optimizations -march=silvermont -mtune=silvermont" -DCMAKE_CXX_FLAGS="-ffast-math -funsafe-math-optimizations -march=silvermont -mtune=silvermont" -DCMAKE_BUILD_RPATH="/home/nao/lib;." ../tensorflow-2.15.0/tensorflow/lite/c
+      ```
+      For reference: [https://github.com/NaoHTWK/HTWKVision/blob/master/tflite/README](https://github.com/NaoHTWK/HTWKVision/blob/master/tflite/README)
+
+      It might be interesting to compare the inference speed of our vanilla tflite implementation with the one HTWK is doing.
+
+
+## Tensorflow-Lite Micro 
+This was last tested with tensorflow v2.6.3
 Make sure python3, pip and the pillow package is installed on the Nao
 ```bash
 # this is needed during tflm compilation
