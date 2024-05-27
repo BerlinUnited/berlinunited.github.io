@@ -999,6 +999,33 @@
     Validate Auto Annotation
   </a>
   
+    <nav class="md-nav" aria-label="Validate Auto Annotation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#set-relations-between-bounding-boxes" class="md-nav__link">
+    Set relations between bounding boxes.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#propagate-annotations" class="md-nav__link">
+    Propagate Annotations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mark-a-project-as-done" class="md-nav__link">
+    Mark a Project as done
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -1081,6 +1108,33 @@
   <a href="#validate-auto-annotation" class="md-nav__link">
     Validate Auto Annotation
   </a>
+  
+    <nav class="md-nav" aria-label="Validate Auto Annotation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#set-relations-between-bounding-boxes" class="md-nav__link">
+    Set relations between bounding boxes.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#propagate-annotations" class="md-nav__link">
+    Propagate Annotations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mark-a-project-as-done" class="md-nav__link">
+    Mark a Project as done
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1179,8 +1233,15 @@ the gopro footage.</p>
 <h2 id="validate-auto-annotation">Validate Auto Annotation<a class="headerlink" href="#validate-auto-annotation" title="Permanent link">¶</a></h2>
 <p>As described before the actual annotating should be done automatically. But we still have to validate the annotations. Just click on each row and have a look if the annotations are correct. Don't skip any row as the preview images can hide some details. If you need to make changes you have to click the blue update button, otherwise changes are not persisted.</p>
 <p><img alt="labelstudio_annotation_overview" src="../img/labelstudio_annotation_overview.png"></p>
-<p>Sometimes we have logs where nothing is moving for a while. In this case propagating the annotations from the first frame to a later one is useful. In this case annotate the first one as usual. Then select each frame that should have the same annotation and then click "Propagate Annotation". You need to set the annotation ID you want to propagate in the pop up window. You can find that when opening the first frame in history windows on the left side.</p>
+<h3 id="set-relations-between-bounding-boxes">Set relations between bounding boxes.<a class="headerlink" href="#set-relations-between-bounding-boxes" title="Permanent link">¶</a></h3>
+<p>We often have situations where the bounding box of a robot and the bounding box of the ball overlap. In this case it is useful to note which bounding box is in front. You can do that with the <a href="https://labelstud.io/guide/labeling.html#Add-relations-between-annotations">relation feature from labelstudio</a>. You have to click first on the bounding box that is in front, then click the hyperlink icon and then on the bounding box that is in the background.
+<img alt="labelstudio_annotation_overview" src="../img/labelstudio_relation1.png"></p>
+<p>After that you have to set the name for the relation.
+<img alt="labelstudio_annotation_overview" src="../img/labelstudio_relation2.png"></p>
+<h3 id="propagate-annotations">Propagate Annotations<a class="headerlink" href="#propagate-annotations" title="Permanent link">¶</a></h3>
+<p>Sometimes we have logs where the auto annotation failed but nothing is moving for a while. In this case propagating the annotations from the first frame to a later one is useful. In this case annotate the first one as usual. Then select each frame that should have the same annotation and then click "Propagate Annotation". You need to set the annotation ID you want to propagate in the pop up window. You can find that when opening the first frame in history windows on the left side.</p>
 <p>Note: This is an experimental labelstudio feature.</p>
+<h3 id="mark-a-project-as-done">Mark a Project as done<a class="headerlink" href="#mark-a-project-as-done" title="Permanent link">¶</a></h3>
 <p>TODO: explain how to mark a project as done.</p></div>
 
               
