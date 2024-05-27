@@ -89,8 +89,16 @@ As described before the actual annotating should be done automatically. But we s
 
 ![labelstudio_annotation_overview](./img/labelstudio_annotation_overview.png)
 
-Sometimes we have logs where nothing is moving for a while. In this case propagating the annotations from the first frame to a later one is useful. In this case annotate the first one as usual. Then select each frame that should have the same annotation and then click "Propagate Annotation". You need to set the annotation ID you want to propagate in the pop up window. You can find that when opening the first frame in history windows on the left side.
+### Set relations between bounding boxes.
+We often have situations where the bounding box of a robot and the bounding box of the ball overlap. In this case it is useful to note which bounding box is in front. You can do that with the [relation feature from labelstudio](https://labelstud.io/guide/labeling.html#Add-relations-between-annotations). You have to click first on the bounding box that is in front, then click the hyperlink icon and then on the bounding box that is in the background.
+
+After that you have to set the name for the relation.
+![labelstudio_annotation_overview](./img/labelstudio_annotation_overview.png)
+
+### Propagate Annotations
+Sometimes we have logs where the auto annotation failed but nothing is moving for a while. In this case propagating the annotations from the first frame to a later one is useful. In this case annotate the first one as usual. Then select each frame that should have the same annotation and then click "Propagate Annotation". You need to set the annotation ID you want to propagate in the pop up window. You can find that when opening the first frame in history windows on the left side.
 
 Note: This is an experimental labelstudio feature.
 
+### Mark a Project as done
 TODO: explain how to mark a project as done.
