@@ -1242,7 +1242,12 @@ the gopro footage.</p>
 <p>Sometimes we have logs where the auto annotation failed but nothing is moving for a while. In this case propagating the annotations from the first frame to a later one is useful. In this case annotate the first one as usual. Then select each frame that should have the same annotation and then click "Propagate Annotation". You need to set the annotation ID you want to propagate in the pop up window. You can find that when opening the first frame in history windows on the left side.</p>
 <p>Note: This is an experimental labelstudio feature.</p>
 <h3 id="mark-a-project-as-done">Mark a Project as done<a class="headerlink" href="#mark-a-project-as-done" title="Permanent link">¶</a></h3>
-<p>TODO: explain how to mark a project as done.</p></div>
+<p>We need to track wether a project is finished labeling or not. Labelstudio treats a project as done when all tasks have annotations. But we create annotations for each image automatically and need to mark when those are validated. For now we prepared a script that you can run with the project id as argument:
+</p><div class="highlight"><pre><span></span><code>mark_project.py<span class="w"> </span>-p<span class="w"> </span>&lt;project<span class="w"> </span>id&gt;
+</code></pre></div>
+On the project overview you will also get a nice visualization indicating that a project is done:
+<img alt="labelstudio_annotation_overview" src="../img/labelstudio_done_project.png">
+<p>Currently we can only mark a project when it's completely done. We are working on a better solution for marking a project more easily as done and also allowing for tracking progress.</p></div>
 
               
             </article>
