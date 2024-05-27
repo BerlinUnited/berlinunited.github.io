@@ -91,9 +91,10 @@ As described before the actual annotating should be done automatically. But we s
 
 ### Set relations between bounding boxes.
 We often have situations where the bounding box of a robot and the bounding box of the ball overlap. In this case it is useful to note which bounding box is in front. You can do that with the [relation feature from labelstudio](https://labelstud.io/guide/labeling.html#Add-relations-between-annotations). You have to click first on the bounding box that is in front, then click the hyperlink icon and then on the bounding box that is in the background.
+![labelstudio_annotation_overview](./img/labelstudio_relation1.png)
 
 After that you have to set the name for the relation.
-![labelstudio_annotation_overview](./img/labelstudio_annotation_overview.png)
+![labelstudio_annotation_overview](./img/labelstudio_relation2.png)
 
 ### Propagate Annotations
 Sometimes we have logs where the auto annotation failed but nothing is moving for a while. In this case propagating the annotations from the first frame to a later one is useful. In this case annotate the first one as usual. Then select each frame that should have the same annotation and then click "Propagate Annotation". You need to set the annotation ID you want to propagate in the pop up window. You can find that when opening the first frame in history windows on the left side.
@@ -101,4 +102,11 @@ Sometimes we have logs where the auto annotation failed but nothing is moving fo
 Note: This is an experimental labelstudio feature.
 
 ### Mark a Project as done
-TODO: explain how to mark a project as done.
+We need to track wether a project is finished labeling or not. Labelstudio treats a project as done when all tasks have annotations. But we create annotations for each image automatically and need to mark when those are validated. For now we prepared a script that you can run with the project id as argument:
+```bash
+mark_project.py -p <project id>
+```
+On the project overview you will also get a nice visualization indicating that a project is done:
+![labelstudio_annotation_overview](./img/labelstudio_done_project.png)
+
+Currently we can only mark a project when it's completely done. We are working on a better solution for marking a project more easily as done and also allowing for tracking progress.
