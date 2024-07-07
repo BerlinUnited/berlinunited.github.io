@@ -23,6 +23,22 @@ enable gpus by adding stuff to the config.toml
 https://docs.gitlab.com/runner/configuration/gpus.html
 
 
+## Pipeline Overview
+TODO add a picture here:
+TODO: describe cleanup settings
+TODO: describe the existence of the registry
+
+
+## How to debug the pipelines
+As described above the linuxtoolchain and naoth repo builds a docker image. This can be downloaded and run locally. You need to be connected to the institutes VPN Server before you can downloading any docker images from the gitlab registry.
+
+```bash
+docker login https://scm.cms.hu-berlin.de:4567
+```
+You will be prompted for your credentials. Those are the same that you use for gitlab access.
+
+TODO finish the rest of the explanation
+
 
 ## Linux Toolchain
 Code can be found at https://github.com/BerlinUnited/linuxtoolchain. This repo is a mirror from an internal repo.  

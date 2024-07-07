@@ -5,6 +5,15 @@
 For deployment there are multiple options. The easiest to just use python for inference. However this is probably not
 what you want in an embedded system.
 
+## Tensorflow to frugally deep
+Examples can be found in the internal repo ... . For ease of use we provide a docker image with all the libraries set up.
+
+You can get the docker image with your gitlab credentials:
+```
+docker login https://scm.cms.hu-berlin.de:4567
+```
+run it like this in a folder where you have a trained tensorflow model
+
 ## Tensorflow inference with python
 The easiest method is just to use python similar to the way we train models.
 
