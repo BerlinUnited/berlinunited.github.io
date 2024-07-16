@@ -7,7 +7,7 @@
 ./dist/Native/naoth-simspark --sync
 ```
 
-Otherwise, the Simspark and the virtual robot will freeze when it is added to
+Otherwise, Simspark and the virtual robot will freeze when it is added to
 the virtual field.
 
 ### Workarounds
