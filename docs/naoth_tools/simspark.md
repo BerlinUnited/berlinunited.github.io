@@ -1,5 +1,30 @@
 # Simspark
 
+## Running Simspark
+
+**Always** add the `--sync` option when starting the `naoth-simspark` binary.
+```
+./dist/Native/naoth-simspark --sync
+```
+
+Otherwise, the Simspark and the virtual robot will freeze when it is added to
+the virtual field.
+
+### Workarounds
+
+Compared to newer *Ubuntu* systems, the [AppImage
+release](https://github.com/BerlinUnited/SimSpark-SPL/releases/latest) embeds an
+outdated C++ standard library and will crash on start. You can enforce to load
+the system standard library by creating a shell script that runs Simspark with
+the `LD_PRELOAD` environment variable.
+
+```bash
+#!/bin/bash
+LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libstdc++.so.6 /<REPLACE_WITH_PATH_TO_APPIMAGE>/Linux.Simspark_v0.7.2-naoth-6-gl.AppImage $@
+```
+
+
+
 ## Create a Simspark-Appimage
 
 AppImage is a container holding all the neccessary binaries and libraries for starting a specifiic application: 
