@@ -526,6 +526,26 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#running-simspark" class="md-nav__link">
+    Running Simspark
+  </a>
+  
+    <nav class="md-nav" aria-label="Running Simspark">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#workarounds" class="md-nav__link">
+    Workarounds
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#create-a-simspark-appimage" class="md-nav__link">
     Create a Simspark-Appimage
   </a>
@@ -1068,6 +1088,26 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#running-simspark" class="md-nav__link">
+    Running Simspark
+  </a>
+  
+    <nav class="md-nav" aria-label="Running Simspark">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#workarounds" class="md-nav__link">
+    Workarounds
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#create-a-simspark-appimage" class="md-nav__link">
     Create a Simspark-Appimage
   </a>
@@ -1109,6 +1149,21 @@
 
 
 <div><h1 id="simspark">Simspark<a class="headerlink" href="#simspark" title="Permanent link">¶</a></h1>
+<h2 id="running-simspark">Running Simspark<a class="headerlink" href="#running-simspark" title="Permanent link">¶</a></h2>
+<p><strong>Always</strong> add the <code>--sync</code> option when starting the <code>naoth-simspark</code> binary.
+</p><div class="highlight"><pre><span></span><code>./dist/Native/naoth-simspark --sync
+</code></pre></div>
+<p>Otherwise, Simspark and the virtual robot will freeze when it is added to
+the virtual field.</p>
+<h3 id="workarounds">Workarounds<a class="headerlink" href="#workarounds" title="Permanent link">¶</a></h3>
+<p>Compared to newer <em>Ubuntu</em> systems, the <a href="https://github.com/BerlinUnited/SimSpark-SPL/releases/latest">AppImage
+release</a> embeds an
+outdated C++ standard library and will crash on start. You can enforce to load
+the system standard library by creating a shell script that runs Simspark with
+the <code>LD_PRELOAD</code> environment variable.</p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<span class="nv">LD_PRELOAD</span><span class="o">=</span>/usr/lib/x86_64-linux-gnu/libstdc++.so.6<span class="w"> </span>/&lt;REPLACE_WITH_PATH_TO_APPIMAGE&gt;/Linux.Simspark_v0.7.2-naoth-6-gl.AppImage<span class="w"> </span><span class="nv">$@</span>
+</code></pre></div>
 <h2 id="create-a-simspark-appimage">Create a Simspark-Appimage<a class="headerlink" href="#create-a-simspark-appimage" title="Permanent link">¶</a></h2>
 <p>AppImage is a container holding all the neccessary binaries and libraries for starting a specifiic application: 
 https://appimage.org/</p>
