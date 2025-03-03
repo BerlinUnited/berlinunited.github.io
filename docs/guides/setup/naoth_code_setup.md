@@ -162,10 +162,15 @@ where `<NaoTH-Projekt/Naoth-2020>` is the desired path to the repository on your
     #### Clang + Ubuntu Image
     You need to have LLVM installed as described above in the prerequisites section.
 
-    To tell premake to use the ubuntu toolchain you need to change two lines `<NaoTH-Projekt>/Naoth-2020/NaoTHSoccer/Make/projectconfig.user.lua`  
+    To tell premake to use the ubuntu toolchain you need to change two lines `<NaoTH-Projekt>/Naoth-2020/NaoTHSoccer/Make/projectconfig.user.lua`
 
-    - NAO_CTC=<NaoTH-Projekt/NaoTHToolchain>/toolchain_nao_ubuntu  
-    - _OPTIONS["crosscompiler"] = "clang"
+    ```lua
+    NAO_CTC="<NaoTH-Projekt/NaoTHToolchain>/toolchain_nao_ubuntu/"
+    if PLATFORM == "Nao" then
+        _OPTIONS["crosscompiler"] = "clang"
+    end
+    ```
+
 
     In order to build the naoth binary go to `<NaoTH-Projekt>/Naoth-2020/NaoTHSoccer/Make` and run `./compileGame.sh -j 4`
 
