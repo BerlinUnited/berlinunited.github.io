@@ -22,7 +22,7 @@ You need to install a bunch of software before being able to develop code for th
     # c++ compile
     sudo apt install build-essential cmake 
     # c++ essential libs
-    sudo apt install zlib1g-dev libreadline-dev
+    sudo apt install zlib1g-dev libreadline-dev uuid-dev
     # c++ IDE (qtcreator)
     sudo apt install qtcreator qt4-qmake libqt4-dev 
     # code versioning control
