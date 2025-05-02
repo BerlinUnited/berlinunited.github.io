@@ -11,7 +11,7 @@ You need to install a bunch of software before being able to develop code for th
     gettext is for compiling glib  
     libreadline-dev is needed for our LUA experiments.  
 
-    We support Java 8 and 11+.  
+    We support Java 8 and 11+.
     For the VideoAnalyzer-Dialog in RobotControl it is potentially necessary to install `ffmpeg-compat-55` package (Arch) see
     [here](https://wiki.archlinux.org/index.php/java#JavaFX.27s_MediaPlayer_constructor_throws_an_exception)
 
@@ -250,9 +250,12 @@ For working with logfiles we have a set of python scripts in the `utils/py` fold
 
 **RobotControlGUI, NaoSCP and the xabsl editor don't scale correctly for high resolution displays**  
   - to fix this install java jdk 11+
+  - or pass a scaling flag to the app: `GDK_SCALE=2 /path/to/app`
 
 **Java 11:**  
-Java FX is not part of Java 11. It must be installed separately.
+  - Java _FX_ is not part of Java 11. It must be installed separately.
+  - You can also pass `JAVA_HOME=/home/anton/.local/jdk-11.0.23+9 /path/to/gradlew` to not need to install java 8 or 11+ system wide
+  - Java files can be obtained from e.g. [https://adoptium.net](adoptium.net) (eclipse foundation)
 
 **Netbeans does not find java:**  
 ![image](../../img/build/netbeans_issue.png)
