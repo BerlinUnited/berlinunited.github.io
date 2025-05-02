@@ -1135,7 +1135,7 @@
 <p>In Linux you need the following dependencies: cmake, gcc and g++ compiler, zlib, qtcreator, git, gettext, java, netbeans, libreadline-dev</p>
 <p>gettext is for compiling glib<br>
 libreadline-dev is needed for our LUA experiments.  </p>
-<p>We support Java 8 and 11+.<br>
+<p>We support Java 8 and 11+.
 For the VideoAnalyzer-Dialog in RobotControl it is potentially necessary to install <code>ffmpeg-compat-55</code> package (Arch) see
 <a href="https://wiki.archlinux.org/index.php/java#JavaFX.27s_MediaPlayer_constructor_throws_an_exception">here</a></p>
 <p>You can install them in ubuntu with this:
@@ -1344,9 +1344,12 @@ For working with logfiles we have a set of python scripts in the <code>utils/py<
   - Solution add it manualy to the Path. Note that trying to append to PATH with the setup.bat script can delete the 
     last characters until the string that should be appended fits. In this case other paths are corrupted and don't work anymore.</p>
 <p><strong>RobotControlGUI, NaoSCP and the xabsl editor don't scale correctly for high resolution displays</strong><br>
-  - to fix this install java jdk 11+</p>
+  - to fix this install java jdk 11+
+  - or pass a scaling flag to the app: <code>GDK_SCALE=2 /path/to/app</code></p>
 <p><strong>Java 11:</strong><br>
-Java FX is not part of Java 11. It must be installed separately.</p>
+  - Java <em>FX</em> is not part of Java 11. It must be installed separately.
+  - You can also pass <code>JAVA_HOME=/home/anton/.local/jdk-11.0.23+9 /path/to/gradlew</code> to not need to install java 8 or 11+ system wide
+  - Java files can be obtained from e.g. <a href="adoptium.net">https://adoptium.net</a> (eclipse foundation)</p>
 <p><strong>Netbeans does not find java:</strong><br>
 <img alt="image" src="../../../img/build/netbeans_issue.png"></p>
 <p>Solution: Edit the netbeans.conf file. It's located inside the install directory. For example 
