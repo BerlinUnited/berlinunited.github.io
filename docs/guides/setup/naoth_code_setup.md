@@ -7,6 +7,8 @@ You need to install a bunch of software before being able to develop code for th
 === "Linux"
 
     In Linux you need the following dependencies: cmake, gcc and g++ compiler, zlib, qtcreator, git, gettext, java, netbeans, libreadline-dev
+
+    NOTE: Cmake 4.x seems to raise compiler error. Use 3.x or lower?
     
     gettext is for compiling glib  
     libreadline-dev is needed for our LUA experiments.  
