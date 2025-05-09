@@ -19,12 +19,14 @@ You need to install a bunch of software before being able to develop code for th
     ```sh
     # java
     sudo apt install default-jdk openjfx netbeans
+    # currently supported openjdk version is 21 (LTS). Other versions migth work but are not guaranteed to.
+
     # c++ compile
     sudo apt install build-essential cmake 
+    # c++ cross-compilation (for robots)
+    sudo apt install clang llvm lld
     # c++ essential libs
     sudo apt install zlib1g-dev libreadline-dev uuid-dev
-    # c++ IDE (qtcreator)
-    sudo apt install qtcreator qt4-qmake libqt4-dev 
     # code versioning control
     sudo apt install git
     # for glib
@@ -41,12 +43,10 @@ You need to install a bunch of software before being able to develop code for th
 
         You can also use the QT GUI by installing `sudo apt install cmake-qt-gui` and running cmake-gui after.
     
-    ??? "Optional Step (Clang)"
+    ??? "Optional Step (Clang setup)"
         If you want to use clang instead of gcc you need to install the `clang`, `llvm` and `lld` packages. 
         The following snippets are specific for Ubuntu-20.04. For other operating systems they need to be modified.
-        ```
-        sudo apt install clang llvm lld
-        ```
+
         In Ubuntu 20.04 clang-12 is installed with the above command however the binaries are not recognized without the version
         suffix. To fix this setup the symlinks for the commands like this.
         ```
@@ -69,6 +69,13 @@ You need to install a bunch of software before being able to develop code for th
         sudo apt install clang-15 lld-15 llvm-15
         ```
         After this setup the symlinks as done above. This documentation is taken from [https://apt.llvm.org/](https://apt.llvm.org/)
+
+    ??? "Optional Step (QtCreator)"
+        If you want to use QtCreator as code editor, install
+        ```
+        sudo apt install qtcreator qt4-qmake libqt4-dev 
+        ```
+        You can use your favorite code editor (VSCode, Kate, ...) instead.
 
 
 === "Windows"
@@ -214,45 +221,93 @@ For development inside WSL follow the linux instructions.
 ## Additional tools for development
 We use different tools with our project:
 
-**XabslEditor**  
-We have a dedicated editor for editing and compiling the robots behavior written in xabsl.
-  - clone: `git clone https://github.com/BerlinUnited/xabsleditor.git`  
-  - load the Netbeans project from `xabsleditor` and run the application  
-  - manual (after the project was loaded once with netbeans):  
-    - change dir `cd xabsleditor`  
-    - compile: `./gradlew.bat clean build`  
-    - run: `./gradlew.bat run` or `./dist/xabsleditor.bat` or `java -jar dist/lib/xabsleditor-1.2.jar`  
- 
-**RobotControl**  
-  - For controlling, modify and analyze the nao robot
-  - load the Netbeans project `RobotControl` and run the application
-    - File->Import Project `<ProjectDir>`/RobotControl
-  - manual:
-    - compile: `./gradlew.bat clean build`
-    - run: `./gradlew.bat run` or `./dist/robotcontrol.bat` or `java -jar dist/lib/RobotControl.jar`
- 
-**NaoSCP**  
-See NaoSCP Documentation
- 
-**Simspark**  
-  - to run a simulated version of our naoth project  
-  - check the [Simspark Setup Guide ](Simspark-Windows-Setup) for installation instructions  
- 
-**Python**   
-For working with logfiles we have a set of python scripts in the `utils/py` folder. The basic functionality is inside a the naoth python package which you can install with pip:    
-   - run `pip install -e naoth` in the `<repository>/Utils/py` this will install protobuf as well 
+=== "Linux"
+
+    **XabslEditor**  
+    We have a dedicated editor for editing and compiling the robots behavior written in xabsl.
+
+      - clone: `git clone https://github.com/BerlinUnited/xabsleditor.git`  
+      - load the Netbeans project from `xabsleditor` and run the application  
+      - manual (after the project was loaded once with netbeans):  
+        - change dir `cd xabsleditor`  
+        - compile: `./gradlew clean build`
+        - run: `./gradlew run` or `./dist/xabsleditor` or `java -jar dist/lib/xabsleditor-1.2.jar`  
+     
+    **RobotControl**  
+
+      - For controlling, modify and analyze the nao robot
+      - load the Netbeans project `RobotControl` and run the application
+        - File->Import Project `<ProjectDir>`/RobotControl
+      - manual:
+        - compile: `./gradlew clean build`
+        - run: `./gradlew run` or `./dist/robotcontrol` or `java -jar dist/lib/RobotControl.jar`
+     
+    **NaoSCP**  
+      See NaoSCP Documentation
+     
+    **Simspark**  
+
+      - to run a simulated version of our naoth project  
+      - check the [Simspark Setup Guide ](Simspark-Linux-Setup) for installation instructions  
+     
+    **Python**
+      For working with logfiles we have a set of python scripts in the `utils/py` folder. The basic functionality is inside a the naoth python package which you can install with pip:    
+
+       - run `python3 -m pip install -e naoth` in the `<repository>/Utils/py` this will install protobuf as well 
+
+=== "Windows"
+
+    **XabslEditor**  
+    We have a dedicated editor for editing and compiling the robots behavior written in xabsl.
+
+      - clone: `git clone https://github.com/BerlinUnited/xabsleditor.git`  
+      - load the Netbeans project from `xabsleditor` and run the application  
+      - manual (after the project was loaded once with netbeans):  
+        - change dir `cd xabsleditor`  
+        - compile: `./gradlew.bat clean build`  
+        - run: `./gradlew.bat run` or `./dist/xabsleditor.bat` or `java -jar dist/lib/xabsleditor-1.2.jar`  
+     
+    **RobotControl**  
+
+      - For controlling, modify and analyze the nao robot
+      - load the Netbeans project `RobotControl` and run the application
+        - File->Import Project `<ProjectDir>`/RobotControl
+      - manual:
+        - compile: `./gradlew.bat clean build`
+        - run: `./gradlew.bat run` or `./dist/robotcontrol.bat` or `java -jar dist/lib/RobotControl.jar`
+     
+    **NaoSCP**  
+      See NaoSCP Documentation
+     
+    **Simspark**  
+
+      - to run a simulated version of our naoth project  
+      - check the [Simspark Setup Guide ](Simspark-Windows-Setup) for installation instructions  
+     
+    **Python**   
+      For working with logfiles we have a set of python scripts in the `utils/py` folder. The basic functionality is inside a the naoth python package which you can install with pip:    
+
+       - run `pip install -e naoth` in the `<repository>/Utils/py` this will install protobuf as well 
 
 ## Known Issues
 **Premake5 is not found**  
+
   - can happen if your PATH is exceeding the 1024 character limit if PATH is set with setup.bat
   - Solution add it manualy to the Path. Note that trying to append to PATH with the setup.bat script can delete the 
     last characters until the string that should be appended fits. In this case other paths are corrupted and don't work anymore.
 
 **RobotControlGUI, NaoSCP and the xabsl editor don't scale correctly for high resolution displays**  
+
   - to fix this install java jdk 11+
 
 **Java 11:**  
 Java FX is not part of Java 11. It must be installed separately.
+
+**Netbeans is not found in apt repo when installing on linux**  
+Netbeans is not included in all `apt` repos. if you have Flatpak installed try:
+```
+flatpak install netbeans
+```
 
 **Netbeans does not find java:**  
 ![image](../../img/build/netbeans_issue.png)
