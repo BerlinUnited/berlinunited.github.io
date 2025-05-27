@@ -38,6 +38,7 @@ nav:
     - 'guides/working-with-sound/working-with-sound.md'
     - 'guides/logging.md'
     - 'guides/obstacle_detection.md'
+    - 'guides/referee_detection.md'
     - 'guides/keyframe_motions.md'
     - 'guides/other_teams.md'
     - Code Conventions:
