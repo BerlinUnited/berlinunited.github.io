@@ -34,6 +34,8 @@ nav:
     - Working With Robots:
         - 'guides/robot_handling.md'
         - 'guides/robots/known-robot-issues.md'
+    - Calibrating Parameters:
+        - 'guides/calibration/action_selection.md'
     - 'guides/working-with-logfiles/working-with-logfiles.md'
     - 'guides/working-with-sound/working-with-sound.md'
     - 'guides/logging.md'
