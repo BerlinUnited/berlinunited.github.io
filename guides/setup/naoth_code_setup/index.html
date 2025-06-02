@@ -830,6 +830,53 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_4" type="checkbox" id="__nav_4_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_4">
+          Calibrating Parameters
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Calibrating Parameters" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_4">
+          <span class="md-nav__icon md-icon"></span>
+          Calibrating Parameters
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../calibration/action_selection/" class="md-nav__link">
+        Action Selection
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
       <a href="../../working-with-logfiles/working-with-logfiles/" class="md-nav__link">
         Working with logfiles
@@ -918,18 +965,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_10" type="checkbox" id="__nav_4_10" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_11" type="checkbox" id="__nav_4_11" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_4_10">
+        <label class="md-nav__link" for="__nav_4_11">
           Code Conventions
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Code Conventions" data-md-level="2">
-        <label class="md-nav__title" for="__nav_4_10">
+        <label class="md-nav__title" for="__nav_4_11">
           <span class="md-nav__icon md-icon"></span>
           Code Conventions
         </label>
@@ -979,18 +1026,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_11" type="checkbox" id="__nav_4_11" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_12" type="checkbox" id="__nav_4_12" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_4_11">
+        <label class="md-nav__link" for="__nav_4_12">
           Deep Learning
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Deep Learning" data-md-level="2">
-        <label class="md-nav__title" for="__nav_4_11">
+        <label class="md-nav__title" for="__nav_4_12">
           <span class="md-nav__icon md-icon"></span>
           Deep Learning
         </label>
@@ -1142,12 +1189,14 @@ For the VideoAnalyzer-Dialog in RobotControl it is potentially necessary to inst
 <p>You can install them in ubuntu with this:
 </p><div class="highlight"><pre><span></span><code><span class="c1"># java</span>
 sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>default-jdk<span class="w"> </span>openjfx<span class="w"> </span>netbeans
+<span class="c1"># currently supported openjdk version is 21 (LTS). Other versions migth work but are not guaranteed to.</span>
+
 <span class="c1"># c++ compile</span>
 sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>build-essential<span class="w"> </span>cmake<span class="w"> </span>
+<span class="c1"># c++ cross-compilation (for robots)</span>
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>clang<span class="w"> </span>llvm<span class="w"> </span>lld
 <span class="c1"># c++ essential libs</span>
 sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>zlib1g-dev<span class="w"> </span>libreadline-dev<span class="w"> </span>uuid-dev
-<span class="c1"># c++ IDE (qtcreator)</span>
-sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>qtcreator<span class="w"> </span>qt4-qmake<span class="w"> </span>libqt4-dev<span class="w"> </span>
 <span class="c1"># code versioning control</span>
 sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>git
 <span class="c1"># for glib</span>
@@ -1164,14 +1213,12 @@ installation run ccmake instead of cmake.</p>
 <p>You can also use the QT GUI by installing <code>sudo apt install cmake-qt-gui</code> and running cmake-gui after.</p>
 </details>
 <details>
-<summary>Optional Step (Clang)</summary>
+<summary>Optional Step (Clang setup)</summary>
 <p>If you want to use clang instead of gcc you need to install the <code>clang</code>, <code>llvm</code> and <code>lld</code> packages. 
-The following snippets are specific for Ubuntu-20.04. For other operating systems they need to be modified.
-</p><div class="highlight"><pre><span></span><code>sudo apt install clang llvm lld
-</code></pre></div>
-In Ubuntu 20.04 clang-12 is installed with the above command however the binaries are not recognized without the version
+The following snippets are specific for Ubuntu-20.04. For other operating systems they need to be modified.</p>
+<p>In Ubuntu 20.04 clang-12 is installed with the above command however the binaries are not recognized without the version
 suffix. To fix this setup the symlinks for the commands like this.
-<div class="highlight"><pre><span></span><code>sudo ln -sf /usr/bin/clang-12 /usr/bin/clang
+</p><div class="highlight"><pre><span></span><code>sudo ln -sf /usr/bin/clang-12 /usr/bin/clang
 sudo ln -sf /usr/bin/clang++-12 /usr/bin/clang++
 sudo ln -sf /usr/bin/llvm-ar-12 /usr/bin/llvm-ar
 </code></pre></div>
@@ -1189,6 +1236,13 @@ sudo apt install clang-14 lld-14 llvm-14
 sudo apt install clang-15 lld-15 llvm-15
 </code></pre></div>
 After this setup the symlinks as done above. This documentation is taken from <a href="https://apt.llvm.org/">https://apt.llvm.org/</a>
+</details>
+<details>
+<summary>Optional Step (QtCreator)</summary>
+<p>If you want to use QtCreator as code editor, install
+</p><div class="highlight"><pre><span></span><code>sudo apt install qtcreator qt4-qmake libqt4-dev 
+</code></pre></div>
+You can use your favorite code editor (VSCode, Kate, ...) instead.
 </details>
 </div>
 <div class="tabbed-block">
@@ -1316,41 +1370,108 @@ this folder via the context menu and run <code>./compileGame.sh -j 4</code></p>
 <p>For development inside WSL follow the linux instructions.</p>
 <h2 id="additional-tools-for-development">Additional tools for development<a class="headerlink" href="#additional-tools-for-development" title="Permanent link">¶</a></h2>
 <p>We use different tools with our project:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked id="__tabbed_4_1" name="__tabbed_4" type="radio"><input id="__tabbed_4_2" name="__tabbed_4" type="radio"><div class="tabbed-labels"><label for="__tabbed_4_1">Linux</label><label for="__tabbed_4_2">Windows</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <p><strong>XabslEditor</strong><br>
-We have a dedicated editor for editing and compiling the robots behavior written in xabsl.
-  - clone: <code>git clone https://github.com/BerlinUnited/xabsleditor.git</code><br>
-  - load the Netbeans project from <code>xabsleditor</code> and run the application<br>
-  - manual (after the project was loaded once with netbeans):<br>
-    - change dir <code>cd xabsleditor</code><br>
-    - compile: <code>./gradlew.bat clean build</code><br>
-    - run: <code>./gradlew.bat run</code> or <code>./dist/xabsleditor.bat</code> or <code>java -jar dist/lib/xabsleditor-1.2.jar</code>  </p>
-<p><strong>RobotControl</strong><br>
-  - For controlling, modify and analyze the nao robot
-  - load the Netbeans project <code>RobotControl</code> and run the application
-    - File-&gt;Import Project <code>&lt;ProjectDir&gt;</code>/RobotControl
-  - manual:
-    - compile: <code>./gradlew.bat clean build</code>
-    - run: <code>./gradlew.bat run</code> or <code>./dist/robotcontrol.bat</code> or <code>java -jar dist/lib/RobotControl.jar</code></p>
+We have a dedicated editor for editing and compiling the robots behavior written in xabsl.</p>
+<ul>
+<li>clone: <code>git clone https://github.com/BerlinUnited/xabsleditor.git</code>  </li>
+<li>load the Netbeans project from <code>xabsleditor</code> and run the application  </li>
+<li>manual (after the project was loaded once with netbeans):  <ul>
+<li>change dir <code>cd xabsleditor</code>  </li>
+<li>compile: <code>./gradlew clean build</code></li>
+<li>run: <code>./gradlew run</code> or <code>./dist/xabsleditor</code> or <code>java -jar dist/lib/xabsleditor-1.2.jar</code>  </li>
+</ul>
+</li>
+</ul>
+<p><strong>RobotControl</strong>  </p>
+<ul>
+<li>For controlling, modify and analyze the nao robot</li>
+<li>load the Netbeans project <code>RobotControl</code> and run the application<ul>
+<li>File-&gt;Import Project <code>&lt;ProjectDir&gt;</code>/RobotControl</li>
+</ul>
+</li>
+<li>manual:<ul>
+<li>compile: <code>./gradlew clean build</code></li>
+<li>run: <code>./gradlew run</code> or <code>./dist/robotcontrol</code> or <code>java -jar dist/lib/RobotControl.jar</code></li>
+</ul>
+</li>
+</ul>
 <p><strong>NaoSCP</strong><br>
-See NaoSCP Documentation</p>
-<p><strong>Simspark</strong><br>
-  - to run a simulated version of our naoth project<br>
-  - check the <a href="Simspark-Windows-Setup">Simspark Setup Guide </a> for installation instructions  </p>
+  See NaoSCP Documentation</p>
+<p><strong>Simspark</strong>  </p>
+<ul>
+<li>to run a simulated version of our naoth project  </li>
+<li>check the <a href="Simspark-Linux-Setup">Simspark Setup Guide </a> for installation instructions  </li>
+</ul>
+<p><strong>Python</strong>
+  For working with logfiles we have a set of python scripts in the <code>utils/py</code> folder. The basic functionality is inside a the naoth python package which you can install with pip:    </p>
+<ul>
+<li>run <code>python3 -m pip install -e naoth</code> in the <code>&lt;repository&gt;/Utils/py</code> this will install protobuf as well </li>
+</ul>
+</div>
+<div class="tabbed-block">
+<p><strong>XabslEditor</strong><br>
+We have a dedicated editor for editing and compiling the robots behavior written in xabsl.</p>
+<ul>
+<li>clone: <code>git clone https://github.com/BerlinUnited/xabsleditor.git</code>  </li>
+<li>load the Netbeans project from <code>xabsleditor</code> and run the application  </li>
+<li>manual (after the project was loaded once with netbeans):  <ul>
+<li>change dir <code>cd xabsleditor</code>  </li>
+<li>compile: <code>./gradlew.bat clean build</code>  </li>
+<li>run: <code>./gradlew.bat run</code> or <code>./dist/xabsleditor.bat</code> or <code>java -jar dist/lib/xabsleditor-1.2.jar</code>  </li>
+</ul>
+</li>
+</ul>
+<p><strong>RobotControl</strong>  </p>
+<ul>
+<li>For controlling, modify and analyze the nao robot</li>
+<li>load the Netbeans project <code>RobotControl</code> and run the application<ul>
+<li>File-&gt;Import Project <code>&lt;ProjectDir&gt;</code>/RobotControl</li>
+</ul>
+</li>
+<li>manual:<ul>
+<li>compile: <code>./gradlew.bat clean build</code></li>
+<li>run: <code>./gradlew.bat run</code> or <code>./dist/robotcontrol.bat</code> or <code>java -jar dist/lib/RobotControl.jar</code></li>
+</ul>
+</li>
+</ul>
+<p><strong>NaoSCP</strong><br>
+  See NaoSCP Documentation</p>
+<p><strong>Simspark</strong>  </p>
+<ul>
+<li>to run a simulated version of our naoth project  </li>
+<li>check the <a href="Simspark-Windows-Setup">Simspark Setup Guide </a> for installation instructions  </li>
+</ul>
 <p><strong>Python</strong> <br>
-For working with logfiles we have a set of python scripts in the <code>utils/py</code> folder. The basic functionality is inside a the naoth python package which you can install with pip:  <br>
-   - run <code>pip install -e naoth</code> in the <code>&lt;repository&gt;/Utils/py</code> this will install protobuf as well </p>
+  For working with logfiles we have a set of python scripts in the <code>utils/py</code> folder. The basic functionality is inside a the naoth python package which you can install with pip:    </p>
+<ul>
+<li>run <code>pip install -e naoth</code> in the <code>&lt;repository&gt;/Utils/py</code> this will install protobuf as well </li>
+</ul>
+</div>
+</div>
+</div>
 <h2 id="known-issues">Known Issues<a class="headerlink" href="#known-issues" title="Permanent link">¶</a></h2>
-<p><strong>Premake5 is not found</strong><br>
-  - can happen if your PATH is exceeding the 1024 character limit if PATH is set with setup.bat
-  - Solution add it manualy to the Path. Note that trying to append to PATH with the setup.bat script can delete the 
-    last characters until the string that should be appended fits. In this case other paths are corrupted and don't work anymore.</p>
-<p><strong>RobotControlGUI, NaoSCP and the xabsl editor don't scale correctly for high resolution displays</strong><br>
-  - to fix this install java jdk 11+
-  - or pass a scaling flag to the app: <code>GDK_SCALE=2 /path/to/app</code></p>
+<p><strong>Premake5 is not found</strong>  </p>
+<ul>
+<li>can happen if your PATH is exceeding the 1024 character limit if PATH is set with setup.bat</li>
+<li>Solution add it manualy to the Path. Note that trying to append to PATH with the setup.bat script can delete the 
+    last characters until the string that should be appended fits. In this case other paths are corrupted and don't work anymore.</li>
+</ul>
+<p><strong>RobotControlGUI, NaoSCP and the xabsl editor don't scale correctly for high resolution displays</strong>  </p>
+<ul>
+<li>to fix this install java jdk 11+</li>
+<li>or pass a scaling flag to the app: <code>GDK_SCALE=2 /path/to/app</code></li>
+</ul>
 <p><strong>Java 11:</strong><br>
   - Java <em>FX</em> is not part of Java 11. It must be installed separately.
   - You can also pass <code>JAVA_HOME=/home/anton/.local/jdk-11.0.23+9 /path/to/gradlew</code> to not need to install java 8 or 11+ system wide
   - Java files can be obtained from e.g. <a href="adoptium.net">https://adoptium.net</a> (eclipse foundation)</p>
+<p><strong>Netbeans is not found in apt repo when installing on linux</strong><br>
+Netbeans is not included in all <code>apt</code> repos. if you have Flatpak installed try:
+</p><div class="highlight"><pre><span></span><code>flatpak install netbeans
+</code></pre></div>
 <p><strong>Netbeans does not find java:</strong><br>
 <img alt="image" src="../../../img/build/netbeans_issue.png"></p>
 <p>Solution: Edit the netbeans.conf file. It's located inside the install directory. For example 
