@@ -8,7 +8,12 @@ You need to install a bunch of software before being able to develop code for th
 
     In Linux you need the following dependencies: cmake, gcc and g++ compiler, zlib, qtcreator, git, gettext, java, netbeans, libreadline-dev
 
-    NOTE: Cmake 4.x seems to raise compiler error. Use 3.x or lower?
+    ??? "NOTE: Cmake 4.x seems to raise compiler error, use 3.x"
+        - download latest 3.x release: [https://cmake.org/download/](https://cmake.org/download/)
+        - check the PATH environment variable, if it contains `~/.local/bin`
+            - `echo $PATH | grep ".local/bin"`
+            - it should be before the system paths
+        - install  or copy it to `~/.local/`
     
     gettext is for compiling glib  
     libreadline-dev is needed for our LUA experiments.  
@@ -123,11 +128,29 @@ You need to install a bunch of software before being able to develop code for th
 ## Toolchain Setup
 === "Linux"
 
-    Clone the toolchain repo from either our [internal gitlab](https://scm.cms.hu-berlin.de/berlinunited/tools/linuxtoolchain)
-    or [public github](https://github.com/BerlinUnited/linuxtoolchain). In this docu to the path of the cloned repo is called
-    `<NaoTH-Projekt/toolchain>` Obviously on your system the path looks different.  
+    Clone the toolchain repo either from our [internal gitlab](https://scm.cms.hu-berlin.de/berlinunited/tools/linuxtoolchain) (active development):
+    ```sh
+    git clone --depth 1 https://scm.cms.hu-berlin.de/berlinunited/tools/linuxtoolchain toolchain
+    ```
+    or [public github](https://github.com/BerlinUnited/linuxtoolchain) repo (yearly release):
+    ```sh
+    git clone --depth 1 https://github.com/BerlinUnited/linuxtoolchain toolchain
+    ```
+    This will clone the latest version to the `toolchain` directory. If you want the full git history, omit the `--depth 1` argument.
 
-    Both repos are synced but the development only happens in the internal repo.
+
+    ??? "Speed up compilation"
+        You can speed up the compilation of the toolchain by setting the `MAKEFLAGS` environment variable:
+        ```
+        export MAKEFLAGS="-j $(nproc)"
+        ```
+        This is also useful for the project compilation, since it utilizes all available CPUs. 
+        Therefore, the above line have to be added to the `~/.profile` and/or `~./.bashrc` file.  
+        
+
+    After cloning, execute `./setup.sh` to compile and install the required libraries.
+    
+    __Note__: If you want to use the default path configuration in `~/.profile` and/or `~/.bashrc` you have to restart your computer because this file is only read by the login shell and/or your session/window manager during start up.
 
     TODO: add missing parts here
 
