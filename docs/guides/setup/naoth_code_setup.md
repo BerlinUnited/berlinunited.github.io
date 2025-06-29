@@ -15,8 +15,7 @@ You need to install a bunch of software before being able to develop code for th
             - it should be before the system paths
         - install  or copy it to `~/.local/`
     
-    gettext is for compiling glib  
-    libreadline-dev is needed for our LUA experiments.  
+    
 
     We support Java 8 and 11+.
     For the VideoAnalyzer-Dialog in RobotControl it is potentially necessary to install `ffmpeg-compat-55` package (Arch) see
@@ -29,19 +28,21 @@ You need to install a bunch of software before being able to develop code for th
     # currently supported openjdk version is 21 (LTS). Other versions migth work but are not guaranteed to.
 
     # c++ compile
-    sudo apt install build-essential cmake 
+    sudo apt install build-essential cmake -y
     # c++ cross-compilation (for robots)
-    sudo apt install clang llvm lld
+    sudo apt install clang llvm lld -y
     # c++ essential libs
-    sudo apt install zlib1g-dev libreadline-dev uuid-dev
+    sudo apt install zlib1g-dev uuid-dev -y
+    # libreadline-dev is needed for our LUA experiments
+    sudo apt install libreadline-dev -y
     # code versioning control
     sudo apt install git
     # for glib
-    sudo apt install gettext
+    sudo apt install gettext -y
     # for archives in the toolchain repo
-    sudo apt install unzip
+    sudo apt install unzip -y
     # for creating an ubuntu image for the nao
-    sudo apt install pigz debootstrap
+    sudo apt install pigz debootstrap -y
     ```
 
     ??? "Optional Step (Cmake GUI)"
