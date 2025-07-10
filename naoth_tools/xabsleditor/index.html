@@ -451,7 +451,7 @@
   
     <li class="md-nav__item">
       <a href="../rc/" class="md-nav__link">
-        RoboControl
+        RobotControl
       </a>
     </li>
   
@@ -487,9 +487,74 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Xabsleditor
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Xabsleditor
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#starting-xabsleditor" class="md-nav__link">
+    Starting Xabsleditor
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#current-behavior-in-a-nutshell" class="md-nav__link">
+    Current behavior in a nutshell
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#xabsleditor-features" class="md-nav__link">
+    Xabsleditor features
+  </a>
+  
+    <nav class="md-nav" aria-label="Xabsleditor features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#transition-graphs" class="md-nav__link">
+    Transition graphs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#symbols" class="md-nav__link">
+    Symbols
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1057,6 +1122,55 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#starting-xabsleditor" class="md-nav__link">
+    Starting Xabsleditor
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#current-behavior-in-a-nutshell" class="md-nav__link">
+    Current behavior in a nutshell
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#xabsleditor-features" class="md-nav__link">
+    Xabsleditor features
+  </a>
+  
+    <nav class="md-nav" aria-label="Xabsleditor features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#transition-graphs" class="md-nav__link">
+    Transition graphs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#symbols" class="md-nav__link">
+    Symbols
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1070,9 +1184,31 @@
 
 
 <div><h1 id="xabsleditor">Xabsleditor<a class="headerlink" href="#xabsleditor" title="Permanent link">¶</a></h1>
+<p>Xabsleditor (eXtensive agent behavior specification language editor) is our home cooked editor with code highlighting and syntax checking for the description language XABSL.
+Though it might seem complex at first, this is a powerful tool that, in combinition with recording the behavior that the robot went through during gameplay, allows for reasonably easy debugging of behavior bugs.
+The .xabsl files are located inside <code>&lt;/path/to/mainRepo&gt;/NaoTHSoccer/Source/Cognition/Modules/Behavior/XABSLBehaviorControl</code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This documentation lacks implementation details (intermediary code, gradle)</p>
+</div>
 <ul>
-<li>TODO add xabsleditor docu in extra site here and remove it from teamreport</li>
-</ul></div>
+<li>TODO: Move and expand Xabsl documentation from the team report.</li>
+</ul>
+<h2 id="starting-xabsleditor">Starting Xabsleditor<a class="headerlink" href="#starting-xabsleditor" title="Permanent link">¶</a></h2>
+<p>Xabsleditor is located inside its own repository.
+It is started by running the gradlew executable inside.
+Because it needs Java 11, either change your system Java before execution, or, if on linux:
+- Download latest JDK from <a href="https://adoptium.net/en-GB/temurin/releases/?version=11&amp;os=linux&amp;arch=x64">here</a>
+- Untar to ~/.local so that the path is <code>~/.local/jdk-11.0.&lt;number&gt;</code>
+- Now start Xabsleditor with <code>env JAVA_HOME=~/.local/jdk-11.&lt;number&gt; &lt;/path/to/XabsleditorRepo&gt;/gradlew</code>
+Tipp: Set yourself an <a href="https://www.geeksforgeeks.org/alias-command-in-linux-with-examples/#how-to-create-an-aliases-persistent">alias</a> for this.</p>
+<h2 id="current-behavior-in-a-nutshell">Current behavior in a nutshell<a class="headerlink" href="#current-behavior-in-a-nutshell" title="Permanent link">¶</a></h2>
+<p>TODO: Outline when init, when idle, etc.</p>
+<h2 id="xabsleditor-features">Xabsleditor features<a class="headerlink" href="#xabsleditor-features" title="Permanent link">¶</a></h2>
+<h3 id="transition-graphs">Transition graphs<a class="headerlink" href="#transition-graphs" title="Permanent link">¶</a></h3>
+<p>Once a .xabsl file is loaded, for example /Options/Roles/role_default.xabsl (they are all located inside <code>&lt;/path/to/mainRepo&gt;/NaoTHSoccer/Source/Cognition/Modules/Behavior/XABSLBehaviorControl</code>) you should see a state graph on the right side. Each node represents a <code>state {}</code> in your code on the left.</p>
+<h3 id="symbols">Symbols<a class="headerlink" href="#symbols" title="Permanent link">¶</a></h3>
+<p>TODO</p></div>
 
               
             </article>

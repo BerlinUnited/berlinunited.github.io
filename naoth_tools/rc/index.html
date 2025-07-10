@@ -13,7 +13,7 @@
     
     
       
-        <title>RoboControl - Berlin United - Documentation</title>
+        <title>RobotControl - Berlin United - Documentation</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#robocontrol" class="md-skip">
+        <a href="#robotcontrol" class="md-skip">
           Skip to content
         </a>
       
@@ -100,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              RoboControl
+              RobotControl
             
           </span>
         </div>
@@ -460,12 +460,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          RoboControl
+          RobotControl
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        RoboControl
+        RobotControl
       </a>
       
         
@@ -484,9 +484,71 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#view-teamcommlogs-in-robotcontrol" class="md-nav__link">
-    View Teamcommlogs in Robotcontrol
+  <a href="#starting-robotcontrol" class="md-nav__link">
+    Starting RobotControl
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#robotcontrol-features-aka-modules" class="md-nav__link">
+    RobotControl features (aka modules)
+  </a>
+  
+    <nav class="md-nav" aria-label="RobotControl features (aka modules)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#view" class="md-nav__link">
+    View
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#debug" class="md-nav__link">
+    Debug
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configue" class="md-nav__link">
+    Configue
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#log" class="md-nav__link">
+    Log
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#status" class="md-nav__link">
+    Status
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tools" class="md-nav__link">
+    Tools
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#team" class="md-nav__link">
+    Team
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1095,9 +1157,71 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#view-teamcommlogs-in-robotcontrol" class="md-nav__link">
-    View Teamcommlogs in Robotcontrol
+  <a href="#starting-robotcontrol" class="md-nav__link">
+    Starting RobotControl
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#robotcontrol-features-aka-modules" class="md-nav__link">
+    RobotControl features (aka modules)
+  </a>
+  
+    <nav class="md-nav" aria-label="RobotControl features (aka modules)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#view" class="md-nav__link">
+    View
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#debug" class="md-nav__link">
+    Debug
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configue" class="md-nav__link">
+    Configue
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#log" class="md-nav__link">
+    Log
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#status" class="md-nav__link">
+    Status
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tools" class="md-nav__link">
+    Tools
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#team" class="md-nav__link">
+    Team
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1115,28 +1239,51 @@
                 
 
 
-<div><h1 id="robocontrol">RoboControl<a class="headerlink" href="#robocontrol" title="Permanent link">¶</a></h1>
-<p>Some explanations of commons tasks we do with RobotControl.</p>
+<div><h1 id="robotcontrol">RobotControl<a class="headerlink" href="#robotcontrol" title="Permanent link">¶</a></h1>
+<p>RobotControl is our GUI client for the connection to the robots.
+It displays data from the robot (sensor data, where the robot thinks it is, ...) and sends data to the robot (debug requests, forcing game states, ...).</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<ul>
-<li>explain some implementation details (java fx, debug communication, netbeans specific stuff, gradle)</li>
-<li>move and expand rc module documentation from team report</li>
-</ul>
+<p>This documentation lacks implementation details (java fx, debug communication, netbeans specific stuff, gradle)</p>
 </div>
 <ul>
-<li>TODO: add note about alias in bashrc for gradle run/build naoscp</li>
+<li>TODO: Move and expand RobotControl module documentation from team report.</li>
 </ul>
-<h2 id="view-teamcommlogs-in-robotcontrol">View Teamcommlogs in Robotcontrol<a class="headerlink" href="#view-teamcommlogs-in-robotcontrol" title="Permanent link">¶</a></h2>
-<p>In RobotControl open the <code>TeamCommLogViewer</code> Dialog and open a teamcomm logfile.
-<img alt="Open a teamcomm log file" src="../../img/screenshot_open_teamcommlog.png"></p>
-<p>Open the FieldViewer and the TeamCommViewer FX Dialogs next to each other. In the FieldViewer click on the log button and then
-in the TeamCommViewer Click on the <code>Listen to TeamComm</code> button. The order here is important.
-<img alt="SetupFieldViewer" src="../../img/screenshot_teamcomm_fieldviewer.png">
-Switch back to the <code>TeamCommLogViewer</code> and click on the play button. You then see the message content of the current 
-message on the left and on the right you can see the robots positions on the field. Note that those positions are as the robots
-report it. So they show localization errors.
-<img alt="Open a teamcomm log file" src="../../img/screenshot_play_teamcomm.png"></p></div>
+<h2 id="starting-robotcontrol">Starting RobotControl<a class="headerlink" href="#starting-robotcontrol" title="Permanent link">¶</a></h2>
+<p>RobotControl is located inside the main repository in the folder RobotControl.
+It is started by running the gradlew executable inside that folder.
+Because it needs Java 11, either change your system Java before execution, or, if on linux:
+- Download latest JDK from <a href="https://adoptium.net/en-GB/temurin/releases/?version=11&amp;os=linux&amp;arch=x64">here</a>
+- Untar to ~/.local so that the path is <code>~/.local/jdk-11.0.&lt;number&gt;</code>
+- Now start RobotControl with <code>env JAVA_HOME=~/.local/jdk-11.&lt;number&gt; &lt;/path/to/mainRepo&gt;/RobotControl/gradlew</code>
+Tipp: Set yourself an <a href="https://www.geeksforgeeks.org/alias-command-in-linux-with-examples/#how-to-create-an-aliases-persistent">alias</a> for this.</p>
+<h2 id="robotcontrol-features-aka-modules">RobotControl features (aka modules)<a class="headerlink" href="#robotcontrol-features-aka-modules" title="Permanent link">¶</a></h2>
+<h3 id="view">View<a class="headerlink" href="#view" title="Permanent link">¶</a></h3>
+<h4 id="imageviewer">ImageViewer<a class="headerlink" href="#imageviewer" title="Permanent link">¶</a></h4>
+<p>Displays the images (top and/ or bottom camera) of a connected robot.</p>
+<h4 id="plot2d">Plot2D<a class="headerlink" href="#plot2d" title="Permanent link">¶</a></h4>
+<p>Receives x, y data and draws it onto a canvas. The sending of this x, y data must be compiled into the code or requested via the plot section in the module DebugRequestFX.</p>
+<h4 id="field">Field<a class="headerlink" href="#field" title="Permanent link">¶</a></h4>
+<p>Displays a field and draws the reported position of the robots into it.</p>
+<h3 id="debug">Debug<a class="headerlink" href="#debug" title="Permanent link">¶</a></h3>
+<p>TODO</p>
+<h3 id="configue">Configue<a class="headerlink" href="#configue" title="Permanent link">¶</a></h3>
+<p>TODO</p>
+<h3 id="log">Log<a class="headerlink" href="#log" title="Permanent link">¶</a></h3>
+<p>TODO</p>
+<h3 id="status">Status<a class="headerlink" href="#status" title="Permanent link">¶</a></h3>
+<p>TODO</p>
+<h3 id="tools">Tools<a class="headerlink" href="#tools" title="Permanent link">¶</a></h3>
+<p>TODO</p>
+<h3 id="team">Team<a class="headerlink" href="#team" title="Permanent link">¶</a></h3>
+<h4 id="teamcommlogs">TeamCommLogs<a class="headerlink" href="#teamcommlogs" title="Permanent link">¶</a></h4>
+<p>TeamComms are what the robots broadcast. The TeamCommLogs and TeamCommLogViewer are used to display this broadcasted data from past games, so that we can see what data (e.g. coordinates) the robots reported and knew of each other.</p>
+<p>In RobotControl open the <code>TeamCommLogViewer</code> dialogue and open a TeamComm logfile.
+<img alt="picture" src="../../img/screenshot_open_teamcommlog.png"></p>
+<p>Open the FieldViewer and the TeamCommViewerFX dialogues next to each other. In the FieldViewer click on the log button; then in the TeamCommViewer click on the <code>Listen to TeamComm</code> button. The order here is important.
+<img alt="picture" src="../../img/screenshot_teamcomm_fieldviewer.png"></p>
+<p>Switch back to the <code>TeamCommLogViewer</code> and click on the play button. You should see the message content of the current message on the left and on the right you can see the robots positions on the field. As those positions are as the robots report them, they show potential localization errors.
+<img alt="picture" src="../../img/screenshot_play_teamcomm.png"></p></div>
 
               
             </article>
