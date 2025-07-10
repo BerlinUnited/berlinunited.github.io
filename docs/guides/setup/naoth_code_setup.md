@@ -308,23 +308,31 @@ We use different tools with our project:
        - run `pip install -e naoth` in the `<repository>/Utils/py` this will install protobuf as well 
 
 ## Known Issues
+### Premake
 **Premake5 is not found**  
 
   - can happen if your PATH is exceeding the 1024 character limit if PATH is set with setup.bat
   - Solution add it manualy to the Path. Note that trying to append to PATH with the setup.bat script can delete the 
     last characters until the string that should be appended fits. In this case other paths are corrupted and don't work anymore.
 
+### Java
 **RobotControlGUI, NaoSCP and the xabsl editor don't scale correctly for high resolution displays**  
 
   - to fix this install java jdk 11+
   - or pass a scaling flag to the app: `GDK_SCALE=2 /path/to/app`
 
-**Java 11:**  
-  - Java _FX_ is not part of Java 11. It must be installed separately.
-  - You can also pass `JAVA_HOME=/home/anton/.local/jdk-11.0.23+9 /path/to/gradlew` to not need to install java 8 or 11+ system wide
-  - Java files can be obtained from e.g. [https://adoptium.net](adoptium.net) (eclipse foundation)
+**The application window is just a grey box**
 
-**Netbeans is not found in apt repo when installing on linux**  
+  On systems using a wayland compositor it might be required to define the environment variable `_JAVA_AWT_WM_NONREPARENTING=1`.
+  This was observed on Arch Linux using `niri`-WM and `java-openjdk17`.
+
+**Local Java installation**
+
+  If you don't want to install Java system wide you can use a local copy by setting the environment variable `JAVA_HOME=<path to your local installation>`.
+  You can obtain Java from e.g. [adoptium.net](https://adoptium.net) (eclipse foundation).
+
+### Netbeans
+**Netbeans is not found in apt repo when installing on linux**
 Netbeans is not included in all `apt` repos. if you have Flatpak installed try:
 ```
 flatpak install netbeans
