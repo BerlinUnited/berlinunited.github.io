@@ -321,6 +321,16 @@ We use different tools with our project:
   - to fix this install java jdk 11+
   - or pass a scaling flag to the app: `GDK_SCALE=2 /path/to/app`
 
+**RobotControl Dialogs can't be created/opened**
+
+  The Java Platform Module System might isolate components too much.
+  You can try to add following options to the `java` command when starting RobotControl:
+  ```shell
+  --add-opens java.desktop/javax.swing=ALL-UNNAMED
+  --add-opens java.desktop/javax.swing.plaf.basic=ALL-UNNAMED
+  ```
+  This was observed on Arch Linux using `java-openjdk17`.
+
 **The application window is just a grey box**
 
   On systems using a wayland compositor it might be required to define the environment variable `_JAVA_AWT_WM_NONREPARENTING=1`.
