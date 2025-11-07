@@ -1,0 +1,15 @@
+stages:
+  - deploy
+
+publish_docs:
+  stage: deploy 
+  image: python:3.12
+  rules:
+    - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
+  script:
+    - python -m pip install -r requirements.txt
+    - git config --global user.name "GitLab CI"
+    - git config --global user.email "ci@example.com"
+    - git remote set-url origin https://$DEPLOY_USER:$DEPLOY_TOKEN@scm.cms.hu-berlin.de/berlinunited/berlin-united-docs.git
+    - git fetch origin gh-pages:gh-pages || true
+    - mkdocs gh-deploy
