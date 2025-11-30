@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../robot_setup/">
+        <link rel="prev" href="../../robots/known-robot-issues/">
       
       
-        <link rel="next" href="../../robot_handling/">
+        <link rel="next" href="../../calibration/action_selection/">
       
       
       <link rel="icon" href="../../../img/favicon.ico">
@@ -20,7 +20,7 @@
     
     
       
-        <title>Configuration Files - Berlin United - Documentation</title>
+        <title>RL for Booster Walking - Berlin United - Documentation</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#configuration-files" class="md-skip">
+        <a href="#rl-for-booster-walking" class="md-skip">
           Skip to content
         </a>
       
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Configuration Files
+              RL for Booster Walking
             
           </span>
         </div>
@@ -880,8 +880,6 @@
                 
   
   
-    
-  
   
   
     
@@ -892,11 +890,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
         
           
           <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
@@ -912,7 +910,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4_2">
             <span class="md-nav__icon md-icon"></span>
             Setup
@@ -926,7 +924,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../naoth_code_setup/" class="md-nav__link">
+      <a href="../../setup/naoth_code_setup/" class="md-nav__link">
         
   
   
@@ -949,7 +947,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../robot_setup/" class="md-nav__link">
+      <a href="../../setup/robot_setup/" class="md-nav__link">
         
   
   
@@ -969,19 +967,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../setup/nao_config/" class="md-nav__link">
         
   
   
@@ -992,7 +981,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -1010,6 +998,8 @@
                 
   
   
+    
+  
   
   
     
@@ -1020,11 +1010,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" checked>
         
           
           <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
@@ -1040,7 +1030,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4_3">
             <span class="md-nav__icon md-icon"></span>
             Working With Robots
@@ -1097,10 +1087,19 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../reinforcement_learning/getting_started/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1111,6 +1110,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -1588,8 +1588,24 @@
 
 
 
-<div><h1 id="configuration-files">Configuration Files<a class="headerlink" href="#configuration-files" title="Permanent link">¶</a></h1>
-<p>TODO: describe the logic behind our configuration files</p></div>
+<div><h1 id="rl-for-booster-walking">RL for Booster Walking<a class="headerlink" href="#rl-for-booster-walking" title="Permanent link">¶</a></h1>
+<p>For the setup you can follow the instructions provided by booster at https://github.com/BoosterRobotics/booster_gym
+Or if you don't want to use conda you can do it like this:</p>
+<p></p><div class="highlight"><pre><span></span><code>mkdir rl_walk &amp;&amp; cd rl_walk
+uv init --python 3.8
+uv sync
+uv pip install torch==2.0.1 torchvision==0.15.2 torchaudio==2.0.2 --index-url https://download.pytorch.org/whl/cu118
+uv pip install numpy==1.21.6
+wget https://developer.nvidia.com/isaac-gym-preview-4
+tar -xzvf isaac-gym-preview-4
+cd isaacgym/python
+uv pip install -e .
+git clone https://github.com/BoosterRobotics/booster_gym.git
+</code></pre></div>
+Then you can start the training witjh
+<div class="highlight"><pre><span></span><code>uv run train.py --task=T1
+</code></pre></div>
+<p>If you want to use this on our lab server please dont use conda.</p></div>
 
 
 
