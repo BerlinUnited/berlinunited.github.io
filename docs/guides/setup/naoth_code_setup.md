@@ -1,12 +1,22 @@
 # NaoTH Development Setup
 
+## SmartGit
+
+SmartGit is a git-client used by our team. It can be used for free for non-profit and academic projects.
+
+- Download SmartGit:
+    - <https://www.syntevo.com/smartgit/>
+- Register an academic license: (e.g., use your university email address)
+    - <https://www.syntevo.com/register-non-commercial/#academic>
+  
+
 ## Prerequisites
 
-You need to install a bunch of software before being able to develop code for the Nao robot.
+You need to install a bunch of software before being able to develop code for the NAO robot.
 
 === "Linux"
 
-    In Linux you need the following dependencies: cmake, gcc and g++ compiler, zlib, qtcreator, git, gettext, java, netbeans, libreadline-dev
+    In Linux you need the following dependencies: cmake, gcc and g++ compiler, zlib, qtcreator, git, gettext, java, netbeans, libreadline-dev.
 
     ??? "NOTE: Cmake 4.x seems to raise compiler error, use 3.x"
         - download latest 3.x release: [https://cmake.org/download/](https://cmake.org/download/)
@@ -15,17 +25,19 @@ You need to install a bunch of software before being able to develop code for th
             - it should be before the system paths
         - install  or copy it to `~/.local/`
     
+    !!! NOTE
     
+        * `gettext` is needed for compiling glib  
+        * `libreadline-dev` is needed for our LUA experiments.  
+        * We currently supported openjdk version is 21 (LTS). Other versions migth work but are not guaranteed to.
+        * For the VideoAnalyzer-Dialog in RobotControl it is potentially necessary to install `ffmpeg-compat-55` package (Arch) see
+            [here](https://wiki.archlinux.org/index.php/java#JavaFX.27s_MediaPlayer_constructor_throws_an_exception)
 
-    We support Java 8 and 11+.
-    For the VideoAnalyzer-Dialog in RobotControl it is potentially necessary to install `ffmpeg-compat-55` package (Arch) see
-    [here](https://wiki.archlinux.org/index.php/java#JavaFX.27s_MediaPlayer_constructor_throws_an_exception)
-
-    You can install them in ubuntu with this:
+    You can install them in Ubuntu with this:
     ```sh
-    # java
+    # java: currently supported openjdk version is 21 (LTS).
+    # Other versions migth work but are not guaranteed to.
     sudo apt install default-jdk openjfx netbeans
-    # currently supported openjdk version is 21 (LTS). Other versions migth work but are not guaranteed to.
 
     # c++ compile
     sudo apt install build-essential cmake -y
@@ -37,7 +49,7 @@ You need to install a bunch of software before being able to develop code for th
     sudo apt install libreadline-dev -y
     # code versioning control
     sudo apt install git
-    # for glib
+    # needed for compiling glib
     sudo apt install gettext -y
     # for archives in the toolchain repo
     sudo apt install unzip -y
