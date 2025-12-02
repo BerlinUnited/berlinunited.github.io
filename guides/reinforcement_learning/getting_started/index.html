@@ -1595,15 +1595,19 @@ Or if you don't want to use conda you can do it like this:</p>
 uv init --python 3.8
 uv sync
 uv pip install torch==2.0.1 torchvision==0.15.2 torchaudio==2.0.2 --index-url https://download.pytorch.org/whl/cu118
-uv pip install numpy==1.21.6
+
 wget https://developer.nvidia.com/isaac-gym-preview-4
 tar -xzvf isaac-gym-preview-4
 cd isaacgym/python
 uv pip install -e .
+uv add numpy==1.21.6
+cd ../..
 git clone https://github.com/BoosterRobotics/booster_gym.git
+cd booster_gym
+uv pip install -r requirements.txt
 </code></pre></div>
 Then you can start the training witjh
-<div class="highlight"><pre><span></span><code>uv run train.py --task=T1
+<div class="highlight"><pre><span></span><code>uv run train.py --task=T1 --headless=True
 </code></pre></div>
 <p>If you want to use this on our lab server please dont use conda.</p></div>
 
