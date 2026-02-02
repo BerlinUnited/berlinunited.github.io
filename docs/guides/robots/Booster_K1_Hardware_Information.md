@@ -10,3 +10,9 @@
 - USB type A 3.?
 - USB type C
 - mini display port
+
+## Installation of Diode
+- The installation sequence is: diode connected to Thermal Pad, then aluminum board.
+- The aluminum sheet should be for safety, otherwise there might be a risk of electrical leakage.
+- The diode has holes for screws.
+- Our screws are 16mm, the diodes are 5mm thick, and the aluminum plate is 5mm thick. I plan to buy a 5mm and a 1mm Thermal Pad to combine them into a 6mm.
