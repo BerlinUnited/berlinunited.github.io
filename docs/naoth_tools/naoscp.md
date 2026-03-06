@@ -1708,3 +1708,20 @@ You need to set the head number and select what you want to deploy.
     DONE
     root@nao95 [0] tmp # DONE (22.59)
     ```
+   
+## Write to stick
+ 
+Instead of directly sending the binaries and config files to the robot, write them to an USB stick.
+You have to select the directory the USB stick is mounted to (NaoSCP will try to figure it out automatically) and then write the files.
+
+In the directory selection dialog, choose "Write & unmount" to make sure the stick is unmounted after all files have been written.
+
+!!! tip
+    If using Ubuntu, the default mount options for USB stick are set to sync the file system after each file is written. 
+    Since we normally copy a larger number of files, this behavior slows down creating stick significantly.
+    
+    By adding the following to lines to the config file `/etc/udisks2/mount_options.conf`, you can disable this behavior for all UBS sticks that have the label `GAME`.
+    ```
+    [/dev/disk/by-label/GAME]
+    vfat_defaults=uid=$UID,gid=$GID,shortname=mixed,utf8=1,showexec
+    ```
