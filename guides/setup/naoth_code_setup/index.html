@@ -1960,6 +1960,7 @@ Therefore, the above line have to be added to the <code>~/.profile</code> and/or
 </details>
 <p>After cloning, execute <code>./setup.sh</code> to compile and install the required libraries.</p>
 <p><strong>Note</strong>: If you want to use the default path configuration in <code>~/.profile</code> and/or <code>~/.bashrc</code> you have to restart your computer because this file is only read by the login shell and/or your session/window manager during start up.</p>
+<p>! Now copy the (newly generated) file projectconfig.user.lua to /path/to/NaoTHSoccer/Make/.</p>
 <p>TODO: add missing parts here</p>
 <p>TODO: how to compile NaoSmal??? You need the naoqi toolchain in AL_DIR</p>
 </div>
@@ -1992,9 +1993,9 @@ where <code>&lt;NaoTH-Projekt/Naoth-2020&gt;</code> is the desired path to the r
 image for the NAO or use clang and target the self build Ubuntu image.</p>
 <h4 id="softbank-image">Softbank Image<a class="headerlink" href="#softbank-image" title="Permanent link">¶</a></h4>
 <p>In order to build the naoth binary go to <code>&lt;NaoTH-Projekt&gt;/Naoth-2020/NaoTHSoccer/Make</code> and run <code>./compileGame.sh -j 4</code></p>
-<h4 id="clang-ubuntu-image">Clang + Ubuntu Image<a class="headerlink" href="#clang-ubuntu-image" title="Permanent link">¶</a></h4>
-<p>You need to have LLVM installed as described above in the prerequisites section.</p>
-<p>To tell premake to use the ubuntu toolchain you need to change two lines <code>&lt;NaoTH-Projekt&gt;/Naoth-2020/NaoTHSoccer/Make/projectconfig.user.lua</code></p>
+<h4 id="clang">Clang<a class="headerlink" href="#clang" title="Permanent link">¶</a></h4>
+<p>To tell premake to use the ubuntu toolchain you need to change two lines in <code>&lt;NaoTH-Projekt&gt;/Naoth-2020/NaoTHSoccer/Make/projectconfig.user.lua</code></p>
+<p>(If <code>&lt;NaoTH-Projekt&gt;/Naoth-2020/NaoTHSoccer/Make/projectconfig.user.lua</code> does not exist, you did not do section setup toolchain correctly).</p>
 <div class="highlight"><pre><span></span><code><span class="nv">NAO_CTC</span><span class="o">=</span><span class="s2">"&lt;NaoTH-Projekt/NaoTHToolchain&gt;/toolchain_nao_ubuntu/"</span>
 <span class="kr">if</span><span class="w"> </span><span class="nv">PLATFORM</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"Nao"</span><span class="w"> </span><span class="kr">then</span>
 <span class="w">    </span><span class="nv">_OPTIONS</span><span class="p">[</span><span class="s2">"crosscompiler"</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"clang"</span>
@@ -2016,7 +2017,7 @@ image for the NAO or use clang and target the self build Ubuntu image.</p>
 <p>You need to have cygwin installed as described above in the prerequisites section.</p>
 <p>In order to build the naoth binary go to <code>&lt;NaoTH-Projekt&gt;/Naoth-2020/NaoTHSoccer/Make</code>, open the mintty bash console in
 this folder via the context menu and run <code>./compileGame.sh -j 4</code></p>
-<h4 id="clang-ubuntu-image_1">Clang + Ubuntu Image<a class="headerlink" href="#clang-ubuntu-image_1" title="Permanent link">¶</a></h4>
+<h4 id="clang-ubuntu-image">Clang + Ubuntu Image<a class="headerlink" href="#clang-ubuntu-image" title="Permanent link">¶</a></h4>
 <p>You need to have cygwin and LLVM installed as described above in the prerequisites section.</p>
 <p>To tell premake to use the ubuntu toolchain you need to change two lines <code>&lt;NaoTH-Projekt&gt;/Naoth-2020/NaoTHSoccer/Make/projectconfig.user.lua</code>  </p>
 <ul>
@@ -2036,6 +2037,14 @@ this folder via the context menu and run <code>./compileGame.sh -j 4</code></p>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked id="__tabbed_4_1" name="__tabbed_4" type="radio"><input id="__tabbed_4_2" name="__tabbed_4" type="radio"><div class="tabbed-labels"><label for="__tabbed_4_1">Linux</label><label for="__tabbed_4_2">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
+<p><strong>Clangd LSP for NaoTHSoccer</strong>
+! Only works on Linux+Mac, as <a href="https://github.com/rizsotto/Bear">Bear</a> can't do this on Windows</p>
+<ol>
+<li>! Delete the build/ directory !</li>
+<li>cd Make/</li>
+<li>bear -- ./compileGame.sh -j 12</li>
+<li>mv compile_commands.json </li>
+</ol>
 <p><strong>XabslEditor</strong><br>
 We have a dedicated editor for editing and compiling the robots behavior written in xabsl.</p>
 <ul>
@@ -2124,10 +2133,10 @@ We have a dedicated editor for editing and compiling the robots behavior written
     last characters until the string that should be appended fits. In this case other paths are corrupted and don't work anymore.</li>
 </ul>
 <h3 id="java">Java<a class="headerlink" href="#java" title="Permanent link">¶</a></h3>
-<p><strong>RobotControlGUI, NaoSCP and the xabsl editor don't scale correctly for high resolution displays</strong>  </p>
+<p><strong>RobotControlGUI, NaoSCP and the XabslEditor don't scale correctly for high resolution displays</strong></p>
 <ul>
 <li>to fix this install java jdk 11+</li>
-<li>or pass a scaling flag to the app: <code>GDK_SCALE=2 /path/to/app</code></li>
+<li>OR pass a scaling flag to the app: <code>GDK_SCALE=1.5 ./gradlew run</code></li>
 </ul>
 <p><strong>RobotControl Dialogs can't be created/opened</strong></p>
 <p>The Java Platform Module System might isolate components too much.
@@ -2140,8 +2149,8 @@ We have a dedicated editor for editing and compiling the robots behavior written
 <p>On systems using a wayland compositor it might be required to define the environment variable <code>_JAVA_AWT_WM_NONREPARENTING=1</code>.
   This was observed on Arch Linux using <code>niri</code>-WM and <code>java-openjdk17</code>.</p>
 <p><strong>Local Java installation</strong></p>
-<p>If you don't want to install Java system wide you can use a local copy by setting the environment variable <code>JAVA_HOME=&lt;path to your local installation&gt;</code>.
-  You can obtain Java from e.g. <a href="https://adoptium.net">adoptium.net</a> (eclipse foundation).</p>
+<p>If you don't want to install Java system wide you can use a local Java directory by setting the environment variable <code>JAVA_HOME=&lt;path to your local installation&gt;</code>.
+  You can obtain Java from e.g. <a href="https://adoptium.net">adoptium.net</a> (Adoptium is from Eclipse Foundation).</p>
 <h3 id="netbeans">Netbeans<a class="headerlink" href="#netbeans" title="Permanent link">¶</a></h3>
 <p><strong>Netbeans is not found in apt repo when installing on linux</strong>
 Netbeans is not included in all <code>apt</code> repos. if you have Flatpak installed try:
