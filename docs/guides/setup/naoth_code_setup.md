@@ -157,6 +157,8 @@ You need to install a bunch of software before being able to develop code for th
     
     __Note__: If you want to use the default path configuration in `~/.profile` and/or `~/.bashrc` you have to restart your computer because this file is only read by the login shell and/or your session/window manager during start up.
 
+    ! Now copy the (newly generated) file projectconfig.user.lua to /path/to/NaoTHSoccer/Make/.
+    
     TODO: add missing parts here
 
     TODO: how to compile NaoSmal??? You need the naoqi toolchain in AL_DIR
@@ -196,10 +198,10 @@ where `<NaoTH-Projekt/Naoth-2020>` is the desired path to the repository on your
     #### Softbank Image
     In order to build the naoth binary go to `<NaoTH-Projekt>/Naoth-2020/NaoTHSoccer/Make` and run `./compileGame.sh -j 4`
 
-    #### Clang + Ubuntu Image
-    You need to have LLVM installed as described above in the prerequisites section.
-
-    To tell premake to use the ubuntu toolchain you need to change two lines `<NaoTH-Projekt>/Naoth-2020/NaoTHSoccer/Make/projectconfig.user.lua`
+    #### Clang
+    To tell premake to use the ubuntu toolchain you need to change two lines in `<NaoTH-Projekt>/Naoth-2020/NaoTHSoccer/Make/projectconfig.user.lua`
+    
+    (If `<NaoTH-Projekt>/Naoth-2020/NaoTHSoccer/Make/projectconfig.user.lua` does not exist, you did not do section setup toolchain correctly).
 
     ```lua
     NAO_CTC="<NaoTH-Projekt/NaoTHToolchain>/toolchain_nao_ubuntu/"
@@ -252,6 +254,14 @@ For development inside WSL follow the linux instructions.
 We use different tools with our project:
 
 === "Linux"
+
+    **Clangd LSP for NaoTHSoccer**
+    ! Only works on Linux+Mac, as [Bear](https://github.com/rizsotto/Bear) can't do this on Windows
+    
+    1. ! Delete the build/ directory !
+    2. cd Make/
+    3. bear -- ./compileGame.sh -j 12
+    4. mv compile_commands.json </path/to/naoth-2020>
 
     **XabslEditor**  
     We have a dedicated editor for editing and compiling the robots behavior written in xabsl.
@@ -328,10 +338,10 @@ We use different tools with our project:
     last characters until the string that should be appended fits. In this case other paths are corrupted and don't work anymore.
 
 ### Java
-**RobotControlGUI, NaoSCP and the xabsl editor don't scale correctly for high resolution displays**  
+**RobotControlGUI, NaoSCP and the XabslEditor don't scale correctly for high resolution displays**
 
   - to fix this install java jdk 11+
-  - or pass a scaling flag to the app: `GDK_SCALE=2 /path/to/app`
+  - OR pass a scaling flag to the app: `GDK_SCALE=1.5 ./gradlew run`
 
 **RobotControl Dialogs can't be created/opened**
 
@@ -350,8 +360,8 @@ We use different tools with our project:
 
 **Local Java installation**
 
-  If you don't want to install Java system wide you can use a local copy by setting the environment variable `JAVA_HOME=<path to your local installation>`.
-  You can obtain Java from e.g. [adoptium.net](https://adoptium.net) (eclipse foundation).
+  If you don't want to install Java system wide you can use a local Java directory by setting the environment variable `JAVA_HOME=<path to your local installation>`.
+  You can obtain Java from e.g. [adoptium.net](https://adoptium.net) (Adoptium is from Eclipse Foundation).
 
 ### Netbeans
 **Netbeans is not found in apt repo when installing on linux**
