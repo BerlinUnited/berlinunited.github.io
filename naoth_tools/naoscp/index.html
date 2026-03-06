@@ -695,6 +695,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#write-to-stick" class="md-nav__link">
+    <span class="md-ellipsis">
+      Write to stick
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1641,6 +1650,15 @@
   <a href="#send-to-robot" class="md-nav__link">
     <span class="md-ellipsis">
       Send to robot
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#write-to-stick" class="md-nav__link">
+    <span class="md-ellipsis">
+      Write to stick
     </span>
   </a>
   
@@ -3366,7 +3384,20 @@ starting<span class="w"> </span>naoth<span class="w"> </span>cognition<span clas
 DONE
 root@nao95<span class="w"> </span><span class="o">[</span><span class="m">0</span><span class="o">]</span><span class="w"> </span>tmp<span class="w"> </span><span class="c1"># DONE (22.59)</span>
 </code></pre></div>
-</details></div>
+</details>
+<h2 id="write-to-stick">Write to stick<a class="headerlink" href="#write-to-stick" title="Permanent link">¶</a></h2>
+<p>Instead of directly sending the binaries and config files to the robot, write them to an USB stick.
+You have to select the directory the USB stick is mounted to (NaoSCP will try to figure it out automatically) and then write the files.</p>
+<p>In the directory selection dialog, choose "Write &amp; unmount" to make sure the stick is unmounted after all files have been written.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If using Ubuntu, the default mount options for USB stick are set to sync the file system after each file is written. 
+Since we normally copy a larger number of files, this behavior slows down creating stick significantly.</p>
+<p>By adding the following to lines to the config file <code>/etc/udisks2/mount_options.conf</code>, you can disable this behavior for all UBS sticks that have the label <code>GAME</code>.
+</p><div class="highlight"><pre><span></span><code>[/dev/disk/by-label/GAME]
+vfat_defaults=uid=$UID,gid=$GID,shortname=mixed,utf8=1,showexec
+</code></pre></div>
+</div></div>
 
 
 
