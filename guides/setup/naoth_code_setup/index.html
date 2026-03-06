@@ -2038,12 +2038,14 @@ this folder via the context menu and run <code>./compileGame.sh -j 4</code></p>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p><strong>Clangd LSP for NaoTHSoccer</strong>
-! Only works on Linux+Mac, as <a href="https://github.com/rizsotto/Bear">Bear</a> can't do this on Windows</p>
+Use this if you do not want to install the proprietary Microsoft C++ plugin for VS Code(ium) or you do not use VS at all.</p>
+<p>! Only works on Linux+Mac, as <a href="https://github.com/rizsotto/Bear">Bear</a> does not work on Windows. On Windows, use VS for now.</p>
 <ol>
+<li>Install <a href="https://github.com/rizsotto/Bear">Bear</a> e.g. <code>sudo apt install bear</code></li>
 <li>! Delete the build/ directory !</li>
 <li>cd Make/</li>
-<li>bear -- ./compileGame.sh -j 12</li>
-<li>mv compile_commands.json </li>
+<li><code>bear -- ./compileGame.sh -j 12</code></li>
+<li><code>mv compile_commands.json /path/to/naoth-2020</code></li>
 </ol>
 <p><strong>XabslEditor</strong><br>
 We have a dedicated editor for editing and compiling the robots behavior written in xabsl.</p>
