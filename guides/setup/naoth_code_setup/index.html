@@ -1958,7 +1958,7 @@ This will clone the latest version to the <code>toolchain</code> directory. If y
 This is also useful for the project compilation, since it utilizes all available CPUs. 
 Therefore, the above line have to be added to the <code>~/.profile</code> and/or <code>~./.bashrc</code> file.  
 </details>
-<p>After cloning, execute <code>./setup.sh</code> to compile and install the required libraries.</p>
+<p>After cloning, execute <code>CMAKE_BUILD_PARALLEL_LEVEL=12 ./setup.sh -j 12</code> to compile and install the required libraries.</p>
 <p><strong>Note</strong>: If you want to use the default path configuration in <code>~/.profile</code> and/or <code>~/.bashrc</code> you have to restart your computer because this file is only read by the login shell and/or your session/window manager during start up.</p>
 <p>! Now copy the (newly generated) file projectconfig.user.lua to /path/to/NaoTHSoccer/Make/.</p>
 <p>TODO: add missing parts here</p>
