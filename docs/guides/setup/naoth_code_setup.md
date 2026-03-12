@@ -153,7 +153,7 @@ You need to install a bunch of software before being able to develop code for th
         Therefore, the above line have to be added to the `~/.profile` and/or `~./.bashrc` file.  
         
 
-    After cloning, execute `./setup.sh` to compile and install the required libraries.
+    After cloning, execute `CMAKE_BUILD_PARALLEL_LEVEL=12 ./setup.sh -j 12` to compile and install the required libraries.
     
     __Note__: If you want to use the default path configuration in `~/.profile` and/or `~/.bashrc` you have to restart your computer because this file is only read by the login shell and/or your session/window manager during start up.
 
