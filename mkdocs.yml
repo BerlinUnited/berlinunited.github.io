@@ -25,6 +25,10 @@ nav:
     - 'naoth_tools/lab-trackingsystem.md'
     - 'robocup_tools/index.md'
     - 'robocup_tools/game_recording.md'
+  - Visual Analytics:
+    - 'visual-analytics/vat_setup.md'
+    - 'visual-analytics/logcrawler.md'
+    - 'visual-analytics/logstructure.md'
   - Guides:
     - 'guides/onboarding.md'
     - Setup:
