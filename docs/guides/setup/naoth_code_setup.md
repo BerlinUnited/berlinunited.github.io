@@ -67,28 +67,17 @@ You need to install a bunch of software before being able to develop code for th
         If you want to use clang instead of gcc you need to install the `clang`, `llvm` and `lld` packages. 
         The following snippets are specific for Ubuntu-20.04. For other operating systems they need to be modified.
 
-        In Ubuntu 20.04 clang-12 is installed with the above command however the binaries are not recognized without the version
-        suffix. To fix this setup the symlinks for the commands like this.
+        In Ubuntu 26.04 clang-21 is installed with the above command however our code does not compile with clang-21. 
+        Therefore we need to install clang-17 and set the symlinks for clang, clang++ and llvm-ar to clang-17, clang++-17 and llvm-ar-17 respectively. 
+        This can be done like this:
         ```
-        sudo ln -sf /usr/bin/clang-12 /usr/bin/clang
-        sudo ln -sf /usr/bin/clang++-12 /usr/bin/clang++
-        sudo ln -sf /usr/bin/llvm-ar-12 /usr/bin/llvm-ar
+        sudo ln -sf /usr/bin/clang-17 /usr/bin/clang
+        sudo ln -sf /usr/bin/clang++-17 /usr/bin/clang++
+        sudo ln -sf /usr/bin/llvm-ar-17 /usr/bin/llvm-ar
         ```
-        You can also install clang 13, 14 and 15 like this:
-        ```
-        wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key|sudo apt-key add -
 
-        sudo add-apt-repository "deb http://apt.llvm.org/focal/ llvm-toolchain-focal-13 main"
-        sudo add-apt-repository "deb http://apt.llvm.org/focal/ llvm-toolchain-focal-14 main"
-        sudo add-apt-repository "deb http://apt.llvm.org/focal/ llvm-toolchain-focal-15 main"
-        
-        sudo apt update --allow-insecure-repositories
-        
-        sudo apt install clang-13 lld-13 llvm-13
-        sudo apt install clang-14 lld-14 llvm-14
-        sudo apt install clang-15 lld-15 llvm-15
         ```
-        After this setup the symlinks as done above. This documentation is taken from [https://apt.llvm.org/](https://apt.llvm.org/)
+        This documentation is taken from [https://apt.llvm.org/](https://apt.llvm.org/)
 
     ??? "Optional Step (QtCreator)"
         If you want to use QtCreator as code editor, install
